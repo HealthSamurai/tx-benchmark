@@ -20,9 +20,8 @@ export function runPreflight(def, baseUrl) {
     const { path } = def.request(def.knownEntry);
     const res = http.get(`${baseUrl}${path}`, FHIR_HEADERS);
 
-    const supported = check(res, {
-      'supported': (r) => r.status !== 404 && r.status !== 501,
-    });
+    const supportedFn = def.supported ?? ((r) => r.status !== 404 && r.status !== 501);
+    const supported = check(res, { 'supported': supportedFn });
 
     if (!supported) return;
 
