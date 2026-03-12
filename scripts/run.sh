@@ -19,9 +19,9 @@ BASE_URL="${2:?Usage: run.sh <server> <base-url>}"
 
 PROM_URL="http://localhost:9090/api/v1/write"
 VU_LEVELS=(1 10 50)
-DURATION="60s"
+DURATION="30s"
 WARMUP_VUS=10
-WARMUP_DURATION="30s"
+WARMUP_DURATION="5s"
 
 # ─── Check dependencies ───────────────────────────────────────────────────
 
@@ -35,6 +35,7 @@ fi
 # Add entries here as new tests are defined.
 TESTS=(
   k6/LK/LK01.js
+  k6/LK/LK02.js
 )
 
 # ─── Helpers ──────────────────────────────────────────────────────────────

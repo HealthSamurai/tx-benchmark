@@ -1,9 +1,12 @@
 {
   "server": "termbox",
-  "timestamp": "2026-03-12T17:20:45.602Z",
+  "timestamp": "2026-03-12T18:42:28.946Z",
   "base_url": "http://localhost:7001/fhir",
   "tests": {
     "LK01": {
+      "status": "pass"
+    },
+    "LK02": {
       "status": "pass"
     }
   }
