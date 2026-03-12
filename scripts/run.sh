@@ -23,6 +23,14 @@ DURATION="60s"
 WARMUP_VUS=10
 WARMUP_DURATION="30s"
 
+# ─── Check dependencies ───────────────────────────────────────────────────
+
+if ! curl -sf --max-time 3 "http://localhost:9090/-/healthy" > /dev/null 2>&1; then
+  echo "ERROR: Prometheus is not reachable at localhost:9090."
+  echo "Start the observability stack first: cd observability && docker compose up -d"
+  exit 1
+fi
+
 # ─── Test registry ────────────────────────────────────────────────────────
 # Add entries here as new tests are defined.
 TESTS=(
