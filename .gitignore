@@ -1,2 +1,2 @@
-results/
-preflight/results/*.json
+results/*/benchmark/
+results/*/snapshot_*.json

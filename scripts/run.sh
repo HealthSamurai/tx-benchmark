@@ -35,7 +35,7 @@ header() { echo; echo "=== $* ==="; echo; }
 
 passed() {
   jq -e --arg id "$1" '.tests[$id].status == "pass"' \
-    "preflight/results/${SERVER}.json" > /dev/null 2>&1
+    "results/${SERVER}/preflight.json" > /dev/null 2>&1
 }
 
 # ─── 1. Preflight ─────────────────────────────────────────────────────────
@@ -48,7 +48,7 @@ k6 run \
   preflight/run.js
 
 PASSING=$(jq -r '[.tests | to_entries[] | select(.value.status == "pass") | .key] | join(", ")' \
-  "preflight/results/${SERVER}.json")
+  "results/${SERVER}/preflight.json")
 
 if [ -z "$PASSING" ]; then
   echo "No tests passed preflight. Aborting."
@@ -87,6 +87,7 @@ for VUS in "${VU_LEVELS[@]}"; do
     fi
 
     echo "  → $TEST_ID"
+    mkdir -p "results/${SERVER}/benchmark"
     K6_PROMETHEUS_RW_SERVER_URL="$PROM_URL" \
     k6 run \
       --out experimental-prometheus-rw \
@@ -97,6 +98,8 @@ for VUS in "${VU_LEVELS[@]}"; do
       --tag vus="$VUS" \
       --env BASE_URL="$BASE_URL" \
       --env SERVER_NAME="$SERVER" \
+      --env TEST_ID="$TEST_ID" \
+      --env VUS="$VUS" \
       "$TEST"
   done
 done

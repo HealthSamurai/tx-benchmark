@@ -4,7 +4,7 @@
  * Run with:
  *   k6 run --env BASE_URL=http://localhost:7001/fhir --env SERVER_NAME=termbox preflight/run.js
  *
- * Outputs preflight/results/{SERVER_NAME}.json.
+ * Outputs results/{SERVER_NAME}/preflight.json.
  * The benchmark runner reads this to know which tests to skip per server.
  */
 import { runPreflight, parseResults, buildOutput, renderTable } from './lib.js';
@@ -29,7 +29,7 @@ export default function () {
 export function handleSummary(data) {
   const results = parseResults(data.root_group);
   const output  = buildOutput(SERVER_NAME, BASE_URL, results);
-  const outPath = `preflight/results/${SERVER_NAME}.json`;
+  const outPath = `results/${SERVER_NAME}/preflight.json`;
   return {
     [outPath]: JSON.stringify(output, null, 2),
     stdout:    renderTable(output) + '\n',

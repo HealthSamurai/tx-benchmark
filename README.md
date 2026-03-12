@@ -26,7 +26,7 @@ A benchmark comparing the performance of open-source and commercial FHIR Termino
 | `FL` | Filters / implicit value sets | `ValueSet/$expand` with property filters |
 | `CQ` | Complex queries | Multi-parameter expansions, large hierarchies |
 
-Not all servers support all operations. Servers that do not support a given operation are excluded from that category. See [preflight results](preflight/results/) for the per-server compatibility matrix.
+Not all servers support all operations. Servers that do not support a given operation are excluded from that category. See the [results](results/) directory for preflight compatibility matrices and benchmark summaries, organized by server.
 
 ## Data
 

@@ -1,4 +1,5 @@
-import { runTest } from '../lib/runner.js';
+import { runTest, handleSummary, options } from '../lib/runner.js';
+export { handleSummary, options };
 import { CodeSystem_lookup_GET } from '../lib/fhir.js';
 import { isParameters, hasDisplay, echoedCode } from '../lib/checks.js';
 import { loadPool } from '../lib/pool.js';

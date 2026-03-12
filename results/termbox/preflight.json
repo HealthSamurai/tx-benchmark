@@ -1,0 +1,10 @@
+{
+  "server": "termbox",
+  "timestamp": "2026-03-12T16:40:57.595Z",
+  "base_url": "http://localhost:7001/fhir",
+  "tests": {
+    "LK01": {
+      "status": "pass"
+    }
+  }
+}
