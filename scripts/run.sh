@@ -34,6 +34,7 @@ fi
 # ─── Test registry ────────────────────────────────────────────────────────
 # Add entries here as new tests are defined.
 TESTS=(
+  k6/FS/FS01.js
   k6/LK/LK01.js
   k6/LK/LK02.js
   k6/LK/LK03.js

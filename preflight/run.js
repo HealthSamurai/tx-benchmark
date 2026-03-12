@@ -8,6 +8,7 @@
  * The benchmark runner reads this to know which tests to skip per server.
  */
 import { runPreflight, parseResults, buildOutput, renderTable } from './lib.js';
+import * as FS from './tests/FS.js';
 import * as LK from './tests/LK.js';
 
 export const options = { vus: 1, iterations: 1 };
@@ -16,8 +17,9 @@ const BASE_URL    = __ENV.BASE_URL;
 const SERVER_NAME = __ENV.SERVER_NAME || 'unknown';
 
 const ALL_TESTS = [
+  ...Object.values(FS),
   ...Object.values(LK),
-  // TODO: add VC, EX, TR, SB, FT, FL, CQ as they are defined
+  // TODO: add VC, EX, TR, SB, CQ as they are defined
 ];
 
 export default function () {
