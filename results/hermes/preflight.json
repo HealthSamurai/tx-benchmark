@@ -1,0 +1,41 @@
+{
+  "server": "hermes",
+  "timestamp": "2026-03-13T15:52:58.332Z",
+  "base_url": "http://localhost:7007/fhir",
+  "tests": {
+    "FS01": {
+      "status": "fail",
+      "failed_checks": [
+        "status 200",
+        "is Bundle",
+        "has entry"
+      ]
+    },
+    "LK01": {
+      "status": "pass"
+    },
+    "LK02": {
+      "status": "fail",
+      "failed_checks": [
+        "status 200",
+        "is Parameters",
+        "has display"
+      ]
+    },
+    "LK03": {
+      "status": "fail",
+      "failed_checks": [
+        "status 200",
+        "is Parameters",
+        "has display"
+      ]
+    },
+    "LK04": {
+      "status": "fail",
+      "failed_checks": [
+        "not found",
+        "is OperationOutcome"
+      ]
+    }
+  }
+}

@@ -29,8 +29,10 @@ export function validationResult(r) {
   return boolParam(r, 'result');
 }
 
-export function echoedCode(r, code) {
-  return param(r, 'code')?.valueCode === code;
+export function paramMatches(r, name, key, expected, required = true) {
+  const p = param(r, name);
+  if (p === null || p === undefined) return !required;
+  return p[key] === expected;
 }
 
 export function subsumesOutcome(r) {

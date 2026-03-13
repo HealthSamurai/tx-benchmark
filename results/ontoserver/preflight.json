@@ -1,0 +1,22 @@
+{
+  "server": "ontoserver",
+  "timestamp": "2026-03-13T08:35:28.485Z",
+  "base_url": "http://localhost:7002/fhir",
+  "tests": {
+    "FS01": {
+      "status": "pass"
+    },
+    "LK01": {
+      "status": "pass"
+    },
+    "LK02": {
+      "status": "pass"
+    },
+    "LK03": {
+      "status": "pass"
+    },
+    "LK04": {
+      "status": "pass"
+    }
+  }
+}

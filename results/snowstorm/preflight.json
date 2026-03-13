@@ -1,0 +1,43 @@
+{
+  "server": "snowstorm",
+  "timestamp": "2026-03-13T11:59:49.939Z",
+  "base_url": "http://localhost:7006/fhir",
+  "tests": {
+    "FS01": {
+      "status": "fail",
+      "failed_checks": [
+        "has entry"
+      ]
+    },
+    "LK01": {
+      "status": "fail",
+      "failed_checks": [
+        "code echoed",
+        "system matches"
+      ]
+    },
+    "LK02": {
+      "status": "fail",
+      "failed_checks": [
+        "status 200",
+        "is Parameters",
+        "has display",
+        "code echoed",
+        "system matches"
+      ]
+    },
+    "LK03": {
+      "status": "fail",
+      "failed_checks": [
+        "status 200",
+        "is Parameters",
+        "has display",
+        "code echoed",
+        "system matches"
+      ]
+    },
+    "LK04": {
+      "status": "pass"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "server": "fhirsmith",
+  "timestamp": "2026-03-13T10:07:36.097Z",
+  "base_url": "http://localhost:7003/tx/r4",
+  "tests": {
+    "FS01": {
+      "status": "pass"
+    },
+    "LK01": {
+      "status": "pass"
+    },
+    "LK02": {
+      "status": "pass"
+    },
+    "LK03": {
+      "status": "pass"
+    },
+    "LK04": {
+      "status": "pass"
+    }
+  }
+}
