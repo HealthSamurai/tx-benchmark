@@ -1,0 +1,30 @@
+{
+  "server": "reference-server",
+  "timestamp": "2026-03-13T17:57:39.440Z",
+  "base_url": "http://localhost:7005/r4",
+  "tests": {
+    "FS01": {
+      "status": "fail",
+      "failed_checks": [
+        "status 200",
+        "is Bundle",
+        "has entry"
+      ]
+    },
+    "LK01": {
+      "status": "pass"
+    },
+    "LK02": {
+      "status": "pass"
+    },
+    "LK03": {
+      "status": "pass"
+    },
+    "LK04": {
+      "status": "fail",
+      "failed_checks": [
+        "not found"
+      ]
+    }
+  }
+}
