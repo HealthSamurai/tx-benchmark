@@ -19,6 +19,10 @@ export function isBundle(r) {
   try { return r.json()?.resourceType === 'Bundle'; } catch { return false; }
 }
 
+export function isValueSetExpansion(r) {
+  try { const j = r.json(); return j?.resourceType === 'ValueSet' && j?.expansion !== undefined; } catch { return false; }
+}
+
 // ─── Semantic (preflight) ─────────────────────────────────────────────────
 
 export function hasDisplay(r) {

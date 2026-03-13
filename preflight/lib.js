@@ -17,8 +17,12 @@ export const FHIR_HEADERS = { headers: { Accept: 'application/fhir+json' } };
  */
 export function runPreflight(def, baseUrl) {
   group(def.id, () => {
-    const { path } = def.request(def.knownEntry);
-    const res = http.get(`${baseUrl}${path}`, FHIR_HEADERS);
+    const { path, method = 'GET', body = null, headers = {} } = def.request(def.knownEntry);
+    const params = { headers: { ...FHIR_HEADERS.headers, ...headers } };
+    const url = `${baseUrl}${path}`;
+    const res = method === 'POST'
+      ? http.post(url, body, params)
+      : http.get(url, params);
 
     const supportedFn = def.supported ?? ((r) => r.status !== 404 && r.status !== 501);
     const supported = check(res, { 'supported': supportedFn });

@@ -1,0 +1,2 @@
+export { preflight as EX01 } from '../../k6/EX/EX01.js';
+export { preflight as EX02 } from '../../k6/EX/EX02.js';
