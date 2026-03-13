@@ -1,6 +1,6 @@
 {
   "server": "termbox",
-  "timestamp": "2026-03-13T08:22:57.201Z",
+  "timestamp": "2026-03-13T21:14:35.702Z",
   "base_url": "http://localhost:7001/fhir",
   "tests": {
     "FS01": {
@@ -14,10 +14,15 @@
       "status": "pass"
     },
     "LK03": {
-      "status": "skip",
-      "reason": "operation not supported"
+      "status": "pass"
     },
     "LK04": {
+      "status": "pass"
+    },
+    "VC01": {
+      "status": "pass"
+    },
+    "VC02": {
       "status": "pass"
     }
   }

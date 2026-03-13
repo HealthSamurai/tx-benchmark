@@ -10,6 +10,7 @@
 import { runPreflight, parseResults, buildOutput, renderTable } from './lib.js';
 import * as FS from './tests/FS.js';
 import * as LK from './tests/LK.js';
+import * as VC from './tests/VC.js';
 
 export const options = { vus: 1, iterations: 1 };
 
@@ -19,7 +20,8 @@ const SERVER_NAME = __ENV.SERVER_NAME || 'unknown';
 const ALL_TESTS = [
   ...Object.values(FS),
   ...Object.values(LK),
-  // TODO: add VC, EX, TR, SB, CQ as they are defined
+  ...Object.values(VC),
+  // TODO: add EX, TR, SB, CQ as they are defined
 ];
 
 export default function () {

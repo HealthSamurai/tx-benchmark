@@ -10,5 +10,6 @@ import { SharedArray } from 'k6/data';
  * Must be called at the top level (init context), not inside a function.
  */
 export function loadPool(name) {
-  return new SharedArray(name, () => JSON.parse(open(`../pools/${name}`)));
+  const path = import.meta.resolve(`../pools/${name}`);
+  return new SharedArray(name, () => JSON.parse(open(path)));
 }
