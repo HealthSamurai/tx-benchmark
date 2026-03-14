@@ -1,0 +1,6618 @@
+[
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "431307001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "82354003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363235000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "768700009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "298364001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "106234000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "154091000119106"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "386053000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "370136006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "372688009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "385486001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1149224003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1149223009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "87536007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "417746004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "879976004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "21533003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "710955000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "118228005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "431307001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "82354003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363235000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "768700009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "298364001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "106234000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "154091000119106"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "386053000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "370136006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 1000,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "431307001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "82354003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363235000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "768700009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "298364001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "106234000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "154091000119106"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "386053000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "370136006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "372688009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "385486001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "1149224003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "1149223009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "87536007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "417746004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "879976004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "21533003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "710955000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "118228005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "431307001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "82354003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363235000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "768700009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "298364001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "106234000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "154091000119106"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "386053000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "370136006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "88878007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "85995004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363070008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "440131009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "273249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "11164009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "440132002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "239953001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "74628008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "11864921000119108"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "445654004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "394850002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "54003002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "771271000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "412895003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "167987009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "90717001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "247979000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "9214009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "258033004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "2881000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "398484002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "880045008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "422306001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "787781003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "362003003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "781276001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "329910006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "170551006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "772150003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "401158006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "259241001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "344281000119105"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1381814003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "301277001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "48299003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "225713007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1156769000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "419807001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "470575008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "729695005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "159108005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "776249006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "73436000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "777788002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "286011000119101"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "18737007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "427647003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1372818006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "716513007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "369418009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "126148000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "724207001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "784039006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1144797000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "305246008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "416777007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1371145007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "727656002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "420488007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "439709003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "425684000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "442175000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1163019009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "466730004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "63189008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "385474004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "416409005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "372688009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "385486001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1149224003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "1149223009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "87536007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "417746004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "879976004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "21533003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "710955000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "118228005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "44121006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "363185004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "116007004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "74040009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "282026002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "785673007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "363687006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "118635009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "362837007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "272394005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 5,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "11864921000119108,445654004,394850002,93252006,54003002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 8,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "90717001,247979000,9214009,258033004,2881000,398484002,880045008,422306001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "170551006,772150003,401158006,259241001,344281000119105,1381814003,301277001,48299003,225713007,1156769000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 12,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "777788002,286011000119101,18737007,427647003,1372818006,716513007,369418009,126148000,724207001,784039006,1144797000,305246008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 15,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "225433007,362531001,14030001000004108,269703005,325251005,313527000,47199009,391407003,788491008,14915001,402353007,4915001,386967007,26533002,462574002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 8,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "88878007,85995004,363070008,440131009,273249006,11164009,440132002,430925007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 8,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "239953001,74628008,782487009,445536008,363212003,416098002,1362108000,68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 8,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "47304000,766779001,707728009,129456006,431307001,82354003,363235000,65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 8,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "in",
+          "value": "768700009,298364001,106234000,154091000119106,386053000,370136006,372688009,385486001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "88878007"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "273249006"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "74628008"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "782487009"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "445536008"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "416098002"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "68101005"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "47304000"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "766779001"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "707728009"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "129456006"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "11864921000119108,445654004,394850002,93252006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "88878007"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "273249006"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "74628008"
+        },
+        {
+          "property": "concept",
+          "op": "not-in",
+          "value": "363343008,40830007,29246005,298149009,128303001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "127489000",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "127489000",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "260686004",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "260686004",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "405813007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "405813007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "411116001",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        {
+          "property": "411116001",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "127489000",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "411116001",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "127489000",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "411116001",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "416098002"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "766779001"
+        },
+        {
+          "property": "127489000",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "766779001"
+        },
+        {
+          "property": "411116001",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "707728009"
+        },
+        {
+          "property": "127489000",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "129456006"
+        },
+        {
+          "property": "363698007",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "129456006"
+        },
+        {
+          "property": "116676008",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "129456006"
+        },
+        {
+          "property": "246075003",
+          "op": "exists",
+          "value": "true"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "409774005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "49755003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "52988006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "246075003",
+          "op": "=",
+          "value": "409822003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "39937001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "12738006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "272673000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "49549006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "127954009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "409774005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "49755003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "52988006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "39937001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "12738006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "272673000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "49549006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "127954009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "387517004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "387525002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "372900003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "396458002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "387458008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "411116001",
+          "op": "=",
+          "value": "385268001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "411116001",
+          "op": "=",
+          "value": "421026006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        },
+        {
+          "property": "411116001",
+          "op": "=",
+          "value": "420692007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "409774005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "49755003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "1240414004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "52988006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "39937001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "12738006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "272673000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "49549006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "127954009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "387517004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "127489000",
+          "op": "=",
+          "value": "396458002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "411116001",
+          "op": "=",
+          "value": "385287007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        },
+        {
+          "property": "411116001",
+          "op": "=",
+          "value": "385219001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        },
+        {
+          "property": "260686004",
+          "op": "=",
+          "value": "129266000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        },
+        {
+          "property": "260686004",
+          "op": "=",
+          "value": "129265001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "409774005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "49755003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "1240414004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "37782003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "52988006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "246075003",
+          "op": "=",
+          "value": "409822003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "246075003",
+          "op": "=",
+          "value": "410942007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "246075003",
+          "op": "=",
+          "value": "113858008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "246075003",
+          "op": "=",
+          "value": "72904005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "246075003",
+          "op": "=",
+          "value": "125576007"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "39937001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "12738006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "272673000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "49549006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "127954009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "445536008"
+        },
+        {
+          "property": "260686004",
+          "op": "=",
+          "value": "129265001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "409774005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "49755003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "52988006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "39937001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "12738006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "272673000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "49549006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "127954009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "409774005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "116676008",
+          "op": "=",
+          "value": "49755003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "39937001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "12738006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "272673000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "49549006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        },
+        {
+          "property": "363698007",
+          "op": "=",
+          "value": "127954009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "88878007"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "85995004"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363070008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "440131009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "273249006"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "11164009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "431307001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "440132002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "82354003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "430925007"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363235000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "239953001"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "74628008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "768700009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "782487009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "298364001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "445536008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "106234000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "363212003"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "154091000119106"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "416098002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "386053000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "1362108000"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "child-of",
+          "value": "370136006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "88878007"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "782487009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "85995004"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "445536008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363070008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "363212003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "440131009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "416098002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "273249006"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "1362108000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "11164009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "68101005"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "440132002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "47304000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "430925007"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "766779001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "239953001"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "707728009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "74628008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-leaf",
+          "value": "129456006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "11864921000119108"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "9214009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "445654004"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "258033004"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "394850002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "2881000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "93252006"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "398484002"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "54003002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "880045008"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "771271000"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "422306001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "412895003"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "787781003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "167987009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "362003003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "90717001"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "781276001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "247979000"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "generalizes",
+          "value": "329910006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "88878007"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "431307001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "85995004"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "82354003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363070008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363235000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440131009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "65094009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "273249006"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "768700009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "11164009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "298364001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "440132002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "106234000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "430925007"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "154091000119106"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "239953001"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "386053000"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "74628008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "370136006"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "782487009"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "372688009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "445536008"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "385486001"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "363212003"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1149224003"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "416098002"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1149223009"
+        }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "1362108000"
+        }
+      ],
+      [
+        {
+          "property": "concept",
+          "op": "descendent-of",
+          "value": "87536007"
+        }
+      ]
+    ]
+  }
+]
