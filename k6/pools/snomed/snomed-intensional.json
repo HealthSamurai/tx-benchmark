@@ -1,0 +1,198 @@
+[
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }]] },
+  { "count": 1000, "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "404684003" }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "404684003" }]] },
+  { "count": 1000, "include": [[{ "property": "concept", "op": "is-a", "value": "404684003" }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }]] },
+  { "count": 1000, "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "363346000" }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "363346000" }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "50043002"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "50043002"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "195967001" }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "22298006"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "73211009"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "387713003" }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "387713003" }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }]] },
+  { "count": 1000, "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "56265001"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "56265001"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "85828009"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "85828009"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "74732009"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "74732009"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "3723001"   }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "3723001"   }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "84757009"  }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "84757009"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "13645005"  }]] },
+  { "count": 10,   "include": [[{ "property": "concept", "op": "is-a", "value": "125605004" }]] },
+  { "count": 100,  "include": [[{ "property": "concept", "op": "is-a", "value": "125605004" }]] },
+
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "39937001"  }]] },
+  { "count": 100, "include": [[{ "property": "363698007", "op": "=", "value": "39937001"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "12738006"  }]] },
+  { "count": 100, "include": [[{ "property": "363698007", "op": "=", "value": "12738006"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "39607008"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "64033007"  }]] },
+  { "count": 100, "include": [[{ "property": "363698007", "op": "=", "value": "64033007"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "80891009"  }]] },
+  { "count": 100, "include": [[{ "property": "363698007", "op": "=", "value": "80891009"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "53620006"  }]] },
+  { "count": 10,  "include": [[{ "property": "116676008", "op": "=", "value": "409774005" }]] },
+  { "count": 100, "include": [[{ "property": "116676008", "op": "=", "value": "409774005" }]] },
+  { "count": 10,  "include": [[{ "property": "116676008", "op": "=", "value": "1240414004"}]] },
+  { "count": 10,  "include": [[{ "property": "260686004", "op": "=", "value": "129266000" }]] },
+  { "count": 100, "include": [[{ "property": "260686004", "op": "=", "value": "129266000" }]] },
+  { "count": 10,  "include": [[{ "property": "260686004", "op": "=", "value": "129304002" }]] },
+  { "count": 10,  "include": [[{ "property": "246075003", "op": "=", "value": "409822003" }]] },
+  { "count": 10,  "include": [[{ "property": "246075003", "op": "=", "value": "49872002"  }]] },
+  { "count": 100, "include": [[{ "property": "246075003", "op": "=", "value": "49872002"  }]] },
+  { "count": 10,  "include": [[{ "property": "411116001", "op": "=", "value": "421026006" }]] },
+  { "count": 100, "include": [[{ "property": "411116001", "op": "=", "value": "421026006" }]] },
+  { "count": 10,  "include": [[{ "property": "411116001", "op": "=", "value": "385287007" }]] },
+  { "count": 10,  "include": [[{ "property": "411116001", "op": "=", "value": "385023001" }]] },
+  { "count": 10,  "include": [[{ "property": "127489000", "op": "=", "value": "387517004" }]] },
+  { "count": 10,  "include": [[{ "property": "127489000", "op": "=", "value": "372687004" }]] },
+  { "count": 100, "include": [[{ "property": "127489000", "op": "=", "value": "372687004" }]] },
+
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "39937001"   }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "39937001"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "12738006"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "39607008"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "64033007"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "80891009"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "116676008", "op": "=", "value": "1240414004" }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "246075003", "op": "=", "value": "409822003"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "260686004", "op": "=", "value": "129304002"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "260686004", "op": "=", "value": "129304002"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "260686004", "op": "=", "value": "129266000"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "260686004", "op": "=", "value": "129266000"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "405813007", "op": "=", "value": "39937001"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "405813007", "op": "=", "value": "64033007"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "71388002"  }, { "property": "405813007", "op": "=", "value": "53620006"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "411116001", "op": "=", "value": "421026006"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "411116001", "op": "=", "value": "421026006"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "411116001", "op": "=", "value": "385287007"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "387458008"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "387480006"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "372687004"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "372687004"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "411116001", "op": "=", "value": "385023001"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "363698007", "op": "=", "value": "39607008"   }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "363698007", "op": "=", "value": "39607008"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "363698007", "op": "=", "value": "12738006"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "363698007", "op": "=", "value": "64033007"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "246075003", "op": "=", "value": "409822003"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "246075003", "op": "=", "value": "409822003"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "246075003", "op": "=", "value": "49872002"   }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "40733004"  }, { "property": "246075003", "op": "=", "value": "49872002"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "56265001"  }, { "property": "363698007", "op": "=", "value": "80891009"   }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "56265001"  }, { "property": "363698007", "op": "=", "value": "80891009"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "56265001"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "363346000" }, { "property": "363698007", "op": "=", "value": "39607008"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "363346000" }, { "property": "363698007", "op": "=", "value": "64033007"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "363346000" }, { "property": "363698007", "op": "=", "value": "80891009"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "3723001"   }, { "property": "363698007", "op": "=", "value": "53620006"   }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "3723001"   }, { "property": "363698007", "op": "=", "value": "53620006"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "3723001"   }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "85828009"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 100, "include": [[{ "property": "concept", "op": "is-a", "value": "85828009"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "85828009"  }, { "property": "363698007", "op": "=", "value": "53620006"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "125605004" }, { "property": "363698007", "op": "=", "value": "39937001"   }]] },
+  { "count": 10,  "include": [[{ "property": "concept", "op": "is-a", "value": "125605004" }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "39937001"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 100, "include": [[{ "property": "363698007", "op": "=", "value": "39937001"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "12738006"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "39937001"  }, { "property": "246075003", "op": "=", "value": "409822003"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "64033007"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 100, "include": [[{ "property": "363698007", "op": "=", "value": "64033007"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "80891009"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "363698007", "op": "=", "value": "53620006"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "246075003", "op": "=", "value": "409822003" }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 100, "include": [[{ "property": "246075003", "op": "=", "value": "409822003" }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+  { "count": 10,  "include": [[{ "property": "246075003", "op": "=", "value": "49872002"  }, { "property": "116676008", "op": "=", "value": "409774005"  }]] },
+
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "195967001" }],
+    [{ "property": "concept", "op": "is-a", "value": "73211009"  }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "12738006" }],
+    [{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "39607008" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "363698007", "op": "=", "value": "39937001" }],
+    [{ "property": "363698007", "op": "=", "value": "12738006" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "260686004", "op": "=", "value": "129304002" }],
+    [{ "property": "260686004", "op": "=", "value": "129266000" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "387458008" }],
+    [{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "387480006" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "40733004" }],
+    [{ "property": "concept", "op": "is-a", "value": "85828009" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "74732009" }],
+    [{ "property": "concept", "op": "is-a", "value": "84757009" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "56265001" }],
+    [{ "property": "concept", "op": "is-a", "value": "50043002" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "125605004" }],
+    [{ "property": "concept", "op": "is-a", "value": "3723001"  }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "363698007", "op": "=", "value": "64033007" }],
+    [{ "property": "363698007", "op": "=", "value": "80891009" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "40733004" }, { "property": "363698007", "op": "=", "value": "39607008" }],
+    [{ "property": "concept", "op": "is-a", "value": "40733004" }, { "property": "363698007", "op": "=", "value": "12738006" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "40733004" }, { "property": "246075003", "op": "=", "value": "409822003" }],
+    [{ "property": "concept", "op": "is-a", "value": "40733004" }, { "property": "246075003", "op": "=", "value": "49872002"  }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "387458008" }],
+    [{ "property": "concept", "op": "is-a", "value": "373873005" }, { "property": "127489000", "op": "=", "value": "372687004" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "56265001" }, { "property": "116676008", "op": "=", "value": "409774005" }],
+    [{ "property": "concept", "op": "is-a", "value": "3723001"  }, { "property": "116676008", "op": "=", "value": "409774005" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "246075003", "op": "=", "value": "409822003" }, { "property": "116676008", "op": "=", "value": "409774005" }],
+    [{ "property": "246075003", "op": "=", "value": "49872002"  }, { "property": "116676008", "op": "=", "value": "409774005" }]
+  ]},
+  { "count": 30, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "40733004" }],
+    [{ "property": "concept", "op": "is-a", "value": "85828009" }],
+    [{ "property": "concept", "op": "is-a", "value": "3723001"  }]
+  ]},
+  { "count": 30, "include": [
+    [{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "39937001" }],
+    [{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "12738006" }],
+    [{ "property": "concept", "op": "is-a", "value": "64572001"  }, { "property": "363698007", "op": "=", "value": "39607008" }]
+  ]}
+]

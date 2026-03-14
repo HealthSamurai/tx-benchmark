@@ -1,21 +1,21 @@
-// ValueSet/$expand — SNOMED intensional ValueSets (ad-hoc POST)
+// ValueSet/$expand — RxNorm intensional ValueSets (ad-hoc POST)
 // Pool entries: { count, include }
-// Covers is-a hierarchy, single property, AND (is-a+prop, prop+prop), OR (multi-include)
+// Covers single TTY, single relationship, AND (TTY+rel, rel+rel), OR (multi-include)
 import { runTest, handleSummary, options } from '../lib/runner.js';
 export { handleSummary, options };
 import { ValueSet_expand_POST } from '../lib/fhir.js';
 import { isValueSetExpansion } from '../lib/checks.js';
 import { loadPool } from '../lib/pool.js';
 
-const SNOMED = 'http://snomed.info/sct';
+const RXNORM = 'http://www.nlm.nih.gov/research/umls/rxnorm';
 
-const entries = loadPool('snomed/snomed-intensional.json');
+const entries = loadPool('rxnorm/rxnorm-intensional.json');
 
 const request = ({ include, count }) =>
   ValueSet_expand_POST({
     valueSet: {
       resourceType: 'ValueSet',
-      compose: { include: include.map((filter) => ({ system: SNOMED, filter })) },
+      compose: { include: include.map((filter) => ({ system: RXNORM, filter })) },
     },
     count,
   });
@@ -37,12 +37,13 @@ export default runTest({
 const KNOWN_ENTRY = {
   count:   10,
   include: [[
-    { property: 'concept', op: 'is-a', value: '195967001' }, // Asthma
+    { property: 'TTY',          op: '=', value: 'BN'  },
+    { property: 'tradename_of', op: '=', value: '161' },
   ]],
 };
 
 export const preflight = {
-  id: 'EX05',
+  id: 'EX06',
   knownEntry: KNOWN_ENTRY,
   request,
   checks: {
