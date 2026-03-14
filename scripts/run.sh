@@ -38,6 +38,7 @@ TESTS=(
   k6/EX/EX02.js
   k6/EX/EX03.js
   k6/EX/EX04.js
+  k6/EX/EX05.js
   k6/FS/FS01.js
   k6/LK/LK01.js
   k6/LK/LK02.js
