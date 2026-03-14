@@ -1,0 +1,552 @@
+[
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 20,
+    "filter": "aspirin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 100,
+    "filter": "metformin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 20,
+    "filter": "lisinopril"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 100,
+    "filter": "atorvastatin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 20,
+    "filter": "amoxicillin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 100,
+    "filter": "ibuprofen"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 20,
+    "filter": "omeprazole"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 100,
+    "filter": "albuterol"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 20,
+    "filter": "losartan"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.16",
+    "count": 100,
+    "filter": "sertraline"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 20,
+    "filter": "glucose"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 100,
+    "filter": "hemoglobin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 20,
+    "filter": "sodium"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 100,
+    "filter": "creatinine"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 20,
+    "filter": "cholesterol"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 100,
+    "filter": "platelet"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 20,
+    "filter": "potassium"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 100,
+    "filter": "albumin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 20,
+    "filter": "bilirubin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.17",
+    "count": 100,
+    "filter": "troponin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 20,
+    "filter": "staphylococcus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 100,
+    "filter": "streptococcus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 20,
+    "filter": "candida"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 100,
+    "filter": "escherichia"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 20,
+    "filter": "klebsiella"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 100,
+    "filter": "aspergillus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 20,
+    "filter": "pseudomonas"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.24.7.14",
+    "count": 100,
+    "filter": "enterococcus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 20,
+    "filter": "carcinoma"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 100,
+    "filter": "melanoma"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 20,
+    "filter": "lymphoma"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 100,
+    "filter": "sarcoma"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 20,
+    "filter": "leukemia"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 100,
+    "filter": "neoplasm"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 20,
+    "filter": "adenocarcinoma"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079",
+    "count": 100,
+    "filter": "squamous"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 20,
+    "filter": "diabetes"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 100,
+    "filter": "hypertension"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 20,
+    "filter": "asthma"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 100,
+    "filter": "myocardial"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 20,
+    "filter": "fracture"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 100,
+    "filter": "infection"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 20,
+    "filter": "pneumonia"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 100,
+    "filter": "depression"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 20,
+    "filter": "anxiety"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1018.240",
+    "count": 100,
+    "filter": "obesity"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 20,
+    "filter": "carboplatin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 100,
+    "filter": "cisplatin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 20,
+    "filter": "paclitaxel"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 100,
+    "filter": "tamoxifen"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 20,
+    "filter": "bevacizumab"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 100,
+    "filter": "fluorouracil"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 20,
+    "filter": "doxorubicin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.230",
+    "count": 100,
+    "filter": "cyclophosphamide"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 20,
+    "filter": "pregnancy"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 100,
+    "filter": "obstetric"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 20,
+    "filter": "fetal"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 100,
+    "filter": "placenta"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 20,
+    "filter": "eclampsia"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 100,
+    "filter": "abortion"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 20,
+    "filter": "trimester"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.191",
+    "count": 100,
+    "filter": "prenatal"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 20,
+    "filter": "pregnancy"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 100,
+    "filter": "complication"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 20,
+    "filter": "hemorrhage"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 100,
+    "filter": "hypertension"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 20,
+    "filter": "preterm"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 100,
+    "filter": "gestational"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 20,
+    "filter": "ectopic"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.11.1023",
+    "count": 100,
+    "filter": "miscarriage"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 20,
+    "filter": "sumatriptan"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 100,
+    "filter": "rizatriptan"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 20,
+    "filter": "ergotamine"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 100,
+    "filter": "naratriptan"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 20,
+    "filter": "zolmitriptan"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 100,
+    "filter": "triptan"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 20,
+    "filter": "caffeine"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.781",
+    "count": 100,
+    "filter": "aspirin"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 10
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 100
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 1000
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 20,
+    "filter": "staphylococcus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 100,
+    "filter": "pseudomonas"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 20,
+    "filter": "enterococcus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 100,
+    "filter": "acinetobacter"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 20,
+    "filter": "klebsiella"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 100,
+    "filter": "candida"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 20,
+    "filter": "streptococcus"
+  },
+  {
+    "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.16",
+    "count": 100,
+    "filter": "clostridium"
+  }
+]
