@@ -27,6 +27,7 @@ cAdvisor will then expose metrics such as `container_memory_usage_bytes{name="te
 ## FHIRsmith
 
 - **Source:** https://github.com/HealthIntersections/FHIRsmith
+- **License:** BSD 3-Clause
 - **Version:** TBD
 - **Runtime:** TBD
 - **Configuration:** TBD
@@ -36,6 +37,7 @@ cAdvisor will then expose metrics such as `container_memory_usage_bytes{name="te
 ## Hermes
 
 - **Source:** https://github.com/wardle/hermes
+- **License:** Eclipse Public License 2.0
 - **Version:** TBD
 - **Runtime:** TBD
 - **Configuration:** TBD
@@ -45,6 +47,7 @@ cAdvisor will then expose metrics such as `container_memory_usage_bytes{name="te
 ## Ontoserver
 
 - **Source:** https://ontoserver.csiro.au
+- **License:** Commercial (CSIRO)
 - **Version:** TBD
 - **Runtime:** TBD
 - **Configuration:** TBD
@@ -54,6 +57,7 @@ cAdvisor will then expose metrics such as `container_memory_usage_bytes{name="te
 ## Reference Server
 
 - **Source:** https://github.com/HealthIntersections/fhirserver
+- **License:** BSD 3-Clause
 - **Version:** TBD
 - **Runtime:** TBD
 - **Configuration:** TBD
@@ -63,6 +67,7 @@ cAdvisor will then expose metrics such as `container_memory_usage_bytes{name="te
 ## Snowstorm
 
 - **Source:** https://github.com/IHTSDO/snowstorm
+- **License:** Apache 2.0
 - **Version:** TBD
 - **Runtime:** TBD
 - **Configuration:** TBD
@@ -72,6 +77,7 @@ cAdvisor will then expose metrics such as `container_memory_usage_bytes{name="te
 ## Termbox
 
 - **Source:** https://health-samurai.io
+- **License:** Commercial (Health Samurai)
 - **Version:** TBD
 - **Runtime:** TBD
 - **Configuration:** TBD
