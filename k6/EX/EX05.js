@@ -7,11 +7,16 @@ import { ValueSet_expand_POST } from '../lib/fhir.js';
 import { isValueSetExpansion } from '../lib/checks.js';
 import { loadPool } from '../lib/pool.js';
 
+const RXNORM = 'http://www.nlm.nih.gov/research/umls/rxnorm';
+
 const entries = loadPool('rxnorm/rxnorm-intensional.json');
 
-const request = ({ compose, count }) =>
+const request = ({ include, count }) =>
   ValueSet_expand_POST({
-    valueSet: { resourceType: 'ValueSet', compose },
+    valueSet: {
+      resourceType: 'ValueSet',
+      compose: { include: include.map((filter) => ({ system: RXNORM, filter })) },
+    },
     count,
   });
 
@@ -30,17 +35,11 @@ export default runTest({
 // ─── Preflight ────────────────────────────────────────────────────────────
 
 const KNOWN_ENTRY = {
-  label:   'TTY=BN AND tradename_of=acetaminophen(161) count=10',
   count:   10,
-  compose: {
-    include: [{
-      system: 'http://www.nlm.nih.gov/research/umls/rxnorm',
-      filter: [
-        { property: 'TTY',          op: '=', value: 'BN'  },
-        { property: 'tradename_of', op: '=', value: '161' },
-      ],
-    }],
-  },
+  include: [[
+    { property: 'TTY',          op: '=', value: 'BN'  },
+    { property: 'tradename_of', op: '=', value: '161' },
+  ]],
 };
 
 export const preflight = {

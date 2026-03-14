@@ -1,65 +1,61 @@
 [
-  { "label": "TTY=IN count=10",   "count": 10,   "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "IN"  }] }] } },
-  { "label": "TTY=IN count=100",  "count": 100,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "IN"  }] }] } },
-  { "label": "TTY=IN count=1000", "count": 1000, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "IN"  }] }] } },
-  { "label": "TTY=BN count=10",   "count": 10,   "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "BN"  }] }] } },
-  { "label": "TTY=BN count=100",  "count": 100,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "BN"  }] }] } },
-  { "label": "TTY=SCD count=10",  "count": 10,   "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }] }] } },
-  { "label": "TTY=SCD count=100", "count": 100,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }] }] } },
-  { "label": "TTY=SCD count=1000","count": 1000, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }] }] } },
-  { "label": "TTY=SBD count=10",  "count": 10,   "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SBD" }] }] } },
-  { "label": "TTY=SBD count=100", "count": 100,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SBD" }] }] } },
-  { "label": "TTY=MIN count=10",  "count": 10,   "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "MIN" }] }] } },
+  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "IN"   }]] },
+  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "IN"   }]] },
+  { "count": 1000, "include": [[{ "property": "TTY", "op": "=", "value": "IN"   }]] },
+  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }]] },
+  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }]] },
+  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "SCD"  }]] },
+  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "SCD"  }]] },
+  { "count": 1000, "include": [[{ "property": "TTY", "op": "=", "value": "SCD"  }]] },
+  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }]] },
+  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }]] },
+  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "MIN"  }]] },
 
-  { "label": "tradename_of=ibuprofen(5640) count=10",       "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "5640" }] }] } },
-  { "label": "tradename_of=acetaminophen(161) count=10",    "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "161"  }] }] } },
-  { "label": "tradename_of=acetaminophen(161) count=50",    "count": 50, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "161"  }] }] } },
-  { "label": "tradename_of=lidocaine(6387) count=10",       "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "6387" }] }] } },
-  { "label": "tradename_of=aspirin(1191) count=10",         "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "1191" }] }] } },
-  { "label": "tradename_of=diphenhydramine(3498) count=10", "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "3498" }] }] } },
-  { "label": "tradename_of=ibuprofen200mgTab(310965) count=10", "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "310965" }] }] } },
+  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "5640"   }]] },
+  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "161"    }]] },
+  { "count": 50, "include": [[{ "property": "tradename_of", "op": "=", "value": "161"    }]] },
+  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "6387"   }]] },
+  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "1191"   }]] },
+  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "3498"   }]] },
+  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "310965" }]] },
 
-  { "label": "has_ingredient=ibuprofen(5640) count=10",     "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "5640" }] }] } },
-  { "label": "has_ingredient=acetaminophen(161) count=10",  "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "161"  }] }] } },
-  { "label": "has_ingredient=acetaminophen(161) count=100", "count": 100, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "161"  }] }] } },
-  { "label": "has_ingredient=lidocaine(6387) count=10",     "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "6387" }] }] } },
-  { "label": "has_ingredient=caffeine(1886) count=10",      "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "1886" }] }] } },
+  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "5640" }]] },
+  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "161"  }]] },
+  { "count": 100, "include": [[{ "property": "has_ingredient", "op": "=", "value": "161"  }]] },
+  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "6387" }]] },
+  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "1886" }]] },
 
-  { "label": "TTY=BN AND tradename_of=acetaminophen(161) count=10",    "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "BN"  }, { "property": "tradename_of",  "op": "=", "value": "161"   }] }] } },
-  { "label": "TTY=BN AND tradename_of=lidocaine(6387) count=10",       "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "BN"  }, { "property": "tradename_of",  "op": "=", "value": "6387"  }] }] } },
-  { "label": "TTY=SCDC AND has_ingredient=ibuprofen(5640) count=10",    "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "5640"  }] }] } },
-  { "label": "TTY=SCDC AND has_ingredient=acetaminophen(161) count=10", "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "161"   }] }] } },
-  { "label": "TTY=SCDC AND has_ingredient=acetaminophen(161) count=100","count": 100, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "161"   }] }] } },
-  { "label": "TTY=SBD AND has_dose_form=OralTablet(317541) count=10",  "count": 10,  "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SBD" }, { "property": "has_dose_form",  "op": "=", "value": "317541" }] }] } },
-  { "label": "TTY=SBD AND has_dose_form=OralTablet(317541) count=100", "count": 100, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SBD" }, { "property": "has_dose_form",  "op": "=", "value": "317541" }] }] } },
+  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }, { "property": "tradename_of",  "op": "=", "value": "161"    }]] },
+  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }, { "property": "tradename_of",  "op": "=", "value": "6387"   }]] },
+  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient","op": "=", "value": "5640"   }]] },
+  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient","op": "=", "value": "161"    }]] },
+  { "count": 100, "include": [[{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient","op": "=", "value": "161"    }]] },
+  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
+  { "count": 100, "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
 
-  { "label": "has_ingredient=acetaminophen(161) AND has_dose_form=OralTablet(317541) count=10",  "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "161"   }, { "property": "has_dose_form", "op": "=", "value": "317541"  }] }] } },
-  { "label": "has_ingredient=ibuprofen(5640) AND has_dose_form=OralTablet(317541) count=10",     "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "5640"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }] }] } },
-  { "label": "has_ingredient=lidocaine(6387) AND has_dose_form=Injectable(1649574) count=10",    "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "6387"  }, { "property": "has_dose_form", "op": "=", "value": "1649574" }] }] } },
-  { "label": "has_ingredient=morphine(7052) AND has_dose_form=Injectable(1649574) count=10",     "count": 10, "compose": { "include": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "has_ingredient", "op": "=", "value": "7052"  }, { "property": "has_dose_form", "op": "=", "value": "1649574" }] }] } },
+  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "161"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
+  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "5640" }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
+  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "6387" }, { "property": "has_dose_form", "op": "=", "value": "1649574" }]] },
+  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "7052" }, { "property": "has_dose_form", "op": "=", "value": "1649574" }]] },
 
-  { "label": "OR tradename_of=ibuprofen OR aspirin count=10", "count": 10, "compose": { "include": [
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "5640" }] },
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "tradename_of", "op": "=", "value": "1191" }] }
-  ] } },
-
-  { "label": "OR TTY=BN tradename_of=ibuprofen OR acetaminophen count=20", "count": 20, "compose": { "include": [
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "BN" }, { "property": "tradename_of", "op": "=", "value": "5640" }] },
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "BN" }, { "property": "tradename_of", "op": "=", "value": "161"  }] }
-  ] } },
-
-  { "label": "OR TTY=SCDC has_ingredient=ibuprofen OR acetaminophen count=20", "count": 20, "compose": { "include": [
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "5640" }] },
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "161"  }] }
-  ] } },
-
-  { "label": "OR TTY=SCD has_dose_form=OralTablet OR OralCapsule count=10", "count": 10, "compose": { "include": [
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "317541" }] },
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "316965" }] }
-  ] } },
-
-  { "label": "OR TTY=SCD has_dose_form=OralTablet OR OralCapsule count=100", "count": 100, "compose": { "include": [
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "317541" }] },
-    { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "filter": [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "316965" }] }
-  ] } }
+  { "count": 10, "include": [
+    [{ "property": "tradename_of", "op": "=", "value": "5640" }],
+    [{ "property": "tradename_of", "op": "=", "value": "1191" }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "TTY", "op": "=", "value": "BN" }, { "property": "tradename_of", "op": "=", "value": "5640" }],
+    [{ "property": "TTY", "op": "=", "value": "BN" }, { "property": "tradename_of", "op": "=", "value": "161"  }]
+  ]},
+  { "count": 20, "include": [
+    [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "5640" }],
+    [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "161"  }]
+  ]},
+  { "count": 10, "include": [
+    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "317541" }],
+    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "316965" }]
+  ]},
+  { "count": 100, "include": [
+    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "317541" }],
+    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "316965" }]
+  ]}
 ]
