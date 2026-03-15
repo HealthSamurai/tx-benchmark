@@ -5,3 +5,4 @@ export { preflight as EX04 } from '../../k6/EX/EX04.js';
 export { preflight as EX05 } from '../../k6/EX/EX05.js';
 export { preflight as EX06 } from '../../k6/EX/EX06.js';
 export { preflight as EX07 } from '../../k6/EX/EX07.js';
+export { preflight as EX08 } from '../../k6/EX/EX08.js';
