@@ -23,7 +23,7 @@ Each server is documented in [SERVERS.md](SERVERS.md), including version, runtim
 
 Before benchmarking, a correctness check is run against each server for each test case. This verifies that the server returns a semantically correct response (right resource type, expected parameters, correct values). Tests that a server fails or does not support are excluded from that server's benchmark run and recorded in the compatibility matrix.
 
-Preflight results are stored in [`preflight/results/`](preflight/results/).
+Preflight results are stored in [`results/{server}/preflight.json`](results/).
 
 ### Phase 2 — Benchmark
 
@@ -31,13 +31,13 @@ Only tests that passed preflight are included. Each test runs at three concurren
 
 | Level | Virtual users | Duration |
 |-------|--------------|----------|
-| Low   | 1  | 60s |
-| Mid   | 10 | 60s |
-| High  | 50 | 60s |
+| Low   | 1  | 30s |
+| Mid   | 10 | 30s |
+| High  | 50 | 30s |
 
 ## Warm-up
 
-Before measurement, a warm-up pass runs for 30 seconds at 10 VUs. This allows JIT compilers (notably the JVM) and connection pools to reach steady state before results are recorded.
+Before measurement, a warm-up pass runs for 5 seconds at 10 VUs. This allows JIT compilers (notably the JVM) and connection pools to reach steady state before results are recorded.
 
 ## Input pools
 

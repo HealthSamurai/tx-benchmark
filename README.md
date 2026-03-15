@@ -17,14 +17,12 @@ A benchmark comparing the performance of open-source and commercial FHIR Termino
 
 | Prefix | Category | FHIR operation |
 |--------|----------|----------------|
+| `EX` | Expand | `ValueSet/$expand` — implicit value sets, property filters, text filters, pagination, combined |
+| `FS` | FHIR Search | `GET [base]/CodeSystem?...`, `GET [base]/ValueSet?...` |
 | `LK` | Lookup | `CodeSystem/$lookup` |
 | `VC` | Validate code | `CodeSystem/$validate-code`, `ValueSet/$validate-code` |
-| `EX` | Expand | `ValueSet/$expand` |
-| `TR` | Translate | `ConceptMap/$translate` |
-| `SB` | Subsumes | `CodeSystem/$subsumes` |
-| `FT` | Full-text search | `ValueSet/$expand` with text filter |
-| `FL` | Filters / implicit value sets | `ValueSet/$expand` with property filters |
-| `CQ` | Complex queries | Multi-parameter expansions, large hierarchies |
+| `CM` | Translate | `ConceptMap/$translate` |
+| `SS` | Subsumes | `CodeSystem/$subsumes` |
 
 Not all servers support all operations. Servers that do not support a given operation are excluded from that category. See the [results](results/) directory for preflight compatibility matrices and benchmark summaries, organized by server.
 
@@ -74,9 +72,19 @@ This will:
 3. Run a warm-up pass (results discarded)
 4. Benchmark at VUs=1, 10, 50 for each supported test
 
-### 4. View results
+### 4. Push summary metrics
 
-Open Grafana at [http://localhost:3000](http://localhost:3000). Import the [k6 dashboard](https://grafana.com/grafana/dashboards/18030) from Grafana's dashboard library.
+After all servers have been benchmarked, push the result summaries to Prometheus:
+
+```bash
+./scripts/push-results.sh
+```
+
+This reads every `results/*/benchmark/*.json` and pushes p50/p95/p99/throughput/error_rate as gauges to the Pushgateway, making them available for cross-server comparison in Grafana.
+
+### 5. View results
+
+Open Grafana at [http://localhost:3000](http://localhost:3000).
 
 ## Methodology
 
