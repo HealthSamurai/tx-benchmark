@@ -29,6 +29,10 @@ services:
     image: prom/pushgateway:latest
     ports:
       - "9091:9091"
+    command:
+      - --persistence.file=/data/pushgateway.db
+    volumes:
+      - pushgateway_data:/data
 
   cadvisor:
     # v0.47.x uses the Docker HTTP API directly (no containerd dependency),
@@ -62,3 +66,4 @@ services:
 volumes:
   prometheus_data:
   grafana_data:
+  pushgateway_data:
