@@ -12,6 +12,7 @@ import * as CM from './tests/CM.js';
 import * as EX from './tests/EX.js';
 import * as FS from './tests/FS.js';
 import * as LK from './tests/LK.js';
+import * as SS from './tests/SS.js';
 import * as VC from './tests/VC.js';
 
 export const options = { vus: 1, iterations: 1 };
@@ -24,6 +25,7 @@ const ALL_TESTS = [
   ...Object.values(EX),
   ...Object.values(FS),
   ...Object.values(LK),
+  ...Object.values(SS),
   ...Object.values(VC),
 ];
 
