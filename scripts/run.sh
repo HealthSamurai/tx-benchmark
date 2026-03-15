@@ -34,17 +34,6 @@ fi
 # ─── Test registry ────────────────────────────────────────────────────────
 # Add entries here as new tests are defined.
 TESTS=(
-  k6/CM/CM01.js
-  k6/CM/CM02.js
-  k6/EX/EX01.js
-  k6/EX/EX02.js
-  k6/EX/EX03.js
-  k6/EX/EX04.js
-  k6/EX/EX05.js
-  k6/EX/EX06.js
-  k6/EX/EX07.js
-  k6/EX/EX08.js
-  k6/SS/SS01.js
   k6/FS/FS01.js
   k6/LK/LK01.js
   k6/LK/LK02.js
@@ -54,6 +43,17 @@ TESTS=(
   k6/VC/VC01.js
   k6/VC/VC02.js
   k6/VC/VC03.js
+  k6/EX/EX01.js
+  k6/EX/EX02.js
+  k6/EX/EX03.js
+  k6/EX/EX04.js
+  k6/EX/EX05.js
+  k6/EX/EX06.js
+  k6/EX/EX07.js
+  k6/EX/EX08.js
+  k6/SS/SS01.js
+  k6/CM/CM01.js
+  k6/CM/CM02.js
 )
 
 # ─── Helpers ──────────────────────────────────────────────────────────────
