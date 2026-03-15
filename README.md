@@ -17,12 +17,12 @@ A benchmark comparing the performance of open-source and commercial FHIR Termino
 
 | Prefix | Category | FHIR operation |
 |--------|----------|----------------|
-| `EX` | Expand | `ValueSet/$expand` — implicit value sets, property filters, text filters, pagination, combined |
 | `FS` | FHIR Search | `GET [base]/CodeSystem?...`, `GET [base]/ValueSet?...` |
 | `LK` | Lookup | `CodeSystem/$lookup` |
 | `VC` | Validate code | `CodeSystem/$validate-code`, `ValueSet/$validate-code` |
-| `CM` | Translate | `ConceptMap/$translate` |
+| `EX` | Expand | `ValueSet/$expand` — implicit value sets, property filters, text filters, pagination, combined |
 | `SS` | Subsumes | `CodeSystem/$subsumes` |
+| `CM` | Translate | `ConceptMap/$translate` |
 
 Not all servers support all operations. Servers that do not support a given operation are excluded from that category. See the [results](results/) directory for preflight compatibility matrices and benchmark summaries, organized by server.
 
