@@ -21,12 +21,12 @@ const BASE_URL    = __ENV.BASE_URL;
 const SERVER_NAME = __ENV.SERVER_NAME || 'unknown';
 
 const ALL_TESTS = [
-  ...Object.values(CM),
-  ...Object.values(EX),
   ...Object.values(FS),
   ...Object.values(LK),
-  ...Object.values(SS),
   ...Object.values(VC),
+  ...Object.values(EX),
+  ...Object.values(SS),
+  ...Object.values(CM),
 ];
 
 export default function () {
