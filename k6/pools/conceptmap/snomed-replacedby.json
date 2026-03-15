@@ -1,0 +1,1370 @@
+[
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "56485000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "302579000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "207301009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "389512003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "241090003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "170410007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "209836005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "32239007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "769010004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "256706000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "253860008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "354084007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "241138009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "370336004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "396096008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "400603004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "15542003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "9050009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "310037002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "375065000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "123039001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "131414001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "353875004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "114446009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "177044009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "45605005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "170395004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "442012008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "39453008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "3452004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "195914001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "69439000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "113725007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "79113009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "239665000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "367511008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "241596004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "414073000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "115634009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "155812009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "243415008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "259838001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "83171000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "87623002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "414046001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "698586005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "268457007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "176177001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "360063009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "322806006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "59917005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "313241005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "9867003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "787770001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "71535007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "371444007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "281962001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "30591004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "212165005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "179377005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "207193006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "387083003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "262978006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "21051006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "124780009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "450920005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "250349006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "377030001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "347420008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "310054005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "425528008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "198120002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "1259477004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "767149006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "767072005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "15808000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "88197009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "103578001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "212610007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "111666006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "11277008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "425350008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "375478006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "707944005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "146030002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "358723004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "397120003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "317078003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "198245006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "241097000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "38996000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "113552000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "239411005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "73491007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "70121006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "241088004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "168744004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "90923001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "229004005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "180676009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "119562003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "198706000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "156624008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "80675009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "67543006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "107292007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "416321008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "310056007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "209470004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "250207003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "88002006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "67587002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "32042007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "207136001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "700059003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "68956006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "322857005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "412200009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "295072007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "146501003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "441681009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "146270004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "79600004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "282257005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "145889002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "59078009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "168788006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "376137007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "70226007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "411872005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "294606001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "247173000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "388874006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "295064005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "145921002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "92022000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "243243001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "200428003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "53521000119106",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "269587006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "207574004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "39387004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "765606007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "157516002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "39548000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "76228002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "82420003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "254057007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "179337002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "200119007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "28160007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "10577001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "302571002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "82219007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "376734005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "372314005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "128541009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "129800003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "124854004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "180672006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "445479007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "174067002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "16105006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "376742006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "150869006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "396638007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "1240357005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "415466008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "766539008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "407877003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "111431001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "178756004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "53927006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "149226009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "411527007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "374254009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "398945001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "415231009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "409233009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "198883001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "145943005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "200053008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "412136002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "62239001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "413508005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "406585009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "23730008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "206931003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "175377004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "162021002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "397341000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "176085007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "374319004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "114598009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "146537008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "34500003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "443606005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "287360005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "243149007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "363263003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "199039001",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "415562007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "241062002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "394815005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "118222006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "151233004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "105744007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "370197000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "169058003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "180511003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "769937000",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "196132006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "59668005",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "1187230006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "207331003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "292620007",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "196003006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "72697006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "13078002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "200029002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "370327003",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "232347008",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "15401004",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "393456009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "387621002",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "724725009",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "319283006",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+    "system": "http://snomed.info/sct",
+    "code": "377577004",
+    "target": "http://snomed.info/sct"
+  }
+]

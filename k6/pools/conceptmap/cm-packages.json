@@ -1,0 +1,2582 @@
+[
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-type-v3",
+    "system": "http://hl7.org/fhir/address-type",
+    "code": "postal",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-type-v3",
+    "system": "http://hl7.org/fhir/address-type",
+    "code": "physical",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v2",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "home",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0190"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v2",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "work",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0190"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v2",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "temp",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0190"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v2",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "old",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0190"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v2",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "billing",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0190"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v3",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "home",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v3",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "work",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v3",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "temp",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-address-use-v3",
+    "system": "http://hl7.org/fhir/address-use",
+    "code": "old",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v2",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "male",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0001"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v2",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "female",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0001"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v2",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "other",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0001"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v2",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "unknown",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0001"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "male",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "female",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "other",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3",
+    "system": "http://hl7.org/fhir/administrative-gender",
+    "code": "unknown",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-composition-status-v3",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "preliminary",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-composition-status-v3",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "final",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-composition-status-v3",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "amended",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-composition-status-v3",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "entered-in-error",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2",
+    "system": "http://hl7.org/fhir/contact-point-system",
+    "code": "phone",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0202"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2",
+    "system": "http://hl7.org/fhir/contact-point-system",
+    "code": "fax",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0202"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2",
+    "system": "http://hl7.org/fhir/contact-point-system",
+    "code": "email",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0202"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2",
+    "system": "http://hl7.org/fhir/contact-point-system",
+    "code": "pager",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0202"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2",
+    "system": "http://hl7.org/fhir/contact-point-system",
+    "code": "url",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0202"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v2",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "home",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0201"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v2",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "work",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0201"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v2",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "mobile",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0201"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "home",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "work",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "temp",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "old",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3",
+    "system": "http://hl7.org/fhir/contact-point-use",
+    "code": "mobile",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "unknown",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "asked-unknown",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "temp-unknown",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "not-asked",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "masked",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "not-applicable",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "negative-infinity",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "positive-infinity",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+    "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "code": "not-permitted",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3",
+    "system": "http://hl7.org/fhir/detectedissue-severity",
+    "code": "high",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3",
+    "system": "http://hl7.org/fhir/detectedissue-severity",
+    "code": "moderate",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3",
+    "system": "http://hl7.org/fhir/detectedissue-severity",
+    "code": "low",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-document-reference-status-v3",
+    "system": "http://hl7.org/fhir/document-reference-status",
+    "code": "current",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-document-reference-status-v3",
+    "system": "http://hl7.org/fhir/document-reference-status",
+    "code": "superseded",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-document-reference-status-v3",
+    "system": "http://hl7.org/fhir/document-reference-status",
+    "code": "entered-in-error",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-ActStatus"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "usual",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "official",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "temp",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "nickname",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "anonymous",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "old",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "maiden",
+    "target": "http://terminology.hl7.org/CodeSystem/v2-0200"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "usual",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "official",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "temp",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "nickname",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "anonymous",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "old",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v3",
+    "system": "http://hl7.org/fhir/name-use",
+    "code": "maiden",
+    "target": "http://terminology.hl7.org/CodeSystem/v3-EntityNameUseR2"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-account-status",
+    "system": "http://hl7.org/fhir/account-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-account-status",
+    "system": "http://hl7.org/fhir/account-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-account-status",
+    "system": "http://hl7.org/fhir/account-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-account-status",
+    "system": "http://hl7.org/fhir/account-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-account-status",
+    "system": "http://hl7.org/fhir/account-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-clinical",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-clinical",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-clinical",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+    "code": "resolved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-verification",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-verification",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+    "code": "unconfirmed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-verification",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+    "code": "confirmed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-allergyintolerance-verification",
+    "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+    "code": "refuted",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "proposed,waitlist",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "pending",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "booked",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "arrived",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "noshow",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "fulfilled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+    "system": "http://hl7.org/fhir/appointmentstatus",
+    "code": "checked-in",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "not-started",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "scheduled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-plan-activity-status",
+    "system": "http://hl7.org/fhir/care-plan-activity-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-team-status",
+    "system": "http://hl7.org/fhir/care-team-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-team-status",
+    "system": "http://hl7.org/fhir/care-team-status",
+    "code": "proposed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-team-status",
+    "system": "http://hl7.org/fhir/care-team-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-team-status",
+    "system": "http://hl7.org/fhir/care-team-status",
+    "code": "suspended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-care-team-status",
+    "system": "http://hl7.org/fhir/care-team-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "planned",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "not-billable",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "billable",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "aborted",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "billed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-chargeitem-status",
+    "system": "http://hl7.org/fhir/chargeitem-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "preparation",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "not-done",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-clinicalimpression-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-composition-status",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-composition-status",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "preliminary",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-composition-status",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "amended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-composition-status",
+    "system": "http://hl7.org/fhir/composition-status",
+    "code": "final",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-condition-ver-status",
+    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-condition-ver-status",
+    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-condition-ver-status",
+    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    "code": "unconfirmed, provisional",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-condition-ver-status",
+    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    "code": "confirmed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-condition-ver-status",
+    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    "code": "refuted",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-condition-ver-status",
+    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    "code": "differential",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-consent-state-codes",
+    "system": "http://hl7.org/fhir/consent-state-codes",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-consent-state-codes",
+    "system": "http://hl7.org/fhir/consent-state-codes",
+    "code": "proposed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-consent-state-codes",
+    "system": "http://hl7.org/fhir/consent-state-codes",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-consent-state-codes",
+    "system": "http://hl7.org/fhir/consent-state-codes",
+    "code": "rejected",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-consent-state-codes",
+    "system": "http://hl7.org/fhir/consent-state-codes",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-consent-state-codes",
+    "system": "http://hl7.org/fhir/consent-state-codes",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "offered",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "negotiable,policy",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "executable,resolved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "disputed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "revoked",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "amended,appended,renewed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "executed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+    "system": "http://hl7.org/fhir/contract-publicationstatus",
+    "code": "cancelled,rejected,terminated",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "offered",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "negotiable,policy",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "executable,resolved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "disputed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "revoked",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "amended,appended,renewed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "executed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-contract-status",
+    "system": "http://hl7.org/fhir/contract-status",
+    "code": "cancelled,rejected,terminated",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-statement-status",
+    "system": "http://hl7.org/fhir/device-statement-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-statement-status",
+    "system": "http://hl7.org/fhir/device-statement-status",
+    "code": "intended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-statement-status",
+    "system": "http://hl7.org/fhir/device-statement-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-statement-status",
+    "system": "http://hl7.org/fhir/device-statement-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-statement-status",
+    "system": "http://hl7.org/fhir/device-statement-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-statement-status",
+    "system": "http://hl7.org/fhir/device-statement-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-status",
+    "system": "http://hl7.org/fhir/device-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-status",
+    "system": "http://hl7.org/fhir/device-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-status",
+    "system": "http://hl7.org/fhir/device-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-device-status",
+    "system": "http://hl7.org/fhir/device-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "partial,preliminary",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "registered",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "corrected, amended, appended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "final",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-diagnostic-report-status",
+    "system": "http://hl7.org/fhir/diagnostic-report-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-document-reference-status",
+    "system": "http://hl7.org/fhir/document-reference-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-document-reference-status",
+    "system": "http://hl7.org/fhir/document-reference-status",
+    "code": "current",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-document-reference-status",
+    "system": "http://hl7.org/fhir/document-reference-status",
+    "code": "superseded",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-location-status",
+    "system": "http://hl7.org/fhir/encounter-location-status",
+    "code": "planned",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-location-status",
+    "system": "http://hl7.org/fhir/encounter-location-status",
+    "code": "reserved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-location-status",
+    "system": "http://hl7.org/fhir/encounter-location-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-location-status",
+    "system": "http://hl7.org/fhir/encounter-location-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "planned",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "triaged",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "arrived",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "onleave",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "finished",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-encounter-status",
+    "system": "http://hl7.org/fhir/encounter-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-endpoint-status",
+    "system": "http://hl7.org/fhir/endpoint-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-endpoint-status",
+    "system": "http://hl7.org/fhir/endpoint-status",
+    "code": "test",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-endpoint-status",
+    "system": "http://hl7.org/fhir/endpoint-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-endpoint-status",
+    "system": "http://hl7.org/fhir/endpoint-status",
+    "code": "suspended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-endpoint-status",
+    "system": "http://hl7.org/fhir/endpoint-status",
+    "code": "error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-endpoint-status",
+    "system": "http://hl7.org/fhir/endpoint-status",
+    "code": "off",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "planned",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "waitlist",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "onhold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "finished",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-episode-of-care-status",
+    "system": "http://hl7.org/fhir/episode-of-care-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "preparation",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "not-done",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-event-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-explanationofbenefit-status",
+    "system": "http://hl7.org/fhir/explanationofbenefit-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-explanationofbenefit-status",
+    "system": "http://hl7.org/fhir/explanationofbenefit-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-explanationofbenefit-status",
+    "system": "http://hl7.org/fhir/explanationofbenefit-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-explanationofbenefit-status",
+    "system": "http://hl7.org/fhir/explanationofbenefit-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-flag-status",
+    "system": "http://hl7.org/fhir/flag-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-flag-status",
+    "system": "http://hl7.org/fhir/flag-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-flag-status",
+    "system": "http://hl7.org/fhir/flag-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-fm-status",
+    "system": "http://hl7.org/fhir/fm-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-fm-status",
+    "system": "http://hl7.org/fhir/fm-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-fm-status",
+    "system": "http://hl7.org/fhir/fm-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-fm-status",
+    "system": "http://hl7.org/fhir/fm-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-achievement",
+    "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
+    "code": "in-progress, sustaining, improving, worsening, no-change",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-achievement",
+    "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
+    "code": "achieved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-achievement",
+    "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
+    "code": "not-attainable",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-achievement",
+    "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
+    "code": "no-progress, not-achieved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "proposed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "planned",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "rejected",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "accepted",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-goal-status",
+    "system": "http://hl7.org/fhir/goal-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-guidance-response-status",
+    "system": "http://hl7.org/fhir/guidance-response-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-guidance-response-status",
+    "system": "http://hl7.org/fhir/guidance-response-status",
+    "code": "data-requested",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-guidance-response-status",
+    "system": "http://hl7.org/fhir/guidance-response-status",
+    "code": "data-required",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-guidance-response-status",
+    "system": "http://hl7.org/fhir/guidance-response-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-guidance-response-status",
+    "system": "http://hl7.org/fhir/guidance-response-status",
+    "code": "failure",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-guidance-response-status",
+    "system": "http://hl7.org/fhir/guidance-response-status",
+    "code": "success",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-history-status",
+    "system": "http://hl7.org/fhir/history-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-history-status",
+    "system": "http://hl7.org/fhir/history-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-history-status",
+    "system": "http://hl7.org/fhir/history-status",
+    "code": "health-unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-history-status",
+    "system": "http://hl7.org/fhir/history-status",
+    "code": "partial",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-imagingstudy-status",
+    "system": "http://hl7.org/fhir/imagingstudy-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-imagingstudy-status",
+    "system": "http://hl7.org/fhir/imagingstudy-status",
+    "code": "registered",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-imagingstudy-status",
+    "system": "http://hl7.org/fhir/imagingstudy-status",
+    "code": "available",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-imagingstudy-status",
+    "system": "http://hl7.org/fhir/imagingstudy-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-imagingstudy-status",
+    "system": "http://hl7.org/fhir/imagingstudy-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-immunization-evaluation-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-immunization-evaluation-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-immunization-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-immunization-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-immunization-status",
+    "system": "http://hl7.org/fhir/event-status",
+    "code": "not-done",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-invoice-status",
+    "system": "http://hl7.org/fhir/invoice-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-invoice-status",
+    "system": "http://hl7.org/fhir/invoice-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-invoice-status",
+    "system": "http://hl7.org/fhir/invoice-status",
+    "code": "issued",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-invoice-status",
+    "system": "http://hl7.org/fhir/invoice-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-invoice-status",
+    "system": "http://hl7.org/fhir/invoice-status",
+    "code": "balanced",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-list-status",
+    "system": "http://hl7.org/fhir/list-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-list-status",
+    "system": "http://hl7.org/fhir/list-status",
+    "code": "current",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-list-status",
+    "system": "http://hl7.org/fhir/list-status",
+    "code": "retired",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-location-status",
+    "system": "http://hl7.org/fhir/location-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-location-status",
+    "system": "http://hl7.org/fhir/location-status",
+    "code": "suspended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-location-status",
+    "system": "http://hl7.org/fhir/location-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-measure-report-status",
+    "system": "http://hl7.org/fhir/measure-report-status",
+    "code": "pending",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-measure-report-status",
+    "system": "http://hl7.org/fhir/measure-report-status",
+    "code": "error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-measure-report-status",
+    "system": "http://hl7.org/fhir/measure-report-status",
+    "code": "complete",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-admin-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+    "code": "not-done",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "intended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-statement-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-statement-status",
+    "code": "not-taken",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medication-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medication-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "preparation",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationdispense-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+    "code": "cancelled, declined",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationknowledge-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationknowledge-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationknowledge-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationknowledge-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationknowledge-status",
+    "system": "http://terminology.hl7.org/CodeSystem/medicationknowledge-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-medicationrequest-status",
+    "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-metric-operational-status",
+    "system": "http://hl7.org/fhir/metric-operational-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-metric-operational-status",
+    "system": "http://hl7.org/fhir/metric-operational-status",
+    "code": "on",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-metric-operational-status",
+    "system": "http://hl7.org/fhir/metric-operational-status",
+    "code": "standby",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-metric-operational-status",
+    "system": "http://hl7.org/fhir/metric-operational-status",
+    "code": "off",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "preliminary",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "registered",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "corrected, amended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "final",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-observation-status",
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-participationstatus",
+    "system": "http://hl7.org/fhir/participationstatus",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-participationstatus",
+    "system": "http://hl7.org/fhir/participationstatus",
+    "code": "tentative",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-participationstatus",
+    "system": "http://hl7.org/fhir/participationstatus",
+    "code": "declined",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-participationstatus",
+    "system": "http://hl7.org/fhir/participationstatus",
+    "code": "accepted",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-participationstatus",
+    "system": "http://hl7.org/fhir/participationstatus",
+    "code": "needs-action",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-product-status",
+    "system": "http://hl7.org/fhir/product-status",
+    "code": "available",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-product-status",
+    "system": "http://hl7.org/fhir/product-status",
+    "code": "unavailable",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-publication-status",
+    "system": "http://hl7.org/fhir/publication-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-publication-status",
+    "system": "http://hl7.org/fhir/publication-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-publication-status",
+    "system": "http://hl7.org/fhir/publication-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-publication-status",
+    "system": "http://hl7.org/fhir/publication-status",
+    "code": "retired",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-publication-status",
+    "system": "http://hl7.org/fhir/publication-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-questionnaire-answers-status",
+    "system": "http://hl7.org/fhir/questionnaire-answers-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-questionnaire-answers-status",
+    "system": "http://hl7.org/fhir/questionnaire-answers-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-questionnaire-answers-status",
+    "system": "http://hl7.org/fhir/questionnaire-answers-status",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-questionnaire-answers-status",
+    "system": "http://hl7.org/fhir/questionnaire-answers-status",
+    "code": "amended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-questionnaire-answers-status",
+    "system": "http://hl7.org/fhir/questionnaire-answers-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-report-status-codes",
+    "system": "http://hl7.org/fhir/report-status-codes",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-report-status-codes",
+    "system": "http://hl7.org/fhir/report-status-codes",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-report-status-codes",
+    "system": "http://hl7.org/fhir/report-status-codes",
+    "code": "waiting",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-report-status-codes",
+    "system": "http://hl7.org/fhir/report-status-codes",
+    "code": "stopped",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-report-status-codes",
+    "system": "http://hl7.org/fhir/report-status-codes",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "revoked",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-request-status",
+    "system": "http://hl7.org/fhir/request-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "in-review",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "disapproved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "approved",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "active, closed-to-accrual, closed-to-accrual-and-intervention",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "temporarily-closed-to-accrual, temporarily-closed-to-accrual-and-intervention",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "completed, administratively-completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-study-status",
+    "system": "http://hl7.org/fhir/research-study-status",
+    "code": "withdrawn",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "candidate, screening, eligible, potential-candidate",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "ineligible",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "on-study, on-study-intervention, on-study-observation",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "pending-on-study",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "withdrawn",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "follow-up",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "off-study",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-research-subject-status",
+    "system": "http://hl7.org/fhir/research-subject-status",
+    "code": "not-registered",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-slotstatus",
+    "system": "http://hl7.org/fhir/slotstatus",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-slotstatus",
+    "system": "http://hl7.org/fhir/slotstatus",
+    "code": "busy",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-slotstatus",
+    "system": "http://hl7.org/fhir/slotstatus",
+    "code": "busy-tentative",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-slotstatus",
+    "system": "http://hl7.org/fhir/slotstatus",
+    "code": "busy-unavailable",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-slotstatus",
+    "system": "http://hl7.org/fhir/slotstatus",
+    "code": "free",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-specimen-status",
+    "system": "http://hl7.org/fhir/specimen-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-specimen-status",
+    "system": "http://hl7.org/fhir/specimen-status",
+    "code": "available",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-specimen-status",
+    "system": "http://hl7.org/fhir/specimen-status",
+    "code": "unsatisfactory",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-specimen-status",
+    "system": "http://hl7.org/fhir/specimen-status",
+    "code": "unavailable",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-subscription-status",
+    "system": "http://hl7.org/fhir/subscription-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-subscription-status",
+    "system": "http://hl7.org/fhir/subscription-status",
+    "code": "requested",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-subscription-status",
+    "system": "http://hl7.org/fhir/subscription-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-subscription-status",
+    "system": "http://hl7.org/fhir/subscription-status",
+    "code": "error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-subscription-status",
+    "system": "http://hl7.org/fhir/subscription-status",
+    "code": "off",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-substance-status",
+    "system": "http://hl7.org/fhir/substance-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-substance-status",
+    "system": "http://hl7.org/fhir/substance-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-substance-status",
+    "system": "http://hl7.org/fhir/substance-status",
+    "code": "inactive",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplydelivery-status",
+    "system": "http://hl7.org/fhir/supplydelivery-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplydelivery-status",
+    "system": "http://hl7.org/fhir/supplydelivery-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplydelivery-status",
+    "system": "http://hl7.org/fhir/supplydelivery-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplydelivery-status",
+    "system": "http://hl7.org/fhir/supplydelivery-status",
+    "code": "abandoned",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "active",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "suspended",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-supplyrequest-status",
+    "system": "http://hl7.org/fhir/supplyrequest-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "entered-in-error",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "draft",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "requested",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "received",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "rejected",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "accepted",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "in-progress",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "on-hold",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "failed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "completed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "cancelled",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-task-status",
+    "system": "http://hl7.org/fhir/task-status",
+    "code": "ready",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-status",
+    "system": "http://hl7.org/fhir/CodeSystem/status",
+    "code": "attested",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-status",
+    "system": "http://hl7.org/fhir/CodeSystem/status",
+    "code": "validated",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-status",
+    "system": "http://hl7.org/fhir/CodeSystem/status",
+    "code": "in-process",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-status",
+    "system": "http://hl7.org/fhir/CodeSystem/status",
+    "code": "val-fail, reval-fail",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-status",
+    "system": "http://hl7.org/fhir/CodeSystem/status",
+    "code": "req-revalid",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-validation-status",
+    "system": "http://terminology.hl7.org/CodeSystem/validation-status",
+    "code": "successful",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-validation-status",
+    "system": "http://terminology.hl7.org/CodeSystem/validation-status",
+    "code": "failed",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/ConceptMap/sc-verificationresult-validation-status",
+    "system": "http://terminology.hl7.org/CodeSystem/validation-status",
+    "code": "unknown",
+    "target": "http://hl7.org/fhir/resource-status"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-allergy-info",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-allergies",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-medication-allergies",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-environmental-allergies",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-food-allergies",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-device-info",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-devices",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-immunization-info",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-immunizations",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-medication-info",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-medications",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-problem-info",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-problems",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-procedure-info",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/absence-to-snomed-uv-ips",
+    "system": "http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips",
+    "code": "no-known-procedures",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-pregnancy-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA15173-0",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-pregnancy-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA26683-5",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-pregnancy-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA4489-6",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18976-3",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18977-1",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA15920-4",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18978-9",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18979-7",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18980-5",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18981-3",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/loinc-smoking-status-to-snomed-ct-uv-ips",
+    "system": "http://loinc.org",
+    "code": "LA18982-1",
+    "target": "http://snomed.info/sct"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/severity-snomedct-uv-ips",
+    "system": "http://snomed.info/sct",
+    "code": "255604002",
+    "target": "http://hl7.org/fhir/reaction-event-severity"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/severity-snomedct-uv-ips",
+    "system": "http://snomed.info/sct",
+    "code": "6736007",
+    "target": "http://hl7.org/fhir/reaction-event-severity"
+  },
+  {
+    "url": "http://hl7.org/fhir/uv/ips/ConceptMap/severity-snomedct-uv-ips",
+    "system": "http://snomed.info/sct",
+    "code": "24484000",
+    "target": "http://hl7.org/fhir/reaction-event-severity"
+  }
+]

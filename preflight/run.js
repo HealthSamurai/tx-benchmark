@@ -8,6 +8,7 @@
  * The benchmark runner reads this to know which tests to skip per server.
  */
 import { runPreflight, parseResults, buildOutput, renderTable } from './lib.js';
+import * as CM from './tests/CM.js';
 import * as EX from './tests/EX.js';
 import * as FS from './tests/FS.js';
 import * as LK from './tests/LK.js';
@@ -19,6 +20,7 @@ const BASE_URL    = __ENV.BASE_URL;
 const SERVER_NAME = __ENV.SERVER_NAME || 'unknown';
 
 const ALL_TESTS = [
+  ...Object.values(CM),
   ...Object.values(EX),
   ...Object.values(FS),
   ...Object.values(LK),
