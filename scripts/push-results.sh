@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
 # push-results.sh
 #
-# Reads all benchmark result JSONs under results/ and pushes summary metrics
-# to the Prometheus Pushgateway as gauges.
+# Reads all benchmark result JSONs and preflight JSONs under results/ and
+# pushes summary metrics to the Prometheus Pushgateway as gauges.
 #
-# Each file results/{server}/benchmark/{TEST}_vus{N}.json becomes a group:
-#   /metrics/job/benchmark/server/{server}/test/{TEST}/vus/{N}
-#
-# Metrics pushed (all gauge):
-#   benchmark_duration_p50_ms
-#   benchmark_duration_p95_ms
-#   benchmark_duration_p99_ms
-#   benchmark_duration_avg_ms
-#   benchmark_duration_min_ms
-#   benchmark_duration_max_ms
+# Benchmark groups — /metrics/job/benchmark/server/{server}/test/{TEST}/vus/{N}:
+#   benchmark_duration_p50_ms, _p95_ms, _p99_ms, _avg_ms, _min_ms, _max_ms
 #   benchmark_throughput_rps
 #   benchmark_error_rate
+#
+# Preflight groups — /metrics/job/preflight/server/{server}/test/{TEST}:
+#   benchmark_preflight   1=pass  0=fail  -1=skip
 #
 # Usage:
 #   ./scripts/push-results.sh [pushgateway-url]
@@ -84,4 +79,35 @@ EOF
 done
 
 echo
-echo "Done. Pushed: ${pushed}, skipped: ${skipped}"
+echo "Benchmark: pushed ${pushed}, skipped ${skipped}"
+
+# ── Preflight pass/fail matrix ────────────────────────────────────────────
+
+echo
+echo "Pushing preflight results…"
+pushed=0
+
+for file in results/*/preflight.json; do
+  [[ -f "$file" ]] || continue
+
+  server=$(jq -r '.server' "$file")
+
+  while IFS= read -r test; do
+    status=$(jq -r --arg t "$test" '.tests[$t].status' "$file")
+    case "$status" in
+      pass) value=1  ;;
+      fail) value=0  ;;
+      skip) value=-1 ;;
+      *)    continue  ;;
+    esac
+
+    url="${PUSH_URL}/metrics/job/preflight/server/${server}/test/${test}"
+    printf '# TYPE benchmark_preflight gauge\nbenchmark_preflight %s\n' "$value" | \
+      curl -sf -X PUT "$url" --data-binary @- > /dev/null
+    echo "  ✓ ${server}/${test} → ${status}"
+    ((pushed++)) || true
+  done < <(jq -r '.tests | keys[]' "$file")
+done
+
+echo
+echo "Preflight: pushed ${pushed}"
