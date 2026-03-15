@@ -25,6 +25,11 @@ services:
     depends_on:
       - prometheus
 
+  pushgateway:
+    image: prom/pushgateway:latest
+    ports:
+      - "9091:9091"
+
   cadvisor:
     # v0.47.x uses the Docker HTTP API directly (no containerd dependency),
     # which is required on macOS Docker Desktop where containerd is not accessible.
