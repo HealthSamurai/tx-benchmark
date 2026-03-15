@@ -1,6 +1,6 @@
 import { check } from 'k6';
 import http from 'k6/http';
-import { BASE_URL, SERVER_NAME } from './config.js';
+import { BASE_URL, SERVER_NAME, RUN_ID } from './config.js';
 
 // Re-export from test files: export { options, handleSummary } from '../lib/runner.js';
 export const options = {
@@ -46,6 +46,7 @@ export function handleSummary(data) {
   const m = data.metrics;
 
   const summary = {
+    run:       RUN_ID,
     server,
     test,
     vus:       parseInt(vus),

@@ -35,6 +35,7 @@ for file in results/*/benchmark/*.json; do
   server=$(jq -r '.server'  "$file")
   test=$(jq -r   '.test'    "$file")
   vus=$(jq -r    '.vus'     "$file")
+  run=$(jq -r    '.run // "unknown"' "$file")
 
   p50=$(jq -r        '.duration.p50 // "NaN"' "$file")
   p95=$(jq -r        '.duration.p95 // "NaN"' "$file")
@@ -51,7 +52,7 @@ for file in results/*/benchmark/*.json; do
     continue
   fi
 
-  url="${PUSH_URL}/metrics/job/benchmark/server/${server}/test/${test}/vus/${vus}"
+  url="${PUSH_URL}/metrics/job/benchmark/run/${run}/server/${server}/test/${test}/vus/${vus}"
 
   payload=$(cat <<EOF
 # TYPE benchmark_duration_p50_ms gauge
@@ -90,7 +91,8 @@ pushed=0
 for file in results/*/preflight.json; do
   [[ -f "$file" ]] || continue
 
-  server=$(jq -r '.server' "$file")
+  server=$(jq -r '.server'        "$file")
+  run=$(jq -r    '.run // "unknown"' "$file")
 
   while IFS= read -r test; do
     status=$(jq -r --arg t "$test" '.tests[$t].status' "$file")
@@ -101,7 +103,7 @@ for file in results/*/preflight.json; do
       *)    continue  ;;
     esac
 
-    url="${PUSH_URL}/metrics/job/preflight/server/${server}/test/${test}"
+    url="${PUSH_URL}/metrics/job/preflight/run/${run}/server/${server}/test/${test}"
     printf '# TYPE benchmark_preflight gauge\nbenchmark_preflight %s\n' "$value" | \
       curl -sf -X PUT "$url" --data-binary @- > /dev/null
     echo "  ✓ ${server}/${test} → ${status}"

@@ -1,21 +1,27 @@
 #!/usr/bin/env bash
-# run.sh <server> <base-url>
+# run.sh <server> <base-url> [run-id]
 #
 # Runs the full benchmark for one server:
-#   1. Preflight  — correctness checks, outputs preflight/results/{server}.json
+#   1. Preflight  — correctness checks, outputs results/{server}/preflight.json
 #   2. Snapshot   — idle resource footprint
 #   3. Warmup     — JIT + connection pool warm-up, results discarded
 #   4. Benchmark  — measurement at VUs=1, 10, 50 for each passing test
 #
+# run-id tags all results for this run (default: current datetime).
+# Use the same run-id across all servers to group them into one benchmark run.
+#
 # Example:
-#   ./scripts/run.sh termbox http://localhost:7001/fhir
+#   RUN=2026-03-15T14:00
+#   ./scripts/run.sh termbox    http://localhost:7001/fhir $RUN
+#   ./scripts/run.sh ontoserver https://tx.example.com/fhir $RUN
 #
 # Dependencies: k6, jq
 
 set -euo pipefail
 
-SERVER="${1:?Usage: run.sh <server> <base-url>}"
-BASE_URL="${2:?Usage: run.sh <server> <base-url>}"
+SERVER="${1:?Usage: run.sh <server> <base-url> [run-id]}"
+BASE_URL="${2:?Usage: run.sh <server> <base-url> [run-id]}"
+RUN_ID="${3:-$(date +%Y-%m-%dT%H:%M)}"
 
 PROM_URL="http://localhost:9090/api/v1/write"
 VU_LEVELS=(1 10 50)
@@ -72,6 +78,7 @@ header "1/4 Preflight: $SERVER"
 k6 run \
   --env BASE_URL="$BASE_URL" \
   --env SERVER_NAME="$SERVER" \
+  --env RUN_ID="$RUN_ID" \
   preflight/run.js
 
 PASSING=$(jq -r '[.tests | to_entries[] | select(.value.status == "pass") | .key] | join(", ")' \
@@ -123,10 +130,12 @@ for VUS in "${VU_LEVELS[@]}"; do
       --tag server="$SERVER" \
       --tag test="$TEST_ID" \
       --tag vus="$VUS" \
+      --tag run="$RUN_ID" \
       --env BASE_URL="$BASE_URL" \
       --env SERVER_NAME="$SERVER" \
       --env TEST_ID="$TEST_ID" \
       --env VUS="$VUS" \
+      --env RUN_ID="$RUN_ID" \
       "$TEST"
   done
 done

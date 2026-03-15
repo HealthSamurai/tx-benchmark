@@ -67,6 +67,7 @@ export function parseResults(rootGroup) {
 
 export function buildOutput(serverName, baseUrl, results) {
   return {
+    run:       __ENV.RUN_ID || new Date().toISOString().slice(0, 16),
     server:    serverName,
     timestamp: new Date().toISOString(),
     base_url:  baseUrl,
