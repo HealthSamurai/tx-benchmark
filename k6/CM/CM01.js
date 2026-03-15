@@ -1,16 +1,19 @@
 // ConceptMap/$translate — SNOMED implicit REPLACED BY map
-// Pool entries: { url, system, code, target }
+// Pool entries: { url, code }
 // url = http://snomed.info/sct?fhir_cm=900000000000526001
+// system and targetSystem are always http://snomed.info/sct.
 // Requires a server with SNOMED CT loaded and implicit ConceptMap support.
 import { runTest, handleSummary, options } from '../lib/runner.js';
 export { handleSummary, options };
 import { ConceptMap_translate_GET } from '../lib/fhir.js';
 import { loadPool } from '../lib/pool.js';
 
+const SNOMED = 'http://snomed.info/sct';
+
 const entries = loadPool('conceptmap/snomed-replacedby.json');
 
-const request = ({ url, system, code, target }) =>
-  ConceptMap_translate_GET({ url, system, code, targetSystem: target });
+const request = ({ url, code }) =>
+  ConceptMap_translate_GET({ url, system: SNOMED, code, targetSystem: SNOMED });
 
 // ─── Benchmark ────────────────────────────────────────────────────────────
 
@@ -27,10 +30,8 @@ export default runTest({
 
 // 225983005 (Duodenal ulcer NOS) → replaced by 40845000 (Duodenal ulcer)
 const KNOWN_ENTRY = {
-  url:    'http://snomed.info/sct?fhir_cm=900000000000526001',
-  system: 'http://snomed.info/sct',
-  code:   '225983005',
-  target: 'http://snomed.info/sct',
+  url:  'http://snomed.info/sct?fhir_cm=900000000000526001',
+  code: '225983005',
 };
 
 export const preflight = {
