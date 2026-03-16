@@ -36,9 +36,10 @@ export default function () {
 }
 
 export function handleSummary(data) {
-  const results = parseResults(data.root_group);
-  const output  = buildOutput(SERVER_NAME, BASE_URL, results);
-  const outPath = `results/${SERVER_NAME}/preflight.json`;
+  const results  = parseResults(data.root_group);
+  const output   = buildOutput(SERVER_NAME, BASE_URL, results);
+  const runId    = __ENV.RUN_ID || new Date().toISOString().slice(0, 16);
+  const outPath  = `results/${runId}/${SERVER_NAME}/preflight.json`;
   return {
     [outPath]: JSON.stringify(output, null, 2),
     stdout:    renderTable(output) + '\n',

@@ -2,7 +2,7 @@
 # run.sh <server> <base-url> [run-id]
 #
 # Runs the full benchmark for one server:
-#   1. Preflight  — correctness checks, outputs results/{server}/preflight.json
+#   1. Preflight  — correctness checks, outputs results/{run}/{server}/preflight.json
 #   2. Snapshot   — idle resource footprint
 #   3. Warmup     — JIT + connection pool warm-up, results discarded
 #   4. Benchmark  — measurement at VUs=1, 10, 50 for each passing test
@@ -68,12 +68,14 @@ header() { echo; echo "=== $* ==="; echo; }
 
 passed() {
   jq -e --arg id "$1" '.tests[$id].status == "pass"' \
-    "results/${SERVER}/preflight.json" > /dev/null 2>&1
+    "results/${RUN_ID}/${SERVER}/preflight.json" > /dev/null 2>&1
 }
 
 # ─── 1. Preflight ─────────────────────────────────────────────────────────
 
 header "1/4 Preflight: $SERVER"
+
+mkdir -p "results/${RUN_ID}/${SERVER}"
 
 k6 run \
   --env BASE_URL="$BASE_URL" \
@@ -82,7 +84,7 @@ k6 run \
   preflight/run.js
 
 PASSING=$(jq -r '[.tests | to_entries[] | select(.value.status == "pass") | .key] | join(", ")' \
-  "results/${SERVER}/preflight.json")
+  "results/${RUN_ID}/${SERVER}/preflight.json")
 
 if [ -z "$PASSING" ]; then
   echo "No tests passed preflight. Aborting."
@@ -94,7 +96,7 @@ echo "Passing: $PASSING"
 # ─── 2. Idle snapshot ─────────────────────────────────────────────────────
 
 header "2/4 Idle resource snapshot: $SERVER"
-./scripts/resource-snapshot.sh "$SERVER" idle
+./scripts/resource-snapshot.sh "$SERVER" idle "$RUN_ID"
 
 # ─── 3. Warmup ────────────────────────────────────────────────────────────
 
@@ -121,7 +123,7 @@ for VUS in "${VU_LEVELS[@]}"; do
     fi
 
     echo "  → $TEST_ID"
-    mkdir -p "results/${SERVER}/benchmark"
+    mkdir -p "results/${RUN_ID}/${SERVER}/benchmark"
     K6_PROMETHEUS_RW_SERVER_URL="$PROM_URL" \
     k6 run \
       --out experimental-prometheus-rw \
@@ -141,3 +143,8 @@ for VUS in "${VU_LEVELS[@]}"; do
 done
 
 header "Done: $SERVER"
+
+# ─── 5. Push results ──────────────────────────────────────────────────────
+
+header "5/5 Pushing results to Pushgateway"
+./scripts/push-results.sh

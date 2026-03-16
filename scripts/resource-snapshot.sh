@@ -5,16 +5,17 @@
 # Used to capture idle footprint before the benchmark starts.
 # Under-load metrics are captured continuously by cAdvisor/node_exporter.
 #
-# Output: results/{server}/snapshot_{label}.json
+# Output: results/{run}/{server}/snapshot_{label}.json
 
 set -euo pipefail
 
 SERVER="${1:?Usage: resource-snapshot.sh <server> <label>}"
 LABEL="${2:?Usage: resource-snapshot.sh <server> <label>}"
+RUN_ID="${3:-unknown}"
 PROM="http://localhost:9090"
-OUT="results/${SERVER}/snapshot_${LABEL}.json"
+OUT="results/${RUN_ID}/${SERVER}/snapshot_${LABEL}.json"
 
-mkdir -p "results/${SERVER}"
+mkdir -p "results/${RUN_ID}/${SERVER}"
 
 query() {
   local q

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # push-results.sh
 #
-# Reads all benchmark result JSONs and preflight JSONs under results/ and
+# Reads all benchmark result JSONs and preflight JSONs under results/{run}/{server}/ and
 # pushes summary metrics to the Prometheus Pushgateway as gauges.
 #
 # Benchmark groups — /metrics/job/benchmark/server/{server}/test/{TEST}/vus/{N}:
@@ -29,7 +29,7 @@ fi
 pushed=0
 skipped=0
 
-for file in results/*/benchmark/*.json; do
+for file in results/*/*/benchmark/*.json; do
   [[ -f "$file" ]] || continue
 
   server=$(jq -r '.server'  "$file")
@@ -88,7 +88,7 @@ echo
 echo "Pushing preflight results…"
 pushed=0
 
-for file in results/*/preflight.json; do
+for file in results/*/*/preflight.json; do
   [[ -f "$file" ]] || continue
 
   server=$(jq -r '.server'        "$file")

@@ -66,7 +66,7 @@ export function handleSummary(data) {
     iterations:  m.iterations?.values?.count,
   };
 
-  const outPath = `results/${server}/benchmark/${test}_vus${vus}.json`;
+  const outPath = `results/${RUN_ID}/${server}/benchmark/${test}_vus${vus}.json`;
 
   return {
     [outPath]: JSON.stringify(summary, null, 2),
