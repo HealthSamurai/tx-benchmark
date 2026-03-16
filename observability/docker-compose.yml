@@ -27,6 +27,7 @@ services:
 
   pushgateway:
     image: prom/pushgateway:latest
+    user: root
     ports:
       - "9091:9091"
     command:
