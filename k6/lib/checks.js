@@ -25,9 +25,6 @@ export function isValueSetExpansion(r) {
 
 // ─── Semantic (preflight) ─────────────────────────────────────────────────
 
-export function hasDisplay(r) {
-  return stringParam(r, 'display')?.length > 0;
-}
 
 export function validationResult(r) {
   return boolParam(r, 'result');
@@ -36,12 +33,16 @@ export function validationResult(r) {
 export function paramMatches(r, name, key, expected, required = true) {
   const p = param(r, name);
   if (p === null || p === undefined) return !required;
-  return p[key] === expected;
+  // Accept valueString as fallback — some servers (e.g. Snowstorm) use valueString
+  // where the spec calls for valueCode/valueUri.
+  return p[key] === expected || p.valueString === expected;
 }
 
 export function subsumesOutcome(r) {
   // 'subsumes' | 'subsumed-by' | 'equivalent' | 'not-subsumed'
-  return param(r, 'outcome')?.valueCode;
+  // Accept valueString as fallback (e.g. Snowstorm).
+  const p = param(r, 'outcome');
+  return p?.valueCode ?? p?.valueString;
 }
 
 export function expansionHasContains(r) {

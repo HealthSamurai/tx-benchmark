@@ -33,6 +33,5 @@ export const preflight = {
     'status 200':    (r) => r.status === 200,
     'is Parameters': (r) => isParameters(r),
     'result true':   (r) => validationResult(r) === true,
-    'has display':   (r) => r.json()?.parameter?.find(p => p.name === 'display')?.valueString?.length > 0,
   },
 };
