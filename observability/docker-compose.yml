@@ -10,6 +10,7 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
       - --web.enable-remote-write-receiver   # accepts k6 remote write
       - --storage.tsdb.retention.time=7d
+      - --web.enable-admin-api
 
   grafana:
     image: grafana/grafana:latest

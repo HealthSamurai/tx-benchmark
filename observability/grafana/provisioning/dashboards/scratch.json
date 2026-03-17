@@ -29,15 +29,232 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto",
-              "wrapText": false
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 50,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            "inspect": false
+            "pointShape": "circle",
+            "pointSize": {
+              "fixed": 10
+            },
+            "pointStrokeWidth": 1,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "show": "points"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "vus1"
+            },
+            "properties": [
+              {
+                "id": "custom.axisSoftMin",
+                "value": 65536
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 65536
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 9,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mapping": "auto",
+        "series": [
+          {
+            "x": {
+              "matcher": {
+                "id": "byName",
+                "options": "vus1"
+              }
+            },
+            "y": {
+              "matcher": {
+                "id": "byName",
+                "options": "vus50"
+              }
+            }
+          }
+        ],
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_replace(\n    label_replace(\n      last_over_time(benchmark_duration_p95_ms{run=\"$run\", vus=\"1\"}[1y]),\n      \"metric\", \"vus1\", \"\", \"\"\n    ),\n    \"vus\", \"\", \"\", \"\"\n  )",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_replace(\n    label_replace(\n      last_over_time(benchmark_duration_p95_ms{run=\"$run\", vus=\"50\"}[1y]),\n      \"metric\", \"vus50\", \"\", \"\"\n    ),\n    \"vus\", \"\", \"\", \"\"\n  )",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "New panel",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "metric"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "run": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time": 0,
+              "__name__": 4,
+              "job": 5,
+              "run": 6,
+              "server": 1,
+              "test": 2,
+              "vus1": 3,
+              "vus50": 7
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "run": true,
+              "vus": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time": 0,
+              "__name__": 1,
+              "job": 2,
+              "run": 3,
+              "server": 4,
+              "test": 5,
+              "vus": 6,
+              "vus1": 7,
+              "vus50": 8
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "partitionByValues",
+          "options": {
+            "fields": [
+              "server"
+            ],
+            "keepFields": false
+          }
+        }
+      ],
+      "type": "xychart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
           "thresholds": {
@@ -57,215 +274,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Rank"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 40
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Score"
-            },
-            "properties": [
-              {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "gauge",
-                  "valueDisplayMode": "color"
-                }
-              },
-              {
-                "id": "unit",
-                "value": "percentunit"
-              },
-              {
-                "id": "max",
-                "value": 1
-              },
-              {
-                "id": "min",
-                "value": 0
-              },
-              {
-                "id": "color",
-                "value": {
-                  "mode": "continuous-RdYlGr"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 16,
-        "x": 0,
-        "y": 0
-      },
-      "id": 3,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": true,
-        "sortBy": []
-      },
-      "pluginVersion": "12.0.2",
-      "targets": [
-        {
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": " exp(\n    avg by(server) (\n      ln(\n        benchmark_throughput_rps{run=\"$run\", vus=\"10\"}\n        / on(test) group_left()\n        max by(test) (benchmark_throughput_rps{run=\"$run\", vus=\"10\"})\n      )\n    )\n  )",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Composite score",
-      "transformations": [
-        {
-          "id": "reduce",
-          "options": {
-            "labelsToFields": false,
-            "reducers": [
-              "lastNotNull"
-            ]
-          }
-        },
-        {
-          "id": "sortBy",
-          "options": {
-            "fields": {},
-            "sort": [
-              {
-                "desc": true,
-                "field": "Last *"
-              }
-            ]
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "row-0",
-            "mode": "index",
-            "reduce": {
-              "reducer": "sum"
-            }
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "Rank",
-            "binary": {
-              "left": {
-                "matcher": {
-                  "id": "byName",
-                  "options": "row-0"
-                }
-              },
-              "right": {
-                "fixed": "1"
-              }
-            },
-            "mode": "binary",
-            "reduce": {
-              "reducer": "sum"
-            }
-          }
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Last *": false,
-              "row-0": true
-            },
-            "includeByName": {},
-            "indexByName": {
-              "Field": 1,
-              "Last *": 2,
-              "Rank": 0,
-              "row-0": 3
-            },
-            "renameByName": {
-              "Field": "Server",
-              "Last *": "Score",
-              "Last * * 100": "Value",
-              "Rank": "Rank"
-            }
-          }
-        }
-      ],
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "inspect": false
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "red",
-                  "index": 0,
-                  "text": "FAIL"
-                },
-                "1": {
-                  "color": "green",
-                  "index": 1,
-                  "text": "PASS"
-                },
-                "-1": {
-                  "color": "text",
-                  "index": 2,
-                  "text": "SKIP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byRegexp",
-              "options": "/^(?!server$).+/"
+              "options": "vus"
             },
             "properties": [
               {
@@ -273,97 +282,75 @@
                 "value": [
                   {
                     "options": {
-                      "0": {
-                        "color": "red",
-                        "index": 0,
-                        "text": "✗"
-                      },
                       "1": {
-                        "color": "green",
-                        "index": 1,
-                        "text": "✓"
+                        "index": 0,
+                        "text": "1 virtual user"
                       },
-                      "-1": {
-                        "color": "text",
+                      "10": {
+                        "index": 1,
+                        "text": "10 virtual users"
+                      },
+                      "50": {
                         "index": 2,
-                        "text": "~"
+                        "text": "50 virtual users"
                       }
                     },
                     "type": "value"
                   }
                 ]
-              },
-              {
-                "id": "custom.width",
-                "value": 60
-              },
-              {
-                "id": "custom.cellOptions",
-                "value": {
-                  "type": "color-background"
-                }
-              },
-              {
-                "id": "custom.align",
-                "value": "center"
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 7,
-        "w": 24,
+        "h": 8,
+        "w": 12,
         "x": 0,
-        "y": 7
+        "y": 11
       },
-      "id": 2,
+      "id": 5,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showHeader": true,
-        "sortBy": []
+        "orientation": "vertical",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "vus",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
       },
       "pluginVersion": "12.0.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "benchmark_preflight{run=\"$run\"}",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "expr": "  last_over_time(\n    benchmark_duration_p95_ms{run=\"$run\", test=\"LK01\"}[1y]\n  )",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "A",
-          "useBackend": false
+          "refId": "A"
         }
       ],
-      "title": "Capability Matrixx",
+      "title": "New panel",
       "transformations": [
         {
           "id": "labelsToFields",
           "options": {
-            "keepLabels": [
-              "job",
-              "run",
-              "test",
-              "server"
-            ],
-            "valueLabel": "test"
+            "valueLabel": "server"
           }
         },
         {
@@ -375,41 +362,346 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "__name__": true,
               "job": true,
               "run": true
             },
             "includeByName": {},
-            "indexByName": {
-              "CM01": 22,
-              "CM02": 23,
-              "EX01": 13,
-              "EX02": 14,
-              "EX03": 15,
-              "EX04": 16,
-              "EX05": 17,
-              "EX06": 18,
-              "EX07": 19,
-              "EX08": 20,
-              "FS01": 4,
-              "LK01": 5,
-              "LK02": 6,
-              "LK03": 7,
-              "LK04": 8,
-              "LK05": 9,
-              "SS01": 21,
-              "Time": 0,
-              "VC01": 10,
-              "VC02": 11,
-              "VC03": 12,
-              "job": 1,
-              "run": 2,
-              "server": 3
-            },
+            "indexByName": {},
             "renameByName": {}
           }
         }
       ],
-      "type": "table"
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "vus"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "index": 0,
+                        "text": "1 virtual user"
+                      },
+                      "10": {
+                        "index": 1,
+                        "text": "10 virtual users"
+                      },
+                      "20": {
+                        "index": 3
+                      },
+                      "30": {
+                        "index": 4
+                      },
+                      "40": {
+                        "index": 5
+                      },
+                      "50": {
+                        "index": 2,
+                        "text": "50 virtual users"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "vus"
+            },
+            "properties": [
+              {
+                "id": "custom.scaleDistribution",
+                "value": {
+                  "log": 2,
+                  "type": "log"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "vus"
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "avg by(server, vus) (\n    last_over_time(benchmark_duration_p95_ms{run=\"$run\"}[1y])\n  )",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "New panel",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "server"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "run": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "vus"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "trend"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 50,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "pointShape": "circle",
+            "pointSize": {
+              "fixed": 5
+            },
+            "pointStrokeWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "show": "points"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mapping": "auto",
+        "series": [
+          {}
+        ],
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_replace(\n    label_replace(\n      last_over_time(benchmark_duration_p95_ms{run=\"$run\", vus=\"1\"}[1y]),\n      \"metric\", \"vus1\", \"\", \"\"\n    ),\n    \"vus\", \"\", \"\", \"\"\n  )",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_replace(\n    label_replace(\n      last_over_time(benchmark_duration_p95_ms{run=\"$run\", vus=\"50\"}[1y]),\n      \"metric\", \"vus50\", \"\", \"\"\n    ),\n    \"vus\", \"\", \"\", \"\"\n  )",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "New panel",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "metric"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "run": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "vus"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "xychart"
     }
   ],
   "preload": false,
@@ -444,5 +736,5 @@
   "timezone": "browser",
   "title": "scratch",
   "uid": "d46d5857-e3e6-4757-8e7f-6ba97a6205ac",
-  "version": 11
+  "version": 27
 }
