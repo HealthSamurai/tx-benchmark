@@ -24,7 +24,14 @@ export function runPreflight(def, baseUrl) {
       ? http.post(url, body, params)
       : http.get(url, params);
 
-    const supportedFn = def.supported ?? ((r) => r.status !== 404 && r.status !== 501);
+    const supportedFn = def.supported ?? ((r) => {
+      if (r.status === 404 || r.status === 501) return false;
+      if (r.status === 400) {
+        const code = r.json()?.issue?.[0]?.code;
+        if (code === 'not-found' || code === 'not-supported') return false;
+      }
+      return true;
+    });
     const supported = check(res, { 'supported': supportedFn });
 
     if (!supported) return;
