@@ -29,7 +29,20 @@ export function runPreflight(def, baseUrl) {
 
     if (!supported) return;
 
-    check(res, def.checks);
+    // Pre-evaluate each check. For failures, encode diagnostic data in the check
+    // name using a ||| separator so parseResults can surface it from handleSummary.
+    const checkSpec = {};
+    for (const [name, fn] of Object.entries(def.checks)) {
+      if (fn(res)) {
+        checkSpec[name] = () => true;
+      } else {
+        let bodyVal;
+        try { bodyVal = res.json(); } catch (_) { bodyVal = res.body ? res.body.slice(0, 500) : null; }
+        const diag = JSON.stringify({ http_status: res.status, body: bodyVal });
+        checkSpec[`${name}|||${diag}`] = () => false;
+      }
+    }
+    check(res, checkSpec);
   });
 }
 
@@ -53,7 +66,16 @@ export function parseResults(rootGroup) {
 
     const failed = checks
       .filter(c => c.name !== 'supported' && c.fails > 0)
-      .map(c => c.name);
+      .map(c => {
+        const sep = c.name.indexOf('|||');
+        if (sep === -1) return { check: c.name };
+        const checkName = c.name.slice(0, sep);
+        try {
+          return { check: checkName, ...JSON.parse(c.name.slice(sep + 3)) };
+        } catch (_) {
+          return { check: checkName };
+        }
+      });
 
     results[g.name] = failed.length === 0
       ? { status: 'pass' }
@@ -79,7 +101,7 @@ export function renderTable(output) {
   const lines = [`\nPreflight: ${output.server} (${output.base_url})\n`];
   for (const [id, r] of Object.entries(output.tests)) {
     const icon   = r.status === 'pass' ? '✓' : r.status === 'skip' ? '~' : '✗';
-    const detail = r.status === 'fail' ? ` — failed: ${r.failed_checks.join(', ')}` :
+    const detail = r.status === 'fail' ? ` — failed: ${r.failed_checks.map(f => f.check).join(', ')}` :
                    r.status === 'skip' ? ` — ${r.reason}` : '';
     lines.push(`  ${icon} ${id}${detail}`);
   }
