@@ -89,13 +89,30 @@ passed() {
     "results/${RUN_ID}/${SERVER}/preflight.json" > /dev/null 2>&1
 }
 
+next_resume() {
+  local test_id="$1" vus="$2"
+  local found=false
+  for v in "${VU_LEVELS[@]}"; do
+    $found && { echo "${test_id}/${v}"; return; }
+    [[ "$v" == "$vus" ]] && found=true
+  done
+  # Last VU level — advance to the next passing test
+  local found_test=false
+  for t in "${TESTS[@]}"; do
+    local tid; tid=$(basename "$t" .js)
+    $found_test && passed "$tid" && { echo "${tid}/${VU_LEVELS[0]}"; return; }
+    [[ "$tid" == "$test_id" ]] && found_test=true
+  done
+}
+
 check_server() {
   local test_id="$1" vus="$2"
   if ! curl -sf --max-time 5 "${BASE_URL}/metadata" > /dev/null 2>&1; then
+    local next; next=$(next_resume "$test_id" "$vus")
     echo
     echo "ERROR: ${SERVER} is not responding after ${test_id}/vus${vus}."
     echo "Restart the server, then resume with:"
-    echo "  ./scripts/run.sh ${SERVER} ${BASE_URL} ${RUN_ID} ${test_id}/${vus}"
+    echo "  ./scripts/run.sh ${SERVER} ${BASE_URL} ${RUN_ID} ${next}"
     exit 1
   fi
 }
