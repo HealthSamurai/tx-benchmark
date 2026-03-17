@@ -1,6 +1,6 @@
 // ValueSet/$expand — SNOMED hierarchy filters (ad-hoc POST)
 // Pool entries: { count, include }
-// Covers descendent-of, child-of, descendent-leaf, generalizes, in, not-in, exists
+// Covers descendent-of, generalizes, in, not-in, exists (R4 operators only)
 // Pool is harvested from live DB — see scripts/harvest-snomed-hierarchy.js
 import { runTest, handleSummary, options } from '../lib/runner.js';
 export { handleSummary, options };
@@ -35,11 +35,11 @@ export default runTest({
 
 // ─── Preflight ────────────────────────────────────────────────────────────
 
-// Disease (64572001) has 166 direct children — child-of count=10 is always satisfied.
+// Disease (64572001) has thousands of descendants — descendent-of count=10 is always satisfied.
 const KNOWN_ENTRY = {
   count:   10,
   include: [[
-    { property: 'concept', op: 'child-of', value: '64572001' },
+    { property: 'concept', op: 'descendent-of', value: '64572001' },
   ]],
 };
 
