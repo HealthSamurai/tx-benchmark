@@ -4,12 +4,18 @@
 # Reads all benchmark result JSONs and preflight JSONs under results/{run}/{server}/ and
 # pushes summary metrics to the Prometheus Pushgateway as gauges.
 #
-# Benchmark groups — /metrics/job/benchmark/server/{server}/test/{TEST}/vus/{N}:
+# Benchmark groups — /metrics/job/benchmark/run/{run}/server/{server}/test/{TEST}/vus/{N}:
 #   benchmark_duration_p50_ms, _p95_ms, _p99_ms, _avg_ms, _min_ms, _max_ms
 #   benchmark_throughput_rps
 #   benchmark_error_rate
 #
-# Preflight groups — /metrics/job/preflight/server/{server}/test/{TEST}:
+# Imputation groups — /metrics/job/benchmark_imputed/run/{run}/server/{server}/test/{TEST}/vus/{N}:
+#   benchmark_throughput_rps_imputed
+#   Pushed for (server, test, vus) combinations where the server did not participate.
+#   Value = Nth percentile of participating servers' effective RPS (throughput × (1 − error_rate)).
+#   Configurable via IMPUTE_PERCENTILE env var (default: 20).
+#
+# Preflight groups — /metrics/job/preflight/run/{run}/server/{server}/test/{TEST}:
 #   benchmark_preflight   1=pass  0=fail  -1=skip
 #
 # Usage:
@@ -19,6 +25,7 @@
 set -euo pipefail
 
 PUSH_URL="${1:-http://localhost:9091}"
+IMPUTE_PERCENTILE="${IMPUTE_PERCENTILE:-50}"
 
 if ! curl -sf --max-time 3 "${PUSH_URL}/-/healthy" > /dev/null 2>&1; then
   echo "ERROR: Pushgateway not reachable at ${PUSH_URL}"
@@ -28,6 +35,10 @@ fi
 
 pushed=0
 skipped=0
+
+# Temp file collects "run\ttest\tvus\tserver\teff_rps" rows for imputation
+eff_tsv=$(mktemp)
+trap 'rm -f "$eff_tsv"' EXIT
 
 for file in results/*/*/benchmark/*.json; do
   [[ -f "$file" ]] || continue
@@ -77,6 +88,10 @@ EOF
   printf '%s\n' "$payload" | curl -sf -X PUT "$url" --data-binary @- > /dev/null
   echo "  ✓ ${server}/${test}/vus${vus}"
   ((pushed++)) || true
+
+  # Collect row for imputation
+  eff=$(awk "BEGIN{printf \"%.6f\", $throughput * (1 - $error_rate)}")
+  printf '%s\t%s\t%s\t%s\t%s\n' "$run" "$test" "$vus" "$server" "$eff" >> "$eff_tsv"
 done
 
 echo
@@ -113,3 +128,55 @@ done
 
 echo
 echo "Preflight: pushed ${pushed}"
+
+# ── Percentile imputation for non-participating (server, test, vus) ───────
+
+echo
+echo "Computing p${IMPUTE_PERCENTILE} imputation for missing (server, test, vus) combinations…"
+imputed=0
+
+# node reads the TSV, computes pN per (run,test,vus), outputs rows for missing servers:
+# "run\ttest\tvus\tserver\timputed_val\tn_participants"
+while IFS=$'\t' read -r irun itest ivus srv imputed_val n_part; do
+  url="${PUSH_URL}/metrics/job/benchmark_imputed/run/${irun}/server/${srv}/test/${itest}/vus/${ivus}"
+  printf '# TYPE benchmark_throughput_rps_imputed gauge\nbenchmark_throughput_rps_imputed %s\n' "$imputed_val" | \
+    curl -sf -X PUT "$url" --data-binary @- > /dev/null
+  echo "  ~ ${srv}/${itest}/vus${ivus} → imputed ${imputed_val} (p${IMPUTE_PERCENTILE} of ${n_part} servers)"
+  ((imputed++)) || true
+done < <(node -e "
+const fs = require('fs');
+const pct = parseInt(process.env.IMPUTE_PERCENTILE || '20', 10);
+const rows = fs.readFileSync('$eff_tsv', 'utf8').trim().split('\n').filter(Boolean)
+  .map(l => { const [run,test,vus,server,eff] = l.split('\t'); return {run,test,vus,server,eff:+eff}; });
+
+// Group by (run,test,vus)
+const groups = {};
+const runServers = {};
+for (const r of rows) {
+  const key = r.run+'|'+r.test+'|'+r.vus;
+  (groups[key] = groups[key] || []).push(r);
+  (runServers[r.run] = runServers[r.run] || new Set()).add(r.server);
+}
+
+for (const [key, participants] of Object.entries(groups)) {
+  const [run, test, vus] = key.split('|');
+  const allServers = [...runServers[run]];
+  const participating = new Set(participants.map(r => r.server));
+
+  const vals = participants.map(r => r.eff).sort((a,b) => a-b);
+  const n = vals.length;
+  // Linear interpolation percentile: p0=min, p100=max, smooth gradation between
+  const pos = (pct / 100) * (n - 1);
+  const lo = Math.floor(pos), hi = Math.ceil(pos);
+  const imputed = (vals[lo] + (vals[hi] - vals[lo]) * (pos - lo)).toFixed(6);
+
+  for (const srv of allServers) {
+    if (!participating.has(srv)) {
+      process.stdout.write(run+'\t'+test+'\t'+vus+'\t'+srv+'\t'+imputed+'\t'+n+'\n');
+    }
+  }
+}
+")
+
+echo
+echo "Imputation: pushed ${imputed}"

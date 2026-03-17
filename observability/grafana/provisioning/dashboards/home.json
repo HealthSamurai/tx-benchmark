@@ -311,7 +311,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 80
+                "value": 90
               },
               {
                 "id": "unit",
@@ -327,7 +327,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 60
+                "value": 65
               },
               {
                 "id": "unit",
@@ -434,7 +434,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  label_replace(\n    exp(avg by(server)(ln(\n      benchmark_throughput_rps{run=\"$run\",vus=\"10\"}\n      / on(test) group_left()\n      max by(test)(benchmark_throughput_rps{run=\"$run\",vus=\"10\"})\n    ))),\n    \"metric\", \"score\", \"\", \"\"\n  )",
+          "expr": "  label_replace(\n    exp(avg by(server)(ln(\n      (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n      / on(test) group_left()\n      max by(test)(benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n    ))),\n    \"metric\", \"score\", \"\", \"\"\n  )",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -447,7 +447,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  label_replace(\n    avg by(server)(benchmark_throughput_rps{run=\"$run\", vus=\"10\"}),\n    \"metric\", \"rps\", \"\", \"\"\n  )",
+          "expr": "  label_replace(\n    avg by(server)(benchmark_throughput_rps{run=\"$run\", vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\", vus=\"$vus\"})),\n    \"metric\", \"rps\", \"\", \"\"\n  )",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -461,7 +461,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "label_replace(\n    avg by(server)(benchmark_duration_p95_ms{run=\"$run\", vus=\"10\"}),\n    \"metric\", \"p95_ms\", \"\", \"\"\n  )",
+          "expr": "label_replace(\n    avg by(server)(benchmark_duration_p95_ms{run=\"$run\", vus=\"$vus\"}),\n    \"metric\", \"p95_ms\", \"\", \"\"\n  )",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -475,7 +475,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "label_replace(\n    avg by(server)(benchmark_error_rate{run=\"$run\", vus=\"10\"}),\n    \"metric\", \"error_rate\", \"\", \"\"\n  )",
+          "expr": "label_replace(\n    avg by(server)(benchmark_error_rate{run=\"$run\", vus=\"$vus\"}),\n    \"metric\", \"error_rate\", \"\", \"\"\n  )",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -787,8 +787,8 @@
     "list": [
       {
         "current": {
-          "text": "2026-03-15",
-          "value": "2026-03-15"
+          "text": "mar-17-004b",
+          "value": "mar-17-004b"
         },
         "definition": "label_values(benchmark_preflight,run)",
         "name": "run",
@@ -801,6 +801,34 @@
         "refresh": 1,
         "regex": "",
         "type": "query"
+      },
+      {
+        "current": {
+          "text": "50",
+          "value": "50"
+        },
+        "includeAll": false,
+        "label": "VUs",
+        "name": "vus",
+        "options": [
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "10",
+            "value": "10"
+          },
+          {
+            "selected": true,
+            "text": "50",
+            "value": "50"
+          }
+        ],
+        "query": "1, 10, 50",
+        "type": "custom"
       }
     ]
   },
@@ -812,5 +840,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "aaea81bb-645e-4a38-b781-0fea6b1b3ebe",
-  "version": 2
+  "version": 9
 }
