@@ -31,7 +31,7 @@ RESUME_FROM="${4:-}"
 
 PROM_URL="http://localhost:9090/api/v1/write"
 VU_LEVELS=(1 10 50)
-DURATION="30s"
+DURATION="${DURATION:-30s}"
 WARMUP_VUS=10
 WARMUP_DURATION="5s"
 INTER_TEST_SLEEP=5   # seconds between tests to let the server recover
