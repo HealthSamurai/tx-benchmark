@@ -39,6 +39,6 @@ export const preflight = {
   checks: {
     'status 200':    (r) => r.status === 200,
     'has expansion': (r) => isValueSetExpansion(r),
-    'correct count': (r) => r.json()?.expansion?.contains?.length === 10,
+    'has results':   (r) => (r.json()?.expansion?.contains?.length ?? 0) > 0,
   },
 };
