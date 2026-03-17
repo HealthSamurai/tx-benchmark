@@ -4,6 +4,10 @@ import { runTest, handleSummary, options } from '../lib/runner.js';
 export { handleSummary, options };
 import { CodeSystem_lookup_GET } from '../lib/fhir.js';
 import { loadPool } from '../lib/pool.js';
+import http from 'k6/http';
+
+// 404 is the correct response for this test — do not count as error
+http.setResponseCallback(http.expectedStatuses(200, 404));
 
 const SNOMED     = 'http://snomed.info/sct';
 const KNOWN_CODE = '999973211009'; // non-existent: real code prefixed with 9999

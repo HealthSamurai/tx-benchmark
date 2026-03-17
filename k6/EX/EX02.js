@@ -13,7 +13,7 @@ const RXNORM_VS = {
 };
 
 const counts  = loadPool('expand/counts.json');
-const request = (count) => ValueSet_expand_POST({ valueSet: RXNORM_VS, count });
+const request = ({ count, offset }) => ValueSet_expand_POST({ valueSet: RXNORM_VS, count, offset });
 
 // ─── Benchmark ────────────────────────────────────────────────────────────
 
@@ -30,7 +30,7 @@ export default runTest({
 
 export const preflight = {
   id: 'EX02',
-  knownEntry: 10,
+  knownEntry: { count: 10 },
   request,
   checks: {
     'status 200':    (r) => r.status === 200,
