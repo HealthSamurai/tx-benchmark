@@ -1,0 +1,464 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 8,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/^(?!server$).+/"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "red",
+                        "index": 0,
+                        "text": "✗"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "✓"
+                      },
+                      "-1": {
+                        "color": "text",
+                        "index": 2,
+                        "text": "~"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "benchmark_preflight{run=\"$run\",server=\"$server\"}",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "test"
+            ],
+            "valueLabel": "test"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "job": true,
+              "run": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "CM01": 22,
+              "CM02": 23,
+              "EX01": 13,
+              "EX02": 14,
+              "EX03": 15,
+              "EX04": 16,
+              "EX05": 17,
+              "EX06": 18,
+              "EX07": 19,
+              "EX08": 20,
+              "FS01": 4,
+              "LK01": 5,
+              "LK02": 6,
+              "LK03": 7,
+              "LK04": 8,
+              "LK05": 9,
+              "SS01": 21,
+              "Time": 0,
+              "VC01": 10,
+              "VC02": 11,
+              "VC03": 12,
+              "job": 1,
+              "run": 2,
+              "server": 3
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "Percentile / VUs",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "noValue": "-",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/^(?!P\\/VUs$).+/"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              },
+              {
+                "id": "fieldMinMax",
+                "value": false
+              },
+              {
+                "id": "custom.width",
+                "value": 68
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "dark-green",
+                      "value": 50
+                    },
+                    {
+                      "color": "green",
+                      "value": 100
+                    },
+                    {
+                      "color": "super-light-yellow",
+                      "value": 200
+                    },
+                    {
+                      "color": "dark-yellow",
+                      "value": 400
+                    },
+                    {
+                      "color": "orange",
+                      "value": 800
+                    },
+                    {
+                      "color": "red",
+                      "value": 1000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 2000
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P/VUs"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 60
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_join(\n  label_replace(\n    {__name__=~\"benchmark_duration_p(50|95|99)_ms\", run=\"$run\", server=\"$server\"},\n    \"percentile\",\n    \"p$1\",\n    \"__name__\",\n    \"benchmark_duration_p(.*)_ms\"\n  ),\n  \"p_vus\",\n  \"/\",\n  \"percentile\",\n  \"vus\"\n)",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Latency",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "p_vus",
+              "run",
+              "server",
+              "test"
+            ],
+            "valueLabel": "test"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "run": true,
+              "server": true,
+              "vus": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "CM01": 22,
+              "CM02": 23,
+              "EX01": 13,
+              "EX02": 14,
+              "EX03": 15,
+              "EX04": 16,
+              "EX05": 17,
+              "EX06": 18,
+              "EX07": 19,
+              "EX08": 20,
+              "FS01": 4,
+              "LK01": 5,
+              "LK02": 6,
+              "LK03": 7,
+              "LK04": 8,
+              "LK05": 9,
+              "SS01": 21,
+              "Time": 1,
+              "VC01": 10,
+              "VC02": 11,
+              "VC03": 12,
+              "p_vus": 3,
+              "run": 2,
+              "server": 0
+            },
+            "renameByName": {
+              "p_vus": "P/VUs",
+              "percentile": "P",
+              "vus": "VUs"
+            }
+          }
+        },
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "mar-17-004b",
+          "value": "mar-17-004b"
+        },
+        "definition": "label_values(benchmark_preflight,run)",
+        "includeAll": false,
+        "label": "Run",
+        "name": "run",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(benchmark_preflight,run)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "sort": 7,
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "ontoserver",
+          "value": "ontoserver"
+        },
+        "definition": "label_values(benchmark_preflight,server)",
+        "includeAll": false,
+        "label": "Server",
+        "name": "server",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(benchmark_preflight,server)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-2d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Server",
+  "uid": "72c5a2b5-f3c9-434b-bdf6-0a16a9681f5c",
+  "version": 3
+}
