@@ -14,11 +14,15 @@
 # resume-from resumes a previously aborted run starting at TEST_ID or TEST_ID/VUS.
 # The resume point is printed automatically when a server crash is detected.
 #
+# If RESTART_CMD is set, the runner will automatically restart the server on crash,
+# wait up to 5 minutes for it to be live, and resume — instead of exiting.
+#
 # Example:
 #   RUN=2026-03-15T14:00
 #   ./scripts/run.sh termbox    http://localhost:7001/fhir $RUN
 #   ./scripts/run.sh ontoserver https://tx.example.com/fhir $RUN
 #   ./scripts/run.sh termbox    http://localhost:7001/fhir $RUN EX03/10
+#   RESTART_CMD="docker compose -f /path/to/server/docker-compose.yml up -d" ./scripts/run.sh myserver http://localhost:8080/fhir $RUN
 #
 # Dependencies: k6, jq
 
@@ -28,6 +32,8 @@ SERVER="${1:?Usage: run.sh <server> <base-url> [run-id] [resume-from]}"
 BASE_URL="${2:?Usage: run.sh <server> <base-url> [run-id] [resume-from]}"
 RUN_ID="${3:-$(date +%Y-%m-%dT%H:%M)}"
 RESUME_FROM="${4:-}"
+RESTART_CMD="${RESTART_CMD:-}"
+RESTART_TIMEOUT=60   # max attempts at 5s each = 5 minutes
 
 PROM_URL="http://localhost:9090/api/v1/write"
 VU_LEVELS=(1 10 50)
@@ -105,16 +111,37 @@ next_resume() {
   done
 }
 
-check_server() {
+ensure_server() {
   local test_id="$1" vus="$2"
-  if ! curl -sf --max-time 5 "${BASE_URL}/metadata" > /dev/null 2>&1; then
+  curl -sf --max-time 5 "${BASE_URL}/metadata" > /dev/null 2>&1 && return 0
+
+  echo
+  echo "WARNING: ${SERVER} is not responding after ${test_id}/vus${vus}."
+
+  if [[ -z "$RESTART_CMD" ]]; then
     local next; next=$(next_resume "$test_id" "$vus")
-    echo
-    echo "ERROR: ${SERVER} is not responding after ${test_id}/vus${vus}."
     echo "Restart the server, then resume with:"
     echo "  ./scripts/run.sh ${SERVER} ${BASE_URL} ${RUN_ID} ${next}"
     exit 1
   fi
+
+  echo "Restarting: ${RESTART_CMD}"
+  eval "$RESTART_CMD"
+
+  local attempts=0
+  until curl -sf --max-time 5 "${BASE_URL}/metadata" > /dev/null 2>&1; do
+    ((attempts++)) || true
+    if [[ $attempts -ge $RESTART_TIMEOUT ]]; then
+      local next; next=$(next_resume "$test_id" "$vus")
+      echo "ERROR: ${SERVER} did not come back after restart. Resume with:"
+      echo "  ./scripts/run.sh ${SERVER} ${BASE_URL} ${RUN_ID} ${next}"
+      exit 1
+    fi
+    echo "  Waiting for ${SERVER}… (${attempts}/${RESTART_TIMEOUT})"
+    sleep 5
+  done
+
+  echo "  ${SERVER} is back up. Resuming."
 }
 
 # ─── Skip-until logic for resume ──────────────────────────────────────────
@@ -221,7 +248,7 @@ for TEST in "${TESTS[@]}"; do
       --env RUN_ID="$RUN_ID" \
       "$TEST"
 
-    check_server "$TEST_ID" "$VUS"
+    ensure_server "$TEST_ID" "$VUS"
   done
 done
 
