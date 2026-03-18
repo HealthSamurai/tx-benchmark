@@ -176,7 +176,7 @@
   },
   {
     "codeA": "292247007",
-    "codeB": "338151000112109",
+    "codeB": "80146002",
     "expected": "not-subsumes"
   },
   {
@@ -400,8 +400,8 @@
     "expected": "subsumes"
   },
   {
-    "codeA": "1373328003",
-    "codeB": "15965181000119103",
+    "codeA": "73211009",
+    "codeB": "80146002",
     "expected": "not-subsumes"
   },
   {
@@ -600,8 +600,8 @@
     "expected": "not-subsumes"
   },
   {
-    "codeA": "896853008",
-    "codeB": "896853008",
+    "codeA": "73211009",
+    "codeB": "73211009",
     "expected": "equivalent"
   },
   {
@@ -1271,7 +1271,7 @@
   },
   {
     "codeA": "366358006",
-    "codeB": "1381777005",
+    "codeB": "366361007",
     "expected": "subsumes"
   },
   {
@@ -1545,8 +1545,8 @@
     "expected": "subsumed-by"
   },
   {
-    "codeA": "238301000087101",
-    "codeB": "238311000087104",
+    "codeA": "386053000",
+    "codeB": "84499006",
     "expected": "not-subsumes"
   },
   {
@@ -2090,8 +2090,8 @@
     "expected": "subsumes"
   },
   {
-    "codeA": "702301010000105",
-    "codeB": "702301010000105",
+    "codeA": "80146002",
+    "codeB": "80146002",
     "expected": "equivalent"
   },
   {
@@ -2115,7 +2115,7 @@
     "expected": "subsumed-by"
   },
   {
-    "codeA": "1362081007",
+    "codeA": "300251004",
     "codeB": "1071000119107",
     "expected": "subsumed-by"
   },
@@ -2675,7 +2675,7 @@
     "expected": "not-subsumes"
   },
   {
-    "codeA": "1381537004",
+    "codeA": "102601005",
     "codeB": "423066003",
     "expected": "subsumed-by"
   },
@@ -2911,7 +2911,7 @@
   },
   {
     "codeA": "1071000119107",
-    "codeB": "1362081007",
+    "codeB": "300251004",
     "expected": "subsumes"
   },
   {
@@ -3096,7 +3096,7 @@
   },
   {
     "codeA": "253524007",
-    "codeB": "1388426005",
+    "codeB": "73211009",
     "expected": "not-subsumes"
   },
   {
@@ -3151,7 +3151,7 @@
   },
   {
     "codeA": "361317000",
-    "codeB": "1371183008",
+    "codeB": "80146002",
     "expected": "not-subsumes"
   },
   {
@@ -3326,7 +3326,7 @@
   },
   {
     "codeA": "423066003",
-    "codeB": "1381537004",
+    "codeB": "102601005",
     "expected": "subsumes"
   },
   {
@@ -3440,7 +3440,7 @@
     "expected": "subsumes"
   },
   {
-    "codeA": "1381777005",
+    "codeA": "366361007",
     "codeB": "366358006",
     "expected": "subsumed-by"
   },
