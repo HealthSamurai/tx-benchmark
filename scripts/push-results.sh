@@ -25,7 +25,7 @@
 set -euo pipefail
 
 PUSH_URL="${1:-http://localhost:9091}"
-IMPUTE_PERCENTILE="${IMPUTE_PERCENTILE:-50}"
+IMPUTE_PERCENTILE="${IMPUTE_PERCENTILE:-20}"
 
 if ! curl -sf --max-time 3 "${PUSH_URL}/-/healthy" > /dev/null 2>&1; then
   echo "ERROR: Pushgateway not reachable at ${PUSH_URL}"
