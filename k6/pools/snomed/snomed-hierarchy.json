@@ -174,7 +174,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         }
       ]
     ]
@@ -654,7 +654,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         }
       ]
     ]
@@ -1266,7 +1266,7 @@
         {
           "property": "concept",
           "op": "generalizes",
-          "value": "1381814003"
+          "value": "387458008"
         }
       ]
     ]
@@ -1446,7 +1446,7 @@
         {
           "property": "concept",
           "op": "generalizes",
-          "value": "1372818006"
+          "value": "85562004"
         }
       ]
     ]
@@ -1554,7 +1554,7 @@
         {
           "property": "concept",
           "op": "generalizes",
-          "value": "1371145007"
+          "value": "57054005"
         }
       ]
     ]
@@ -3122,7 +3122,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "116676008",
@@ -3139,7 +3139,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "116676008",
@@ -3156,7 +3156,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "363698007",
@@ -3173,7 +3173,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "363698007",
@@ -3190,7 +3190,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "363698007",
@@ -3207,7 +3207,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "363698007",
@@ -3224,7 +3224,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         },
         {
           "property": "363698007",
@@ -3697,7 +3697,7 @@
         {
           "property": "concept",
           "op": "descendent-of",
-          "value": "1362108000"
+          "value": "74732009"
         }
       ],
       [
