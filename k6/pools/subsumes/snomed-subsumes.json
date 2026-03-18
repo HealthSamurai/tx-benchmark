@@ -22,7 +22,7 @@
   {
     "codeA": "66276000",
     "codeB": "67307004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "122716009",
@@ -37,7 +37,7 @@
   {
     "codeA": "10818181000119107",
     "codeB": "10823291000119101",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "128334002",
@@ -57,7 +57,7 @@
   {
     "codeA": "715125006",
     "codeB": "243743000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "64542007",
@@ -97,7 +97,7 @@
   {
     "codeA": "60505005",
     "codeB": "95499004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "765109004",
@@ -177,7 +177,7 @@
   {
     "codeA": "292247007",
     "codeB": "80146002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "40661000087101",
@@ -187,7 +187,7 @@
   {
     "codeA": "68059001",
     "codeB": "78662000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "49018005",
@@ -222,7 +222,7 @@
   {
     "codeA": "291501000",
     "codeB": "23399008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "411262001",
@@ -247,7 +247,7 @@
   {
     "codeA": "289096007",
     "codeB": "289097003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "12105941000119105",
@@ -257,7 +257,7 @@
   {
     "codeA": "6970001",
     "codeB": "8190004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "81869008",
@@ -277,12 +277,12 @@
   {
     "codeA": "363466008",
     "codeB": "173619003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "5713008",
     "codeB": "24542006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1284949006",
@@ -332,7 +332,7 @@
   {
     "codeA": "312927001",
     "codeB": "13941003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "118956008",
@@ -347,7 +347,7 @@
   {
     "codeA": "302151004",
     "codeB": "441231006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "118717007",
@@ -367,7 +367,7 @@
   {
     "codeA": "92471004",
     "codeB": "416279006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "125599006",
@@ -377,7 +377,7 @@
   {
     "codeA": "138066007",
     "codeB": "426742008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "780361003",
@@ -402,7 +402,7 @@
   {
     "codeA": "73211009",
     "codeB": "80146002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "430746007",
@@ -462,7 +462,7 @@
   {
     "codeA": "91743006",
     "codeB": "44903009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "41175001",
@@ -472,12 +472,12 @@
   {
     "codeA": "272979004",
     "codeB": "13174002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "6069000",
     "codeB": "26100002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "322982006",
@@ -507,7 +507,7 @@
   {
     "codeA": "95263006",
     "codeB": "188631008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "122123001",
@@ -557,7 +557,7 @@
   {
     "codeA": "5728008",
     "codeB": "118151002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "68101005",
@@ -572,7 +572,7 @@
   {
     "codeA": "287326003",
     "codeB": "431861008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "123037004",
@@ -582,7 +582,7 @@
   {
     "codeA": "16782931000119100",
     "codeB": "121558007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "16342171000119105",
@@ -597,7 +597,7 @@
   {
     "codeA": "91012008",
     "codeB": "179186005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "73211009",
@@ -617,12 +617,12 @@
   {
     "codeA": "77100009",
     "codeB": "1204240001",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "397785000",
     "codeB": "710154002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "14734007",
@@ -632,7 +632,7 @@
   {
     "codeA": "12641000087107",
     "codeB": "13171000087102",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "387967000",
@@ -647,12 +647,12 @@
   {
     "codeA": "91993000",
     "codeB": "93690007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "38022006",
     "codeB": "424981002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1264089009",
@@ -662,12 +662,12 @@
   {
     "codeA": "165851002",
     "codeB": "46634008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "168407000",
     "codeB": "168408005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "411222000",
@@ -697,7 +697,7 @@
   {
     "codeA": "39251000087106",
     "codeB": "11780201000119103",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1149223009",
@@ -712,7 +712,7 @@
   {
     "codeA": "314279009",
     "codeB": "314281006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "429636000",
@@ -782,12 +782,12 @@
   {
     "codeA": "369020000",
     "codeB": "423851000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "77717008",
     "codeB": "418956005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "387713003",
@@ -847,17 +847,17 @@
   {
     "codeA": "39205007",
     "codeB": "72369006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "277857004",
     "codeB": "717027004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "15887011000119107",
     "codeB": "62777006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "419961004",
@@ -902,12 +902,12 @@
   {
     "codeA": "72535009",
     "codeB": "93460005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "371606009",
     "codeB": "783355000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "10219009",
@@ -927,7 +927,7 @@
   {
     "codeA": "204950001",
     "codeB": "762911004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "279634001",
@@ -957,7 +957,7 @@
   {
     "codeA": "44904003",
     "codeB": "20079007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1264050003",
@@ -972,7 +972,7 @@
   {
     "codeA": "37083002",
     "codeB": "257763001",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "303491000",
@@ -1002,17 +1002,17 @@
   {
     "codeA": "4958002",
     "codeB": "31428008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "10721000",
     "codeB": "26662009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "768955002",
     "codeB": "776514003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "124237001",
@@ -1067,12 +1067,12 @@
   {
     "codeA": "126681000",
     "codeB": "74126006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1290365009",
     "codeB": "439120008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "79036002",
@@ -1097,7 +1097,7 @@
   {
     "codeA": "70757008",
     "codeB": "907009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "293365002",
@@ -1207,7 +1207,7 @@
   {
     "codeA": "228377000",
     "codeB": "417392003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "34560001",
@@ -1287,7 +1287,7 @@
   {
     "codeA": "87720008",
     "codeB": "48612002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "369275002",
@@ -1307,7 +1307,7 @@
   {
     "codeA": "64404003",
     "codeB": "53696006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "284853003",
@@ -1357,7 +1357,7 @@
   {
     "codeA": "10837061000119109",
     "codeB": "171146004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "281066000",
@@ -1537,7 +1537,7 @@
   {
     "codeA": "226090007",
     "codeB": "43882005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "259212005",
@@ -1547,7 +1547,7 @@
   {
     "codeA": "386053000",
     "codeB": "84499006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1149322001",
@@ -1592,7 +1592,7 @@
   {
     "codeA": "1290125003",
     "codeB": "8777004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "129509006",
@@ -1612,7 +1612,7 @@
   {
     "codeA": "780680007",
     "codeB": "1193590005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "88878007",
@@ -1667,7 +1667,7 @@
   {
     "codeA": "93019008",
     "codeB": "127802000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "118223001",
@@ -1717,7 +1717,7 @@
   {
     "codeA": "278555002",
     "codeB": "117036006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "424496008",
@@ -1802,7 +1802,7 @@
   {
     "codeA": "402547008",
     "codeB": "172021003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1177094000",
@@ -1922,7 +1922,7 @@
   {
     "codeA": "282193002",
     "codeB": "39856007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "358725006",
@@ -1982,7 +1982,7 @@
   {
     "codeA": "279377009",
     "codeB": "79650006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "32166003",
@@ -2012,7 +2012,7 @@
   {
     "codeA": "251977001",
     "codeB": "404232001",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "301826004",
@@ -2037,7 +2037,7 @@
   {
     "codeA": "1179678004",
     "codeB": "414319000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "61319000",
@@ -2067,12 +2067,12 @@
   {
     "codeA": "50936006",
     "codeB": "88411000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "76424003",
     "codeB": "76928009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "363804004",
@@ -2097,7 +2097,7 @@
   {
     "codeA": "182450005",
     "codeB": "32737005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "387155003",
@@ -2107,7 +2107,7 @@
   {
     "codeA": "419981003",
     "codeB": "771502005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "367785009",
@@ -2127,7 +2127,7 @@
   {
     "codeA": "724803007",
     "codeB": "718295007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "260787004",
@@ -2142,7 +2142,7 @@
   {
     "codeA": "160513005",
     "codeB": "431775008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "113832008",
@@ -2232,7 +2232,7 @@
   {
     "codeA": "160852007",
     "codeB": "160786009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "124283007",
@@ -2257,7 +2257,7 @@
   {
     "codeA": "303768000",
     "codeB": "117211000181102",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "233854003",
@@ -2277,7 +2277,7 @@
   {
     "codeA": "128776008",
     "codeB": "42806001",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "17984001",
@@ -2322,7 +2322,7 @@
   {
     "codeA": "4217000",
     "codeB": "6910009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "322151008",
@@ -2367,12 +2367,12 @@
   {
     "codeA": "76710003",
     "codeB": "13981005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "5128004",
     "codeB": "45838003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "368695007",
@@ -2397,7 +2397,7 @@
   {
     "codeA": "262914003",
     "codeB": "262915002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1155822007",
@@ -2422,7 +2422,7 @@
   {
     "codeA": "169421008",
     "codeB": "229556008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "404684003",
@@ -2442,12 +2442,12 @@
   {
     "codeA": "170002000",
     "codeB": "609216005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "29609001",
     "codeB": "84146007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "131126003",
@@ -2462,7 +2462,7 @@
   {
     "codeA": "787416004",
     "codeB": "787417008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1297327000",
@@ -2502,7 +2502,7 @@
   {
     "codeA": "46211007",
     "codeB": "69773006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "419366003",
@@ -2517,7 +2517,7 @@
   {
     "codeA": "31071005",
     "codeB": "434583004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "364834004",
@@ -2547,7 +2547,7 @@
   {
     "codeA": "54376001",
     "codeB": "386236004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "363187007",
@@ -2617,7 +2617,7 @@
   {
     "codeA": "2794006",
     "codeB": "2644002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "246639001",
@@ -2652,7 +2652,7 @@
   {
     "codeA": "225821006",
     "codeB": "70415003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "442194005",
@@ -2672,7 +2672,7 @@
   {
     "codeA": "229742009",
     "codeB": "1296489006",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "102601005",
@@ -2702,7 +2702,7 @@
   {
     "codeA": "305737001",
     "codeB": "33988007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "301506008",
@@ -2832,7 +2832,7 @@
   {
     "codeA": "1297262007",
     "codeB": "441571000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "237000000",
@@ -2887,7 +2887,7 @@
   {
     "codeA": "12273009",
     "codeB": "246770004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "106063007",
@@ -2922,7 +2922,7 @@
   {
     "codeA": "402351009",
     "codeB": "403284004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "789181000",
@@ -2957,7 +2957,7 @@
   {
     "codeA": "190687004",
     "codeB": "710826007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "763804005",
@@ -3002,12 +3002,12 @@
   {
     "codeA": "290265004",
     "codeB": "11718008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "103293001",
     "codeB": "53236004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "414225004",
@@ -3027,7 +3027,7 @@
   {
     "codeA": "82385007",
     "codeB": "432115009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "778307009",
@@ -3052,12 +3052,12 @@
   {
     "codeA": "319021000119105",
     "codeB": "27516000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "33176006",
     "codeB": "54124005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "93347003",
@@ -3082,7 +3082,7 @@
   {
     "codeA": "8501000119104",
     "codeB": "111411000119103",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1269295001",
@@ -3097,12 +3097,12 @@
   {
     "codeA": "253524007",
     "codeB": "73211009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "789301007",
     "codeB": "1145266007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "25516004",
@@ -3122,7 +3122,7 @@
   {
     "codeA": "39191000119103",
     "codeB": "709595005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "249363002",
@@ -3152,12 +3152,12 @@
   {
     "codeA": "361317000",
     "codeB": "80146002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "344001",
     "codeB": "4527007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "897653001",
@@ -3167,7 +3167,7 @@
   {
     "codeA": "32292000",
     "codeB": "66738005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "447878005",
@@ -3187,7 +3187,7 @@
   {
     "codeA": "787958009",
     "codeB": "398452009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "249461004",
@@ -3217,7 +3217,7 @@
   {
     "codeA": "766432002",
     "codeB": "1287494002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "244750008",
@@ -3262,7 +3262,7 @@
   {
     "codeA": "403937006",
     "codeB": "410215004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "1201835003",
@@ -3287,7 +3287,7 @@
   {
     "codeA": "200785003",
     "codeB": "54885007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "387477005",
@@ -3297,7 +3297,7 @@
   {
     "codeA": "278629006",
     "codeB": "252950007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "243321006",
@@ -3427,7 +3427,7 @@
   {
     "codeA": "719431007",
     "codeB": "172156002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "928000",
@@ -3447,7 +3447,7 @@
   {
     "codeA": "2501000124104",
     "codeB": "4226002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "174059005",
@@ -3497,7 +3497,7 @@
   {
     "codeA": "19215005",
     "codeB": "431012007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "71388002",
@@ -3527,7 +3527,7 @@
   {
     "codeA": "89058008",
     "codeB": "235434007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "28944009",
@@ -3562,12 +3562,12 @@
   {
     "codeA": "65415004",
     "codeB": "77133004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "271420006",
     "codeB": "26253002",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "414387006",
@@ -3597,7 +3597,7 @@
   {
     "codeA": "724275005",
     "codeB": "1230101008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "836393002",
@@ -3617,7 +3617,7 @@
   {
     "codeA": "719884003",
     "codeB": "721046007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "367811004",
@@ -3677,7 +3677,7 @@
   {
     "codeA": "64728002",
     "codeB": "1640009",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "354341000119108",
@@ -3697,7 +3697,7 @@
   {
     "codeA": "1153342008",
     "codeB": "1153343003",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "21158003",
@@ -3737,12 +3737,12 @@
   {
     "codeA": "15976741000119109",
     "codeB": "105268000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "314395006",
     "codeB": "425036008",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "161417003",
@@ -3782,7 +3782,7 @@
   {
     "codeA": "707493006",
     "codeB": "186049004",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "94025004",
@@ -3807,7 +3807,7 @@
   {
     "codeA": "75205009",
     "codeB": "234931000",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "36361003",
@@ -3827,7 +3827,7 @@
   {
     "codeA": "303921001",
     "codeB": "396689007",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "52825005",
@@ -3842,7 +3842,7 @@
   {
     "codeA": "51960003",
     "codeB": "52414005",
-    "expected": "not-subsumes"
+    "expected": "not-subsumed"
   },
   {
     "codeA": "19923001",
