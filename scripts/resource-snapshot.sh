@@ -28,7 +28,7 @@ CPU_USAGE=$(query   "sum(rate(container_cpu_usage_seconds_total{container_label_
 DISK_USED=$(query   'sum(node_filesystem_size_bytes{fstype!~"tmpfs|overlay|squashfs"} - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|squashfs"}) / 1024 / 1024 / 1024')
 
 # Container memory: sum RSS across all containers in the server's compose project
-MEM_USED_MB=null
+MEM_USED_BYTES=null
 mem_bytes=0
 while IFS= read -r cname; do
   usage=$(docker stats --no-stream --format '{{.MemUsage}}' "$cname" 2>/dev/null | awk '{print $1}')
@@ -41,7 +41,7 @@ while IFS= read -r cname; do
   ')
   [[ -n "$bytes" ]] && mem_bytes=$((mem_bytes + bytes))
 done < <(docker ps --filter "label=com.docker.compose.project=${SERVER}" --format '{{.Names}}')
-[[ "$mem_bytes" -gt 0 ]] && MEM_USED_MB=$(awk "BEGIN{printf \"%.1f\", $mem_bytes / 1048576}")
+[[ "$mem_bytes" -gt 0 ]] && MEM_USED_BYTES=$mem_bytes
 
 # Data volume size: auto-discovered from containers in the server's compose project.
 # Finds all running containers labelled com.docker.compose.project=$SERVER,
@@ -64,7 +64,7 @@ jq -n \
   --arg label     "$LABEL" \
   --arg ts        "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
   --argjson cpu        "$(to_num "$CPU_USAGE")" \
-  --argjson mem_used   "$(to_num "$MEM_USED_MB")" \
+  --argjson mem_used   "$(to_num "$MEM_USED_BYTES")" \
   --argjson disk       "$(to_num "$DISK_USED")" \
   --argjson data_bytes "$DATA_BYTES" \
   '{
@@ -72,7 +72,7 @@ jq -n \
     label:             $label,
     timestamp:         $ts,
     cpu_usage:         $cpu,
-    mem_used_mb:       $mem_used,
+    mem_used_bytes:    $mem_used,
     disk_used_gb:      $disk,
     data_volume_bytes: $data_bytes
   }' > "$OUT"

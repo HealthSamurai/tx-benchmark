@@ -141,7 +141,7 @@ for file in results/*/*/snapshot_idle.json; do
   server=$(jq -r '.server' "$file")
   run=$(echo "$file" | awk -F/ '{print $2}')
   cpu=$(jq -r  '.cpu_usage         // "NaN"' "$file")
-  mem=$(jq -r  '.mem_used_mb       // "NaN"' "$file")
+  mem=$(jq -r  '.mem_used_bytes    // "NaN"' "$file")
   disk=$(jq -r '.disk_used_gb      // "NaN"' "$file")
   data=$(jq -r '.data_volume_bytes // "NaN"' "$file")
 
@@ -149,8 +149,8 @@ for file in results/*/*/snapshot_idle.json; do
   payload=$(cat <<EOF
 # TYPE benchmark_idle_cpu_pct gauge
 benchmark_idle_cpu_pct $cpu
-# TYPE benchmark_idle_mem_used_mb gauge
-benchmark_idle_mem_used_mb $mem
+# TYPE benchmark_idle_mem_used_bytes gauge
+benchmark_idle_mem_used_bytes $mem
 # TYPE benchmark_idle_disk_used_gb gauge
 benchmark_idle_disk_used_gb $disk
 # TYPE benchmark_idle_data_volume_bytes gauge
