@@ -129,6 +129,42 @@ done
 echo
 echo "Preflight: pushed ${pushed}"
 
+# ── Idle resource snapshots ───────────────────────────────────────────────
+
+echo
+echo "Pushing idle snapshots…"
+pushed=0
+
+for file in results/*/*/snapshot_idle.json; do
+  [[ -f "$file" ]] || continue
+
+  server=$(jq -r '.server' "$file")
+  run=$(echo "$file" | awk -F/ '{print $2}')
+  cpu=$(jq -r  '.cpu_usage         // "NaN"' "$file")
+  mem=$(jq -r  '.mem_used_mb       // "NaN"' "$file")
+  disk=$(jq -r '.disk_used_gb      // "NaN"' "$file")
+  data=$(jq -r '.data_volume_bytes // "NaN"' "$file")
+
+  url="${PUSH_URL}/metrics/job/snapshot/run/${run}/server/${server}"
+  payload=$(cat <<EOF
+# TYPE benchmark_idle_cpu_pct gauge
+benchmark_idle_cpu_pct $cpu
+# TYPE benchmark_idle_mem_used_mb gauge
+benchmark_idle_mem_used_mb $mem
+# TYPE benchmark_idle_disk_used_gb gauge
+benchmark_idle_disk_used_gb $disk
+# TYPE benchmark_idle_data_volume_bytes gauge
+benchmark_idle_data_volume_bytes $data
+EOF
+)
+  printf '%s\n' "$payload" | curl -sf -X PUT "$url" --data-binary @- > /dev/null
+  echo "  ✓ ${server} (idle snapshot)"
+  ((pushed++)) || true
+done
+
+echo
+echo "Snapshots: pushed ${pushed}"
+
 # ── Percentile imputation for non-participating (server, test, vus) ───────
 
 echo

@@ -25,9 +25,23 @@ query() {
 }
 
 CPU_USAGE=$(query   "sum(rate(container_cpu_usage_seconds_total{container_label_com_docker_compose_project=\"${SERVER}\"}[1m])) / scalar(count(node_cpu_seconds_total{mode=\"idle\"})) * 100")
-MEM_TOTAL=$(query   'node_memory_MemTotal_bytes / 1024 / 1024')
-MEM_AVAIL=$(query   'node_memory_MemAvailable_bytes / 1024 / 1024')
 DISK_USED=$(query   'sum(node_filesystem_size_bytes{fstype!~"tmpfs|overlay|squashfs"} - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|squashfs"}) / 1024 / 1024 / 1024')
+
+# Container memory: sum RSS across all containers in the server's compose project
+MEM_USED_MB=null
+mem_bytes=0
+while IFS= read -r cname; do
+  usage=$(docker stats --no-stream --format '{{.MemUsage}}' "$cname" 2>/dev/null | awk '{print $1}')
+  # Parse value with unit (GiB/MiB/KiB/B)
+  bytes=$(echo "$usage" | awk '
+    /GiB/ { gsub(/GiB/,""); printf "%.0f", $1 * 1073741824; next }
+    /MiB/ { gsub(/MiB/,""); printf "%.0f", $1 * 1048576;    next }
+    /KiB/ { gsub(/KiB/,""); printf "%.0f", $1 * 1024;       next }
+    /B/   { gsub(/B/,"");   printf "%.0f", $1;              next }
+  ')
+  [[ -n "$bytes" ]] && mem_bytes=$((mem_bytes + bytes))
+done < <(docker ps --filter "label=com.docker.compose.project=${SERVER}" --format '{{.Names}}')
+[[ "$mem_bytes" -gt 0 ]] && MEM_USED_MB=$(awk "BEGIN{printf \"%.1f\", $mem_bytes / 1048576}")
 
 # Data volume size: auto-discovered from containers in the server's compose project.
 # Finds all running containers labelled com.docker.compose.project=$SERVER,
@@ -49,19 +63,17 @@ jq -n \
   --arg server    "$SERVER" \
   --arg label     "$LABEL" \
   --arg ts        "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
-  --argjson cpu       "$(to_num "$CPU_USAGE")" \
-  --argjson mem_total "$(to_num "$MEM_TOTAL")" \
-  --argjson mem_avail "$(to_num "$MEM_AVAIL")" \
-  --argjson disk      "$(to_num "$DISK_USED")" \
+  --argjson cpu        "$(to_num "$CPU_USAGE")" \
+  --argjson mem_used   "$(to_num "$MEM_USED_MB")" \
+  --argjson disk       "$(to_num "$DISK_USED")" \
   --argjson data_bytes "$DATA_BYTES" \
   '{
-    server:           $server,
-    label:            $label,
-    timestamp:        $ts,
-    cpu_usage:        $cpu,
-    mem_total_mb:     $mem_total,
-    mem_available_mb: $mem_avail,
-    disk_used_gb:     $disk,
+    server:            $server,
+    label:             $label,
+    timestamp:         $ts,
+    cpu_usage:         $cpu,
+    mem_used_mb:       $mem_used,
+    disk_used_gb:      $disk,
     data_volume_bytes: $data_bytes
   }' > "$OUT"
 
