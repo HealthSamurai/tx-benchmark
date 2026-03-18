@@ -343,7 +343,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 60
+                "value": 65
               },
               {
                 "id": "custom.align",
@@ -383,29 +383,6 @@
                 }
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Tests"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 60
-              },
-              {
-                "id": "custom.align",
-                "value": "center"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "server"
-            },
-            "properties": []
           }
         ]
       },
@@ -718,7 +695,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "benchmark_duration_p95_ms{run=\"$run\", vus=\"10\"}",
+          "expr": "benchmark_duration_p95_ms{run=\"$run\", vus=~\"$vus\"}",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -840,5 +817,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "aaea81bb-645e-4a38-b781-0fea6b1b3ebe",
-  "version": 9
+  "version": 11
 }
