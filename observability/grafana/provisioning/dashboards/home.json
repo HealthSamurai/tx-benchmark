@@ -343,7 +343,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 65
+                "value": 90
               },
               {
                 "id": "custom.align",
@@ -383,6 +383,44 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tests"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "text"
+                }
+              },
+              {
+                "id": "fieldMinMax",
+                "value": true
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-YlBl"
+                }
+              }
+            ]
           }
         ]
       },
@@ -411,7 +449,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  label_replace(\n    exp(avg by(server)(ln(\n      (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n      / on(test) group_left()\n      max by(test)(benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n    ))),\n    \"metric\", \"score\", \"\", \"\"\n  )",
+          "expr": "  label_replace(\n    exp(avg by(server)(ln(\n      (\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n      / on(test) group_left()\n      max by(test)(\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n    ))),\n    \"metric\", \"score\", \"\", \"\"\n  )",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -424,7 +462,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  label_replace(\n    avg by(server)(benchmark_throughput_rps{run=\"$run\", vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\", vus=\"$vus\"})),\n    \"metric\", \"rps\", \"\", \"\"\n  )",
+          "expr": "  label_replace(\n    avg by(server)(\n      (benchmark_throughput_rps{run=\"$run\", vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\", vus=\"$vus\"}))\n      or on(server, test, vus, run)\n      benchmark_throughput_rps_imputed{run=\"$run\", vus=\"$vus\"}\n    ),\n    \"metric\", \"rps\", \"\", \"\"\n  )",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -536,7 +574,7 @@
               "Last *": false,
               "Time": true,
               "row-0": true,
-              "tests_passed": true
+              "tests_passed": false
             },
             "includeByName": {},
             "indexByName": {
@@ -584,6 +622,7 @@
             "inspect": false
           },
           "mappings": [],
+          "noValue": "-",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -613,7 +652,7 @@
               {
                 "id": "color",
                 "value": {
-                  "mode": "continuous-GrYlRd"
+                  "mode": "thresholds"
                 }
               },
               {
@@ -726,24 +765,27 @@
             },
             "includeByName": {},
             "indexByName": {
-              "EX01": 14,
-              "EX02": 15,
-              "EX03": 16,
-              "EX04": 17,
-              "EX05": 18,
-              "EX06": 19,
-              "EX07": 20,
-              "EX08": 21,
-              "LK01": 6,
-              "LK02": 7,
-              "LK03": 8,
-              "LK04": 9,
-              "LK05": 10,
-              "SS01": 22,
+              "CM01": 24,
+              "CM02": 25,
+              "EX01": 15,
+              "EX02": 16,
+              "EX03": 17,
+              "EX04": 18,
+              "EX05": 19,
+              "EX06": 20,
+              "EX07": 21,
+              "EX08": 22,
+              "FS01": 6,
+              "LK01": 7,
+              "LK02": 8,
+              "LK03": 9,
+              "LK04": 10,
+              "LK05": 11,
+              "SS01": 23,
               "Time": 1,
-              "VC01": 11,
-              "VC02": 12,
-              "VC03": 13,
+              "VC01": 12,
+              "VC02": 13,
+              "VC03": 14,
               "__name__": 2,
               "job": 3,
               "run": 4,
@@ -781,8 +823,8 @@
       },
       {
         "current": {
-          "text": "50",
-          "value": "50"
+          "text": "10",
+          "value": "10"
         },
         "includeAll": false,
         "label": "VUs",
@@ -794,12 +836,12 @@
             "value": "1"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "10",
             "value": "10"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "50",
             "value": "50"
           }
@@ -817,5 +859,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "aaea81bb-645e-4a38-b781-0fea6b1b3ebe",
-  "version": 11
+  "version": 14
 }
