@@ -54,6 +54,17 @@ Each test draws inputs randomly from a pool of 2,000+ entries per code system, e
 | Memory usage | Continuous measurement via cAdvisor (Docker) or process monitor (native) |
 | Idle memory footprint | Snapshot before benchmark starts |
 
+## Composite score
+
+Each server receives a single composite score (0–100) computed from its benchmark results:
+
+1. **Per-test effective RPS** — `throughput × (1 − error_rate)`, taking the maximum across VU levels (1, 10, 50).
+2. **Normalizing weight per test** — `avg_rps_LK01 / avg_rps_of_test`, where averages are across all servers in the run. LK01 (simple SNOMED lookup) is the reference. This keeps all contributions in RPS units regardless of a test's natural throughput scale.
+3. **Weighted sum** — `Σ (effective_rps × weight × bias)` across all tests the server participated in. Bias coefficients (see `scripts/lib/bias.ts`) default to 1.0 and can be tuned per test.
+4. **Normalization** — the top server's raw score becomes 100%; all others are expressed as a percentage of that.
+
+Servers that did not participate in a test receive an imputed effective RPS (p20 of participating servers) for that test's contribution to their score.
+
 ## Exclusions
 
 A server is excluded from a test category if:

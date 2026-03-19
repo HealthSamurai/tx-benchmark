@@ -22,6 +22,9 @@
 //   benchmark_idle_mem_used_bytes
 //   benchmark_idle_data_volume_bytes
 //
+// Score groups — job/score/run/{run}/server/{server}:
+//   benchmark_score   composite score 0–100 (top server = 100)
+//
 // Usage:
 //   bun scripts/push-results.ts [--push-url http://localhost:9091] [--run <run-id>]
 //   If --run is omitted, pushes all runs found under results/
@@ -31,6 +34,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { checkPushgateway, pushMetrics } from './lib/pushgateway.ts';
 import { PUSH_URL } from './lib/constants.ts';
 import type { BenchmarkResult, PreflightResult, Snapshot } from './lib/types.ts';
+import { computeScores, type EffRow } from './lib/scoring.ts';
 
 const { values } = parseArgs({
   options: {
@@ -72,9 +76,9 @@ function readJson<T>(path: string): T | null {
 
 console.log('\nPushing benchmark results…');
 
-// Collect effective RPS rows for imputation: { run, test, vus, server, effRps }
-type EffRow = { run: string; test: string; vus: string; server: string; effRps: number };
-const effRows: EffRow[] = [];
+// Collect effective RPS rows for imputation and scoring: { run, test, vus, server, effRps }
+type RunEffRow = EffRow & { run: string };
+const effRows: RunEffRow[] = [];
 
 let pushed = 0;
 let skipped = 0;
@@ -114,7 +118,7 @@ for (const run of getRuns()) {
       console.log(`  ✓ ${server}/${test}/vus${vus}`);
       pushed++;
 
-      effRows.push({ run, test, vus: String(vus), server, effRps: throughput * (1 - error_rate) });
+      effRows.push({ run, test, vus: String(vus), server, effRps: throughput * (1 - error_rate) } as RunEffRow);
     }
   }
 }
@@ -203,6 +207,7 @@ for (const row of effRows) {
 }
 
 let imputed = 0;
+const imputedRows: RunEffRow[] = [];
 
 for (const [key, participants] of groups) {
   const [run, test, vus] = key.split('|');
@@ -220,8 +225,36 @@ for (const [key, participants] of groups) {
       pushUrl,
     );
     console.log(`  ~ ${server}/${test}/vus${vus} → imputed ${imputedVal.toFixed(2)} (p${imputePercentile} of ${vals.length} servers)`);
+    imputedRows.push({ run, test, vus, server, effRps: imputedVal });
     imputed++;
   }
 }
 
 console.log(`\nImputation: pushed ${imputed}`);
+
+// ── 5. Composite score ───────────────────────────────────────────────────────
+
+console.log('\nComputing composite scores…');
+
+const allRows = [...effRows, ...imputedRows];
+
+// Compute scores per run
+const runs = [...new Set(allRows.map(r => r.run))];
+let scored = 0;
+
+for (const run of runs) {
+  const runRows = allRows.filter(r => r.run === run);
+  const scores  = computeScores(runRows);
+
+  for (const [server, score] of scores) {
+    await pushMetrics(
+      { job: 'score', run, server },
+      [{ name: 'benchmark_score', value: score.toFixed(4) }],
+      pushUrl,
+    );
+    console.log(`  ✓ ${server} → ${score.toFixed(2)}`);
+    scored++;
+  }
+}
+
+console.log(`\nScores: pushed ${scored}`);
