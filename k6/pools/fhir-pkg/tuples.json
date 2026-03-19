@@ -495,46 +495,6 @@
     "6.1.0"
   ],
   [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "sdoh",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "treatment-intervention-preference",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "PMO",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "care-experience-preference",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "disability-status",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "functional-status",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "cognitive-status",
-    "6.1.0"
-  ],
-  [
-    "http://hl7.org/fhir/us/core/CodeSystem/us-core-category",
-    "observation-adi-documentation",
-    "6.1.0"
-  ],
-  [
     "https://nahdo.org/sopt",
     "32123",
     "9.2"
