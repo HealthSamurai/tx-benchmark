@@ -42,8 +42,8 @@ See [DATA.md](DATA.md) for license requirements and load instructions.
 ## Prerequisites
 
 - [k6](https://k6.io/docs/getting-started/installation/)
+- [Bun](https://bun.sh) (JavaScript runtime for the benchmark scripts)
 - [Docker](https://docs.docker.com/get-docker/) (for the observability stack)
-- [jq](https://stedolan.github.io/jq/)
 
 ## Running
 
@@ -60,10 +60,10 @@ See [DATA.md](DATA.md).
 ### 3. Run
 
 ```bash
-./scripts/run.sh <server> <base-url>
+bun scripts/run.ts <server> <base-url>
 
 # Example
-./scripts/run.sh termbox http://localhost:7001/fhir
+bun scripts/run.ts termbox http://localhost:7001/fhir
 ```
 
 This will:
@@ -71,13 +71,14 @@ This will:
 2. Take an idle resource snapshot
 3. Run a warm-up pass (results discarded)
 4. Benchmark at VUs=1, 10, 50 for each supported test
+5. Push summary metrics to the Pushgateway automatically
 
-### 4. Push summary metrics
+### 4. Push summary metrics (optional, standalone)
 
-After all servers have been benchmarked, push the result summaries to Prometheus:
+To re-push results without running the benchmark again:
 
 ```bash
-./scripts/push-results.sh
+bun scripts/push-results.ts [--run <run-id>]
 ```
 
 This reads every `results/*/benchmark/*.json` and pushes p50/p95/p99/throughput/error_rate as gauges to the Pushgateway, making them available for cross-server comparison in Grafana.

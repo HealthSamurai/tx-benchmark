@@ -170,11 +170,7 @@ if (!resumeFrom) {
 
   mkdirSync(`results/${runId}/${server}`, { recursive: true });
 
-  await $`k6 run
-    --env BASE_URL=${baseUrl}
-    --env SERVER_NAME=${server}
-    --env RUN_ID=${runId}
-    preflight/run.js`;
+  await $`k6 ${['run', '--env', `BASE_URL=${baseUrl}`, '--env', `SERVER_NAME=${server}`, '--env', `RUN_ID=${runId}`, 'preflight/run.js']}`;
 
   const pf = JSON.parse(readFileSync(`results/${runId}/${server}/preflight.json`, 'utf8'));
   const passing = Object.entries(pf.tests as Record<string, { status: string }>)
@@ -197,11 +193,7 @@ if (!resumeFrom) {
 
   header(`3/4 Warmup: ${server} (${WARMUP_VUS} VUs, ${WARMUP_DURATION})`);
 
-  await $`k6 run
-    --vus ${WARMUP_VUS}
-    --duration ${WARMUP_DURATION}
-    --env BASE_URL=${baseUrl}
-    k6/warmup.js`;
+  await $`k6 ${['run', '--vus', String(WARMUP_VUS), '--duration', WARMUP_DURATION, '--env', `BASE_URL=${baseUrl}`, 'k6/warmup.js']}`;
 
 } else {
   console.log(`Skipping preflight/snapshot/warmup (resuming from ${resumeFrom})`);
@@ -236,20 +228,23 @@ for (const test of TESTS) {
 
     console.log(`  → vus${vus}`);
 
-    await $`env K6_PROMETHEUS_RW_SERVER_URL=${promUrl} k6 run
-      --out experimental-prometheus-rw
-      --vus ${vus}
-      --duration ${duration}
-      --tag server=${server}
-      --tag test=${testId}
-      --tag vus=${vus}
-      --tag run=${runId}
-      --env BASE_URL=${baseUrl}
-      --env SERVER_NAME=${server}
-      --env TEST_ID=${testId}
-      --env VUS=${vus}
-      --env RUN_ID=${runId}
-      ${test}`;
+    const k6Args = [
+      'run',
+      '--out', 'experimental-prometheus-rw',
+      '--vus', String(vus),
+      '--duration', duration,
+      '--tag', `server=${server}`,
+      '--tag', `test=${testId}`,
+      '--tag', `vus=${vus}`,
+      '--tag', `run=${runId}`,
+      '--env', `BASE_URL=${baseUrl}`,
+      '--env', `SERVER_NAME=${server}`,
+      '--env', `TEST_ID=${testId}`,
+      '--env', `VUS=${vus}`,
+      '--env', `RUN_ID=${runId}`,
+      test,
+    ];
+    await $`env K6_PROMETHEUS_RW_SERVER_URL=${promUrl} k6 ${k6Args}`;
 
     await ensureServer(testId, vus);
   }
