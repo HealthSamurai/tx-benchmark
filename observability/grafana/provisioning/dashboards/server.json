@@ -244,18 +244,18 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green"
-                    },
-                    {
-                      "color": "dark-green",
-                      "value": 50
+                      "color": "light-green"
                     },
                     {
                       "color": "green",
+                      "value": 50
+                    },
+                    {
+                      "color": "dark-green",
                       "value": 100
                     },
                     {
-                      "color": "super-light-yellow",
+                      "color": "light-yellow",
                       "value": 200
                     },
                     {
@@ -271,8 +271,12 @@
                       "value": 1000
                     },
                     {
-                      "color": "dark-red",
+                      "color": "semi-dark-red",
                       "value": 2000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 3000
                     }
                   ]
                 }
@@ -284,18 +288,21 @@
               {
                 "id": "unit",
                 "value": "ms"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "P/VUs"
-            },
-            "properties": [
+              },
               {
-                "id": "custom.width",
-                "value": 60
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "-1": {
+                        "color": "text",
+                        "index": 0,
+                        "text": "-"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
               }
             ]
           }
@@ -307,7 +314,7 @@
         "x": 0,
         "y": 3
       },
-      "id": 9,
+      "id": 11,
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -326,7 +333,8 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "label_join(\n  label_replace(\n    {__name__=~\"benchmark_duration_p(50|95|99)_ms\", run=\"$run\", server=\"$server\"},\n    \"percentile\",\n    \"p$1\",\n    \"__name__\",\n    \"benchmark_duration_p(.*)_ms\"\n  ),\n  \"p_vus\",\n  \"/\",\n  \"percentile\",\n  \"vus\"\n)",
+          "expr": "max by (test, p_vus) (\n  label_join(\n    label_replace(\n      {__name__=~\"benchmark_duration_p(50|95|99)_ms\", run=\"$run\", server=\"$server\"},\n      \"percentile\",\n      \"p$1\",\n      \"__name__\",\n      \"benchmark_duration_p(.*)_ms\"\n    ),\n    \"p_vus\",\n    \"/\",\n    \"percentile\",\n    \"vus\"\n  )\n)\nor\nmax by (test, p_vus) (\n  label_join(\n    label_replace(\n      {__name__=~\"benchmark_duration_p(50|95|99)_ms\", run=\"$run\"},\n      \"percentile\",\n      \"p$1\",\n      \"__name__\",\n      \"benchmark_duration_p(.*)_ms\"\n    ),\n    \"p_vus\",\n    \"/\",\n    \"percentile\",\n    \"vus\"\n  ) * 0 - 1\n)",
+          "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -336,20 +344,13 @@
       "title": "Latency",
       "transformations": [
         {
-          "id": "labelsToFields",
+          "id": "groupingToMatrix",
           "options": {
-            "keepLabels": [
-              "p_vus",
-              "run",
-              "server",
-              "test"
-            ],
-            "valueLabel": "test"
+            "columnField": "test",
+            "emptyValue": "null",
+            "rowField": "p_vus",
+            "valueField": "Value"
           }
-        },
-        {
-          "id": "merge",
-          "options": {}
         },
         {
           "id": "organize",
@@ -364,41 +365,35 @@
             },
             "includeByName": {},
             "indexByName": {
-              "CM01": 22,
-              "CM02": 23,
-              "EX01": 13,
-              "EX02": 14,
-              "EX03": 15,
-              "EX04": 16,
-              "EX05": 17,
-              "EX06": 18,
-              "EX07": 19,
-              "EX08": 20,
-              "FS01": 4,
-              "LK01": 5,
-              "LK02": 6,
-              "LK03": 7,
-              "LK04": 8,
-              "LK05": 9,
-              "SS01": 21,
-              "Time": 1,
-              "VC01": 10,
-              "VC02": 11,
-              "VC03": 12,
-              "p_vus": 3,
-              "run": 2,
-              "server": 0
+              "CM01": 19,
+              "CM02": 20,
+              "EX01": 10,
+              "EX02": 11,
+              "EX03": 12,
+              "EX04": 13,
+              "EX05": 14,
+              "EX06": 15,
+              "EX07": 16,
+              "EX08": 17,
+              "FS01": 1,
+              "LK01": 2,
+              "LK02": 3,
+              "LK03": 4,
+              "LK04": 5,
+              "LK05": 6,
+              "SS01": 18,
+              "VC01": 7,
+              "VC02": 8,
+              "VC03": 9,
+              "p_vus\\test": 0
             },
             "renameByName": {
               "p_vus": "P/VUs",
+              "p_vus\\test": "P/VUs",
               "percentile": "P",
               "vus": "VUs"
             }
           }
-        },
-        {
-          "id": "concatenate",
-          "options": {}
         }
       ],
       "type": "table"
@@ -433,8 +428,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "ontoserver",
-          "value": "ontoserver"
+          "text": "fhirsmith",
+          "value": "fhirsmith"
         },
         "definition": "label_values(benchmark_preflight,server)",
         "includeAll": false,
@@ -460,5 +455,5 @@
   "timezone": "browser",
   "title": "Server",
   "uid": "72c5a2b5-f3c9-434b-bdf6-0a16a9681f5c",
-  "version": 3
+  "version": 9
 }

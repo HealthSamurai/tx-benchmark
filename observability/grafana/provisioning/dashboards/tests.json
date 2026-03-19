@@ -18,6 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 6,
   "links": [],
   "panels": [
     {
@@ -35,8 +36,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": 0
+                "color": "green"
               },
               {
                 "color": "yellow",
@@ -80,7 +80,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "editorMode": "code",
@@ -131,8 +131,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": 0
+                "color": "green"
               },
               {
                 "color": "red",
@@ -143,36 +142,6 @@
           "unit": "short"
         },
         "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "vus"
-            },
-            "properties": [
-              {
-                "id": "mappings",
-                "value": [
-                  {
-                    "options": {
-                      "1": {
-                        "index": 0,
-                        "text": "1 virtual user"
-                      },
-                      "10": {
-                        "index": 1,
-                        "text": "10 virtual users"
-                      },
-                      "50": {
-                        "index": 2,
-                        "text": "50 virtual users"
-                      }
-                    },
-                    "type": "value"
-                  }
-                ]
-              }
-            ]
-          },
           {
             "matcher": {
               "id": "byName",
@@ -226,7 +195,7 @@
         "x": 0,
         "y": 6
       },
-      "id": 6,
+      "id": 8,
       "options": {
         "barRadius": 0,
         "barWidth": 0.9,
@@ -247,16 +216,17 @@
           "mode": "multi",
           "sort": "none"
         },
-        "xField": "server",
+        "xField": "Server",
         "xTickLabelRotation": 0,
         "xTickLabelSpacing": 0
       },
-      "pluginVersion": "12.4.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "editorMode": "code",
           "exemplar": false,
           "expr": "last_over_time(\n    benchmark_throughput_rps{run=\"$run\", test=\"$test\", server=~\"$servers\"}[1y]\n  )\n  * (1 - last_over_time(\n    benchmark_error_rate{run=\"$run\", test=\"$test\", server=~\"$servers\"}[1y]\n  ))",
+          "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -266,14 +236,13 @@
       "title": "RPS/VU",
       "transformations": [
         {
-          "id": "labelsToFields",
+          "id": "groupingToMatrix",
           "options": {
-            "valueLabel": "vus"
+            "columnField": "vus",
+            "emptyValue": "null",
+            "rowField": "server",
+            "valueField": "Value"
           }
-        },
-        {
-          "id": "merge",
-          "options": {}
         },
         {
           "id": "organize",
@@ -282,24 +251,21 @@
               "Time": true,
               "__name__": true,
               "job": true,
-              "run": true
+              "run": true,
+              "test": true
             },
             "includeByName": {},
             "indexByName": {
-              "1": 6,
-              "10": 7,
-              "50": 8,
-              "Time": 0,
-              "__name__": 1,
-              "job": 2,
-              "run": 3,
-              "server": 4,
-              "test": 5
+              "1": 1,
+              "10": 2,
+              "50": 3,
+              "server\\vus": 0
             },
             "renameByName": {
               "1": "VU=1",
               "10": "VU=10",
-              "50": "VU=50"
+              "50": "VU=50",
+              "server\\vus": "Server"
             }
           }
         }
@@ -342,8 +308,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": 0
+                "color": "green"
               }
             ]
           },
@@ -382,12 +347,13 @@
         "xTickLabelRotation": 0,
         "xTickLabelSpacing": 0
       },
-      "pluginVersion": "12.4.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "editorMode": "code",
           "exemplar": false,
           "expr": "last_over_time(\n    benchmark_duration_p95_ms{run=\"$run\", test=\"$test\", server=~\"$servers\"}[1y]\n  )",
+          "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -397,14 +363,12 @@
       "title": "p95 / VU",
       "transformations": [
         {
-          "id": "labelsToFields",
+          "id": "groupingToMatrix",
           "options": {
-            "valueLabel": "vus"
+            "columnField": "vus",
+            "rowField": "server",
+            "valueField": "Value"
           }
-        },
-        {
-          "id": "merge",
-          "options": {}
         },
         {
           "id": "organize",
@@ -417,20 +381,16 @@
             },
             "includeByName": {},
             "indexByName": {
-              "1": 6,
-              "10": 7,
-              "50": 8,
-              "Time": 0,
-              "__name__": 1,
-              "job": 2,
-              "run": 3,
-              "server": 4,
-              "test": 5
+              "1": 1,
+              "10": 2,
+              "50": 3,
+              "server\\vus": 0
             },
             "renameByName": {
               "1": "VU=1",
               "10": "VU=10",
-              "50": "VU=50"
+              "50": "VU=50",
+              "server\\vus": "Server"
             }
           }
         }
@@ -452,9 +412,6 @@
             "cellOptions": {
               "type": "auto"
             },
-            "footer": {
-              "reducers": []
-            },
             "inspect": false
           },
           "mappings": [],
@@ -462,8 +419,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": 0
+                "color": "green"
               }
             ]
           },
@@ -488,8 +444,7 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green",
-                      "value": 0
+                      "color": "green"
                     },
                     {
                       "color": "green",
@@ -544,9 +499,17 @@
         "x": 0,
         "y": 22
       },
-      "id": 3,
+      "id": 7,
       "options": {
         "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
         "showHeader": true,
         "sortBy": [
           {
@@ -555,157 +518,28 @@
           }
         ]
       },
-      "pluginVersion": "12.4.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p50_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"1\"}[1y])",
+          "expr": "label_join(\n    label_replace(\n      {__name__=~\"benchmark_duration_p(50|95|99)_ms\", run=\"$run\", server=~\"$servers\", test=\"$test\"},\n      \"percentile\",\n      \"p$1\",\n      \"__name__\",\n      \"benchmark_duration_p(.*)_ms\"\n    ),\n    \"p_vus\",\n    \"/\",\n    \"percentile\",\n    \"vus\"\n  )",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p50_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"10\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p50_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"50\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p95_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"1\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p95_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"10\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p95_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"50\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p99_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"1\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p99_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"10\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "last_over_time(benchmark_duration_p99_ms{run=\"$run\", test=\"$test\", server=~\"$servers\", vus=\"50\"}[1y])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "I"
         }
       ],
       "title": "Latency",
       "transformations": [
         {
-          "id": "filterFieldsByName",
+          "id": "groupingToMatrix",
           "options": {
-            "include": {
-              "names": [
-                "server",
-                "Value #A",
-                "Value #B",
-                "Value #C",
-                "Value #D",
-                "Value #E",
-                "Value #F",
-                "Value #G",
-                "Value #H",
-                "Value #I"
-              ]
-            }
-          }
-        },
-        {
-          "id": "joinByField",
-          "options": {
-            "byField": "server",
-            "mode": "inner"
+            "columnField": "p_vus",
+            "emptyValue": "null",
+            "rowField": "server",
+            "valueField": "Value"
           }
         },
         {
@@ -713,18 +547,21 @@
           "options": {
             "excludeByName": {},
             "includeByName": {},
-            "indexByName": {},
+            "indexByName": {
+              "p50/1": 1,
+              "p50/10": 2,
+              "p50/50": 3,
+              "p95/1": 4,
+              "p95/10": 5,
+              "p95/50": 6,
+              "p99/1": 7,
+              "p99/10": 8,
+              "p99/50": 9,
+              "server\\p_vus": 0
+            },
             "renameByName": {
-              "Value #A": "p50 VU=1",
-              "Value #B": "p50 VU=10",
-              "Value #C": "p50 VU=50",
-              "Value #D": "p95 VU=1",
-              "Value #E": "p95 VU=10",
-              "Value #F": "p95 VU=50",
-              "Value #G": "p99 VU=1",
-              "Value #H": "p99 VU=10",
-              "Value #I": "p99 VU=50",
-              "server": "Server"
+              "p50/1": "",
+              "server\\p_vus": "Server"
             }
           }
         }
@@ -733,15 +570,15 @@
     }
   ],
   "preload": false,
-  "schemaVersion": 42,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "allowCustomValue": false,
         "current": {
-          "text": "mar-18-01",
-          "value": "mar-18-01"
+          "text": "mar-17-004b",
+          "value": "mar-17-004b"
         },
         "definition": "label_values(benchmark_preflight,run)",
         "includeAll": false,
@@ -755,15 +592,14 @@
         },
         "refresh": 1,
         "regex": "",
-        "regexApplyTo": "value",
         "sort": 7,
         "type": "query"
       },
       {
         "allowCustomValue": false,
         "current": {
-          "text": "LK03",
-          "value": "LK03"
+          "text": "LK01",
+          "value": "LK01"
         },
         "definition": "label_values(benchmark_throughput_rps{run=\"$run\"},test)",
         "includeAll": false,
@@ -777,7 +613,6 @@
         },
         "refresh": 1,
         "regex": "",
-        "regexApplyTo": "value",
         "type": "query"
       },
       {
@@ -790,7 +625,7 @@
         },
         "definition": "label_values(benchmark_preflight,server)",
         "includeAll": true,
-        "label": "Serveres",
+        "label": "Servers",
         "multi": true,
         "name": "servers",
         "options": [],
@@ -801,7 +636,6 @@
         },
         "refresh": 1,
         "regex": "",
-        "regexApplyTo": "value",
         "type": "query"
       }
     ]
@@ -814,6 +648,5 @@
   "timezone": "browser",
   "title": "Tests",
   "uid": "52a0cf00-fa00-45ca-9399-64d6d599e56d",
-  "version": 2,
-  "weekStart": ""
+  "version": 16
 }

@@ -125,7 +125,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 2,
+      "id": 5,
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -147,10 +147,10 @@
             "uid": "prometheus"
           },
           "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
           "expr": "benchmark_preflight{run=\"$run\"}",
-          "format": "time_series",
+          "format": "table",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": true,
@@ -163,20 +163,12 @@
       "title": "Capability Matrixx",
       "transformations": [
         {
-          "id": "labelsToFields",
+          "id": "groupingToMatrix",
           "options": {
-            "keepLabels": [
-              "job",
-              "run",
-              "test",
-              "server"
-            ],
-            "valueLabel": "test"
+            "columnField": "test",
+            "rowField": "server",
+            "valueField": "Value"
           }
-        },
-        {
-          "id": "merge",
-          "options": {}
         },
         {
           "id": "organize",
@@ -188,32 +180,31 @@
             },
             "includeByName": {},
             "indexByName": {
-              "CM01": 22,
-              "CM02": 23,
-              "EX01": 13,
-              "EX02": 14,
-              "EX03": 15,
-              "EX04": 16,
-              "EX05": 17,
-              "EX06": 18,
-              "EX07": 19,
-              "EX08": 20,
-              "FS01": 4,
-              "LK01": 5,
-              "LK02": 6,
-              "LK03": 7,
-              "LK04": 8,
-              "LK05": 9,
-              "SS01": 21,
-              "Time": 0,
-              "VC01": 10,
-              "VC02": 11,
-              "VC03": 12,
-              "job": 1,
-              "run": 2,
-              "server": 3
+              "CM01": 19,
+              "CM02": 20,
+              "EX01": 10,
+              "EX02": 11,
+              "EX03": 12,
+              "EX04": 13,
+              "EX05": 14,
+              "EX06": 15,
+              "EX07": 16,
+              "EX08": 17,
+              "FS01": 1,
+              "LK01": 2,
+              "LK02": 3,
+              "LK03": 4,
+              "LK04": 5,
+              "LK05": 6,
+              "SS01": 18,
+              "VC01": 7,
+              "VC02": 8,
+              "VC03": 9,
+              "server\\test": 0
             },
-            "renameByName": {}
+            "renameByName": {
+              "server\\test": "server"
+            }
           }
         }
       ],
@@ -421,6 +412,18 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Server"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
           }
         ]
       },
@@ -430,7 +433,7 @@
         "x": 0,
         "y": 7
       },
-      "id": 3,
+      "id": 6,
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -449,11 +452,12 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  label_replace(\n    exp(avg by(server)(ln(\n      (\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n      / on(test) group_left()\n      max by(test)(\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n    ))),\n    \"metric\", \"score\", \"\", \"\"\n  )",
+          "expr": "  \n    exp(avg by(server)(ln(\n      (\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n      / on(test) group_left()\n      max by(test)(\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n    )))",
+          "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "A"
+          "refId": "Score"
         },
         {
           "datasource": {
@@ -462,12 +466,13 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  label_replace(\n    avg by(server)(\n      (benchmark_throughput_rps{run=\"$run\", vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\", vus=\"$vus\"}))\n      or on(server, test, vus, run)\n      benchmark_throughput_rps_imputed{run=\"$run\", vus=\"$vus\"}\n    ),\n    \"metric\", \"rps\", \"\", \"\"\n  )",
+          "expr": "\n    avg by(server)(\n      (benchmark_throughput_rps{run=\"$run\", vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\", vus=\"$vus\"}))\n      or on(server, test, vus, run)\n      benchmark_throughput_rps_imputed{run=\"$run\", vus=\"$vus\"}\n    )",
+          "format": "table",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "B"
+          "refId": "RPS"
         },
         {
           "datasource": {
@@ -476,12 +481,13 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "label_replace(\n    avg by(server)(benchmark_duration_p95_ms{run=\"$run\", vus=\"$vus\"}),\n    \"metric\", \"p95_ms\", \"\", \"\"\n  )",
+          "expr": "avg by(server)(benchmark_duration_p95_ms{run=\"$run\", vus=\"$vus\"})",
+          "format": "table",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "C"
+          "refId": "P95"
         },
         {
           "datasource": {
@@ -490,12 +496,13 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "label_replace(\n    avg by(server)(benchmark_error_rate{run=\"$run\", vus=\"$vus\"}),\n    \"metric\", \"error_rate\", \"\", \"\"\n  )",
+          "expr": "avg by(server)(benchmark_error_rate{run=\"$run\", vus=\"$vus\"})",
+          "format": "table",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "D"
+          "refId": "Errors"
         },
         {
           "datasource": {
@@ -504,25 +511,23 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "label_replace(\n    sum by(server)(benchmark_preflight{run=\"$run\"} == 1),\n    \"metric\", \"tests_passed\", \"\", \"\"\n  )",
+          "expr": "sum by(server)(benchmark_preflight{run=\"$run\"} == 1)",
+          "format": "table",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "E"
+          "refId": "Tests"
         }
       ],
       "title": "Composite score",
       "transformations": [
         {
-          "id": "labelsToFields",
+          "id": "joinByField",
           "options": {
-            "valueLabel": "metric"
+            "byField": "server",
+            "mode": "inner"
           }
-        },
-        {
-          "id": "merge",
-          "options": {}
         },
         {
           "id": "sortBy",
@@ -531,7 +536,7 @@
             "sort": [
               {
                 "desc": true,
-                "field": "score"
+                "field": "Value #Score"
               }
             ]
           }
@@ -573,30 +578,45 @@
             "excludeByName": {
               "Last *": false,
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
               "row-0": true,
               "tests_passed": false
             },
             "includeByName": {},
             "indexByName": {
               "Rank": 0,
-              "Time": 3,
-              "error_rate": 7,
-              "p95_ms": 5,
+              "Time 1": 3,
+              "Time 2": 4,
+              "Time 3": 5,
+              "Time 4": 6,
+              "Time 5": 7,
+              "Value #Errors": 11,
+              "Value #P95": 9,
+              "Value #RPS": 8,
+              "Value #Score": 10,
+              "Value #Tests": 12,
               "row-0": 2,
-              "rps": 4,
-              "score": 6,
-              "server": 1,
-              "tests_passed": 8
+              "server": 1
             },
             "renameByName": {
               "Field": "Server",
               "Last *": "Score",
               "Last * * 100": "Value",
               "Rank": "Rank",
+              "Value #Errors": "Errors",
+              "Value #P95": "p95",
+              "Value #RPS": "RPS",
+              "Value #Score": "Score",
+              "Value #Tests": "Tests",
               "error_rate": "Errors",
               "p95_ms": "p95",
               "rps": "RPS",
               "score": "Score",
+              "server": "Server",
               "tests_passed": "Tests"
             }
           }
@@ -640,7 +660,7 @@
           {
             "matcher": {
               "id": "byRegexp",
-              "options": "/^(?!server$).+/"
+              "options": "/^(?!Server$).+/"
             },
             "properties": [
               {
@@ -735,6 +755,7 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "benchmark_duration_p95_ms{run=\"$run\", vus=~\"$vus\"}",
+          "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -744,14 +765,12 @@
       "title": "p95 (ms)",
       "transformations": [
         {
-          "id": "labelsToFields",
+          "id": "groupingToMatrix",
           "options": {
-            "valueLabel": "test"
+            "columnField": "test",
+            "rowField": "server",
+            "valueField": "Value"
           }
-        },
-        {
-          "id": "merge",
-          "options": {}
         },
         {
           "id": "organize",
@@ -765,34 +784,31 @@
             },
             "includeByName": {},
             "indexByName": {
-              "CM01": 24,
-              "CM02": 25,
-              "EX01": 15,
-              "EX02": 16,
-              "EX03": 17,
-              "EX04": 18,
-              "EX05": 19,
-              "EX06": 20,
-              "EX07": 21,
-              "EX08": 22,
-              "FS01": 6,
-              "LK01": 7,
-              "LK02": 8,
-              "LK03": 9,
-              "LK04": 10,
-              "LK05": 11,
-              "SS01": 23,
-              "Time": 1,
-              "VC01": 12,
-              "VC02": 13,
-              "VC03": 14,
-              "__name__": 2,
-              "job": 3,
-              "run": 4,
-              "server": 0,
-              "vus": 5
+              "CM01": 19,
+              "CM02": 20,
+              "EX01": 10,
+              "EX02": 11,
+              "EX03": 12,
+              "EX04": 13,
+              "EX05": 14,
+              "EX06": 15,
+              "EX07": 16,
+              "EX08": 17,
+              "FS01": 1,
+              "LK01": 2,
+              "LK02": 3,
+              "LK03": 4,
+              "LK04": 5,
+              "LK05": 6,
+              "SS01": 18,
+              "VC01": 7,
+              "VC02": 8,
+              "VC03": 9,
+              "server\\test": 0
             },
-            "renameByName": {}
+            "renameByName": {
+              "server\\test": "Server"
+            }
           }
         }
       ],
@@ -859,5 +875,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "aaea81bb-645e-4a38-b781-0fea6b1b3ebe",
-  "version": 14
+  "version": 24
 }
