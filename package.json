@@ -1,0 +1,10 @@
+{
+  "name": "tx-benchmark",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "snapshot": "bun scripts/resource-snapshot.ts",
+    "push":     "bun scripts/push-results.ts",
+    "run":      "bun scripts/run.ts"
+  }
+}
