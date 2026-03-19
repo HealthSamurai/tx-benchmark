@@ -25,7 +25,6 @@ query() {
 }
 
 CPU_USAGE=$(query   "sum(rate(container_cpu_usage_seconds_total{container_label_com_docker_compose_project=\"${SERVER}\"}[1m])) / scalar(count(node_cpu_seconds_total{mode=\"idle\"})) * 100")
-DISK_USED=$(query   'sum(node_filesystem_size_bytes{fstype!~"tmpfs|overlay|squashfs"} - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|squashfs"}) / 1024 / 1024 / 1024')
 
 # Container memory: sum RSS across all containers in the server's compose project
 MEM_USED_BYTES=null
@@ -65,7 +64,6 @@ jq -n \
   --arg ts        "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
   --argjson cpu        "$(to_num "$CPU_USAGE")" \
   --argjson mem_used   "$(to_num "$MEM_USED_BYTES")" \
-  --argjson disk       "$(to_num "$DISK_USED")" \
   --argjson data_bytes "$DATA_BYTES" \
   '{
     server:            $server,
@@ -73,7 +71,6 @@ jq -n \
     timestamp:         $ts,
     cpu_usage:         $cpu,
     mem_used_bytes:    $mem_used,
-    disk_used_gb:      $disk,
     data_volume_bytes: $data_bytes
   }' > "$OUT"
 
