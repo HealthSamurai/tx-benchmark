@@ -353,15 +353,98 @@
           }
         },
         {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "regexp",
+            "regExp": "/p(?<p>\\d+)\\/(?<vus>\\d+)/",
+            "source": "p_vus\\test"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "p"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "vus"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "vus"
+                }
+              },
+              "operator": "*",
+              "right": {
+                "fixed": "100"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "vus * 100"
+                }
+              },
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "p"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "vus * 100 + p"
+              }
+            ]
+          }
+        },
+        {
           "id": "organize",
           "options": {
             "excludeByName": {
               "Time": true,
               "__name__": true,
               "job": true,
+              "p": true,
               "run": true,
               "server": true,
-              "vus": false
+              "vus": true,
+              "vus * 100": true,
+              "vus * 100 + p": true
             },
             "includeByName": {},
             "indexByName": {
@@ -391,7 +474,7 @@
               "p_vus": "P/VUs",
               "p_vus\\test": "P/VUs",
               "percentile": "P",
-              "vus": "VUs"
+              "vus": ""
             }
           }
         }
@@ -455,5 +538,5 @@
   "timezone": "browser",
   "title": "Server",
   "uid": "72c5a2b5-f3c9-434b-bdf6-0a16a9681f5c",
-  "version": 9
+  "version": 11
 }
