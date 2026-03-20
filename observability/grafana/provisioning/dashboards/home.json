@@ -120,7 +120,7 @@
         ]
       },
       "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 24,
         "x": 0,
         "y": 0
@@ -272,11 +272,11 @@
               },
               {
                 "id": "unit",
-                "value": "percentunit"
+                "value": "percent"
               },
               {
                 "id": "max",
-                "value": 1
+                "value": 100
               },
               {
                 "id": "min",
@@ -291,13 +291,17 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 0
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "RPS"
+              "options": "Value #RPS"
             },
             "properties": [
               {
@@ -313,7 +317,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "p95"
+              "options": "p95/50"
             },
             "properties": [
               {
@@ -372,6 +376,10 @@
                     }
                   ]
                 }
+              },
+              {
+                "id": "decimals",
+                "value": 2
               }
             ]
           },
@@ -428,12 +436,12 @@
         ]
       },
       "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 8
       },
-      "id": 6,
+      "id": 7,
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -452,7 +460,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "  \n    exp(avg by(server)(ln(\n      (\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n      / on(test) group_left()\n      max by(test)(\n        (benchmark_throughput_rps{run=\"$run\",vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\",vus=\"$vus\"}))\n        or on(server, test, vus, run)\n        benchmark_throughput_rps_imputed{run=\"$run\",vus=\"$vus\"}\n      )\n    )))",
+          "expr": "benchmark_score{run=\"$run\"}",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -466,7 +474,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "\n    avg by(server)(\n      (benchmark_throughput_rps{run=\"$run\", vus=\"$vus\"} * (1 - benchmark_error_rate{run=\"$run\", vus=\"$vus\"}))\n      or on(server, test, vus, run)\n      benchmark_throughput_rps_imputed{run=\"$run\", vus=\"$vus\"}\n    )",
+          "expr": "avg by(server)(benchmark_weighted_rps{run=\"$run\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -481,7 +489,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "avg by(server)(benchmark_duration_p95_ms{run=\"$run\", vus=\"$vus\"})",
+          "expr": "avg by(server)(benchmark_duration_p95_ms{run=\"$run\", vus=\"50\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -496,7 +504,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "avg by(server)(benchmark_error_rate{run=\"$run\", vus=\"$vus\"})",
+          "expr": "avg by(server)(benchmark_error_rate{run=\"$run\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -583,7 +591,10 @@
               "Time 3": true,
               "Time 4": true,
               "Time 5": true,
+              "__name__": true,
+              "job": true,
               "row-0": true,
+              "run": true,
               "tests_passed": false
             },
             "includeByName": {},
@@ -608,8 +619,8 @@
               "Last * * 100": "Value",
               "Rank": "Rank",
               "Value #Errors": "Errors",
-              "Value #P95": "p95",
-              "Value #RPS": "RPS",
+              "Value #P95": "p95/50",
+              "Value #RPS": "wRPS",
               "Value #Score": "Score",
               "Value #Tests": "Tests",
               "error_rate": "Errors",
@@ -681,7 +692,7 @@
               },
               {
                 "id": "custom.width",
-                "value": 55
+                "value": 65
               },
               {
                 "id": "thresholds",
@@ -725,6 +736,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "unit",
+                "value": "ms"
               }
             ]
           }
@@ -734,7 +749,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 16
       },
       "id": 4,
       "options": {
@@ -754,7 +769,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "benchmark_duration_p95_ms{run=\"$run\", vus=~\"$vus\"}",
+          "expr": "benchmark_duration_p95_ms{run=\"$run\", vus=\"50\"}",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -762,7 +777,7 @@
           "refId": "A"
         }
       ],
-      "title": "p95 (ms)",
+      "title": "p95 (ms) / 50 VUs",
       "transformations": [
         {
           "id": "groupingToMatrix",
@@ -822,8 +837,8 @@
     "list": [
       {
         "current": {
-          "text": "mar-17-004b",
-          "value": "mar-17-004b"
+          "text": "mar-19-06d",
+          "value": "mar-19-06d"
         },
         "definition": "label_values(benchmark_preflight,run)",
         "name": "run",
@@ -836,34 +851,6 @@
         "refresh": 1,
         "regex": "",
         "type": "query"
-      },
-      {
-        "current": {
-          "text": "10",
-          "value": "10"
-        },
-        "includeAll": false,
-        "label": "VUs",
-        "name": "vus",
-        "options": [
-          {
-            "selected": false,
-            "text": "1",
-            "value": "1"
-          },
-          {
-            "selected": true,
-            "text": "10",
-            "value": "10"
-          },
-          {
-            "selected": false,
-            "text": "50",
-            "value": "50"
-          }
-        ],
-        "query": "1, 10, 50",
-        "type": "custom"
       }
     ]
   },
@@ -875,5 +862,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "aaea81bb-645e-4a38-b781-0fea6b1b3ebe",
-  "version": 24
+  "version": 33
 }

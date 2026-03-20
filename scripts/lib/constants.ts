@@ -2,6 +2,10 @@ export const PROM_URL  = 'http://localhost:9090';
 export const PUSH_URL  = 'http://localhost:9091';
 export const VU_LEVELS = [1, 10, 50] as const;
 
+// Imputation percentile — used with a 0 floor prepended to the participant pool.
+// See METHODOLOGY.md for the full imputation algorithm.
+export const IMPUTE_PERCENTILE = 30;
+
 export const TESTS = [
   'k6/FS/FS01.js',
   'k6/LK/LK01.js',

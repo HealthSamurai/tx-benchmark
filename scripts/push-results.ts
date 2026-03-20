@@ -12,7 +12,9 @@
 // Imputation groups — job/benchmark_imputed/run/{run}/server/{server}/test/{test}/vus/{N}:
 //   benchmark_throughput_rps_imputed
 //   Pushed for (server, test, vus) where the server did not participate.
-//   Value = Nth percentile of participating servers' effective RPS (throughput × (1 − error_rate)).
+//   Value = pN of [0, ...participant_eff_rps] — 0 anchors the floor so that
+//   servers with fewer participants receive proportionally lower imputed values.
+//   N is configured via IMPUTE_PERCENTILE in scripts/lib/constants.ts.
 //
 // Preflight groups — job/preflight/run/{run}/server/{server}/test/{test}:
 //   benchmark_preflight   1=pass  0=fail  -1=skip
@@ -25,6 +27,9 @@
 // Score groups — job/score/run/{run}/server/{server}:
 //   benchmark_score   composite score 0–100 (top server = 100)
 //
+// Weighted RPS groups — job/weighted_rps/run/{run}/server/{server}/test/{test}:
+//   benchmark_weighted_rps   max_eff_rps × LK01-normalizing-weight × bias
+//
 // Usage:
 //   bun scripts/push-results.ts [--push-url http://localhost:9091] [--run <run-id>]
 //   If --run is omitted, pushes all runs found under results/
@@ -32,21 +37,19 @@
 import { parseArgs } from 'node:util';
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { checkPushgateway, pushMetrics } from './lib/pushgateway.ts';
-import { PUSH_URL } from './lib/constants.ts';
+import { PUSH_URL, IMPUTE_PERCENTILE } from './lib/constants.ts';
 import type { BenchmarkResult, PreflightResult, Snapshot } from './lib/types.ts';
-import { computeScores, type EffRow } from './lib/scoring.ts';
+import { computeScores, computeWeightedRps, type EffRow } from './lib/scoring.ts';
 
 const { values } = parseArgs({
   options: {
-    'push-url':          { type: 'string', default: PUSH_URL },
-    'run':               { type: 'string' },
-    'impute-percentile': { type: 'string', default: '20' },
+    'push-url': { type: 'string', default: PUSH_URL },
+    'run':      { type: 'string' },
   },
 });
 
-const pushUrl          = values['push-url']!;
-const filterRun        = values['run'];
-const imputePercentile = parseInt(values['impute-percentile'] ?? process.env.IMPUTE_PERCENTILE ?? '20', 10);
+const pushUrl   = values['push-url']!;
+const filterRun = values['run'];
 
 await checkPushgateway(pushUrl);
 
@@ -118,7 +121,7 @@ for (const run of getRuns()) {
       console.log(`  ✓ ${server}/${test}/vus${vus}`);
       pushed++;
 
-      effRows.push({ run, test, vus: String(vus), server, effRps: throughput * (1 - error_rate) } as RunEffRow);
+      effRows.push({ run, test, vus: String(vus), server, effRps: throughput * (1 - error_rate) });
     }
   }
 }
@@ -182,7 +185,12 @@ console.log(`\nSnapshots: pushed ${pushed}`);
 
 // ── 4. Imputation ───────────────────────────────────────────────────────────
 
-console.log(`\nComputing p${imputePercentile} imputation for missing (server, test, vus) combinations…`);
+// Imputed value = pN of [0, ...sorted_participant_eff_rps].
+// Prepending 0 anchors the distribution at zero, so that non-participants
+// always receive less than the worst real participant, with the discount
+// increasing as fewer servers participate in a test.
+
+console.log(`\nComputing p${IMPUTE_PERCENTILE} imputation for missing (server, test, vus) combinations…`);
 
 function percentile(sorted: number[], pct: number): number {
   const n   = sorted.length;
@@ -194,7 +202,7 @@ function percentile(sorted: number[], pct: number): number {
 }
 
 // Group by (run, test, vus)
-const groups = new Map<string, EffRow[]>();
+const groups    = new Map<string, RunEffRow[]>();
 const runServers = new Map<string, Set<string>>();
 
 for (const row of effRows) {
@@ -211,10 +219,10 @@ const imputedRows: RunEffRow[] = [];
 
 for (const [key, participants] of groups) {
   const [run, test, vus] = key.split('|');
-  const allServers   = [...runServers.get(run)!];
+  const allServers    = [...runServers.get(run)!];
   const participating = new Set(participants.map(r => r.server));
-  const vals         = participants.map(r => r.effRps).sort((a, b) => a - b);
-  const imputedVal   = percentile(vals, imputePercentile);
+  const vals          = [0, ...participants.map(r => r.effRps).sort((a, b) => a - b)];
+  const imputedVal    = percentile(vals, IMPUTE_PERCENTILE);
 
   for (const server of allServers) {
     if (participating.has(server)) continue;
@@ -224,7 +232,7 @@ for (const [key, participants] of groups) {
       [{ name: 'benchmark_throughput_rps_imputed', value: imputedVal.toFixed(6) }],
       pushUrl,
     );
-    console.log(`  ~ ${server}/${test}/vus${vus} → imputed ${imputedVal.toFixed(2)} (p${imputePercentile} of ${vals.length} servers)`);
+    console.log(`  ~ ${server}/${test}/vus${vus} → imputed ${imputedVal.toFixed(2)} (p${IMPUTE_PERCENTILE} of ${vals.length - 1} servers)`);
     imputedRows.push({ run, test, vus, server, effRps: imputedVal });
     imputed++;
   }
@@ -237,14 +245,11 @@ console.log(`\nImputation: pushed ${imputed}`);
 console.log('\nComputing composite scores…');
 
 const allRows = [...effRows, ...imputedRows];
-
-// Compute scores per run
-const runs = [...new Set(allRows.map(r => r.run))];
+const runs    = [...new Set(allRows.map(r => r.run))];
 let scored = 0;
 
 for (const run of runs) {
-  const runRows = allRows.filter(r => r.run === run);
-  const scores  = computeScores(runRows);
+  const scores = computeScores(allRows.filter(r => r.run === run));
 
   for (const [server, score] of scores) {
     await pushMetrics(
@@ -258,3 +263,21 @@ for (const run of runs) {
 }
 
 console.log(`\nScores: pushed ${scored}`);
+
+// ── 6. Weighted RPS per (server, test) ──────────────────────────────────────
+
+console.log('\nPushing weighted RPS per test…');
+let weightedPushed = 0;
+
+for (const run of runs) {
+  for (const { server, test, value } of computeWeightedRps(effRows.filter(r => r.run === run))) {
+    await pushMetrics(
+      { job: 'weighted_rps', run, server, test },
+      [{ name: 'benchmark_weighted_rps', value: value.toFixed(4) }],
+      pushUrl,
+    );
+    weightedPushed++;
+  }
+}
+
+console.log(`\nWeighted RPS: pushed ${weightedPushed}`);

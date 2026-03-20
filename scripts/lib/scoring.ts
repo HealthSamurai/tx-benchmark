@@ -12,15 +12,17 @@
 //   4. Normalize: raw / top_raw × 100  →  percentage of the best server
 //
 // Returns: Map<server, score (0–100)>
+// Also returns per-(server,test) weighted RPS via computeWeightedRps.
 
-import { BIAS } from './bias.ts';
+import { BIAS } from '../../config/bias.ts';
 
 export type EffRow = { server: string; test: string; vus: string; effRps: number };
 
-export function computeScores(rows: EffRow[]): Map<string, number> {
-  if (rows.length === 0) return new Map();
+// Intermediate per-(server, test) weighted RPS: max_eff_rps × weight × bias.
+// Key: "server|test"
+export type WeightedRpsMap = Map<string, number>;
 
-  // Step 1: per (server, test) → max effective RPS across VU levels
+function buildWeightedRps(rows: EffRow[]): { weightedRps: WeightedRpsMap; servers: string[]; tests: string[] } {
   const serverTestMax = new Map<string, number>();
   for (const row of rows) {
     const key = `${row.server}|${row.test}`;
@@ -30,7 +32,6 @@ export function computeScores(rows: EffRow[]): Map<string, number> {
   const servers = [...new Set(rows.map(r => r.server))];
   const tests   = [...new Set(rows.map(r => r.test))];
 
-  // Step 2: average effective RPS per test across all servers (for normalization)
   const testAvg = new Map<string, number>();
   for (const test of tests) {
     const vals = servers
@@ -41,21 +42,33 @@ export function computeScores(rows: EffRow[]): Map<string, number> {
 
   const lk01Avg = testAvg.get('LK01') ?? 1;
 
-  // Step 3: weighted sum per server
-  const rawScores = new Map<string, number>();
+  const weightedRps: WeightedRpsMap = new Map();
   for (const server of servers) {
-    let score = 0;
     for (const test of tests) {
       const effRps = serverTestMax.get(`${server}|${test}`) ?? 0;
       const avg    = testAvg.get(test) ?? 1;
       const weight = avg > 0 ? lk01Avg / avg : 0;
       const bias   = BIAS[test] ?? 1.0;
-      score += effRps * weight * bias;
+      weightedRps.set(`${server}|${test}`, effRps * weight * bias);
     }
+  }
+
+  return { weightedRps, servers, tests };
+}
+
+// Arithmetic weighted sum.
+// See METHODOLOGY.md for the full algorithm description.
+export function computeScores(rows: EffRow[]): Map<string, number> {
+  if (rows.length === 0) return new Map();
+
+  const { weightedRps, servers, tests } = buildWeightedRps(rows);
+
+  const rawScores = new Map<string, number>();
+  for (const server of servers) {
+    const score = tests.reduce((sum, test) => sum + (weightedRps.get(`${server}|${test}`) ?? 0), 0);
     rawScores.set(server, score);
   }
 
-  // Step 4: normalize to percentage of top score
   const top = Math.max(...rawScores.values());
   const scores = new Map<string, number>();
   for (const [server, raw] of rawScores) {
@@ -63,4 +76,14 @@ export function computeScores(rows: EffRow[]): Map<string, number> {
   }
 
   return scores;
+}
+
+// Returns per-(server, test) weighted RPS for pushing as benchmark_weighted_rps.
+export function computeWeightedRps(rows: EffRow[]): { server: string; test: string; value: number }[] {
+  if (rows.length === 0) return [];
+  const { weightedRps } = buildWeightedRps(rows);
+  return [...weightedRps.entries()].map(([key, value]) => {
+    const [server, test] = key.split('|');
+    return { server, test, value };
+  });
 }

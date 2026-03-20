@@ -480,6 +480,288 @@
         }
       ],
       "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "Best RPS across VUs",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-YlBl"
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "text",
+                  "index": 0,
+                  "text": "-"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "-",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 12,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "  max by(test)(\n    benchmark_throughput_rps{run=\"$run\", server=\"$server\"}\n    * (1 - benchmark_error_rate{run=\"$run\", server=\"$server\"})\n  )\n  or\n  max by(test)(\n    benchmark_throughput_rps{run=\"$run\"}\n    * (1 - benchmark_error_rate{run=\"$run\"})\n  ) * 0",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Raw RPS",
+      "transformations": [
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "test",
+            "emptyValue": "null",
+            "rowField": "Time",
+            "valueField": "Value"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "p": true,
+              "run": true,
+              "server": true,
+              "vus": true,
+              "vus * 100": true,
+              "vus * 100 + p": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "CM01": 19,
+              "CM02": 20,
+              "EX01": 10,
+              "EX02": 11,
+              "EX03": 12,
+              "EX04": 13,
+              "EX05": 14,
+              "EX06": 15,
+              "EX07": 16,
+              "EX08": 17,
+              "FS01": 1,
+              "LK01": 2,
+              "LK02": 3,
+              "LK03": 4,
+              "LK04": 5,
+              "LK05": 6,
+              "SS01": 18,
+              "VC01": 7,
+              "VC02": 8,
+              "VC03": 9,
+              "p_vus\\test": 0
+            },
+            "renameByName": {
+              "p_vus": "P/VUs",
+              "p_vus\\test": "P/VUs",
+              "percentile": "P",
+              "vus": ""
+            }
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "Best RPS across VUs normalized to avg LK01 across servers",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlPu"
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "text",
+                  "index": 0,
+                  "text": "-"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "-",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 13,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "benchmark_weighted_rps{run=\"$run\", server=\"$server\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Weighted RPS",
+      "transformations": [
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "test",
+            "emptyValue": "null",
+            "rowField": "Time",
+            "valueField": "Value"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "job": true,
+              "p": true,
+              "run": true,
+              "server": true,
+              "vus": true,
+              "vus * 100": true,
+              "vus * 100 + p": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "CM01": 19,
+              "CM02": 20,
+              "EX01": 10,
+              "EX02": 11,
+              "EX03": 12,
+              "EX04": 13,
+              "EX05": 14,
+              "EX06": 15,
+              "EX07": 16,
+              "EX08": 17,
+              "FS01": 1,
+              "LK01": 2,
+              "LK02": 3,
+              "LK03": 4,
+              "LK04": 5,
+              "LK05": 6,
+              "SS01": 18,
+              "VC01": 7,
+              "VC02": 8,
+              "VC03": 9,
+              "p_vus\\test": 0
+            },
+            "renameByName": {
+              "p_vus": "P/VUs",
+              "p_vus\\test": "P/VUs",
+              "percentile": "P",
+              "vus": ""
+            }
+          }
+        }
+      ],
+      "type": "bargauge"
     }
   ],
   "preload": false,
@@ -490,8 +772,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "mar-17-004b",
-          "value": "mar-17-004b"
+          "text": "mar-19-06e",
+          "value": "mar-19-06e"
         },
         "definition": "label_values(benchmark_preflight,run)",
         "includeAll": false,
@@ -538,5 +820,5 @@
   "timezone": "browser",
   "title": "Server",
   "uid": "72c5a2b5-f3c9-434b-bdf6-0a16a9681f5c",
-  "version": 11
+  "version": 17
 }
