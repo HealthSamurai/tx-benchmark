@@ -816,9 +816,11 @@
     "from": "now-2d",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "hidden": true
+  },
   "timezone": "browser",
   "title": "Server",
   "uid": "72c5a2b5-f3c9-434b-bdf6-0a16a9681f5c",
-  "version": 17
+  "version": 19
 }

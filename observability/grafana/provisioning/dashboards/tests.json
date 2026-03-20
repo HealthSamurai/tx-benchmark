@@ -844,9 +844,11 @@
     "from": "now-24h",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "hidden": true
+  },
   "timezone": "browser",
   "title": "Tests",
   "uid": "52a0cf00-fa00-45ca-9399-64d6d599e56d",
-  "version": 21
+  "version": 23
 }

@@ -20,6 +20,7 @@
   "graphTooltip": 0,
   "id": 9,
   "links": [],
+  "liveNow": true,
   "panels": [
     {
       "datasource": {
@@ -197,12 +198,14 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-5m",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "hidden": true
+  },
   "timezone": "browser",
   "title": "Infrastructure",
   "uid": "a5fdcae0-045b-4b3d-8ecd-d060a46394ba",
-  "version": 4
+  "version": 6
 }

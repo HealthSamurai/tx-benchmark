@@ -20,6 +20,7 @@
   "graphTooltip": 0,
   "id": 4,
   "links": [],
+  "liveNow": true,
   "panels": [
     {
       "datasource": {
@@ -166,6 +167,7 @@
           "id": "groupingToMatrix",
           "options": {
             "columnField": "test",
+            "emptyValue": "zero",
             "rowField": "server",
             "valueField": "Value"
           }
@@ -858,9 +860,11 @@
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "hidden": true
+  },
   "timezone": "browser",
   "title": "Home",
   "uid": "aaea81bb-645e-4a38-b781-0fea6b1b3ebe",
-  "version": 33
+  "version": 36
 }
