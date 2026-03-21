@@ -48,7 +48,7 @@ const rows = servers.map((s, i) => ({
       </tr>
     </thead>
     <tbody>
-      {rows.map(row => (
+      {rows.map((row, i) => (
         <tr>
           <td class="rank">{row.rank}</td>
           <td class="server">{row.id}</td>
@@ -56,12 +56,12 @@ const rows = servers.map((s, i) => ({
           <td class="score-cell">
             <div class="bar-wrap">
               <div class="bar-track">
-                <div class="bar-mask" style={`left:${row.score.toFixed(1)}%`}></div>
+                <div class="bar-fill" style={`width:${row.score.toFixed(1)}%;--s:${row.score.toFixed(1)};animation-delay:${i * 60}ms`}></div>
               </div>
               <span class="bar-pct">{Math.round(row.score)}</span>
             </div>
           </td>
-          <td class:list={['num', 'r', row.errRate > 0.005 ? 'err-bad' : 'err-ok']}>
+          <td class:list={['num', 'r', row.errRate >= 0.01 ? 'err-bad' : row.errRate > 0 ? 'err-warn' : 'err-ok']}>
             {(row.errRate * 100).toFixed(2)}%
           </td>
           <td class="tests-cell">
@@ -114,8 +114,9 @@ const rows = servers.map((s, i) => ({
     color: var(--text-dim);
   }
 
-  .err-bad { color: #e05252; }
-  .err-ok  { color: var(--text-muted); }
+  .err-bad  { color: #a04040; }
+  .err-warn { color: #8a7a30; }
+  .err-ok   { color: var(--text-muted); }
 
   /* Score bar */
   .score-cell { min-width: 220px; }
@@ -124,15 +125,21 @@ const rows = servers.map((s, i) => ({
     flex: 1;
     height: 16px;
     border-radius: var(--radius-sm);
-    position: relative;
-    overflow: hidden;
     min-width: 140px;
-    background: linear-gradient(90deg, #f2495c 0%, #fade2a 50%, #73bf69 100%);
-  }
-  .bar-mask {
-    position: absolute;
-    top: 0; bottom: 0; right: 0;
     background: var(--surface-2);
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f2495c 0%, #fade2a 50%, #73bf69 100%);
+    /* Scale gradient so it always spans the full reference width */
+    background-size: calc(100% * 100 / var(--s)) 100%;
+    transform-origin: left center;
+    animation: bar-grow 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes bar-grow {
+    from { transform: scaleX(0); }
   }
   .bar-pct {
     font-variant-numeric: tabular-nums;
@@ -150,8 +157,14 @@ const rows = servers.map((s, i) => ({
     height: 7px;
     border-radius: 1px;
     flex-shrink: 0;
+    transition: opacity 0.15s;
   }
-  .pip-pass { background: var(--pass); }
-  .pip-fail { background: var(--fail); }
-  .pip-skip { background: var(--skip); opacity: 0.4; }
+  .pip-pass { background: var(--pass); opacity: 0.45; }
+  .pip-fail { background: var(--fail); opacity: 0.5; }
+  .pip-skip { background: var(--skip); opacity: 0.2; }
+
+  /* Brighten pips on row hover */
+  tbody tr:hover .pip-pass { opacity: 1; }
+  tbody tr:hover .pip-fail { opacity: 1; }
+  tbody tr:hover .pip-skip { opacity: 0.35; }
 </style>

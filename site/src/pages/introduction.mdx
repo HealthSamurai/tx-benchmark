@@ -1,0 +1,62 @@
+import Doc from '../layouts/Doc.astro';
+
+<Doc title="Introduction">
+
+<Fragment slot="toc">
+<span class="toc-label">On this page</span>
+
+- [What is this?](#what-is-this)
+- [Why it matters](#why-it-matters)
+- [What is tested](#what-is-tested)
+- [How to read results](#how-to-read-results)
+- [Limitations](#limitations)
+
+</Fragment>
+
+# Introduction
+
+## What is this?
+
+The FHIR TX Benchmark is an open, reproducible performance benchmark for [FHIR terminology servers](https://www.hl7.org/fhir/terminology-service.html) — servers that implement the FHIR `$validate-code`, `$expand`, `$lookup`, `$translate`, and related operations.
+
+It measures throughput and latency across a standardised set of test cases, run on the same hardware, against the same loaded terminology data, in isolation from each other. This makes results comparable across servers and across time.
+
+## Why it matters
+
+Terminology operations are on the critical path of almost every clinical data pipeline — validating codes on intake, expanding value sets for CDS, translating between code systems. A slow or unreliable terminology server degrades the entire stack.
+
+Published vendor benchmarks are rare, methodology is usually opaque, and "works on my machine" comparisons are not reproducible. This benchmark exists to provide a neutral, open baseline.
+
+## What is tested
+
+Tests cover the main FHIR terminology operations across the most widely used code systems in clinical data:
+
+| Category | Operations |
+|----------|-----------|
+| **LK** — Lookup | `$lookup` for SNOMED CT, LOINC, RxNorm, ICD-10 |
+| **VC** — Validate code | `$validate-code` against common value sets |
+| **EX** — Expand | `$expand` for small, medium, and large value sets |
+| **SS** — Subsumption | `$subsumes` for SNOMED CT hierarchies |
+| **CM** — Concept map | `$translate` using standard cross-maps |
+| **FS** — FHIR search | `GET /CodeSystem`, `GET /ValueSet` with filters |
+
+Each test draws inputs randomly from a pool of 2,000+ entries to simulate realistic working-set conditions rather than testing the same code in a hot cache.
+
+## How to read results
+
+**Composite Score** — A single 0–100 number summarising overall performance. The top server in each run scores 100; all others are a percentage of that. See the [Methodology](/methodology) page for the formula.
+
+**wRPS** — Weighted requests per second. Raw throughput adjusted so that naturally fast tests (simple lookups) don't dominate the score over naturally slow ones (large expansions).
+
+**Preflight dots** — Each coloured dot represents one test case. Green = passed correctness check and was benchmarked. Red = returned an incorrect response (excluded from scoring). Grey = not supported or returned 404/501.
+
+**Error rate** — Fraction of benchmark requests that returned an HTTP error during load testing. Yellow = below 1%. Red = 1% or above.
+
+## Limitations
+
+- **Not a production proxy.** The benchmark runs on loopback with no network, no auth, and a single client machine. Real-world performance depends heavily on network topology, hardware, caching strategies, and data volume.
+- **Snapshot in time.** Results reflect a specific software version and dataset snapshot. Servers improve; check the run date.
+- **Coverage gaps.** Not all FHIR operations and code systems are covered. Servers that support operations outside the test suite are not rewarded for that coverage.
+- **Single node.** No clustering or horizontal scaling is tested.
+
+</Doc>

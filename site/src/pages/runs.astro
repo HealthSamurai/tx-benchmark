@@ -1,0 +1,194 @@
+---
+import Base from '../layouts/Base.astro';
+import runs from '../data/runs.json';
+import type { RunExport } from '../../scripts/lib/loader.ts';
+
+const runData = await Promise.all(
+  runs.map(async r => {
+    const data: RunExport = (await import(`../data/${r.id}.json`)).default;
+    const topServer = data.servers[0];
+    return {
+      id: r.id,
+      name: r.name,
+      date: data.date,
+      serverCount: data.servers.length,
+      testCount: data.config.tests.length,
+      topServer: topServer?.id ?? '—',
+      topRps: topServer?.rawScore ?? 0,
+    };
+  })
+);
+
+function fmtDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+function fmtRps(v: number): string {
+  if (v >= 1000) return (v / 1000).toFixed(1) + 'K';
+  return v.toFixed(0);
+}
+---
+
+<Base title="All Runs — FHIR TX Benchmark">
+  <div class="page">
+    <div class="page-header">
+      <h1 class="page-title">Benchmark Runs</h1>
+      <p class="page-sub">All recorded benchmark runs, most recent first.</p>
+    </div>
+
+    <div class="run-list">
+      {runData.map(r => (
+        <a href={`/results/${r.id}`} class="run-card">
+          <div class="card-identity">
+            <span class="run-name">{r.name}</span>
+            <span class="run-date">{fmtDate(r.date)} · <span class="run-id">{r.id}</span></span>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-stats">
+            <div class="stat">
+              <span class="stat-label">Servers</span>
+              <span class="stat-value">{r.serverCount}</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Tests</span>
+              <span class="stat-value">{r.testCount}</span>
+            </div>
+            <div class="stat stat-leader">
+              <span class="stat-label">Leader</span>
+              <span class="stat-value">{r.topServer}</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">wRPS</span>
+              <span class="stat-value">{fmtRps(r.topRps)}</span>
+            </div>
+          </div>
+          <span class="card-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-7);
+  }
+
+  .page-title {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-2);
+  }
+
+  .page-sub {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .run-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .run-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-4) var(--space-5);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .run-card:hover {
+    border-color: #2e3048;
+    background: var(--surface-2);
+    text-decoration: none;
+  }
+
+  .card-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 128px;
+  }
+
+  .run-name {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .run-date {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .run-id {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .card-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .card-stats {
+    display: flex;
+    gap: var(--space-6);
+    flex: 1;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .stat-value {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-leader .stat-value {
+    font-family: var(--font-mono);
+    color: var(--text);
+  }
+
+  .card-arrow {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+    transition: color 0.15s, transform 0.15s;
+  }
+
+  .run-card:hover .card-arrow {
+    color: var(--text);
+    transform: translateX(3px);
+  }
+</style>

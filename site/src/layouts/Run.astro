@@ -1,136 +1,115 @@
 ---
 import Base from './Base.astro';
+import runs from '../data/runs.json';
 
 interface Props {
   title: string;
   run: string;
   date: string;
-  activeSection?: string; // 'overview' | 'servers' | 'tests' | 'details'
+  activeSection?: string;
 }
 
 const { title, run, date, activeSection = 'overview' } = Astro.props;
+const runName = runs.find(r => r.id === run)?.name ?? run;
 
-const NAV = [
-  { id: 'overview', label: 'Overview',  href: `/results/${run}`         },
-  { id: 'servers',  label: 'Servers',   href: `/results/${run}/servers`  },
-  { id: 'tests',    label: 'Tests',     href: `/results/${run}/tests`    },
-  { id: 'details',  label: 'Details',   href: `/results/${run}/details`  },
+const TABS = [
+  { id: 'overview', label: 'Overview', href: `/results/${run}`         },
+  { id: 'servers',  label: 'Servers',  href: `/results/${run}/servers`  },
+  { id: 'tests',    label: 'Tests',    href: `/results/${run}/tests`    },
+  { id: 'details',  label: 'Details',  href: `/results/${run}/details`  },
 ];
 ---
 
 <Base title={`${title} — FHIR TX Benchmark`}>
-  <div class="run-layout">
-    <aside class="sidebar">
-      <div class="run-identity">
-        <a href="/runs" class="all-runs">← All runs</a>
-        <span class="run-id">{run}</span>
-        <span class="run-date">{date}</span>
-      </div>
+  <div class="run-main">
+    <!-- Run identity header -->
+    <div class="run-header">
+      <a href="/runs" class="back-link">← All runs</a>
+      <h1 class="run-name">{runName}</h1>
+      <p class="run-date">{date}</p>
+    </div>
 
-      <nav class="sidebar-nav">
-        {NAV.map(({ id, label, href }) => (
-          <a
-            href={href}
-            class={`nav-item${activeSection === id ? ' active' : ''}`}
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
-    </aside>
+    <!-- Tab nav -->
+    <nav class="tab-nav">
+      {TABS.map(({ id, label, href }) => (
+        <a href={href} class={`tab${activeSection === id ? ' active' : ''}`}>{label}</a>
+      ))}
+    </nav>
 
-    <main class="run-main">
+    <div class="run-content">
       <slot />
-    </main>
+    </div>
   </div>
 </Base>
 
 <style>
-  .run-layout {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    min-height: calc(100vh - 52px);
+  .run-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-6) var(--space-8);
   }
 
-  @media (max-width: 800px) {
-    .run-layout { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
+  /* Run identity header */
+  .run-header {
+    margin-bottom: var(--space-6);
   }
 
-  /* Sidebar */
-  .sidebar {
-    border-right: 1px solid var(--border);
-    padding: var(--space-5) var(--space-4) var(--space-6);
-    position: sticky;
-    top: 52px;
-    height: calc(100vh - 52px);
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .run-identity {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-bottom: var(--space-4);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .all-runs {
+  .back-link {
     font-size: var(--text-xs);
     color: var(--text-muted);
     text-decoration: none;
-    margin-bottom: var(--space-1);
+    display: inline-block;
+    margin-bottom: var(--space-3);
     transition: color 0.15s;
   }
-  .all-runs:hover { color: var(--text); text-decoration: none; }
+  .back-link:hover { color: var(--text); text-decoration: none; }
 
-  .run-id {
+  .run-name {
     font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    color: var(--accent);
+    font-size: var(--text-3xl);
     font-weight: 600;
-    letter-spacing: 0.01em;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-1);
   }
 
   .run-date {
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-  }
-
-  .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
-  .nav-item {
-    display: block;
-    padding: 6px 10px;
     font-size: var(--text-sm);
     color: var(--text-muted);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: color 0.15s, background 0.15s;
+  }
+
+  /* Tabs */
+  .tab-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-7);
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 14px;
+    font-size: var(--text-sm);
     font-weight: 500;
-  }
-
-  .nav-item:hover {
-    color: var(--text);
-    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
     text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px; /* overlap the nav border-bottom */
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
   }
 
-  .nav-item.active {
+  .tab:hover { color: var(--text); text-decoration: none; }
+
+  .tab.active {
     color: var(--text);
-    background: rgba(255,255,255,0.08);
+    border-bottom-color: var(--accent);
   }
 
-  /* Main content */
-  .run-main {
-    padding: var(--space-6) var(--space-8) var(--space-8);
-    min-width: 0;
+  .run-content {
+    padding-top: var(--space-4);
   }
 </style>

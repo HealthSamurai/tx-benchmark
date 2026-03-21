@@ -1,0 +1,52 @@
+---
+import Run from '../../../layouts/Run.astro';
+import runs from '../../../data/runs.json';
+import type { RunExport } from '../../../../scripts/lib/loader.ts';
+
+export async function getStaticPaths() {
+  return runs.map(r => ({ params: { run: r.id } }));
+}
+
+const { run } = Astro.params;
+const data: RunExport = (await import(`../../../data/${run}.json`)).default;
+---
+
+<Run title={`${run} — Servers`} run={run} date={data.date} activeSection="servers">
+  <div class="placeholder">
+    <div class="placeholder-icon">🖥</div>
+    <h2 class="placeholder-title">Servers</h2>
+    <p class="placeholder-sub">
+      Per-server breakdown — latency percentiles, memory usage, data volume, and test-by-test results for each of the {data.servers.length} servers in this run.
+    </p>
+    <p class="placeholder-badge">Coming soon</p>
+  </div>
+</Run>
+
+<style>
+  .placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    text-align: center;
+    gap: var(--space-3);
+    color: var(--text-muted);
+  }
+  .placeholder-icon { font-size: 2.5rem; margin-bottom: var(--space-2); }
+  .placeholder-title { font-size: var(--text-xl); font-weight: 600; color: var(--text-dim); }
+  .placeholder-sub { font-size: var(--text-sm); max-width: 480px; line-height: 1.7; }
+  .placeholder-badge {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-top: var(--space-2);
+    opacity: 0.7;
+  }
+</style>

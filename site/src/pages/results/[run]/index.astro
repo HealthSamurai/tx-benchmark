@@ -13,42 +13,86 @@ const data: RunExport = (await import(`../../../data/${run}.json`)).default;
 ---
 
 <Run title={`${run} Results`} run={run} date={data.date} activeSection="overview">
-  <header class="page-header">
-    <p class="page-eyebrow">Composite Score</p>
-    <h1 class="page-title">Results</h1>
-    <p class="page-sub">
-      {data.servers.length} servers · {data.config.tests.length} tests · {data.date}
-    </p>
-  </header>
-
-  <ScoreTable servers={data.servers} tests={data.config.tests} />
+  <div class="widget">
+    <div class="widget-header">
+      <span class="widget-title">Composite Score</span>
+      <span class="info-wrap">
+        <span class="info-icon" aria-label="About this table">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 7h2v5H7V7z"/>
+          </svg>
+        </span>
+        <div class="info-popover" role="tooltip">
+          Servers ranked by weighted throughput (wRPS) — effective requests per second adjusted
+          so that high-RPS tests don't dominate the score. The top performer is set to 100;
+          all others are expressed as a percentage of that.
+        </div>
+      </span>
+    </div>
+    <ScoreTable servers={data.servers} tests={data.config.tests} />
+  </div>
 </Run>
 
 <style>
-  .page-header {
-    padding-top: var(--space-2);
-    margin-bottom: var(--space-6);
+  .widget {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
   }
 
-  .page-eyebrow {
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: var(--space-2);
+  .widget-header {
+    padding: 10px var(--space-4);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    position: relative;
   }
 
-  .page-title {
-    font-size: var(--text-3xl);
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-2);
-  }
-
-  .page-sub {
+  .widget-title {
     font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .info-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .info-icon {
+    display: flex;
+    align-items: center;
     color: var(--text-muted);
+    cursor: help;
+    transition: color 0.15s;
+  }
+  .info-icon:hover { color: var(--text); }
+
+  .info-popover {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 6px);
+    background: #1e1f2a;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--text-dim);
+    line-height: 1.6;
+    width: 300px;
+    z-index: 200;
+    white-space: normal;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    transition: opacity 0.15s, visibility 0.15s;
+    pointer-events: none;
+  }
+
+  .info-wrap:hover .info-popover {
+    visibility: visible;
+    opacity: 1;
   }
 </style>
