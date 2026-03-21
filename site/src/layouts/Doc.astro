@@ -5,41 +5,106 @@ interface Props {
   title: string;
 }
 const { title } = Astro.props;
-const hasSidebar = Astro.slots.has('sidebar');
+const path = Astro.url.pathname;
+const hasToc = Astro.slots.has('toc');
+
+const DOC_LINKS = [
+  { label: 'Introduction', href: '/introduction' },
+  { label: 'Methodology',  href: '/methodology'  },
+  { label: 'Data',         href: '/data'          },
+];
 ---
 <Base title={`${title} — FHIR TX Benchmark`}>
-  <div class={`doc-page${hasSidebar ? ' has-sidebar' : ''}`}>
-    {hasSidebar && (
-      <aside class="sidebar">
-        <slot name="sidebar" />
-      </aside>
-    )}
+  <div class="doc-layout">
+    <!-- Left: doc section nav -->
+    <aside class="doc-nav">
+      <span class="nav-label">Docs</span>
+      <nav>
+        {DOC_LINKS.map(({ label, href }) => (
+          <a href={href} class={`doc-link${path.startsWith(href) ? ' active' : ''}`}>
+            {label}
+          </a>
+        ))}
+      </nav>
+    </aside>
+
+    <!-- Center: prose content -->
     <article class="prose">
       <slot />
     </article>
+
+    <!-- Right: per-page TOC (optional) -->
+    {hasToc && (
+      <aside class="toc">
+        <slot name="toc" />
+      </aside>
+    )}
   </div>
 </Base>
 
 <style>
-  .doc-page {
-    max-width: 1100px;
+  .doc-layout {
+    max-width: 1200px;
     margin: 0 auto;
     padding: var(--space-7) var(--space-6) var(--space-8);
-  }
-
-  .doc-page.has-sidebar {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 160px 1fr 180px;
     gap: var(--space-8);
   }
 
-  @media (max-width: 800px) {
-    .doc-page.has-sidebar { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
+  /* When no TOC, collapse to 2-column */
+  .doc-layout:not(:has(.toc)) {
+    grid-template-columns: 160px 1fr;
+    max-width: 960px;
   }
 
-  /* Sidebar */
-  .sidebar {
+  @media (max-width: 900px) {
+    .doc-layout { grid-template-columns: 1fr; }
+    .doc-nav, .toc { display: none; }
+  }
+
+  /* Left nav */
+  .doc-nav {
+    position: sticky;
+    top: 72px;
+    align-self: start;
+    padding-top: 2px;
+  }
+
+  .nav-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+
+  .doc-link {
+    display: block;
+    padding: 4px 8px;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color 0.15s, background 0.15s;
+    margin-bottom: 1px;
+  }
+
+  .doc-link:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+    text-decoration: none;
+  }
+
+  .doc-link.active {
+    color: var(--text);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* Right TOC */
+  .toc {
     position: sticky;
     top: 72px;
     align-self: start;
@@ -47,61 +112,43 @@ const hasSidebar = Astro.slots.has('sidebar');
     font-size: var(--text-sm);
   }
 
-  /* Nav label */
-  .sidebar :global(.nav-label) {
+  .toc :global(.toc-label) {
     font-size: var(--text-xs);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: var(--space-2);
-    margin-top: var(--space-5);
     display: block;
+    margin-bottom: var(--space-3);
   }
 
-  .sidebar :global(.nav-label:first-child) {
-    margin-top: 0;
-  }
-
-  /* Strip browser list defaults */
-  .sidebar :global(ul),
-  .sidebar :global(ol) {
+  .toc :global(ul) {
     list-style: none;
     padding: 0;
-    margin: 0 0 var(--space-2);
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 1px;
   }
 
-  .sidebar :global(li) {
-    margin: 0;
-    padding: 0;
-  }
+  .toc :global(li) { margin: 0; padding: 0; }
 
-  /* Links */
-  .sidebar :global(a) {
+  .toc :global(a) {
     color: var(--text-muted);
     text-decoration: none;
     display: block;
-    padding: 4px 8px;
+    padding: 3px 8px;
     font-size: var(--text-sm);
     border-radius: var(--radius-sm);
     transition: color 0.15s, background 0.15s;
   }
 
-  .sidebar :global(a:hover) {
+  .toc :global(a:hover) {
     color: var(--text);
     background: rgba(255,255,255,0.04);
-    text-decoration: none;
   }
 
-  .sidebar :global(a.active) {
-    color: var(--text);
-    background: rgba(255,255,255,0.07);
-  }
-
-  /* Prose styles */
+  /* Prose */
   .prose {
     min-width: 0;
     line-height: 1.75;
@@ -209,7 +256,6 @@ const hasSidebar = Astro.slots.has('sidebar');
     margin-bottom: var(--space-2);
   }
 
-  /* KaTeX display math */
   .prose :global(.katex-display) {
     margin: var(--space-5) 0;
     overflow-x: auto;

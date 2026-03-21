@@ -1,6 +1,5 @@
 ---
 import Run from '../../../layouts/Run.astro';
-import CapabilityMatrix from '../../../components/CapabilityMatrix.svelte';
 import ScoreTable from '../../../components/ScoreTable.astro';
 import runs from '../../../data/runs.json';
 import type { RunExport } from '../../../../scripts/lib/loader.ts';
@@ -11,59 +10,45 @@ export async function getStaticPaths() {
 
 const { run } = Astro.params;
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
-
-const serverNames = data.servers.map(s => s.id);
-const testCategories = [...new Set(data.config.tests.map(t => t.replace(/\d+$/, '')))];
 ---
 
-<Run
-  title={`${run} Results`}
-  run={run}
-  date={data.date}
-  servers={serverNames}
-  testCategories={testCategories}
-  activeSection="overview"
->
+<Run title={`${run} Results`} run={run} date={data.date} activeSection="overview">
   <header class="page-header">
+    <p class="page-eyebrow">Composite Score</p>
     <h1 class="page-title">Results</h1>
+    <p class="page-sub">
+      {data.servers.length} servers · {data.config.tests.length} tests · {data.date}
+    </p>
   </header>
 
-  <section class="section">
-    <h2 class="section-title">Composite Score</h2>
-    <ScoreTable servers={data.servers} tests={data.config.tests} />
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Capability Matrix</h2>
-    <CapabilityMatrix servers={data.servers} tests={data.config.tests} />
-  </section>
+  <ScoreTable servers={data.servers} tests={data.config.tests} />
 </Run>
 
 <style>
   .page-header {
-    padding-top: var(--space-3);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: var(--space-5);
+    padding-top: var(--space-2);
     margin-bottom: var(--space-6);
   }
 
+  .page-eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+  }
+
   .page-title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     font-weight: 600;
     color: #fff;
     letter-spacing: -0.02em;
+    margin-bottom: var(--space-2);
   }
 
-  .section {
-    margin-bottom: var(--space-8);
-  }
-
-  .section-title {
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .page-sub {
+    font-size: var(--text-sm);
     color: var(--text-muted);
-    margin-bottom: var(--space-4);
   }
 </style>

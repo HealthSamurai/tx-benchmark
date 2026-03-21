@@ -5,62 +5,37 @@ interface Props {
   title: string;
   run: string;
   date: string;
-  servers: string[];
-  testCategories: string[];
-  activeSection?: string; // 'overview' | 'server:[name]' | 'test:[category]'
+  activeSection?: string; // 'overview' | 'servers' | 'tests' | 'details'
 }
 
-const { title, run, date, servers, testCategories, activeSection = 'overview' } = Astro.props;
+const { title, run, date, activeSection = 'overview' } = Astro.props;
 
-const CATEGORY_LABELS: Record<string, string> = {
-  LK: 'Lookup',
-  VC: 'Validate code',
-  EX: 'Expand',
-  SS: 'Subsumes',
-  CM: 'Translate',
-  FS: 'FHIR search',
-};
+const NAV = [
+  { id: 'overview', label: 'Overview',  href: `/results/${run}`         },
+  { id: 'servers',  label: 'Servers',   href: `/results/${run}/servers`  },
+  { id: 'tests',    label: 'Tests',     href: `/results/${run}/tests`    },
+  { id: 'details',  label: 'Details',   href: `/results/${run}/details`  },
+];
 ---
 
 <Base title={`${title} — FHIR TX Benchmark`}>
   <div class="run-layout">
     <aside class="sidebar">
       <div class="run-identity">
+        <a href="/runs" class="all-runs">← All runs</a>
         <span class="run-id">{run}</span>
         <span class="run-date">{date}</span>
       </div>
 
       <nav class="sidebar-nav">
-        <a
-          href={`/results/${run}`}
-          class={`nav-item${activeSection === 'overview' ? ' active' : ''}`}
-        >
-          Overview
-        </a>
-
-        <div class="nav-section">
-          <span class="nav-section-label">Servers</span>
-          {servers.map(server => (
-            <a
-              href={`/results/${run}/server/${server}`}
-              class={`nav-item nav-item--sub${activeSection === `server:${server}` ? ' active' : ''}`}
-            >
-              {server}
-            </a>
-          ))}
-        </div>
-
-        <div class="nav-section">
-          <span class="nav-section-label">Tests</span>
-          {testCategories.map(cat => (
-            <a
-              href={`/results/${run}/test/${cat.toLowerCase()}`}
-              class={`nav-item nav-item--sub${activeSection === `test:${cat}` ? ' active' : ''}`}
-            >
-              {CATEGORY_LABELS[cat] ?? cat}
-            </a>
-          ))}
-        </div>
+        {NAV.map(({ id, label, href }) => (
+          <a
+            href={href}
+            class={`nav-item${activeSection === id ? ' active' : ''}`}
+          >
+            {label}
+          </a>
+        ))}
       </nav>
     </aside>
 
@@ -85,7 +60,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   /* Sidebar */
   .sidebar {
     border-right: 1px solid var(--border);
-    padding: var(--space-6) var(--space-4);
+    padding: var(--space-5) var(--space-4) var(--space-6);
     position: sticky;
     top: 52px;
     height: calc(100vh - 52px);
@@ -98,16 +73,26 @@ const CATEGORY_LABELS: Record<string, string> = {
   .run-identity {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     padding-bottom: var(--space-4);
     border-bottom: 1px solid var(--border);
   }
 
+  .all-runs {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-1);
+    transition: color 0.15s;
+  }
+  .all-runs:hover { color: var(--text); text-decoration: none; }
+
   .run-id {
     font-family: var(--font-mono);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     color: var(--accent);
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   .run-date {
@@ -121,27 +106,9 @@ const CATEGORY_LABELS: Record<string, string> = {
     gap: 1px;
   }
 
-  .nav-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    margin-top: var(--space-4);
-  }
-
-  .nav-section-label {
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 0 8px;
-    margin-bottom: var(--space-1);
-    display: block;
-  }
-
   .nav-item {
     display: block;
-    padding: 5px 8px;
+    padding: 6px 10px;
     font-size: var(--text-sm);
     color: var(--text-muted);
     text-decoration: none;
@@ -150,24 +117,20 @@ const CATEGORY_LABELS: Record<string, string> = {
     font-weight: 500;
   }
 
-  .nav-item--sub {
-    font-weight: 400;
-  }
-
   .nav-item:hover {
     color: var(--text);
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
+    text-decoration: none;
   }
 
   .nav-item.active {
     color: var(--text);
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
   }
 
   /* Main content */
   .run-main {
-    padding: var(--space-6) var(--space-7) var(--space-8);
+    padding: var(--space-6) var(--space-8) var(--space-8);
     min-width: 0;
-    max-width: 1300px;
   }
 </style>
