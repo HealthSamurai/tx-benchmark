@@ -1,8 +1,15 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
 export default defineConfig({
   integrations: [svelte(), mdx()],
   output: 'static',
   server: { port: 4100 },
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
+  },
 });
