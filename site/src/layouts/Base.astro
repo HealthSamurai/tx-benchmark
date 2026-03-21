@@ -1,0 +1,124 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = 'FHIR TX Benchmark' } = Astro.props;
+const path = Astro.url.pathname;
+
+const NAV_LINKS = [
+  { label: 'Introduction', href: '/introduction' },
+  { label: 'Methodology',  href: '/methodology' },
+  { label: 'Data',         href: '/data' },
+  { label: 'Servers',      href: '/servers' },
+  { label: 'Runs',         href: '/runs' },
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="wordmark">
+        <span class="wordmark-accent">FHIR</span>
+        <span class="wordmark-label">TX Benchmark</span>
+      </a>
+      <nav class="site-nav">
+        {NAV_LINKS.map(({ label, href }) => (
+          <a
+            href={href}
+            class={`nav-link${path.startsWith(href) ? ' nav-link--active' : ''}`}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+</body>
+</html>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(17, 18, 23, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .wordmark:hover { text-decoration: none; }
+
+  .wordmark-accent {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #f28c3a;
+  }
+
+  .wordmark-label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 0.01em;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .nav-link {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    transition: color 0.15s, background 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  .nav-link--active {
+    color: var(--text);
+  }
+</style>

@@ -249,7 +249,7 @@ const runs    = [...new Set(allRows.map(r => r.run))];
 let scored = 0;
 
 for (const run of runs) {
-  const scores = computeScores(allRows.filter(r => r.run === run));
+  const { scores } = computeScores(allRows.filter(r => r.run === run));
 
   for (const [server, score] of scores) {
     await pushMetrics(

@@ -1,3 +1,6 @@
 results/
 harvest/
 .DS_Store
+.playwright-mcp/
+site/src/data/*.json
+site/public/styles/global.css

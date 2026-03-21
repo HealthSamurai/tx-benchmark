@@ -58,8 +58,9 @@ function buildWeightedRps(rows: EffRow[]): { weightedRps: WeightedRpsMap; server
 
 // Arithmetic weighted sum.
 // See METHODOLOGY.md for the full algorithm description.
-export function computeScores(rows: EffRow[]): Map<string, number> {
-  if (rows.length === 0) return new Map();
+// Returns { scores: 0–100 normalized, rawScores: unnormalized weighted sums }
+export function computeScores(rows: EffRow[]): { scores: Map<string, number>; rawScores: Map<string, number> } {
+  if (rows.length === 0) return { scores: new Map(), rawScores: new Map() };
 
   const { weightedRps, servers, tests } = buildWeightedRps(rows);
 
@@ -75,7 +76,7 @@ export function computeScores(rows: EffRow[]): Map<string, number> {
     scores.set(server, top > 0 ? (raw / top) * 100 : 0);
   }
 
-  return scores;
+  return { scores, rawScores };
 }
 
 // Returns per-(server, test) weighted RPS for pushing as benchmark_weighted_rps.

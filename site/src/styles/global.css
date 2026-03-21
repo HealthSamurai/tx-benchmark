@@ -1,0 +1,81 @@
+/* ── Tokens ───────────────────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --bg:          #111217;
+  --surface:     #16171f;
+  --surface-2:   #1c1d26;
+  --border:      #1f2028;
+  --text:        #d9d9d9;
+  --text-muted:  #666;
+  --text-dim:    #999;
+  --accent:      #5794f2;
+
+  --pass:        rgb(115, 191, 105);
+  --pass-bg:     rgb(77, 172, 73);
+  --fail:        rgb(242, 73, 92);
+  --fail-bg:     rgb(239, 25, 32);
+  --skip:        rgb(204, 204, 220);
+  --skip-bg:     rgb(176, 174, 199);
+
+  --score-low:   #e83c50;
+  --score-mid:   #EB9646;
+  --score-high:  #58b86e;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+
+  /* Typography — scale */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius:    4px;
+  --radius-lg: 8px;
+}
+
+/* ── Reset ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Utilities ────────────────────────────────────────────────────────────── */
+.text-muted  { color: var(--text-muted); }
+.text-dim    { color: var(--text-dim); }
+.text-xs     { font-size: var(--text-xs); }
+.text-sm     { font-size: var(--text-sm); }
+.text-mono   { font-family: var(--font-mono); }
+.font-medium { font-weight: 500; }
+.font-bold   { font-weight: 600; }
+
+.flex        { display: flex; }
+.flex-col    { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.gap-1       { gap: var(--space-1); }
+.gap-2       { gap: var(--space-2); }
+.gap-3       { gap: var(--space-3); }
+
+.tabular     { font-variant-numeric: tabular-nums; }
