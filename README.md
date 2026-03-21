@@ -83,9 +83,39 @@ bun scripts/push-results.ts [--run <run-id>]
 
 This reads every `results/*/benchmark/*.json` and pushes p50/p95/p99/throughput/error_rate as gauges to the Pushgateway, making them available for cross-server comparison in Grafana.
 
-### 5. View results
+### 5. Export results to the website
 
-Open Grafana at [http://localhost:3000](http://localhost:3000).
+```bash
+bun scripts/export-run.ts --run <run-id> --date <YYYY-MM-DD>
+
+# Example
+bun scripts/export-run.ts --run mar-20-02 --date 2026-03-20
+```
+
+This writes `site/src/data/<run-id>.json` and updates `site/src/data/runs.json`. Data files are gitignored — only commit them when publishing official results.
+
+### 6. View results
+
+Open Grafana at [http://localhost:3000](http://localhost:3000) or the benchmark website (see below).
+
+## Website
+
+The `site/` directory contains a static Astro + Svelte site for publishing results.
+
+```bash
+cd site
+bun install       # first time only
+bun run dev       # dev server at http://localhost:4100
+bun run build     # production build to site/dist/
+```
+
+**Adding a run to the site:**
+
+1. Run the benchmark and push results: `bun scripts/push-results.ts --run <run-id>`
+2. Export the run: `bun scripts/export-run.ts --run <run-id> --date <YYYY-MM-DD>`
+3. Commit `site/src/data/<run-id>.json` and the updated `site/src/data/runs.json`
+
+**Data files** (`site/src/data/*.json`) are gitignored by default so development runs don't pollute the repo. Add them explicitly when publishing.
 
 ## Methodology
 
