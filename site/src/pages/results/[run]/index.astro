@@ -1,0 +1,90 @@
+---
+import Base from '../../../layouts/Base.astro';
+import CapabilityMatrix from '../../../components/CapabilityMatrix.svelte';
+import ScoreTable from '../../../components/ScoreTable.svelte';
+import runs from '../../../data/runs.json';
+import type { RunExport } from '../../../../scripts/lib/loader.ts';
+
+export async function getStaticPaths() {
+  return runs.map(r => ({ params: { run: r.id } }));
+}
+
+const { run } = Astro.params;
+const data: RunExport = (await import(`../../../data/${run}.json`)).default;
+---
+
+<Base title={`${run} — FHIR TX Benchmark`}>
+  <div class="page">
+    <header class="page-header">
+      <div class="run-meta">
+        <span class="run-id text-mono">{run}</span>
+        <span class="run-sep">·</span>
+        <span class="run-date">{data.date}</span>
+      </div>
+      <h1 class="page-title">Results</h1>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Composite Score</h2>
+      <ScoreTable servers={data.servers} tests={data.config.tests} client:load />
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Capability Matrix</h2>
+      <CapabilityMatrix servers={data.servers} tests={data.config.tests} />
+    </section>
+
+    <!-- TODO: RpsChart / LatencyChart -->
+  </div>
+</Base>
+
+<style>
+  .page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-6) var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+
+  .page-header {
+    padding-top: var(--space-5);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-5);
+  }
+
+  .run-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .run-id {
+    color: var(--accent);
+    font-size: var(--text-xs);
+  }
+
+  .run-sep {
+    color: var(--border);
+  }
+
+  .page-title {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+  }
+</style>
