@@ -12,11 +12,12 @@ interface Props {
 const { title, run, date, activeSection = 'overview' } = Astro.props;
 const runName = runs.find(r => r.id === run)?.name ?? run;
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const TABS = [
-  { id: 'overview',  label: 'Overview',  href: `/results/${run}`         },
-  { id: 'details',   label: 'Breakdown', href: `/results/${run}/details`  },
-  { id: 'servers',   label: 'Servers',   href: `/results/${run}/servers`  },
-  { id: 'tests',     label: 'Tests',     href: `/results/${run}/tests`    },
+  { id: 'overview',  label: 'Overview',  href: `${base}/results/${run}`         },
+  { id: 'details',   label: 'Breakdown', href: `${base}/results/${run}/details`  },
+  { id: 'servers',   label: 'Servers',   href: `${base}/results/${run}/servers`  },
+  { id: 'tests',     label: 'Tests',     href: `${base}/results/${run}/tests`    },
 ];
 ---
 
@@ -24,7 +25,7 @@ const TABS = [
   <div class="run-main">
     <!-- Run identity header -->
     <div class="run-header">
-      <a href="/runs" class="back-link">← All runs</a>
+      <a href={`${base}/runs`} class="back-link">← All runs</a>
       <h1 class="run-name">{runName}</h1>
       <p class="run-date">{date}</p>
     </div>

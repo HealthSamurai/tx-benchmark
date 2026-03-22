@@ -4,7 +4,8 @@ import runs from '../data/runs.json';
 // Redirect to the latest run
 const latest = runs[0];
 if (latest) {
-  return Astro.redirect(`/results/${latest.id}`);
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  return Astro.redirect(`${base}/results/${latest.id}`);
 }
 ---
 <p>No runs yet.</p>

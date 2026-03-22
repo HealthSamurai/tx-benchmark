@@ -6,9 +6,10 @@ interface Props {
 }
 const { title = 'FHIR TX Benchmark' } = Astro.props;
 const path = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const isDocsActive  = ['/introduction', '/methodology', '/data', '/servers'].some(p => path.startsWith(p));
-const isRunsActive  = path.startsWith('/runs') || path.startsWith('/results');
+const isDocsActive  = ['/introduction', '/methodology', '/data', '/servers'].some(p => path.includes(p));
+const isRunsActive  = path.includes('/runs') || path.includes('/results');
 ---
 <!doctype html>
 <html lang="en">
@@ -19,21 +20,21 @@ const isRunsActive  = path.startsWith('/runs') || path.startsWith('/results');
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href={`${base}/styles/global.css`} />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.40/dist/katex.min.css" />
   <ViewTransitions />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="wordmark">
+      <a href={base} class="wordmark">
         <span class="wordmark-accent">FHIR</span>
         <span class="wordmark-label">TX Benchmark</span>
       </a>
 
       <nav class="site-nav">
-        <a href="/runs"         class={`nav-link${isRunsActive  ? ' nav-link--active' : ''}`}>Runs</a>
-        <a href="/introduction" class={`nav-link${isDocsActive  ? ' nav-link--active' : ''}`}>Docs</a>
+        <a href={`${base}/runs`}         class={`nav-link${isRunsActive  ? ' nav-link--active' : ''}`}>Runs</a>
+        <a href={`${base}/introduction`} class={`nav-link${isDocsActive  ? ' nav-link--active' : ''}`}>Docs</a>
         <a href="https://github.com/HealthSamurai/tx-benchmark"
            class="nav-link nav-link--icon"
            target="_blank"
