@@ -72,10 +72,10 @@ Each server receives a single composite score in the range $[0, 100]$ where $100
 
 ### Step 1 — Effective RPS
 
-For each *(server, test)* pair, compute the effective RPS at each VU level and take the maximum across levels:
+For each *(server, test)* pair, compute the eRPS at each VU level and take the maximum across levels:
 
 $$
-\text{effRPS}_{s,t} = \max_v \bigl( \text{rps}_{s,t,v} \times (1 - \text{errorRate}_{s,t,v}) \bigr)
+\text{eRPS}_{s,t} = \max_v \bigl( \text{rps}_{s,t,v} \times (1 - \text{errorRate}_{s,t,v}) \bigr)
 $$
 
 Multiplying by $(1 - \text{errorRate})$ penalises servers that sustain throughput by returning errors.
@@ -85,17 +85,17 @@ Multiplying by $(1 - \text{errorRate})$ penalises servers that sustain throughpu
 Tests naturally differ in throughput — a simple lookup saturates faster than a complex expansion. Without adjustment, high-throughput tests would dominate the score. We use a **TechEmpower-style normalising weight** that scales each test's contribution to the same RPS unit as the reference test (LK01 — simple SNOMED lookup):
 
 $$
-w_t = \frac{\overline{\text{effRPS}}_{\text{LK01}}}{\overline{\text{effRPS}}_t}
+w_t = \frac{\overline{\text{eRPS}}_{\text{LK01}}}{\overline{\text{eRPS}}_t}
 $$
 
-where $\overline{\text{effRPS}}_t$ is the mean effective RPS for test $t$ across all servers in the run.
+where $\overline{\text{eRPS}}_t$ is the mean eRPS for test $t$ across all servers in the run.
 
 ### Step 3 — Weighted RPS
 
 For each *(server, test)* pair, apply the normalising weight and a per-test **bias** coefficient $b_t \in (0, 1]$:
 
 $$
-\text{wRPS}_{s,t} = \text{effRPS}_{s,t} \times w_t \times b_t
+\text{wRPS}_{s,t} = \text{eRPS}_{s,t} \times w_t \times b_t
 $$
 
 Bias coefficients down-weight test categories that are less representative of real-world workloads (e.g. `FS` FHIR search has $b = 0.4$). Default is $1.0$.
@@ -118,12 +118,12 @@ The top server always receives 100. All others are expressed as a percentage of 
 
 ## Imputation
 
-Servers that did not participate in a test (failed preflight or did not run it) receive an **imputed** effective RPS for that test rather than zero. This prevents absent servers from being unfairly penalised for gaps in coverage.
+Servers that did not participate in a test (failed preflight or did not run it) receive an **imputed** eRPS for that test rather than zero. This prevents absent servers from being unfairly penalised for gaps in coverage.
 
-The imputed value is the **30th percentile** of the participating servers' effective RPS for that *(test, VU level)*, anchored at zero:
+The imputed value is the **30th percentile** of the participating servers' eRPS for that *(test, VU level)*, anchored at zero:
 
 $$
-\text{effRPS}_{\text{imputed}} = P_{30}\bigl(\{0\} \cup \{\text{effRPS}_{s',t,v} : s' \in \text{participants}\}\bigr)
+\text{eRPS}_{\text{imputed}} = P_{30}\bigl(\{0\} \cup \{\text{eRPS}_{s',t,v} : s' \in \text{participants}\}\bigr)
 $$
 
 Anchoring at zero means: the fewer servers participate in a test, the lower the imputed value. A server absent from a test it could have aced receives less benefit than one present with real results.
