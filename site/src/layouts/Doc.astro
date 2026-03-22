@@ -7,11 +7,12 @@ interface Props {
 const { title } = Astro.props;
 const path = Astro.url.pathname;
 const hasToc = Astro.slots.has('toc');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const DOC_LINKS = [
-  { label: 'Introduction', href: '/introduction' },
-  { label: 'Methodology',  href: '/methodology'  },
-  { label: 'Data',         href: '/data'          },
+  { label: 'Introduction', href: `${base}/introduction` },
+  { label: 'Methodology',  href: `${base}/methodology`  },
+  { label: 'Data',         href: `${base}/data`          },
 ];
 ---
 <Base title={`${title} — FHIR TX Benchmark`}>
