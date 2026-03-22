@@ -1,35 +1,12 @@
 ---
-import Run from '../../../layouts/Run.astro';
-import ScoreTable from '../../../components/ScoreTable.astro';
+import RunOverviewPage from '../../../components/RunOverviewPage.astro';
 import runs from '../../../data/runs.json';
-import type { RunExport } from '../../../../scripts/lib/loader.ts';
 
 export async function getStaticPaths() {
   return runs.map(r => ({ params: { run: r.id } }));
 }
 
 const { run } = Astro.params;
-const data: RunExport = (await import(`../../../data/${run}.json`)).default;
 ---
 
-<Run title={`${run} Results`} run={run} date={data.date} activeSection="overview">
-  <div class="widget">
-    <div class="widget-header">
-      <span class="widget-title">Composite Score</span>
-      <span class="info-wrap">
-        <span class="info-icon" aria-label="About this table">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 7h2v5H7V7z"/>
-          </svg>
-        </span>
-        <div class="info-popover" role="tooltip">
-          Servers ranked by weighted throughput (wRPS) — effective requests per second adjusted
-          so that high-RPS tests don't dominate the score. The top performer is set to 100;
-          all others are expressed as a percentage of that.
-        </div>
-      </span>
-    </div>
-    <ScoreTable servers={data.servers} tests={data.config.tests} />
-  </div>
-</Run>
-
+<RunOverviewPage id={run} />
