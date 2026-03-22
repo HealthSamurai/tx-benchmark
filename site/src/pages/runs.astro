@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import runs from '../data/runs.json';
 import type { RunExport } from '../../scripts/lib/loader.ts';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const runData = await Promise.all(
   runs.map(async r => {
     const data: RunExport = (await import(`../data/${r.id}.json`)).default;
@@ -38,7 +39,7 @@ function fmtRps(v: number): string {
 
     <div class="run-list">
       {runData.map((r, i) => (
-        <a href={`/results/${r.id}`} class={`run-card${i === 0 ? ' run-card--latest' : ''}`}>
+        <a href={`${base}/results/${r.id}`} class={`run-card${i === 0 ? ' run-card--latest' : ''}`}>
           <div class="card-identity">
             <div class="run-name-row">
               <span class="run-name">{r.name}</span>
