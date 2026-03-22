@@ -1,0 +1,41 @@
+---
+interface Cell {
+  content: string;
+  class?: string;
+  style?: string;
+  title?: string;
+}
+
+interface Props {
+  rowLabels: string[];
+  colLabels: string[];
+  cells: Cell[][];
+}
+
+const { rowLabels, colLabels, cells } = Astro.props;
+---
+
+<div class="matrix-wrap">
+  <table class="matrix">
+    <thead>
+      <tr>
+        <th></th>
+        {colLabels.map(label => <th class="col-header">{label}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {rowLabels.map((row, ri) => (
+        <tr>
+          <td class="row-label">{row}</td>
+          {cells[ri].map(cell => (
+            <td
+              class={`cell${cell.class ? ' ' + cell.class : ''}`}
+              style={cell.style}
+              title={cell.title}
+            >{cell.content}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

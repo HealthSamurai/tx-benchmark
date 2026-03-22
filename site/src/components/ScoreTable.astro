@@ -58,7 +58,7 @@ const rows = servers.map((s, i) => ({
               <div class="bar-track">
                 <div class="bar-fill" style={`width:${row.score.toFixed(1)}%;--s:${row.score.toFixed(1)};animation-delay:${i * 60}ms`}></div>
               </div>
-              <span class="bar-pct">{Math.round(row.score)}</span>
+              <span class="bar-pct">{Math.round(row.score)}%</span>
             </div>
           </td>
           <td class:list={['num', 'r', row.errRate >= 0.01 ? 'err-bad' : row.errRate > 0 ? 'err-warn' : 'err-ok']}>
@@ -84,13 +84,13 @@ const rows = servers.map((s, i) => ({
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     white-space: nowrap;
   }
 
   thead th {
     text-align: left;
-    padding: 6px 10px;
+    padding: 10px 16px;
     font-size: var(--text-xs);
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -100,13 +100,17 @@ const rows = servers.map((s, i) => ({
   }
   thead th.r { text-align: right; }
 
-  tbody tr { border-bottom: 1px solid #15161c; }
-  tbody tr:hover { background: #14151c; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
 
-  td { padding: 8px 10px; vertical-align: middle; }
+  td { padding: 12px 16px; vertical-align: middle; }
   td.r { text-align: right; }
 
-  .rank { color: var(--text-muted); font-size: var(--text-xs); width: 32px; }
+  .rank     { color: var(--text-muted); font-size: var(--text-sm); width: 48px; }
+  .col-server { width: 140px; }
+  .col-num    { width: 80px; }
+  .col-score  { width: 100%; }
+  .col-tests  { width: 1px; white-space: nowrap; }
   .server { font-weight: 500; color: #e4e4e4; }
 
   .num {
@@ -119,11 +123,11 @@ const rows = servers.map((s, i) => ({
   .err-ok   { color: var(--text-muted); }
 
   /* Score bar */
-  .score-cell { min-width: 220px; }
+  .score-cell { min-width: 220px; width: 100%; }
   .bar-wrap { display: flex; align-items: center; gap: 8px; }
   .bar-track {
     flex: 1;
-    height: 16px;
+    height: 26px;
     border-radius: var(--radius-sm);
     min-width: 140px;
     background: var(--surface-2);
@@ -144,8 +148,8 @@ const rows = servers.map((s, i) => ({
   .bar-pct {
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    font-size: var(--text-sm);
-    min-width: 32px;
+    font-size: var(--text-base);
+    min-width: 40px;
     text-align: right;
     color: var(--text-dim);
   }

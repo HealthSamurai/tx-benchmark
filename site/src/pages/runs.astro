@@ -37,10 +37,13 @@ function fmtRps(v: number): string {
     </div>
 
     <div class="run-list">
-      {runData.map(r => (
-        <a href={`/results/${r.id}`} class="run-card">
+      {runData.map((r, i) => (
+        <a href={`/results/${r.id}`} class={`run-card${i === 0 ? ' run-card--latest' : ''}`}>
           <div class="card-identity">
-            <span class="run-name">{r.name}</span>
+            <div class="run-name-row">
+              <span class="run-name">{r.name}</span>
+              {i === 0 && <span class="latest-badge">Latest</span>}
+            </div>
             <span class="run-date">{fmtDate(r.date)} · <span class="run-id">{r.id}</span></span>
           </div>
           <div class="card-divider"></div>
@@ -111,10 +114,20 @@ function fmtRps(v: number): string {
     transition: border-color 0.15s, background 0.15s;
   }
 
+  .run-card--latest {
+    border-color: rgba(87, 148, 242, 0.25);
+    border-left: 3px solid var(--accent);
+    padding-left: calc(var(--space-5) - 2px);
+  }
+
   .run-card:hover {
     border-color: #2e3048;
     background: var(--surface-2);
     text-decoration: none;
+  }
+
+  .run-card--latest:hover {
+    border-color: rgba(87, 148, 242, 0.4);
   }
 
   .card-identity {
@@ -124,10 +137,28 @@ function fmtRps(v: number): string {
     min-width: 128px;
   }
 
+  .run-name-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
   .run-name {
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--text);
+  }
+
+  .latest-badge {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(87, 148, 242, 0.1);
+    border: 1px solid rgba(87, 148, 242, 0.2);
+    border-radius: 3px;
+    padding: 1px 4px;
   }
 
   .run-date {

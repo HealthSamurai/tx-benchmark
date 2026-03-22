@@ -13,10 +13,10 @@ const { title, run, date, activeSection = 'overview' } = Astro.props;
 const runName = runs.find(r => r.id === run)?.name ?? run;
 
 const TABS = [
-  { id: 'overview', label: 'Overview', href: `/results/${run}`         },
-  { id: 'servers',  label: 'Servers',  href: `/results/${run}/servers`  },
-  { id: 'tests',    label: 'Tests',    href: `/results/${run}/tests`    },
-  { id: 'details',  label: 'Details',  href: `/results/${run}/details`  },
+  { id: 'overview',  label: 'Overview',  href: `/results/${run}`         },
+  { id: 'details',   label: 'Breakdown', href: `/results/${run}/details`  },
+  { id: 'servers',   label: 'Servers',   href: `/results/${run}/servers`  },
+  { id: 'tests',     label: 'Tests',     href: `/results/${run}/tests`    },
 ];
 ---
 
@@ -44,9 +44,9 @@ const TABS = [
 
 <style>
   .run-main {
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: var(--space-7) var(--space-6) var(--space-8);
+    padding: var(--space-7) var(--space-5) var(--space-8);
   }
 
   /* Run identity header */

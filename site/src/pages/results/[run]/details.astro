@@ -1,5 +1,7 @@
 ---
 import Run from '../../../layouts/Run.astro';
+import EChart from '../../../components/EChart.svelte';
+import Matrix from '../../../components/Matrix.astro';
 import runs from '../../../data/runs.json';
 import type { RunExport } from '../../../../scripts/lib/loader.ts';
 
@@ -9,44 +11,170 @@ export async function getStaticPaths() {
 
 const { run } = Astro.params;
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
+const { servers, config } = data;
+const tests = config.tests;
+const topVu = String(Math.max(...config.vus));
+
+function preflightStatus(s: typeof servers[0], t: string) {
+  return s.preflight[t] ?? 'skip';
+}
+
+function getP95(s: typeof servers[0], t: string): number | null {
+  const bm = s.benchmark?.[t]?.[topVu];
+  return bm ? bm.p95 : null;
+}
+
+function latencyColor(ms: number | null) {
+  if (ms === null) return 'var(--text-muted)';
+  if (ms < 50)   return '#96D98D';
+  if (ms < 100)  return '#73BF69';
+  if (ms < 200)  return '#37872D';
+  if (ms < 400)  return '#FFEE52';
+  if (ms < 800)  return '#E0B400';
+  if (ms < 1000) return '#FF9830';
+  if (ms < 2000) return '#F2495C';
+  if (ms < 3000) return '#E02F44';
+  return '#C4162A';
+}
+
+function fmtMs(v: number | null) {
+  if (v === null) return '—';
+  return v >= 1000 ? (v / 1000).toFixed(2) + 's' : Math.round(v) + 'ms';
+}
+
+function fmtBytes(b: number | null) {
+  if (!b) return '—';
+  if (b >= 1e12) return (b / 1e12).toFixed(1) + ' TB';
+  if (b >= 1e9)  return (b / 1e9).toFixed(1)  + ' GB';
+  if (b >= 1e6)  return Math.round(b / 1e6)    + ' MB';
+  if (b >= 1e3)  return Math.round(b / 1e3)    + ' KB';
+  return b + ' B';
+}
+
+const xAxis = {
+  type: 'category',
+  data: servers.map(s => s.id),
+  axisLine: { lineStyle: { color: '#2a2b3d' } },
+  axisTick: { show: false },
+  axisLabel: { color: '#9a9ab0', interval: 0, overflow: 'truncate', width: 80 },
+};
+
+const yAxis = { type: 'value', show: false };
+
+const barSeries = (color: string, field: 'memBytes' | 'dataBytes') => ({
+  type: 'bar',
+  barMaxWidth: 40,
+  itemStyle: { color, borderRadius: [2, 2, 0, 0] },
+  label: { show: true, position: 'top', color: '#9a9ab0' },
+  data: servers.map(s => ({
+    value: s.snapshot?.[field] ?? 0,
+    label: { formatter: fmtBytes(s.snapshot?.[field] ?? null) },
+  })),
+});
+
+const baseOption = {
+  backgroundColor: 'transparent',
+  grid: { left: 8, right: 8, top: 8, bottom: 64, containLabel: false },
+  xAxis,
+  yAxis,
+};
+
+const memOption  = { ...baseOption, series: [barSeries('#5794F2', 'memBytes')]  };
+const diskOption = { ...baseOption, series: [barSeries('#B877D9', 'dataBytes')] };
+
+const infoIcon = `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 7h2v5H7V7z"/></svg>`;
+
+const serverIds = servers.map(s => s.id);
+
+const capabilityCells = servers.map(s =>
+  tests.map(t => {
+    const st = preflightStatus(s, t);
+    return {
+      content: st === 'pass' ? '✓' : st === 'fail' ? '✗' : '~',
+      class: `cell-${st}`,
+      title: `${s.id}/${t}: ${st}`,
+    };
+  })
+);
+
+const latencyCells = servers.map(s =>
+  tests.map(t => {
+    const p95 = getP95(s, t);
+    return {
+      content: fmtMs(p95),
+      class: 'cell-latency',
+      style: `color:${latencyColor(p95)}`,
+      title: `${s.id}/${t}: ${fmtMs(p95)}`,
+    };
+  })
+);
 ---
 
-<Run title={`${run} — Details`} run={run} date={data.date} activeSection="details">
-  <div class="placeholder">
-    <div class="placeholder-icon">📊</div>
-    <h2 class="placeholder-title">Details</h2>
-    <p class="placeholder-sub">
-      Full capability matrix, raw RPS numbers at every VU level, error rates, and p50/p95/p99 latency for all {data.servers.length} servers × {data.config.tests.length} tests × 3 concurrency levels.
-    </p>
-    <p class="placeholder-badge">Coming soon</p>
+<Run title={`${run} — Breakdown`} run={run} date={data.date} activeSection="details">
+
+  <div class="widget">
+    <div class="widget-header">
+      <span class="widget-title">Capability Matrix</span>
+      <span class="info-wrap">
+        <span class="info-icon"><Fragment set:html={infoIcon} /></span>
+        <div class="info-popover">Whether each server passed, failed, or skipped each capability check during preflight.</div>
+      </span>
+    </div>
+    <div class="widget-body">
+      <Matrix rowLabels={serverIds} colLabels={tests} cells={capabilityCells} />
+    </div>
   </div>
+
+  <div class="widget">
+    <div class="widget-header">
+      <span class="widget-title">p95 Latency</span>
+      <span class="widget-badge">{topVu} VUs</span>
+      <span class="info-wrap">
+        <span class="info-icon"><Fragment set:html={infoIcon} /></span>
+        <div class="info-popover">95th-percentile response time at {topVu} virtual users.</div>
+      </span>
+    </div>
+    <div class="widget-body">
+      <Matrix rowLabels={serverIds} colLabels={tests} cells={latencyCells} />
+    </div>
+  </div>
+
+  <div class="widget-row">
+    <div class="widget">
+      <div class="widget-header">
+        <span class="widget-title">Memory</span>
+        <span class="info-wrap">
+          <span class="info-icon"><Fragment set:html={infoIcon} /></span>
+          <div class="info-popover">Idle memory usage per server.</div>
+        </span>
+      </div>
+      <div class="widget-body">
+        <EChart client:only="svelte" option={memOption} width="100%" height="220px" />
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-header">
+        <span class="widget-title">Disk</span>
+        <span class="info-wrap">
+          <span class="info-icon"><Fragment set:html={infoIcon} /></span>
+          <div class="info-popover">Idle data directory size per server.</div>
+        </span>
+      </div>
+      <div class="widget-body">
+        <EChart client:only="svelte" option={diskOption} width="100%" height="220px" />
+      </div>
+    </div>
+  </div>
+
 </Run>
 
 <style>
-  .placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 320px;
-    text-align: center;
-    gap: var(--space-3);
-    color: var(--text-muted);
+  .widget-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
   }
-  .placeholder-icon { font-size: 2.5rem; margin-bottom: var(--space-2); }
-  .placeholder-title { font-size: var(--text-xl); font-weight: 600; color: var(--text-dim); }
-  .placeholder-sub { font-size: var(--text-sm); max-width: 480px; line-height: 1.7; }
-  .placeholder-badge {
-    display: inline-block;
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    padding: 3px 10px;
-    margin-top: var(--space-2);
-    opacity: 0.7;
-  }
+  .widget-row .widget { margin-bottom: 0; }
 </style>

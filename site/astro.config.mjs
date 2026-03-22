@@ -8,6 +8,11 @@ export default defineConfig({
   integrations: [svelte(), mdx()],
   output: 'static',
   server: { port: 4100 },
+  vite: {
+    resolve: {
+      conditions: ['browser', 'svelte', 'import', 'module', 'default'],
+    },
+  },
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
