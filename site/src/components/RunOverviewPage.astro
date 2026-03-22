@@ -1,17 +1,19 @@
 ---
 import Run from '../layouts/Run.astro';
 import ScoreTable from './ScoreTable.astro';
+import runs from '../data/runs.json';
 import type { RunExport } from '../../scripts/lib/loader.ts';
 
 interface Props { id: string; }
 
 const { id } = Astro.props;
 const data: RunExport = (await import(`../data/${id}.json`)).default;
+const name = runs.find(r => r.id === id)?.name ?? id;
 
 const infoIcon = `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 7h2v5H7V7z"/></svg>`;
 ---
 
-<Run title={`${id} Results`} run={id} date={data.date} activeSection="overview">
+<Run title={`${name} Results`} run={id} date={data.date} activeSection="overview">
   <div class="widget">
     <div class="widget-header">
       <span class="widget-title">Composite Score</span>
