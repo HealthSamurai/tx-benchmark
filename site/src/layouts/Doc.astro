@@ -84,24 +84,24 @@ const DOC_LINKS = [
 
   .doc-link {
     display: block;
-    padding: 4px 8px;
+    padding: 5px 10px 5px 9px;
     font-size: var(--text-sm);
+    font-weight: 500;
     color: var(--text-muted);
     text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: color 0.15s, background 0.15s;
-    margin-bottom: 1px;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    margin-bottom: 2px;
   }
 
   .doc-link:hover {
     color: var(--text);
-    background: rgba(255,255,255,0.04);
     text-decoration: none;
   }
 
   .doc-link.active {
     color: var(--text);
-    background: rgba(255,255,255,0.07);
+    border-left-color: var(--accent);
   }
 
   /* Right TOC */
@@ -138,15 +138,15 @@ const DOC_LINKS = [
     color: var(--text-muted);
     text-decoration: none;
     display: block;
-    padding: 3px 8px;
-    font-size: var(--text-sm);
-    border-radius: var(--radius-sm);
-    transition: color 0.15s, background 0.15s;
+    padding: 2px 8px;
+    font-size: var(--text-xs);
+    border-left: 1px solid var(--border);
+    transition: color 0.15s, border-color 0.15s;
   }
 
   .toc :global(a:hover) {
-    color: var(--text);
-    background: rgba(255,255,255,0.04);
+    color: var(--text-dim);
+    border-left-color: var(--text-muted);
   }
 
   /* Prose */
