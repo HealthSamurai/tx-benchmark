@@ -7,6 +7,8 @@ import rehypeKatex from 'rehype-katex';
 export default defineConfig({
   integrations: [svelte(), mdx()],
   output: 'static',
+  site: 'https://healthsamurai.github.io',
+  base: '/tx-benchmark',
   server: { port: 4100 },
   vite: {
     resolve: {
