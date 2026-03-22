@@ -2,4 +2,3 @@
 /harvest/
 .DS_Store
 .playwright-mcp/
-site/src/data/*.json
