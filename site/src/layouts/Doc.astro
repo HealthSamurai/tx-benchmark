@@ -53,12 +53,6 @@ const DOC_LINKS = [
     gap: var(--space-8);
   }
 
-  /* When no TOC, collapse to 2-column */
-  .doc-layout:not(:has(.toc)) {
-    grid-template-columns: 160px 1fr;
-    max-width: 960px;
-  }
-
   @media (max-width: 900px) {
     .doc-layout { grid-template-columns: 1fr; }
     .doc-nav, .toc { display: none; }
