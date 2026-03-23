@@ -9,7 +9,7 @@ import { loadPool } from '../lib/pool.js';
 
 const SNOMED = 'http://snomed.info/sct';
 
-const entries = loadPool('expand/counts.json');
+const entries = loadPool('snomed/snomed-expand.json');
 const request = ({ concept, count, offset }) =>
   ValueSet_expand_GET({ url: `${SNOMED}?fhir_vs=isa/${concept}`, count, offset });
 
