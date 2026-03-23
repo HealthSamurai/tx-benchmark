@@ -159,7 +159,7 @@ a:hover { text-decoration: underline; }
   font-size: var(--text-sm);
 }
 .col-header {
-  width: 72px;
+  min-width: var(--cell-width, 72px);
   font-size: var(--text-xs);
   font-weight: 500;
   color: var(--text-dim);

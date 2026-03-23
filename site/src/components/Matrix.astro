@@ -10,12 +10,14 @@ interface Props {
   rowLabels: string[];
   colLabels: string[];
   cells: Cell[][];
+  class?: string;
+  cellWidth?: string;
 }
 
-const { rowLabels, colLabels, cells } = Astro.props;
+const { rowLabels, colLabels, cells, class: className, cellWidth } = Astro.props;
 ---
 
-<div class="matrix-wrap">
+<div class:list={['matrix-wrap', className]} style={cellWidth ? `--cell-width:${cellWidth}` : undefined}>
   <table class="matrix">
     <thead>
       <tr>

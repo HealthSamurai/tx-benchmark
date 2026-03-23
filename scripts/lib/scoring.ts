@@ -1,90 +1,149 @@
-// Composite scoring algorithm.
+// scoring.ts — composite scoring algorithm.
 //
-// Input: all effective-RPS rows for a run (real + imputed).
-//   EffRow = { server, test, vus, effRps }
+// Input:
+//   servers          — all server IDs in the run
+//   tests            — all test IDs present in the run
+//   rawRps           — Map<"server|test", number>  (real measured values only;
+//                      servers that did not run a test are simply absent)
+//   imputePercentile — percentile used for imputation (e.g. 30)
 //
 // Algorithm:
-//   1. Per (server, test): pick the max effective RPS across VU levels.
-//   2. Normalizing weight per test: avg_rps_LK01 / avg_rps_of_test
-//      (TechEmpower-style — LK01 is the reference; slow tests get a higher
-//       weight so they contribute equally regardless of their natural RPS scale)
-//   3. Raw score per server: Σ (max_eff_rps × weight × bias)
-//   4. Normalize: raw / top_raw × 100  →  percentage of the best server
-//
-// Returns: Map<server, score (0–100)>
-// Also returns per-(server,test) weighted RPS via computeWeightedRps.
+//   1. Impute: for every (server, test) where the server has no real data,
+//              assign percentile([0, ...sorted real values for that test], pct).
+//              The 0 floor ensures non-participants always score below the
+//              worst real participant, with the discount increasing as fewer
+//              servers take part in a test.
+//   2. Normalizer per test: lk01Avg / testAvg
+//              testAvg = mean of rawRps over REAL servers only.
+//              (Imputed values must not affect the normalizer — they are derived
+//              from real values and would create a feedback loop if included.)
+//   3. wRps = fullRps × normalizer × bias
+//   4. Score = Σ wRps per server, then normalize to 0–100 relative to top server.
 
 import { BIAS } from '../../config/bias.ts';
 
-export type EffRow = { server: string; test: string; vus: string; effRps: number };
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
-// Intermediate per-(server, test) weighted RPS: max_eff_rps × weight × bias.
-// Key: "server|test"
-export type WeightedRpsMap = Map<string, number>;
+export function percentile(sorted: number[], pct: number): number {
+  const n = sorted.length;
+  if (n === 1) return sorted[0];
+  const pos = (pct / 100) * (n - 1);
+  const lo  = Math.floor(pos);
+  const hi  = Math.ceil(pos);
+  return sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
+}
 
-function buildWeightedRps(rows: EffRow[]): { weightedRps: WeightedRpsMap; servers: string[]; tests: string[] } {
-  const serverTestMax = new Map<string, number>();
-  for (const row of rows) {
-    const key = `${row.server}|${row.test}`;
-    serverTestMax.set(key, Math.max(serverTestMax.get(key) ?? 0, row.effRps));
+// ── Types ─────────────────────────────────────────────────────────────────────
+
+export interface ScoringResult {
+  /** Imputed RPS for (server, test) pairs the server did not run. */
+  imputedRps: Map<string, number>;
+  /** Weighted RPS for every (server, test) pair (real or imputed). */
+  wRps:       Map<string, number>;
+  /** Composite score per server, normalized 0–100 (top server = 100). */
+  scores:     Map<string, number>;
+  /** Unnormalized sum of wRps per server. */
+  rawScores:  Map<string, number>;
+  /** Per-test normalizer (lk01Avg / testAvg). Useful for verification. */
+  normalizers: Map<string, number>;
+}
+
+// ── Step 0: collapse raw readings to (server, test) ──────────────────────────
+//
+// Each raw reading is one benchmark file: (server, test, vus).
+// effRps = throughput × (1 − error_rate) — the error-adjusted throughput.
+// rawRps[server][test] = max effRps across all VU levels the server ran.
+
+export interface RawReading {
+  server:    string;
+  test:      string;
+  effRps:    number;  // caller computes throughput × (1 − error_rate)
+}
+
+export function buildRawRps(readings: RawReading[]): Map<string, number> {
+  const rawRps = new Map<string, number>();
+  for (const { server, test, effRps } of readings) {
+    const key = `${server}|${test}`;
+    rawRps.set(key, Math.max(rawRps.get(key) ?? 0, effRps));
+  }
+  return rawRps;
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+
+export function computeScores(
+  servers:          string[],
+  tests:            string[],
+  rawRps:           Map<string, number>,  // key: "server|test"
+  imputePercentile: number,
+): ScoringResult {
+
+  // Step 1 — Impute missing (server, test) pairs
+  const imputedRps = new Map<string, number>();
+  for (const test of tests) {
+    const realVals = servers
+      .map(s => rawRps.get(`${s}|${test}`))
+      .filter((v): v is number => v !== undefined)
+      .sort((a, b) => a - b);
+
+    if (realVals.length === 0) continue;
+
+    const pool   = [0, ...realVals];
+    const impVal = percentile(pool, imputePercentile);
+
+    for (const server of servers) {
+      if (!rawRps.has(`${server}|${test}`)) {
+        imputedRps.set(`${server}|${test}`, impVal);
+      }
+    }
   }
 
-  const servers = [...new Set(rows.map(r => r.server))];
-  const tests   = [...new Set(rows.map(r => r.test))];
+  // Step 2 — Full RPS matrix: real values take priority, imputed fill gaps
+  const fullRps = new Map<string, number>([...rawRps, ...imputedRps]);
 
+  // Step 3 — Normalizer: lk01Avg / testAvg, using REAL servers only
   const testAvg = new Map<string, number>();
   for (const test of tests) {
-    const vals = servers
-      .map(s => serverTestMax.get(`${s}|${test}`))
+    const realVals = servers
+      .map(s => rawRps.get(`${s}|${test}`))
       .filter((v): v is number => v !== undefined);
-    testAvg.set(test, vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : 0);
+    const avg = realVals.length > 0
+      ? realVals.reduce((a, b) => a + b, 0) / realVals.length
+      : 0;
+    testAvg.set(test, avg);
   }
 
   const lk01Avg = testAvg.get('LK01') ?? 1;
 
-  const weightedRps: WeightedRpsMap = new Map();
+  const normalizers = new Map<string, number>();
+  for (const test of tests) {
+    const avg = testAvg.get(test) ?? 0;
+    normalizers.set(test, avg > 0 ? lk01Avg / avg : 0);
+  }
+
+  // Step 4 — wRps = fullRps × normalizer × bias
+  const wRps = new Map<string, number>();
   for (const server of servers) {
     for (const test of tests) {
-      const effRps = serverTestMax.get(`${server}|${test}`) ?? 0;
-      const avg    = testAvg.get(test) ?? 1;
-      const weight = avg > 0 ? lk01Avg / avg : 0;
-      const bias   = BIAS[test] ?? 1.0;
-      weightedRps.set(`${server}|${test}`, effRps * weight * bias);
+      const rps  = fullRps.get(`${server}|${test}`) ?? 0;
+      const norm = normalizers.get(test) ?? 0;
+      const bias = (BIAS as Record<string, number>)[test] ?? 1.0;
+      wRps.set(`${server}|${test}`, rps * norm * bias);
     }
   }
 
-  return { weightedRps, servers, tests };
-}
-
-// Arithmetic weighted sum.
-// See METHODOLOGY.md for the full algorithm description.
-// Returns { scores: 0–100 normalized, rawScores: unnormalized weighted sums }
-export function computeScores(rows: EffRow[]): { scores: Map<string, number>; rawScores: Map<string, number> } {
-  if (rows.length === 0) return { scores: new Map(), rawScores: new Map() };
-
-  const { weightedRps, servers, tests } = buildWeightedRps(rows);
-
+  // Step 5 — Score = Σ wRps per server, normalized 0–100
   const rawScores = new Map<string, number>();
   for (const server of servers) {
-    const score = tests.reduce((sum, test) => sum + (weightedRps.get(`${server}|${test}`) ?? 0), 0);
-    rawScores.set(server, score);
+    const total = tests.reduce((sum, t) => sum + (wRps.get(`${server}|${t}`) ?? 0), 0);
+    rawScores.set(server, total);
   }
 
-  const top = Math.max(...rawScores.values());
+  const top = Math.max(0, ...rawScores.values());
   const scores = new Map<string, number>();
   for (const [server, raw] of rawScores) {
     scores.set(server, top > 0 ? (raw / top) * 100 : 0);
   }
 
-  return { scores, rawScores };
-}
-
-// Returns per-(server, test) weighted RPS for pushing as benchmark_weighted_rps.
-export function computeWeightedRps(rows: EffRow[]): { server: string; test: string; value: number }[] {
-  if (rows.length === 0) return [];
-  const { weightedRps } = buildWeightedRps(rows);
-  return [...weightedRps.entries()].map(([key, value]) => {
-    const [server, test] = key.split('|');
-    return { server, test, value };
-  });
+  return { imputedRps, wRps, scores, rawScores, normalizers };
 }

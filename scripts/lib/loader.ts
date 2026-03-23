@@ -4,10 +4,10 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { IMPUTE_PERCENTILE, VU_LEVELS, TEST_IDS } from './constants.ts';
 import { BIAS } from '../../config/bias.ts';
-import { computeScores, computeWeightedRps, type EffRow } from './scoring.ts';
+import { buildRawRps, computeScores, type RawReading } from './scoring.ts';
 import type { BenchmarkResult, PreflightResult, Snapshot, PreflightStatus } from './types.ts';
 
-// ── Exported types ───────────────────────────────────────────────────────────
+// ── Exported types ────────────────────────────────────────────────────────────
 
 export interface BenchmarkPoint {
   rps:       number;
@@ -49,7 +49,7 @@ export interface RunExport {
   servers: ServerData[];
 }
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function readJson<T>(path: string): T | null {
   try { return JSON.parse(readFileSync(path, 'utf8')) as T; }
@@ -64,22 +64,13 @@ function getServers(run: string): string[] {
     .map(d => d.name);
 }
 
-function percentile(sorted: number[], pct: number): number {
-  const n = sorted.length;
-  if (n === 1) return sorted[0];
-  const pos = (pct / 100) * (n - 1);
-  const lo  = Math.floor(pos);
-  const hi  = Math.ceil(pos);
-  return sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
-}
-
 // ── Main loader ───────────────────────────────────────────────────────────────
 
 export function loadRun(run: string, opts: { date?: string; testDuration?: string } = {}): RunExport {
   const servers = getServers(run);
 
-  // 1. Read raw benchmark files → effRows + benchmark data per server
-  const effRows: EffRow[] = [];
+  // 1. Read raw benchmark files
+  const readings: RawReading[] = [];
   const benchmarkData: Record<string, Record<string, Record<string, BenchmarkPoint>>> = {};
   const preflightData: Record<string, Record<string, PreflightStatus>> = {};
   const snapshotData:  Record<string, ServerData['snapshot']> = {};
@@ -94,8 +85,9 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
         if (!r || r.duration?.p50 == null) continue;
 
         const vusKey = String(r.vus);
-        if (!benchmarkData[server][r.test]) benchmarkData[server][r.test] = {};
 
+        // Per-VU benchmark data (for latency display in the site)
+        if (!benchmarkData[server][r.test]) benchmarkData[server][r.test] = {};
         benchmarkData[server][r.test][vusKey] = {
           rps:       r.throughput,
           p50:       r.duration.p50,
@@ -107,22 +99,17 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
           errorRate: r.error_rate,
         };
 
-        effRows.push({
-          server,
-          test:   r.test,
-          vus:    vusKey,
-          effRps: r.throughput * (1 - r.error_rate),
-        });
+        readings.push({ server, test: r.test, effRps: r.throughput * (1 - r.error_rate) });
       }
     }
 
-    // 2. Preflight
+    // Preflight
     const preflight = readJson<PreflightResult>(`results/${run}/${server}/preflight.json`);
     preflightData[server] = preflight
       ? Object.fromEntries(Object.entries(preflight.tests).map(([t, v]) => [t, v.status]))
       : {};
 
-    // 3. Snapshots
+    // Idle snapshot
     const snap = readJson<Snapshot>(`results/${run}/${server}/snapshot_idle.json`);
     snapshotData[server] = {
       cpuPct:    snap?.cpu_usage         ?? null,
@@ -131,74 +118,39 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
     };
   }
 
-  // 4. Imputation
-  const groups    = new Map<string, EffRow[]>();
-  const runServers = new Set(effRows.map(r => r.server));
-
-  for (const row of effRows) {
-    const key = `${row.test}|${row.vus}`;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key)!.push(row);
-  }
-
-  const imputedRows: EffRow[] = [];
-  for (const [key, participants] of groups) {
-    const [test, vus] = key.split('|');
-    const participating = new Set(participants.map(r => r.server));
-    const vals = [0, ...participants.map(r => r.effRps).sort((a, b) => a - b)];
-    const imputedVal = percentile(vals, IMPUTE_PERCENTILE);
-
-    for (const server of runServers) {
-      if (participating.has(server)) continue;
-      imputedRows.push({ server, test, vus, effRps: imputedVal });
-    }
-  }
-
-  // 5. Scores
-  const allRows    = [...effRows, ...imputedRows];
-  const { scores, rawScores } = computeScores(allRows);
-  const weightedRpsList = computeWeightedRps(allRows);
-
-  // Group weightedRps by server
-  const weightedRpsMap: Record<string, Record<string, number>> = {};
-  for (const { server, test, value } of weightedRpsList) {
-    if (!weightedRpsMap[server]) weightedRpsMap[server] = {};
-    weightedRpsMap[server][test] = value;
-  }
-
-  // rawRps: max effRps per (server, test) across VU levels
-  const rawRpsMap: Record<string, Record<string, number>> = {};
-  for (const row of effRows) {
-    if (!rawRpsMap[row.server]) rawRpsMap[row.server] = {};
-    rawRpsMap[row.server][row.test] = Math.max(rawRpsMap[row.server][row.test] ?? 0, row.effRps);
-  }
-
-  // imputedRps: only for tests where the server has NO real data at all
-  const imputedRpsMap: Record<string, Record<string, number>> = {};
-  for (const row of imputedRows) {
-    if (rawRpsMap[row.server]?.[row.test] !== undefined) continue;
-    if (!imputedRpsMap[row.server]) imputedRpsMap[row.server] = {};
-    imputedRpsMap[row.server][row.test] = Math.max(imputedRpsMap[row.server][row.test] ?? 0, row.effRps);
-  }
-
-  // 6. Assemble
-  const presentTests = new Set(effRows.map(r => r.test));
+  // 2. Collapse readings → rawRps and determine which tests were run
+  const rawRps = buildRawRps(readings);
+  const presentTests = new Set(readings.map(r => r.test));
   const tests = TEST_IDS.filter(t => presentTests.has(t));
 
+  // 3. Score
+  const { imputedRps, wRps, scores, rawScores } = computeScores(
+    servers, tests, rawRps, IMPUTE_PERCENTILE,
+  );
+
+  // 5. Assemble per-server output
   const serverList: ServerData[] = servers.map(server => {
-    const score    = scores.get(server) ?? 0;
-    const rawScore = rawScores.get(server) ?? 0;
+    const rawRpsOut:     Record<string, number> = {};
+    const imputedRpsOut: Record<string, number> = {};
+    const weightedRpsOut: Record<string, number> = {};
+
+    for (const test of tests) {
+      const key = `${server}|${test}`;
+      if (rawRps.has(key))     rawRpsOut[test]     = rawRps.get(key)!;
+      if (imputedRps.has(key)) imputedRpsOut[test] = imputedRps.get(key)!;
+      if (wRps.has(key))       weightedRpsOut[test] = wRps.get(key)!;
+    }
 
     return {
       id:          server,
-      score:       +score.toFixed(4),
-      rawScore:    +rawScore.toFixed(4),
+      score:       +(scores.get(server)    ?? 0).toFixed(4),
+      rawScore:    +(rawScores.get(server) ?? 0).toFixed(4),
       snapshot:    snapshotData[server]  ?? { cpuPct: null, memBytes: null, dataBytes: null },
-      preflight:   preflightData[server]  ?? {},
-      rawRps:      rawRpsMap[server]      ?? {},
-      imputedRps:  imputedRpsMap[server]  ?? {},
-      weightedRps: weightedRpsMap[server] ?? {},
-      benchmark:   benchmarkData[server]  ?? {},
+      preflight:   preflightData[server] ?? {},
+      rawRps:      rawRpsOut,
+      imputedRps:  imputedRpsOut,
+      weightedRps: weightedRpsOut,
+      benchmark:   benchmarkData[server] ?? {},
     };
   }).sort((a, b) => b.score - a.score);
 

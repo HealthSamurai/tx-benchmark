@@ -1,0 +1,269 @@
+---
+import Run from '../../../../layouts/Run.astro';
+import Widget from '../../../../components/Widget.astro';
+import Matrix from '../../../../components/Matrix.astro';
+import runs from '../../../../data/runs.json';
+import type { RunExport } from '../../../../types';
+import { fmtMs, fmtRps, latencyColor } from '../../../../utils';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const r of runs) {
+    const data: RunExport = (await import(`../../../../data/${r.id}.json`)).default;
+    for (const t of data.config.tests) {
+      paths.push({ params: { run: r.id, test: t } });
+    }
+  }
+  return paths;
+}
+
+const { run, test } = Astro.params;
+const data: RunExport = (await import(`../../../../data/${run}.json`)).default;
+const { config } = data;
+const vus = config.vus;
+const percentiles = ['p50', 'p95', 'p99'] as const;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const testOptions = config.tests.map(t => ({
+  id: t,
+  href: `${base}/results/${run}/tests/${t}`,
+}));
+
+// ── Ranking ───────────────────────────────────────────────────────────────────
+
+// Servers that have any data for this test (real or imputed)
+const ranked = data.servers
+  .map(s => ({
+    id:         s.id,
+    wRps:       s.weightedRps[test] ?? 0,
+    rawRps:     s.rawRps[test]      ?? 0,
+    impRps:     s.imputedRps[test]  ?? 0,
+    preflight:  s.preflight[test]   ?? 'skip',
+  }))
+  .sort((a, b) => b.wRps - a.wRps);
+
+const maxWRps = ranked[0]?.wRps ?? 1;
+
+// ── Latency matrix ────────────────────────────────────────────────────────────
+
+// Only servers with real benchmark data for this test
+const latencyServers = data.servers.filter(s => s.benchmark[test]);
+
+const colLabels = vus.flatMap(vu =>
+  percentiles.map(p => `${p}/${vu}`)
+);
+
+const latencyRows = latencyServers.map(s =>
+  vus.flatMap(vu =>
+    percentiles.map(p => {
+      const val = s.benchmark[test]?.[String(vu)]?.[p] ?? null;
+      return {
+        content: fmtMs(val),
+        class: 'cell-latency',
+        style: `color:${latencyColor(val)}`,
+        title: `${s.id} ${p}@${vu}VU`,
+      };
+    })
+  )
+);
+---
+
+<Run title={`${test} — ${run}`} run={run} date={data.date} activeSection="tests">
+
+  <div class="test-header">
+    <div class="test-select-wrap">
+      <select class="test-select" onchange="location.href=this.value">
+        {testOptions.map(t => (
+          <option value={t.href} selected={t.id === test}>{t.id}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  <Widget
+    title="Ranking"
+    tip="Servers ranked by weighted RPS (wRPS) for this test. wRPS = raw RPS × per-test normalizer × bias factor. Score % is relative to the top performer. Raw RPS is the measured peak throughput; imputed values (shown in italics in orange) are estimated for servers that did not run this test. Status: ✓ preflight passed, ✗ failed, ~ skipped."
+  >
+    <div class="ranking">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-rank">#</th>
+            <th class="col-server">Server</th>
+            <th class="col-num r">wRPS</th>
+            <th class="col-score">Score</th>
+            <th class="col-num r">Raw RPS</th>
+            <th class="col-status">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ranked.map((row, i) => {
+            const pct = maxWRps > 0 ? (row.wRps / maxWRps) * 100 : 0;
+            const isImputed = row.rawRps === 0 && row.impRps > 0;
+            return (
+              <tr>
+                <td class="rank">{i + 1}</td>
+                <td class="server">{row.id}</td>
+                <td class="num r">{row.wRps > 0 ? fmtRps(row.wRps) : '—'}</td>
+                <td class="score-cell">
+                  <div class="bar-wrap">
+                    <div class="bar-track">
+                      <div
+                        class={`bar-fill${isImputed ? ' bar-imputed' : ''}`}
+                        style={`width:${pct.toFixed(1)}%;--s:${pct.toFixed(1)};animation-delay:${i * 60}ms`}
+                      ></div>
+                    </div>
+                    <span class="bar-pct">{Math.round(pct)}%</span>
+                  </div>
+                </td>
+                <td class={`num r${isImputed ? ' imputed' : ''}`}>
+                  {isImputed ? fmtRps(row.impRps) : row.rawRps > 0 ? fmtRps(row.rawRps) : '—'}
+                </td>
+                <td class={`status status-${row.preflight}`}>
+                  {row.preflight === 'pass' ? '✓' : row.preflight === 'fail' ? '✗' : '~'}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </Widget>
+
+  {latencyServers.length > 0 && (
+    <Widget title="Latency" tip="Latency percentiles per server across all VU levels. Columns: percentile / VU count.">
+      <Matrix
+        rowLabels={latencyServers.map(s => s.id)}
+        colLabels={colLabels}
+        cells={latencyRows}
+        class="latency-matrix"
+        cellWidth="100px"
+      />
+    </Widget>
+  )}
+
+</Run>
+
+<style>
+  .test-header { margin-bottom: var(--space-5); }
+
+  .test-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 0 4px 12px;
+  }
+  .test-select-wrap::after {
+    content: '▾';
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-dim);
+    pointer-events: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .test-select {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    padding: 0 30px 0 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .test-select:focus { outline: none; }
+  .test-select-wrap:hover { border-color: var(--accent); }
+  .test-select-wrap:hover .test-select,
+  .test-select-wrap:hover::after { color: var(--accent); }
+
+  /* Ranking table */
+  .ranking { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  thead th {
+    text-align: left;
+    padding: 10px 16px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  thead th.r { text-align: right; }
+
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+  td { padding: 12px 16px; vertical-align: middle; }
+  td.r { text-align: right; }
+
+  .rank   { color: var(--text-muted); font-size: var(--text-sm); width: 48px; }
+  .server { font-weight: 500; color: #e4e4e4; }
+  .col-rank   { width: 48px; }
+  .col-server { width: 140px; }
+  .col-num    { width: 90px; }
+  .col-score  { width: 100%; }
+  .col-status { width: 48px; text-align: center; }
+
+  .num { font-variant-numeric: tabular-nums; color: var(--text-dim); }
+  .imputed { color: #e07b6a; font-style: italic; }
+
+  .status { text-align: center; font-size: var(--text-sm); }
+  .status-pass { color: var(--pass); }
+  .status-fail { color: var(--fail); }
+  .status-skip { color: var(--text-muted); }
+
+  .score-cell { min-width: 200px; width: 100%; }
+  .bar-wrap   { display: flex; align-items: center; gap: 8px; }
+  .bar-track  {
+    flex: 1;
+    height: 26px;
+    border-radius: var(--radius-sm);
+    min-width: 140px;
+    background: var(--surface-2);
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #5794F2 0%, #B877D9 100%);
+    background-size: calc(100% * 100 / var(--s)) 100%;
+    transform-origin: left center;
+    animation: bar-grow 0.6s cubic-bezier(0.4,0,0.2,1) both;
+  }
+  .bar-fill.bar-imputed {
+    background: linear-gradient(90deg, rgba(220,80,60,0.3) 0%, rgba(220,80,60,0.5) 100%);
+    background-size: unset;
+  }
+  @keyframes bar-grow { from { transform: scaleX(0); } }
+  .bar-pct {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: var(--text-base);
+    min-width: 40px;
+    text-align: right;
+    color: var(--text-dim);
+  }
+
+  :global(.latency-matrix .row-label) {
+    width: 100%;
+    white-space: nowrap;
+  }
+  :global(.latency-matrix .cell-latency) {
+    font-size: var(--text-sm);
+  }
+</style>

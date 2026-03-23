@@ -39,7 +39,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { checkPushgateway, pushMetrics } from './lib/pushgateway.ts';
 import { PUSH_URL, IMPUTE_PERCENTILE } from './lib/constants.ts';
 import type { BenchmarkResult, PreflightResult, Snapshot } from './lib/types.ts';
-import { computeScores, computeWeightedRps, type EffRow } from './lib/scoring.ts';
+import { buildRawRps, computeScores } from './lib/scoring.ts';
 
 const { values } = parseArgs({
   options: {
@@ -79,8 +79,8 @@ function readJson<T>(path: string): T | null {
 
 console.log('\nPushing benchmark results…');
 
-// Collect effective RPS rows for imputation and scoring: { run, test, vus, server, effRps }
-type RunEffRow = EffRow & { run: string };
+// Collect effective RPS rows for Prometheus imputation push and scoring
+type RunEffRow = { run: string; server: string; test: string; vus: string; effRps: number };
 const effRows: RunEffRow[] = [];
 
 let pushed = 0;
@@ -240,16 +240,22 @@ for (const [key, participants] of groups) {
 
 console.log(`\nImputation: pushed ${imputed}`);
 
-// ── 5. Composite score ───────────────────────────────────────────────────────
+// ── 5. Composite score + weighted RPS ────────────────────────────────────────
 
-console.log('\nComputing composite scores…');
+console.log('\nComputing composite scores and weighted RPS…');
 
-const allRows = [...effRows, ...imputedRows];
-const runs    = [...new Set(allRows.map(r => r.run))];
+const runs = [...new Set(effRows.map(r => r.run))];
 let scored = 0;
+let weightedPushed = 0;
 
 for (const run of runs) {
-  const { scores } = computeScores(allRows.filter(r => r.run === run));
+  const runRows   = effRows.filter(r => r.run === run);
+  const servers   = [...new Set(runRows.map(r => r.server))];
+  const tests     = [...new Set(runRows.map(r => r.test))];
+
+  const rawRps = buildRawRps(runRows);
+
+  const { scores, wRps } = computeScores(servers, tests, rawRps, IMPUTE_PERCENTILE);
 
   for (const [server, score] of scores) {
     await pushMetrics(
@@ -260,17 +266,9 @@ for (const run of runs) {
     console.log(`  ✓ ${server} → ${score.toFixed(2)}`);
     scored++;
   }
-}
 
-console.log(`\nScores: pushed ${scored}`);
-
-// ── 6. Weighted RPS per (server, test) ──────────────────────────────────────
-
-console.log('\nPushing weighted RPS per test…');
-let weightedPushed = 0;
-
-for (const run of runs) {
-  for (const { server, test, value } of computeWeightedRps(effRows.filter(r => r.run === run))) {
+  for (const [key, value] of wRps) {
+    const [server, test] = key.split('|');
     await pushMetrics(
       { job: 'weighted_rps', run, server, test },
       [{ name: 'benchmark_weighted_rps', value: value.toFixed(4) }],
@@ -280,4 +278,5 @@ for (const run of runs) {
   }
 }
 
-console.log(`\nWeighted RPS: pushed ${weightedPushed}`);
+console.log(`\nScores: pushed ${scored}`);
+console.log(`Weighted RPS: pushed ${weightedPushed}`);

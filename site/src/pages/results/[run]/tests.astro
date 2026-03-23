@@ -9,16 +9,63 @@ export async function getStaticPaths() {
 
 const { run } = Astro.params;
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const testOptions = data.config.tests.map(t => ({
+  id: t,
+  href: `${base}/results/${run}/tests/${t}`,
+}));
 ---
 
-<Run title={`${run} — Tests`} run={run} date={data.date} activeSection="tests">
-  <div class="placeholder">
-    <div class="placeholder-icon">🧪</div>
-    <h2 class="placeholder-title">Tests</h2>
-    <p class="placeholder-sub">
-      Per-test breakdown — throughput curves across VU levels, latency distributions, and server-by-server comparison for each of the {data.config.tests.length} tests in this run.
-    </p>
-    <p class="placeholder-badge">Coming soon</p>
+<Run title={`Tests — ${run}`} run={run} date={data.date} activeSection="tests">
+  <div class="test-header">
+    <div class="test-select-wrap">
+      <select class="test-select" onchange="location.href=this.value">
+        <option value="" disabled selected>Select a test</option>
+        {testOptions.map(t => (
+          <option value={t.href}>{t.id}</option>
+        ))}
+      </select>
+    </div>
   </div>
 </Run>
 
+<style>
+  .test-header { margin-bottom: var(--space-5); }
+
+  .test-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 0 4px 12px;
+  }
+  .test-select-wrap::after {
+    content: '▾';
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-dim);
+    pointer-events: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .test-select {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    padding: 0 30px 0 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .test-select:focus { outline: none; }
+  .test-select-wrap:hover { border-color: var(--accent); }
+  .test-select-wrap:hover .test-select,
+  .test-select-wrap:hover::after { color: var(--accent); }
+</style>
