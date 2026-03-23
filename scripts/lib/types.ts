@@ -5,6 +5,7 @@ export interface Snapshot {
   cpu_usage:         number | null;
   mem_used_bytes:    number | null;
   data_volume_bytes: number | null;
+  peak_mem_bytes?:   number | null;
 }
 
 export interface BenchmarkResult {

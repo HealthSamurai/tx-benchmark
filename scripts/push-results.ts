@@ -164,19 +164,34 @@ pushed = 0;
 
 for (const run of getRuns()) {
   for (const server of getServers(run)) {
-    const snap = readJson<Snapshot>(`results/${run}/${server}/snapshot_idle.json`);
-    if (!snap) continue;
+    const snap     = readJson<Snapshot>(`results/${run}/${server}/snapshot_idle.json`);
+    const snapPeak = readJson<Snapshot>(`results/${run}/${server}/snapshot_peak.json`);
+    if (!snap && !snapPeak) continue;
 
-    await pushMetrics(
-      { job: 'snapshot', run, server },
-      [
-        { name: 'benchmark_idle_cpu_pct',          value: snap.cpu_usage         ?? 'NaN' },
-        { name: 'benchmark_idle_mem_used_bytes',    value: snap.mem_used_bytes    ?? 'NaN' },
-        { name: 'benchmark_idle_data_volume_bytes', value: snap.data_volume_bytes ?? 'NaN' },
-      ],
-      pushUrl,
-    );
-    console.log(`  ✓ ${server} (idle snapshot)`);
+    if (snap) {
+      await pushMetrics(
+        { job: 'snapshot', run, server },
+        [
+          { name: 'benchmark_idle_cpu_pct',          value: snap.cpu_usage         ?? 'NaN' },
+          { name: 'benchmark_idle_mem_used_bytes',    value: snap.mem_used_bytes    ?? 'NaN' },
+          { name: 'benchmark_idle_data_volume_bytes', value: snap.data_volume_bytes ?? 'NaN' },
+        ],
+        pushUrl,
+      );
+      console.log(`  ✓ ${server} (idle snapshot)`);
+    }
+
+    if (snapPeak) {
+      await pushMetrics(
+        { job: 'snapshot', run, server },
+        [
+          { name: 'benchmark_peak_mem_bytes', value: snapPeak.peak_mem_bytes ?? 'NaN' },
+        ],
+        pushUrl,
+      );
+      console.log(`  ✓ ${server} (peak snapshot)`);
+    }
+
     pushed++;
   }
 }

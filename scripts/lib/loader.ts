@@ -25,9 +25,10 @@ export interface ServerData {
   score:       number;
   rawScore:    number;
   snapshot: {
-    cpuPct:    number | null;
-    memBytes:  number | null;
-    dataBytes: number | null;
+    cpuPct:       number | null;
+    memBytes:     number | null;
+    dataBytes:    number | null;
+    peakMemBytes: number | null;
   };
   preflight:   Record<string, PreflightStatus>;
   rawRps:      Record<string, number>;
@@ -110,11 +111,13 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
       : {};
 
     // Idle snapshot
-    const snap = readJson<Snapshot>(`results/${run}/${server}/snapshot_idle.json`);
+    const snap     = readJson<Snapshot>(`results/${run}/${server}/snapshot_idle.json`);
+    const snapPeak = readJson<Snapshot>(`results/${run}/${server}/snapshot_peak.json`);
     snapshotData[server] = {
-      cpuPct:    snap?.cpu_usage         ?? null,
-      memBytes:  snap?.mem_used_bytes    ?? null,
-      dataBytes: snap?.data_volume_bytes ?? null,
+      cpuPct:       snap?.cpu_usage         ?? null,
+      memBytes:     snap?.mem_used_bytes    ?? null,
+      dataBytes:    snap?.data_volume_bytes ?? null,
+      peakMemBytes: snapPeak?.peak_mem_bytes ?? null,
     };
   }
 
@@ -145,7 +148,7 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
       id:          server,
       score:       +(scores.get(server)    ?? 0).toFixed(4),
       rawScore:    +(rawScores.get(server) ?? 0).toFixed(4),
-      snapshot:    snapshotData[server]  ?? { cpuPct: null, memBytes: null, dataBytes: null },
+      snapshot:    snapshotData[server]  ?? { cpuPct: null, memBytes: null, dataBytes: null, peakMemBytes: null },
       preflight:   preflightData[server] ?? {},
       rawRps:      rawRpsOut,
       imputedRps:  imputedRpsOut,

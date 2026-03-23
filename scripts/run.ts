@@ -205,6 +205,7 @@ header(`4/4 Benchmark: ${server}`);
 
 mkdirSync(`results/${runId}/${server}/benchmark`, { recursive: true });
 
+const benchmarkStart = new Date().toISOString();
 let firstTest = true;
 
 for (const test of TESTS) {
@@ -252,7 +253,11 @@ for (const test of TESTS) {
 
 header(`Done: ${server}`);
 
-// ── 5. Push results ──────────────────────────────────────────────────────────
+// ── 5. Peak memory snapshot ──────────────────────────────────────────────────
+
+await $`bun scripts/resource-snapshot.ts --server ${server} --label peak --run ${runId} --since ${benchmarkStart}`;
+
+// ── 6. Push results ──────────────────────────────────────────────────────────
 
 header('5/5 Pushing results to Pushgateway');
 await $`bun scripts/push-results.ts --run ${runId}`;

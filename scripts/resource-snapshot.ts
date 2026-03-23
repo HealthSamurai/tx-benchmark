@@ -1,9 +1,12 @@
 #!/usr/bin/env bun
-// resource-snapshot.ts --server <server> --label <label> --run <run-id>
+// resource-snapshot.ts --server <server> --label <label> --run <run-id> [--since <iso-timestamp>]
 //
 // Records a timestamped resource snapshot by querying Prometheus and Docker.
 // Used to capture idle footprint before the benchmark starts.
 // Under-load metrics are captured continuously by cAdvisor/node_exporter.
+//
+// With --since <iso-timestamp>: captures peak memory over the window [since, now]
+// by querying Prometheus max_over_time instead of docker stats.
 //
 // Output: results/{run}/{server}/snapshot_{label}.json
 
@@ -17,14 +20,17 @@ const { values } = parseArgs({
     server: { type: 'string' },
     label:  { type: 'string' },
     run:    { type: 'string', default: 'unknown' },
+    since:  { type: 'string' },  // ISO timestamp — enables peak mode
   },
 });
 
-const { server, label, run } = values;
+const { server, label, run, since } = values;
 if (!server || !label) {
-  console.error('Usage: resource-snapshot.ts --server <server> --label <label> [--run <run-id>]');
+  console.error('Usage: resource-snapshot.ts --server <server> --label <label> [--run <run-id>] [--since <iso>]');
   process.exit(1);
 }
+
+const peakMode = !!since;
 
 // ── Docker helpers ──────────────────────────────────────────────────────────
 
@@ -49,33 +55,49 @@ async function getContainers(): Promise<string[]> {
 
 const cpuQuery = `sum(rate(container_cpu_usage_seconds_total{container_label_com_docker_compose_project="${server}"}[1m])) / scalar(count(node_cpu_seconds_total{mode="idle"})) * 100`;
 
-const [cpuUsage, containers] = await Promise.all([
-  queryProm(cpuQuery),
-  getContainers(),
-]);
+const memPromQuery = `sum(container_memory_usage_bytes{container_label_com_docker_compose_project="${server}"})`;
 
-// Memory: sum RSS across all containers (parallel)
-const memResults = await Promise.all(
-  containers.map(cname =>
-    $`docker stats --no-stream --format {{.MemUsage}} ${cname}`.text().catch(() => '')
-  )
-);
-const memBytes = memResults.reduce((sum, usage) =>
-  sum + parseDockerMem(usage.trim().split(/\s+/)[0] ?? ''), 0);
-const memUsedBytes = memBytes > 0 ? memBytes : null;
+let cpuUsage: number | null   = null;
+let memUsedBytes: number | null = null;
+let peakMemBytes: number | null = null;
 
-// Data volume: sum du -sb for named volume mounts
-const volumeFmt = '{{range .Mounts}}{{if eq .Type "volume"}}{{.Destination}}\n{{end}}{{end}}';
-let dataBytes = 0;
-for (const cname of containers) {
-  const mounts = await $`docker inspect ${cname} --format ${volumeFmt}`.text().catch(() => '');
-  for (const mpath of mounts.trim().split('\n').filter(Boolean)) {
-    const du = await $`docker exec ${cname} du -sb ${mpath}`.text().catch(() => '');
-    const n = parseInt(du.trim().split(/\s+/)[0] ?? '0', 10);
-    if (!isNaN(n)) dataBytes += n;
-  }
+if (peakMode) {
+  // Peak mode: query max_over_time since the given timestamp
+  const elapsedSec = Math.ceil((Date.now() - new Date(since!).getTime()) / 1000);
+  const peakQuery  = `max_over_time((${memPromQuery})[${elapsedSec}s:5s])`;
+  peakMemBytes = await queryProm(peakQuery);
+} else {
+  const containers = await getContainers();
+
+  [cpuUsage] = await Promise.all([queryProm(cpuQuery)]);
+
+  // Memory: sum RSS across all containers (parallel)
+  const memResults = await Promise.all(
+    containers.map(cname =>
+      $`docker stats --no-stream --format {{.MemUsage}} ${cname}`.text().catch(() => '')
+    )
+  );
+  const memBytes = memResults.reduce((sum, usage) =>
+    sum + parseDockerMem(usage.trim().split(/\s+/)[0] ?? ''), 0);
+  memUsedBytes = memBytes > 0 ? memBytes : null;
 }
-const dataVolumeBytes = dataBytes > 0 ? dataBytes : null;
+
+// Data volume: sum du -sb for named volume mounts (idle mode only)
+let dataVolumeBytes: number | null = null;
+if (!peakMode) {
+  const containers = await getContainers();
+  const volumeFmt = '{{range .Mounts}}{{if eq .Type "volume"}}{{.Destination}}\n{{end}}{{end}}';
+  let dataBytes = 0;
+  for (const cname of containers) {
+    const mounts = await $`docker inspect ${cname} --format ${volumeFmt}`.text().catch(() => '');
+    for (const mpath of mounts.trim().split('\n').filter(Boolean)) {
+      const du = await $`docker exec ${cname} du -sb ${mpath}`.text().catch(() => '');
+      const n = parseInt(du.trim().split(/\s+/)[0] ?? '0', 10);
+      if (!isNaN(n)) dataBytes += n;
+    }
+  }
+  dataVolumeBytes = dataBytes > 0 ? dataBytes : null;
+}
 
 // ── Output ──────────────────────────────────────────────────────────────────
 
@@ -86,6 +108,7 @@ const snapshot = {
   cpu_usage:         cpuUsage,
   mem_used_bytes:    memUsedBytes,
   data_volume_bytes: dataVolumeBytes,
+  ...(peakMode ? { peak_mem_bytes: peakMemBytes } : {}),
 };
 
 const outDir  = `results/${run}/${server}`;
