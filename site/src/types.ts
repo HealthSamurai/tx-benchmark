@@ -14,9 +14,10 @@ export interface ServerData {
   score:       number;
   rawScore:    number;
   snapshot: {
-    cpuPct:    number | null;
-    memBytes:  number | null;
-    dataBytes: number | null;
+    cpuPct:       number | null;
+    memBytes:     number | null;
+    dataBytes:    number | null;
+    peakMemBytes: number | null;
   };
   preflight:   Record<string, string>;
   rawRps:      Record<string, number>;

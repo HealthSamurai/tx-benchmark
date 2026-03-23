@@ -36,9 +36,11 @@ const xAxis = {
 
 const yAxis = { type: 'value', show: false };
 
-const barSeries = (color: string, field: 'memBytes' | 'dataBytes') => ({
+const barSeries = (color: string, field: 'memBytes' | 'peakMemBytes' | 'dataBytes', name?: string) => ({
   type: 'bar',
-  barMaxWidth: 40,
+  name,
+  barMaxWidth: 36,
+  barGap: '8%',
   itemStyle: { color, borderRadius: [2, 2, 0, 0] },
   label: { show: true, position: 'top', color: '#9a9ab0' },
   data: servers.map(s => ({
@@ -54,7 +56,7 @@ const baseOption = {
   yAxis,
 };
 
-const memOption  = { ...baseOption, series: [barSeries('#5794F2', 'memBytes')]  };
+const memOption  = { ...baseOption, series: [barSeries('#5794F2', 'memBytes', 'Idle'), barSeries('#1F4EA6', 'peakMemBytes', 'Peak')] };
 const diskOption = { ...baseOption, series: [barSeries('#B877D9', 'dataBytes')] };
 
 const serverIds = servers.map(s => s.id);
@@ -94,7 +96,7 @@ const latencyCells = servers.map(s =>
   </Widget>
 
   <div class="widget-row">
-    <Widget title="Memory" tip="Idle memory usage per server.">
+    <Widget title="Memory" tip="Idle memory usage (light blue) and peak memory during benchmarks (dark blue) per server.">
       <EChart client:only="svelte" option={memOption} width="100%" height="220px" />
     </Widget>
     <Widget title="Disk" tip="Idle data directory size per server.">
