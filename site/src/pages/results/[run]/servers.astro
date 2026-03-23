@@ -1,4 +1,5 @@
 ---
+import Run from '../../../layouts/Run.astro';
 import runs from '../../../data/runs.json';
 import type { RunExport } from '../../../types';
 
@@ -8,8 +9,61 @@ export async function getStaticPaths() {
 
 const { run } = Astro.params;
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
-const first = data.servers[0];
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-return Astro.redirect(`${base}/results/${run}/servers/${first.id}`, 302);
+const serverOptions = data.servers.map(s => ({
+  id: s.id,
+  href: `${base}/results/${run}/servers/${s.id}`,
+}));
 ---
+
+<Run title={`Servers — ${run}`} run={run} date={data.date} activeSection="servers">
+  <div class="server-header">
+    <div class="server-select-wrap">
+      <select class="server-select" onchange="location.href=this.value">
+        <option value="" disabled selected>Select a server</option>
+        {serverOptions.map(s => (
+          <option value={s.href}>{s.id}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+</Run>
+
+<style>
+  .server-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .server-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 10px 4px 12px;
+  }
+  .server-select-wrap::after {
+    content: '▾';
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-dim);
+    pointer-events: none;
+  }
+
+  .server-select {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .server-select:focus { outline: none; }
+  .server-select-wrap:hover { border-color: var(--accent); }
+  .server-select-wrap:hover .server-select,
+  .server-select-wrap:hover::after { color: var(--accent); }
+</style>

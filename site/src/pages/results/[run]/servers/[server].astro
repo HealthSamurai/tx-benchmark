@@ -110,12 +110,13 @@ const serverOptions = data.servers.map(s => ({
 <Run title={`${serverId} — ${run}`} run={run} date={data.date} activeSection="servers">
 
   <div class="server-header">
-    <span class="server-name">{serverId}</span>
-    <select class="server-select" onchange="location.href=this.value">
-      {serverOptions.map(s => (
-        <option value={s.href} selected={s.id === serverId}>{s.id}</option>
-      ))}
-    </select>
+    <div class="server-select-wrap">
+      <select class="server-select" onchange="location.href=this.value">
+        {serverOptions.map(s => (
+          <option value={s.href} selected={s.id === serverId}>{s.id}</option>
+        ))}
+      </select>
+    </div>
   </div>
 
   <Widget title="Tests">
@@ -137,28 +138,39 @@ const serverOptions = data.servers.map(s => ({
 
 <style>
   .server-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
     margin-bottom: var(--space-5);
   }
 
-  .server-name {
+  .server-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 10px 4px 12px;
+  }
+  .server-select-wrap::after {
+    content: '▾';
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-dim);
+    pointer-events: none;
+  }
+
+  .server-select {
     font-family: var(--font-mono);
     font-size: var(--text-xl);
     font-weight: 600;
     color: var(--text);
-  }
-
-  .server-select {
-    font-size: var(--text-sm);
-    font-family: var(--font-mono);
-    color: var(--text-dim);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 4px 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
     cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
   }
-  .server-select:focus { outline: none; border-color: var(--accent); }
+  .server-select:focus { outline: none; }
+  .server-select-wrap:hover { border-color: var(--accent); }
+  .server-select-wrap:hover .server-select,
+  .server-select-wrap:hover::after { color: var(--accent); }
 </style>
