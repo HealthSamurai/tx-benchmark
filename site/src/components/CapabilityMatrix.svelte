@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ServerData } from '../../scripts/lib/loader.ts';
+  import type { ServerData } from '../types';
 
   export let servers: ServerData[];
   export let tests: string[];

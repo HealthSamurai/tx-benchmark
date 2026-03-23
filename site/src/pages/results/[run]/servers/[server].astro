@@ -1,0 +1,164 @@
+---
+import Run from '../../../../layouts/Run.astro';
+import Matrix from '../../../../components/Matrix.astro';
+import EChart from '../../../../components/EChart.svelte';
+import Widget from '../../../../components/Widget.astro';
+import runs from '../../../../data/runs.json';
+import type { RunExport } from '../../../../types';
+import { fmtMs, fmtRps, latencyColor } from '../../../../utils';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const r of runs) {
+    const data: RunExport = (await import(`../../../../data/${r.id}.json`)).default;
+    for (const s of data.servers) {
+      paths.push({ params: { run: r.id, server: s.id } });
+    }
+  }
+  return paths;
+}
+
+const { run, server: serverId } = Astro.params;
+const data: RunExport = (await import(`../../../../data/${run}.json`)).default;
+const { config } = data;
+const tests = config.tests;
+const vus = config.vus;
+
+const server = data.servers.find(s => s.id === serverId)!;
+
+function preflightStatus(t: string) { return server.preflight[t] ?? 'skip'; }
+
+function getLatency(t: string, vu: number, p: 'p50' | 'p95' | 'p99'): number | null {
+  return server.benchmark?.[t]?.[vu]?.[p] ?? null;
+}
+
+// Preflight: single row
+const preflightCells = [tests.map(t => {
+  const st = preflightStatus(t);
+  return { content: st === 'pass' ? '✓' : st === 'fail' ? '✗' : '~', class: `cell-${st}`, title: `${t}: ${st}` };
+})];
+
+// Latency: p50/p95/p99 × VU levels as rows, tests as columns
+const percentiles = ['p50', 'p95', 'p99'] as const;
+const latencyRowLabels = vus.flatMap(vu => percentiles.map(p => `${p} / ${vu}`));
+const latencyCells = vus.flatMap(vu =>
+  percentiles.map(p =>
+    tests.map(t => {
+      const val = getLatency(t, vu, p);
+      return { content: fmtMs(val), class: 'cell-latency', style: `color:${latencyColor(val)}`, title: `${t} ${p}@${vu}VU` };
+    })
+  )
+);
+
+const chartTests = tests.filter(t => (server.rawRps[t] ?? 0) > 0 || (server.imputedRps[t] ?? 0) > 0);
+
+const rpsChartOption = {
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  grid: { left: 8, right: 8, top: 24, bottom: 56, containLabel: false },
+  xAxis: {
+    type: 'category',
+    data: chartTests,
+    axisLine: { lineStyle: { color: '#2a2b3d' } },
+    axisTick: { show: false },
+    axisLabel: { color: '#9a9ab0', interval: 'auto' },
+  },
+  yAxis: { type: 'value', show: false },
+  legend: {
+    top: 0,
+    right: 0,
+    itemWidth: 10,
+    itemHeight: 10,
+    textStyle: { color: '#9a9ab0' },
+    data: ['wRPS', 'RPS'],
+  },
+  series: [
+    {
+      name: 'wRPS',
+      type: 'bar',
+      barMaxWidth: 20,
+      itemStyle: { color: '#5794F2', borderRadius: [2, 2, 0, 0] },
+      data: chartTests.map(t => {
+        const w = server.weightedRps[t] ?? 0;
+        return {
+          value: w,
+          label: w > 0 ? { show: true, position: 'top', color: '#9a9ab0', formatter: fmtRps(w) } : { show: false },
+        };
+      }),
+    },
+    {
+      name: 'RPS',
+      type: 'bar',
+      barMaxWidth: 20,
+      data: chartTests.map(t => {
+        const raw = server.rawRps[t] ?? 0;
+        const imp = server.imputedRps[t] ?? 0;
+        if (raw > 0) return { value: raw, itemStyle: { color: 'rgba(87,148,242,0.4)', borderRadius: [2, 2, 0, 0] }, label: { show: true, position: 'top', color: '#9a9ab0', formatter: fmtRps(raw) } };
+        return { value: imp, itemStyle: { color: 'rgba(220,80,60,0.6)', borderRadius: [2, 2, 0, 0] }, label: { show: imp > 0, position: 'top', color: '#9a9ab0', formatter: fmtRps(imp) } };
+      }),
+    },
+  ],
+};
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const serverOptions = data.servers.map(s => ({
+  id: s.id,
+  href: `${base}/results/${run}/servers/${s.id}`,
+}));
+---
+
+<Run title={`${serverId} — ${run}`} run={run} date={data.date} activeSection="servers">
+
+  <div class="server-header">
+    <span class="server-name">{serverId}</span>
+    <select class="server-select" onchange="location.href=this.value">
+      {serverOptions.map(s => (
+        <option value={s.href} selected={s.id === serverId}>{s.id}</option>
+      ))}
+    </select>
+  </div>
+
+  <Widget title="Tests">
+    <Matrix rowLabels={['']} colLabels={tests} cells={preflightCells} />
+  </Widget>
+
+  <Widget title="Latency">
+    <Matrix rowLabels={latencyRowLabels} colLabels={tests} cells={latencyCells} />
+  </Widget>
+
+  <Widget
+    title="Throughput"
+    tip="Two bars per test: wRPS (solid blue, left) is the weighted throughput that counts toward the composite score — raw RPS adjusted by a per-test normalizer and bias factor. RPS (right) is the raw peak effective RPS. Reddish bars indicate imputed values for tests the server did not run."
+  >
+    <EChart client:only="svelte" option={rpsChartOption} width="100%" height="220px" />
+  </Widget>
+
+</Run>
+
+<style>
+  .server-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .server-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .server-select {
+    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+    color: var(--text-dim);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+  .server-select:focus { outline: none; border-color: var(--accent); }
+</style>

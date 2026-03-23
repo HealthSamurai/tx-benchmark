@@ -2,8 +2,10 @@
 import Run from '../../../layouts/Run.astro';
 import EChart from '../../../components/EChart.svelte';
 import Matrix from '../../../components/Matrix.astro';
+import Widget from '../../../components/Widget.astro';
 import runs from '../../../data/runs.json';
-import type { RunExport } from '../../../../scripts/lib/loader.ts';
+import type { RunExport } from '../../../types';
+import { fmtMs, fmtBytes, latencyColor } from '../../../utils';
 
 export async function getStaticPaths() {
   return runs.map(r => ({ params: { run: r.id } }));
@@ -22,33 +24,6 @@ function preflightStatus(s: typeof servers[0], t: string) {
 function getP95(s: typeof servers[0], t: string): number | null {
   const bm = s.benchmark?.[t]?.[topVu];
   return bm ? bm.p95 : null;
-}
-
-function latencyColor(ms: number | null) {
-  if (ms === null) return 'var(--text-muted)';
-  if (ms < 50)   return '#96D98D';
-  if (ms < 100)  return '#73BF69';
-  if (ms < 200)  return '#37872D';
-  if (ms < 400)  return '#FFEE52';
-  if (ms < 800)  return '#E0B400';
-  if (ms < 1000) return '#FF9830';
-  if (ms < 2000) return '#F2495C';
-  if (ms < 3000) return '#E02F44';
-  return '#C4162A';
-}
-
-function fmtMs(v: number | null) {
-  if (v === null) return '—';
-  return v >= 1000 ? (v / 1000).toFixed(2) + 's' : Math.round(v) + 'ms';
-}
-
-function fmtBytes(b: number | null) {
-  if (!b) return '—';
-  if (b >= 1e12) return (b / 1e12).toFixed(1) + ' TB';
-  if (b >= 1e9)  return (b / 1e9).toFixed(1)  + ' GB';
-  if (b >= 1e6)  return Math.round(b / 1e6)    + ' MB';
-  if (b >= 1e3)  return Math.round(b / 1e3)    + ' KB';
-  return b + ' B';
 }
 
 const xAxis = {
@@ -82,8 +57,6 @@ const baseOption = {
 const memOption  = { ...baseOption, series: [barSeries('#5794F2', 'memBytes')]  };
 const diskOption = { ...baseOption, series: [barSeries('#B877D9', 'dataBytes')] };
 
-const infoIcon = `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 7h2v5H7V7z"/></svg>`;
-
 const serverIds = servers.map(s => s.id);
 
 const capabilityCells = servers.map(s =>
@@ -112,59 +85,21 @@ const latencyCells = servers.map(s =>
 
 <Run title={`${run} — Breakdown`} run={run} date={data.date} activeSection="details">
 
-  <div class="widget">
-    <div class="widget-header">
-      <span class="widget-title">Capability Matrix</span>
-      <span class="info-wrap">
-        <span class="info-icon"><Fragment set:html={infoIcon} /></span>
-        <div class="info-popover">Whether each server passed, failed, or skipped each capability check during preflight.</div>
-      </span>
-    </div>
-    <div class="widget-body">
-      <Matrix rowLabels={serverIds} colLabels={tests} cells={capabilityCells} />
-    </div>
-  </div>
+  <Widget title="Capability Matrix" tip="Whether each server passed, failed, or skipped each capability check during preflight.">
+    <Matrix rowLabels={serverIds} colLabels={tests} cells={capabilityCells} />
+  </Widget>
 
-  <div class="widget">
-    <div class="widget-header">
-      <span class="widget-title">p95 Latency</span>
-      <span class="widget-badge">{topVu} VUs</span>
-      <span class="info-wrap">
-        <span class="info-icon"><Fragment set:html={infoIcon} /></span>
-        <div class="info-popover">95th-percentile response time at {topVu} virtual users.</div>
-      </span>
-    </div>
-    <div class="widget-body">
-      <Matrix rowLabels={serverIds} colLabels={tests} cells={latencyCells} />
-    </div>
-  </div>
+  <Widget title="p95 Latency" badge={`${topVu} VUs`} tip={`95th-percentile response time at ${topVu} virtual users.`}>
+    <Matrix rowLabels={serverIds} colLabels={tests} cells={latencyCells} />
+  </Widget>
 
   <div class="widget-row">
-    <div class="widget">
-      <div class="widget-header">
-        <span class="widget-title">Memory</span>
-        <span class="info-wrap">
-          <span class="info-icon"><Fragment set:html={infoIcon} /></span>
-          <div class="info-popover">Idle memory usage per server.</div>
-        </span>
-      </div>
-      <div class="widget-body">
-        <EChart client:only="svelte" option={memOption} width="100%" height="220px" />
-      </div>
-    </div>
-
-    <div class="widget">
-      <div class="widget-header">
-        <span class="widget-title">Disk</span>
-        <span class="info-wrap">
-          <span class="info-icon"><Fragment set:html={infoIcon} /></span>
-          <div class="info-popover">Idle data directory size per server.</div>
-        </span>
-      </div>
-      <div class="widget-body">
-        <EChart client:only="svelte" option={diskOption} width="100%" height="220px" />
-      </div>
-    </div>
+    <Widget title="Memory" tip="Idle memory usage per server.">
+      <EChart client:only="svelte" option={memOption} width="100%" height="220px" />
+    </Widget>
+    <Widget title="Disk" tip="Idle data directory size per server.">
+      <EChart client:only="svelte" option={diskOption} width="100%" height="220px" />
+    </Widget>
   </div>
 
 </Run>
@@ -176,5 +111,5 @@ const latencyCells = servers.map(s =>
     gap: var(--space-4);
     margin-bottom: var(--space-6);
   }
-  .widget-row .widget { margin-bottom: 0; }
+  .widget-row :global(.widget) { margin-bottom: 0; }
 </style>

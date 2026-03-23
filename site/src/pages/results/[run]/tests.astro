@@ -1,7 +1,7 @@
 ---
 import Run from '../../../layouts/Run.astro';
 import runs from '../../../data/runs.json';
-import type { RunExport } from '../../../../scripts/lib/loader.ts';
+import type { RunExport } from '../../../types';
 
 export async function getStaticPaths() {
   return runs.map(r => ({ params: { run: r.id } }));

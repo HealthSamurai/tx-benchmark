@@ -1,7 +1,6 @@
 ---
-import Run from '../../../layouts/Run.astro';
 import runs from '../../../data/runs.json';
-import type { RunExport } from '../../../../scripts/lib/loader.ts';
+import type { RunExport } from '../../../types';
 
 export async function getStaticPaths() {
   return runs.map(r => ({ params: { run: r.id } }));
@@ -9,16 +8,8 @@ export async function getStaticPaths() {
 
 const { run } = Astro.params;
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
+const first = data.servers[0];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+return Astro.redirect(`${base}/results/${run}/servers/${first.id}`, 302);
 ---
-
-<Run title={`${run} — Servers`} run={run} date={data.date} activeSection="servers">
-  <div class="placeholder">
-    <div class="placeholder-icon">🖥</div>
-    <h2 class="placeholder-title">Servers</h2>
-    <p class="placeholder-sub">
-      Per-server breakdown — latency percentiles, memory usage, data volume, and test-by-test results for each of the {data.servers.length} servers in this run.
-    </p>
-    <p class="placeholder-badge">Coming soon</p>
-  </div>
-</Run>
-

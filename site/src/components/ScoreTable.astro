@@ -1,5 +1,6 @@
 ---
-import type { ServerData } from '../../scripts/lib/loader.ts';
+import type { ServerData } from '../types';
+import { fmtRps } from '../utils';
 
 interface Props {
   servers: ServerData[];
@@ -20,10 +21,6 @@ function meanErrorRate(server: ServerData): number {
   return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
 }
 
-function fmtRps(v: number): string {
-  if (v >= 1000) return (v / 1000).toFixed(1) + 'K';
-  return v.toFixed(0);
-}
 
 const rows = servers.map((s, i) => ({
   rank: i + 1,

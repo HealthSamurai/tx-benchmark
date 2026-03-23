@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import runs from '../data/runs.json';
-import type { RunExport } from '../../scripts/lib/loader.ts';
+import type { RunExport } from '../types';
+import { fmtRps } from '../utils';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const runData = await Promise.all(
@@ -24,10 +25,6 @@ function fmtDate(iso: string): string {
   return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
-function fmtRps(v: number): string {
-  if (v >= 1000) return (v / 1000).toFixed(1) + 'K';
-  return v.toFixed(0);
-}
 ---
 
 <Base title="All Runs — FHIR TX Benchmark">

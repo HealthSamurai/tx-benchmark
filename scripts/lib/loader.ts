@@ -30,6 +30,8 @@ export interface ServerData {
     dataBytes: number | null;
   };
   preflight:   Record<string, PreflightStatus>;
+  rawRps:      Record<string, number>;
+  imputedRps:  Record<string, number>;
   weightedRps: Record<string, number>;
   benchmark:   Record<string, Record<string, BenchmarkPoint>>;
 }
@@ -155,13 +157,28 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
   // 5. Scores
   const allRows    = [...effRows, ...imputedRows];
   const { scores, rawScores } = computeScores(allRows);
-  const weightedRpsList = computeWeightedRps(effRows);
+  const weightedRpsList = computeWeightedRps(allRows);
 
   // Group weightedRps by server
   const weightedRpsMap: Record<string, Record<string, number>> = {};
   for (const { server, test, value } of weightedRpsList) {
     if (!weightedRpsMap[server]) weightedRpsMap[server] = {};
     weightedRpsMap[server][test] = value;
+  }
+
+  // rawRps: max effRps per (server, test) across VU levels
+  const rawRpsMap: Record<string, Record<string, number>> = {};
+  for (const row of effRows) {
+    if (!rawRpsMap[row.server]) rawRpsMap[row.server] = {};
+    rawRpsMap[row.server][row.test] = Math.max(rawRpsMap[row.server][row.test] ?? 0, row.effRps);
+  }
+
+  // imputedRps: only for tests where the server has NO real data at all
+  const imputedRpsMap: Record<string, Record<string, number>> = {};
+  for (const row of imputedRows) {
+    if (rawRpsMap[row.server]?.[row.test] !== undefined) continue;
+    if (!imputedRpsMap[row.server]) imputedRpsMap[row.server] = {};
+    imputedRpsMap[row.server][row.test] = Math.max(imputedRpsMap[row.server][row.test] ?? 0, row.effRps);
   }
 
   // 6. Assemble
@@ -177,7 +194,9 @@ export function loadRun(run: string, opts: { date?: string; testDuration?: strin
       score:       +score.toFixed(4),
       rawScore:    +rawScore.toFixed(4),
       snapshot:    snapshotData[server]  ?? { cpuPct: null, memBytes: null, dataBytes: null },
-      preflight:   preflightData[server] ?? {},
+      preflight:   preflightData[server]  ?? {},
+      rawRps:      rawRpsMap[server]      ?? {},
+      imputedRps:  imputedRpsMap[server]  ?? {},
       weightedRps: weightedRpsMap[server] ?? {},
       benchmark:   benchmarkData[server]  ?? {},
     };
