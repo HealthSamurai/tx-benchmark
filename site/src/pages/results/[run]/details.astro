@@ -36,18 +36,29 @@ const xAxis = {
 
 const yAxis = { type: 'value', show: false };
 
-const barSeries = (color: string, field: 'memBytes' | 'peakMemBytes' | 'dataBytes', name?: string) => ({
+const barSeries = (color: string, field: 'memBytes' | 'peakMemBytes' | 'dataBytes', name?: string, opts: Record<string, unknown> = {}) => ({
   type: 'bar',
   name,
-  barMaxWidth: 36,
-  barGap: '8%',
+  barMaxWidth: 40,
+  barGap: '-100%',
   itemStyle: { color, borderRadius: [2, 2, 0, 0] },
   label: { show: true, position: 'top', color: '#9a9ab0' },
-  data: servers.map(s => ({
-    value: s.snapshot?.[field] ?? 0,
-    label: { formatter: fmtBytes(s.snapshot?.[field] ?? null) },
-  })),
+  data: servers.map(s => {
+    const v = s.snapshot?.[field] ?? null;
+    return { value: v ?? 0, label: v ? { formatter: fmtBytes(v) } : { show: false } };
+  }),
+  ...opts,
 });
+
+const tooltip = { trigger: 'axis', axisPointer: { type: 'shadow' } };
+
+const legend = {
+  data: ['Peak', 'Idle'],
+  bottom: 0,
+  textStyle: { color: '#9a9ab0' },
+  itemWidth: 12,
+  itemHeight: 10,
+};
 
 const baseOption = {
   backgroundColor: 'transparent',
@@ -56,7 +67,9 @@ const baseOption = {
   yAxis,
 };
 
-const memOption  = { ...baseOption, series: [barSeries('#5794F2', 'memBytes', 'Idle'), barSeries('#1F4EA6', 'peakMemBytes', 'Peak')] };
+// Peak renders first (behind), idle on top. barGap: '-100%' overlaps them.
+// silent: true on peak prevents hover from bringing it to the front.
+const memOption  = { ...baseOption, tooltip, legend, series: [barSeries('#1F4EA6', 'peakMemBytes', 'Peak', { silent: true }), barSeries('#5794F2', 'memBytes', 'Idle')] };
 const diskOption = { ...baseOption, series: [barSeries('#B877D9', 'dataBytes')] };
 
 const serverIds = servers.map(s => s.id);
@@ -96,11 +109,11 @@ const latencyCells = servers.map(s =>
   </Widget>
 
   <div class="widget-row">
-    <Widget title="Memory" tip="Idle memory usage (light blue) and peak memory during benchmarks (dark blue) per server.">
-      <EChart client:only="svelte" option={memOption} width="100%" height="220px" />
+    <Widget title="Memory" tip="Idle memory usage (light blue, front) overlaid on peak memory during benchmarks (dark blue, back) per server.">
+      <EChart client:only="svelte" option={memOption} width="100%" height="260px" />
     </Widget>
     <Widget title="Disk" tip="Idle data directory size per server.">
-      <EChart client:only="svelte" option={diskOption} width="100%" height="220px" />
+      <EChart client:only="svelte" option={diskOption} width="100%" height="260px" />
     </Widget>
   </div>
 

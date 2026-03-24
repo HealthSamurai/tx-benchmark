@@ -62,8 +62,7 @@
       "snapshot": {
         "cpuPct": null,
         "memBytes": 496165192,
-        "dataBytes": 22945710907,
-        "peakMemBytes": 7890030592
+        "dataBytes": 22945710907
       },
       "preflight": {
         "FS01": "pass",
