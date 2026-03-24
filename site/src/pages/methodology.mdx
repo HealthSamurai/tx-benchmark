@@ -10,13 +10,12 @@ import Doc from '../layouts/Doc.astro';
 <span class="toc-label">On this page</span>
 
 - [Overview](#overview)
-- [Test environment](#test-environment)
-- [Two-phase approach](#two-phase-approach)
-- [Input pools](#input-pools)
-- [Metrics](#metrics)
-- [Composite score](#composite-score)
-- [Imputation](#imputation)
-- [Exclusions](#exclusions)
+- [Servers](#servers)
+- [Data](#data)
+- [Tests](#tests)
+- [Preflight](#preflight)
+- [Benchmark](#benchmark)
+- [Metrics collection](#metrics-collection)
 
 </Fragment>
 
@@ -24,25 +23,42 @@ import Doc from '../layouts/Doc.astro';
 
 ## Overview
 
-Each server is benchmarked in isolation against the same workload, on the same hardware, with the same loaded terminology data. Results are comparable across runs as long as the hardware and data versions remain the same.
+Each server is benchmarked in isolation: one server running at a time, on the same host as the k6 load generator, using loopback only — no network latency. All servers are loaded with the same terminology datasets before benchmarking begins.
 
-## Test environment
+## Servers
 
-- **FHIR version:** R4
-- **Network:** all servers and the k6 load generator run on the same host — loopback only, no network latency
-- **Isolation:** one server running at a time, no concurrent workloads
+All servers run as Docker containers, either from their official published image or containerised for this benchmark. Containers are named after their server identifier so that cAdvisor metrics can be correlated with k6 results by container name.
 
-## Two-phase approach
+For per-server configuration (version, runtime, and any non-default settings) see: [Servers](/tx-benchmark/servers)
 
-### Phase 1 — Preflight
+If a server crashes between tests, it is restarted and the benchmark continues from the next test (or VU level).
 
-Before benchmarking, a correctness check verifies each server's response for each test case. A test *passes* preflight if the server returns a semantically correct response — right resource type, expected parameters, correct values.
+## Data
 
-Tests that fail or are not supported are excluded from that server's benchmark run and recorded in the **capability matrix**.
+All servers are pre-loaded with the same terminology data before benchmarking:
 
-### Phase 2 — Benchmark
+- **SNOMED CT** International, UK, and US editions
+- **LOINC**
+- **RxNorm**
+- **FHIR packages:** `hl7.fhir.r4.core`, `hl7.terminology.r4`, `hl7.fhir.us.vsac`, `hl7.fhir.uv.ips`, and others
 
-Only preflight-passing tests are benchmarked. Each test is run at three concurrency levels:
+See the [Data](/tx-benchmark/data) page for dataset versions, licenses, and load instructions.
+
+## Tests
+
+The benchmark covers 20 test cases. Each test draws inputs at random from a pool of entries per scenario, simulating a real-world scenario rather than a hot-cache hit on a single code.
+
+See the [Tests](/tx-benchmark/tests) page for the full list.
+
+## Preflight
+
+Before benchmarking, each test is run once against the server with a known input. The response is checked for semantic correctness — right resource type, expected fields, correct values.
+
+Tests that fail this check are excluded from that server's benchmark run and recorded in the capability matrix. Excluded tests are handled via [imputation](/tx-benchmark/scoring#imputation) in the scoring step rather than being counted as zero.
+
+## Benchmark
+
+Only preflight-passing tests are benchmarked. Each test is run at three concurrency levels using [k6](https://k6.io):
 
 | Level | Virtual users | Duration |
 |-------|--------------|----------|
@@ -50,91 +66,21 @@ Only preflight-passing tests are benchmarked. Each test is run at three concurre
 | Mid   | 10 VUs | 30 s |
 | High  | 50 VUs | 30 s |
 
-A **warm-up pass** (5 s at 10 VUs, discarded) runs before measurement to allow JIT compilers and connection pools to reach steady state.
+A **warm-up pass** (5 s at 10 VUs, results discarded) runs before measurement to allow JIT compilers and connection pools to reach steady state.
 
-## Input pools
+Each VU runs a tight request loop for the duration: pick a random entry from the pool, issue the request, record the result. There is no think time between requests.
 
-Each test draws inputs randomly from a pool of 2,000+ entries per code system. This ensures a realistic working-set scenario rather than testing the same code repeatedly. Pools are harvested from the terminology data loaded into the server before the run.
+## Metrics collection
 
-## Metrics
+**Latency and throughput** are measured by k6 directly: `http_req_duration` percentiles (p50, p95, p99) and request rate per second.
 
-| Metric | Description |
-|--------|-------------|
-| `rps` | Throughput — requests per second |
-| `p50 / p95 / p99` | Request latency percentiles |
-| `error_rate` | Fraction of requests that returned an HTTP error or failed |
-| `mem_used_bytes` | Server memory footprint at idle |
-| `data_volume_bytes` | On-disk size of the terminology data |
+**Memory** is measured via [cAdvisor](https://github.com/google/cadvisor), which exposes per-container metrics at 1-second resolution. Two snapshots are recorded per server:
 
-## Composite score
+- **Idle** — taken before the benchmark run starts, after the server has finished loading data
+- **Peak** — `max_over_time` of `container_memory_usage_bytes` across the full benchmark run
 
-Each server receives a single composite score in the range $[0, 100]$ where $100$ is the top performer in the run.
+Container names match the server identifier so cAdvisor metrics can be joined with k6 results without manual mapping.
 
-### Step 1 — Effective RPS
-
-For each *(server, test)* pair, compute the eRPS at each VU level and take the maximum across levels:
-
-$$
-\text{eRPS}_{s,t} = \max_v \bigl( \text{rps}_{s,t,v} \times (1 - \text{errorRate}_{s,t,v}) \bigr)
-$$
-
-Multiplying by $(1 - \text{errorRate})$ penalises servers that sustain throughput by returning errors.
-
-### Step 2 — Normalising weight
-
-Tests naturally differ in throughput — a simple lookup saturates faster than a complex expansion. Without adjustment, high-throughput tests would dominate the score. We use a **TechEmpower-style normalising weight** that scales each test's contribution to the same RPS unit as the reference test (LK01 — simple SNOMED lookup):
-
-$$
-w_t = \frac{\overline{\text{eRPS}}_{\text{LK01}}}{\overline{\text{eRPS}}_t}
-$$
-
-where $\overline{\text{eRPS}}_t$ is the mean eRPS for test $t$ across all servers in the run.
-
-### Step 3 — Weighted RPS
-
-For each *(server, test)* pair, apply the normalising weight and a per-test **bias** coefficient $b_t \in (0, 1]$:
-
-$$
-\text{wRPS}_{s,t} = \text{eRPS}_{s,t} \times w_t \times b_t
-$$
-
-Bias coefficients down-weight test categories that are less representative of real-world workloads (e.g. `FS` FHIR search has $b = 0.4$). Default is $1.0$.
-
-### Step 4 — Raw score
-
-Sum weighted RPS across all tests:
-
-$$
-\text{rawScore}_s = \sum_t \text{wRPS}_{s,t}
-$$
-
-### Step 5 — Normalise to 0–100
-
-$$
-\text{score}_s = \frac{\text{rawScore}_s}{\max_{s'} \text{rawScore}_{s'}} \times 100
-$$
-
-The top server always receives 100. All others are expressed as a percentage of that.
-
-## Imputation
-
-Servers that did not participate in a test (failed preflight or did not run it) receive an **imputed** eRPS for that test rather than zero. This prevents absent servers from being unfairly penalised for gaps in coverage.
-
-The imputed value is the **30th percentile** of the participating servers' eRPS for that *(test, VU level)*, anchored at zero:
-
-$$
-\text{eRPS}_{\text{imputed}} = P_{30}\bigl(\{0\} \cup \{\text{eRPS}_{s',t,v} : s' \in \text{participants}\}\bigr)
-$$
-
-Anchoring at zero means: the fewer servers participate in a test, the lower the imputed value. A server absent from a test it could have aced receives less benefit than one present with real results.
-
-## Exclusions
-
-A server is excluded from a test if it:
-
-- returned HTTP `404` or `501` for the operation during preflight
-- returned a semantically incorrect response during preflight (wrong resource type, missing required fields, incorrect code mapping)
-
-Exclusions are recorded in the capability matrix and reflected in the imputation step rather than being treated as zero performance.
+See the [Scoring](/tx-benchmark/scoring) page for how these measurements are combined into a composite score.
 
 </Doc>

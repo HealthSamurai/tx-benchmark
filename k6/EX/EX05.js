@@ -37,7 +37,8 @@ export default runTest({
 const KNOWN_ENTRY = {
   count:   10,
   include: [[
-    { property: 'concept', op: 'is-a', value: '195967001' }, // Asthma
+    { property: 'concept',    op: 'is-a', value: '195967001' }, // Asthma
+    { property: '363698007',  op: '=',    value: '89187006'  }, // Finding site = Airway structure
   ]],
 };
 

@@ -1,0 +1,260 @@
+---
+title: Tests
+---
+
+import Doc from '../layouts/Doc.astro';
+
+<Doc title="Tests">
+
+<Fragment slot="toc">
+<span class="toc-label">On this page</span>
+
+- [Overview](#overview)
+- [Bias](#bias)
+- [FS — FHIR Search](#fs--fhir-search)
+- [LK — Code Lookup](#lk--code-lookup)
+- [VC — Validate Code](#vc--validate-code)
+- [EX — Expand](#ex--expand)
+- [SS — Subsumes](#ss--subsumes)
+- [CM — Translate](#cm--translate)
+
+</Fragment>
+
+# Tests
+
+## Overview
+
+This benchmark covers 20 test cases across FHIR terminology operations, exercising some of the most important capabilities a FHIR terminology server should support.
+
+Tests are grouped by operation family. Within each family, cases vary the terminology system, input complexity, and feature set — from simple code lookups to multi-filter intensional ValueSet expansions. This spread is intentional: a server that performs well only on simple lookups might not be a good general-purpose terminology server.
+
+Each test has a **preflight** phase that verifies the server returns a semantically correct response before any load is applied. Tests that fail preflight are excluded from that server's benchmark run and marked in the capability matrix.
+
+| Group | Tests | FHIR operation |
+|-------|-------|----------------|
+| FS | FS01 | Generic FHIR search |
+| LK | LK01–LK05 | `CodeSystem/$lookup` |
+| VC | VC01–VC03 | `ValueSet/$validate-code` |
+| EX | EX01–EX08 | `ValueSet/$expand` |
+| SS | SS01 | `CodeSystem/$subsumes` |
+| CM | CM01–CM02 | `ConceptMap/$translate` |
+
+## Bias
+
+Each test carries a **bias coefficient** $b \in (0, 1]$ that scales its contribution to the composite score. Bias is used to down-weight operations that are less representative of real production use-cases. We tend to give higher values to SNOMED tests than their counterparts since SNOMED is arguably the most used and important terminology in healthcare. We also prioritize hot-path operations over rarely used ones (e.g.: `ValueSet/$validate-code` over `CodeSystem/$subsumes`)
+
+See a breakdown of the per-test bias values [here](https://github.com/HealthSamurai/tx-benchmark/blob/master/config/bias.ts)
+
+---
+
+## FS — FHIR Search
+
+### FS01 — FHIR Search (CodeSystem, ValueSet)
+
+**Operation:** `GET /ValueSet` or `GET /CodeSystem` with query parameters
+
+Tests standard FHIR search across both `ValueSet` and `CodeSystem` resource types. Inputs are drawn from a pool of search parameter combinations including `url`, `_count`, `version`, and `content`.
+
+**Preflight:** Searches for the `administrative-gender` ValueSet by URL. Passes if the response is a `Bundle` with at least one entry.
+
+---
+
+## LK — Code Lookup
+
+### LK01 — SNOMED CT lookup
+
+**Operation:** `GET /CodeSystem/$lookup?system=http://snomed.info/sct&code=<code>`
+
+Looks up SNOMED CT codes drawn from a pool of 2,000+ codes spanning clinical findings, procedures, organisms, and more. This test serves as the normalising baseline for the composite score.
+
+**Preflight:** Looks up code `73211009` (Diabetes mellitus). Passes if the response echoes the code and system.
+
+---
+
+### LK02 — LOINC lookup
+
+**Operation:** `GET /CodeSystem/$lookup?system=http://loinc.org&code=<code>`
+
+Lookup on LOINC observation and laboratory codes. Pool covers 2,000+ codes.
+
+**Preflight:** Looks up code `8867-4` (Heart rate). Passes if the response echoes the code and system.
+
+---
+
+### LK03 — Mixed FHIR package codes
+
+**Operation:** `GET /CodeSystem/$lookup?system=<system>&code=<code>&version=<version>`
+
+Looks up codes from a diverse set of smaller terminologies bundled in FHIR R4 core and extension packages: DICOM, ActCode, MaritalStatus, v2 tables, NCI, and others. Each entry is a `[system, code, version]` triple.
+
+**Preflight:** Looks up DICOM code `121054` (Observer context). Passes if the response echoes the code and system.
+
+---
+
+### LK04 — RxNorm lookup
+
+**Operation:** `GET /CodeSystem/$lookup?system=http://www.nlm.nih.gov/research/umls/rxnorm&code=<code>`
+
+Lookup on RxNorm drug codes. Pool covers 2,000+ ingredient and product codes.
+
+**Preflight:** Looks up code `161` (Acetaminophen). Passes if the response echoes the code and system.
+
+---
+
+### LK05 — SNOMED negative lookup
+
+**Operation:** `GET /CodeSystem/$lookup?system=http://snomed.info/sct&code=<code>`
+
+Inputs are fabricated SNOMED-like codes that do not exist. Verifies that the server correctly handles the not-found case and returns an appropriate `OperationOutcome`. Both `404` and a `200 OperationOutcome` with `issue.code = not-found` are accepted.
+
+**Preflight:** Looks up code `999973211009` (a real code prefixed to guarantee non-existence). Passes if the response is an `OperationOutcome`.
+
+---
+
+## VC — Validate Code
+
+### VC01 — SNOMED implicit ValueSet, code only
+
+**Operation:** `GET /ValueSet/$validate-code?url=http://snomed.info/sct?fhir_vs&system=...&code=<code>`
+
+Validates SNOMED codes against the implicit "all SNOMED codes" ValueSet.
+
+**Preflight:** Validates code `73211009`. Passes if `result = true`.
+
+---
+
+### VC02 — SNOMED implicit ValueSet, code + display
+
+**Operation:** `GET /ValueSet/$validate-code?...&code=<code>&display=<display>`
+
+Like VC01, but also validates the display string.
+
+**Preflight:** Validates code `73211009` with display `"Diabetes mellitus"`. Passes if `result = true`.
+
+---
+
+### VC03 — SNOMED is-a membership
+
+**Operation:** `GET /ValueSet/$validate-code?url=http://snomed.info/sct?fhir_vs=isa/<root>&code=<code>`
+
+Validates a code against a hierarchy-constrained implicit ValueSet (e.g. "is this code a descendant of _Clinical finding_?"). Pool entries cover a range of root concepts from large hierarchies (thousands of descendants) to small ones, mixing positive and negative cases.
+
+**Preflight:** Validates that `22298006` (Myocardial infarction) is a descendant of `404684003` (Clinical finding). Passes if `result = true`.
+
+---
+
+## EX — Expand
+
+### EX01 — SNOMED hierarchy expand with count and offset
+
+**Operation:** `GET /ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=isa/<concept>&count=<n>&offset=<k>`
+
+Expands a SNOMED is-a hierarchy slice with pagination. Pool covers 100 SNOMED hierarchies across three tiers — 60 large (≥5,000 descendants), 20 mid (500–4,999), 20 small (20–499) — with count/offset combinations sized to each tier.
+
+**Preflight:** Expands `isa/404684003` (Clinical finding) with `count=10, offset=0`. Passes if exactly 10 results are returned.
+
+---
+
+### EX02 — SNOMED hierarchy filters
+
+**Operation:** `POST /ValueSet/$expand` with composed ValueSet
+
+Expands an ad-hoc ValueSet constructed inline using SNOMED hierarchy filter operators (`descendent-of`, `generalizes`).
+
+**Preflight:** Expands descendants of `64572001` (Disease) with `count=10`. Passes if exactly 10 results are returned.
+
+---
+
+### EX03 — SNOMED text filter
+
+**Operation:** `GET /ValueSet/$expand?url=http://snomed.info/sct?fhir_vs&filter=<term>&count=<n>`
+
+Searches within SNOMED using a text filter. Pool mixes high-frequency terms (many matches, e.g. `"heart"`), selective terms (few matches), and prefix fragments. Count is randomly chosen from `[20, 100]` per request.
+
+**Preflight:** Filters for `"diabetes"`. Passes if at least one result is returned.
+
+---
+
+### EX04 — VSAC extensional ValueSets
+
+**Operation:** `GET /ValueSet/$expand?url=<vsac-url>&count=<n>[&filter=<term>]`
+
+Expands extensional ValueSets from the VSAC (Value Set Authority Center). Pool covers 10 curated clinical value sets with counts of 10, 100, and 1,000, plus filtered variants.
+
+**Preflight:** Expands the SNOMED CT CORE Problem List (`2.16.840.1.113762.1.4.1018.240`) with `count=10`. Passes if results are returned.
+
+---
+
+### EX05 — SNOMED intensional filters
+
+**Operation:** `POST /ValueSet/$expand` with composed ValueSet
+
+Expands intensional SNOMED ValueSets using complex filter combinations: `is-a` hierarchy, single property equals, AND (hierarchy + property, two properties), and OR (multi-include).
+
+**Preflight:** Expands descendants of `195967001` (Asthma) with property filter `363698007` (Finding site) `=` `89187006` (Airway structure) and `count=10`. Passes if exactly 10 results are returned.
+
+---
+
+### EX06 — RxNorm intensional filters
+
+**Operation:** `POST /ValueSet/$expand` with composed ValueSet
+
+Intensional expansions using RxNorm-specific attributes: term type (`TTY`), relationship properties (`tradename_of`, `has_ingredient`), and combinations.
+
+**Preflight:** Expands brand-name drugs for Acetaminophen (`tradename_of = 161`, `TTY = BN`) with `count=10`. Passes if exactly 10 results are returned.
+
+---
+
+### EX07 — Multi-system text filter
+
+**Operation:** `POST /ValueSet/$expand` with an ad-hoc composed ValueSet spanning multiple code systems
+
+Expands an ad-hoc ValueSet that combines two or three code systems (SNOMED CT, LOINC, RxNorm) with a free-text filter. Pool covers four system combinations (`all3`, `sct+loinc`, `sct+rxnorm`, `loinc+rxnorm`) with counts of 10, 200, and 400. Small counts (10) test short-circuiting when the first system alone satisfies the request; larger counts force the server to query and merge results across multiple systems.
+
+**Preflight:** Expands an ad-hoc ValueSet including SNOMED CT, LOINC, and RxNorm with `filter=amphetamine` and `count=200`. Passes if results are returned.
+
+---
+
+### EX08 — SNOMED combined filters
+
+**Operation:** `POST /ValueSet/$expand` with composed ValueSet
+
+The most complex expansion test. Each request combines three filter types simultaneously: an `is-a` hierarchy constraint, a SNOMED property equals filter (e.g. associated morphology), and a free-text display filter. Tests the server's ability to efficiently intersect multiple constraints at once.
+
+**Preflight:** Expands Clinical findings (`isa/404684003`) with associated morphology = fracture (`116676008 = 72704001`) and text filter `"fracture"`, `count=10`. Passes if exactly 10 results are returned.
+
+---
+
+## SS — Subsumes
+
+### SS01 — SNOMED hierarchy subsumption
+
+**Operation:** `GET /CodeSystem/$subsumes?system=http://snomed.info/sct&codeA=<a>&codeB=<b>`
+
+Tests hierarchy introspection via the `$subsumes` operation. Pool covers all four FHIR subsumption outcomes — `subsumes`, `subsumed-by`, `equivalent`, and `not-subsumed` — across concepts at different hierarchy depths and across disjoint branches.
+
+**Preflight:** Tests that `64572001` (Disease) subsumes `6142004` (Influenza). Passes if `outcome = subsumes`.
+
+---
+
+## CM — Translate
+
+### CM01 — SNOMED implicit REPLACED BY map
+
+**Operation:** `GET /ConceptMap/$translate?url=http://snomed.info/sct?fhir_cm=900000000000526001&...`
+
+Translates retired SNOMED codes to their replacement codes using SNOMED's implicit REPLACED BY ConceptMap.
+
+**Preflight:** Translates code `225983005` (Duodenal ulcer NOS → replaced by Duodenal ulcer). Passes if `result = true`.
+
+---
+
+### CM02 — FHIR package ConceptMaps
+
+**Operation:** `GET /ConceptMap/$translate?url=<map-url>&system=<src>&code=<code>&target=<tgt>`
+
+Translates codes using ConceptMaps bundled in FHIR R4 core and IPS packages. Covers FHIR-to-v2/v3 crosswalks (`cm-administrative-gender-v3`), status maps (`sc-*`), LOINC↔SNOMED mappings, severity and absence concept maps.
+
+**Preflight:** Translates FHIR `male` to v3 Administrative Gender. Passes if `result = true`.
+
+</Doc>

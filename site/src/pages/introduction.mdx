@@ -36,7 +36,7 @@ Tests cover the main FHIR terminology operations across the most widely used cod
 | **LK** — Lookup | `$lookup` for SNOMED CT, LOINC, RxNorm, ICD-10 |
 | **VC** — Validate code | `$validate-code` against common value sets |
 | **EX** — Expand | `$expand` for small, medium, and large value sets |
-| **SS** — Subsumption | `$subsumes` for SNOMED CT hierarchies |
+| **SS** — Subsumption | `$subsumes` for hierarchies |
 | **CM** — Concept map | `$translate` using standard cross-maps |
 | **FS** — FHIR search | `GET /CodeSystem`, `GET /ValueSet` with filters |
 
@@ -44,11 +44,11 @@ Each test draws inputs randomly from a pool of 2,000+ entries to simulate realis
 
 ## How to read results
 
-**Composite Score** — A single 0–100 number summarising overall performance. The top server in each run scores 100; all others are a percentage of that. See the [Methodology](/methodology) page for the formula.
+**Composite Score** — A single 0–100 number summarising overall performance. The top server in each run scores 100; all others are a percentage of that. See the [Scoring](/scoring) page for the formula.
 
 **wRPS** — Weighted requests per second. Raw throughput adjusted so that naturally fast tests (simple lookups) don't dominate the score over naturally slow ones (large expansions).
 
-**Preflight dots** — Each coloured dot represents one test case. Green = passed correctness check and was benchmarked. Red = returned an incorrect response (excluded from scoring). Grey = not supported or returned 404/501.
+**Preflight dots** — Each coloured dot represents one test case. Green = passed correctness check and was benchmarked. Red = returned an incorrect response (excluded from scoring). Grey = not supported or returned 4xx/5xx.
 
 **Error rate** — Fraction of benchmark requests that returned an HTTP error during load testing. Yellow = below 1%. Red = 1% or above.
 

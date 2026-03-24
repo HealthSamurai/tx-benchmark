@@ -1,12 +1,84 @@
+---
+title: Data
+---
+
 import Doc from '../layouts/Doc.astro';
 
 <Doc title="Data">
 
-<div class="placeholder">
-  <div class="placeholder-icon">📦</div>
-  <h2 class="placeholder-title">Data</h2>
-  <p class="placeholder-sub">Raw benchmark data, export formats, and instructions for running your own comparison.</p>
-  <p class="placeholder-badge">Coming soon</p>
-</div>
+<Fragment slot="toc">
+<span class="toc-label">On this page</span>
+
+- [Overview](#overview)
+- [SNOMED CT](#snomed-ct)
+- [LOINC](#loinc)
+- [RxNorm](#rxnorm)
+- [FHIR Packages](#fhir-packages)
+
+</Fragment>
+
+# Data
+
+## Overview
+
+All servers are loaded with the same terminology datasets before benchmarking begins. Using a shared, versioned dataset ensures that differences in results reflect server performance, not differences in loaded content.
+
+The datasets below require separate downloads due to licensing. Some require registration or an active license agreement before access is granted.
+
+---
+
+## SNOMED CT
+
+SNOMED CT is loaded in three editions:
+
+| Edition | Source |
+|---------|--------|
+| International | [SNOMED International MLDS](https://mlds.ihtsdotools.org/) |
+| US Edition | [NLM](https://www.nlm.nih.gov/healthit/snomedct/us_edition.html) or MLDS |
+| UK Edition | [NHS Digital TRUD](https://isd.digital.nhs.uk/trud/users/authenticated/filters/0/categories/26/items/101/releases) |
+
+**Format:** RF2 release package
+
+**License:** SNOMED CT license required. Free of charge for individuals and organisations in [SNOMED International member countries](https://www.snomed.org/members). The US and UK editions additionally require the respective national member license (automatically granted to users in those countries).
+
+---
+
+## LOINC
+
+**Source:** [loinc.org/downloads](https://loinc.org/downloads/)
+
+**Format:** LOINC Table (CSV) and FHIR package
+
+**License:** Free. Requires registration and acceptance of the [LOINC license](https://loinc.org/license/).
+
+---
+
+## RxNorm
+
+**Source:** [NLM RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/docs/rxnormfiles.html)
+
+**Format:** RRF files
+
+**License:** Free. NLM requires registration for full release download. UMLS license applies.
+
+---
+
+## FHIR Packages
+
+The following FHIR packages are loaded via standard FHIR package tooling:
+
+| Package | Description |
+|---------|-------------|
+| `hl7.fhir.r4.core` | FHIR R4 core specification resources |
+| `hl7.terminology.r4` | HL7 Terminology (THO) |
+| `hl7.fhir.us.core` | US Core profiles and value sets |
+| `hl7.fhir.us.vsac` | VSAC value sets (NLM) |
+| `hl7.fhir.uv.ips` | International Patient Summary |
+| `us.cdc.phinvads` | CDC PHIN VADS value sets |
+| `hl7.fhir.uv.tx-ecosystem` | Tx ecosystem support package |
+
+**Source:** [packages2](https://packages2.fhir.org/packages)
+
+**License:** HL7 FHIR Specification License (open). Individual value sets may carry additional license terms — notably VSAC content requires a UMLS license.
 
 </Doc>

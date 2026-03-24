@@ -1,0 +1,98 @@
+---
+title: Scoring
+---
+
+import Doc from '../layouts/Doc.astro';
+
+<Doc title="Scoring">
+
+<Fragment slot="toc">
+<span class="toc-label">On this page</span>
+
+- [Overview](#overview)
+- [Composite score](#composite-score)
+- [Imputation](#imputation)
+- [Exclusions](#exclusions)
+
+</Fragment>
+
+# Scoring
+
+## Overview
+
+Each server receives a single composite score in the range $[0, 100]$, where $100$ is the top performer in the run. The algorithm is inspired by [TechEmpower's Framework Benchmarks](https://github.com/TechEmpower/FrameworkBenchmarks/wiki/Composite-Scoring-for-Frameworks): tests are normalised to a common throughput unit so that operations with naturally high RPS (simple lookups) don't dominate over operations with naturally low RPS (large expansions), then weighted by a per-test bias coefficient before being summed.
+
+## Composite score
+
+### Step 1 — Effective RPS
+
+For each *(server, test)* pair, collapse the three VU levels into a single number by taking the maximum effective RPS across levels:
+
+$$
+\text{eRPS}_{s,t} = \max_v \bigl( \text{rps}_{s,t,v} \times (1 - \text{errorRate}_{s,t,v}) \bigr)
+$$
+
+Multiplying by $(1 - \text{errorRate})$ penalises servers that sustain throughput by returning errors.
+
+### Step 2 — Normalising weight
+
+Tests differ in natural throughput — a simple lookup returns results orders of magnitude faster than a large intensional expansion. A normalising weight scales every test's contribution to the same RPS unit as the reference test (LK01 — simple SNOMED CT lookup):
+
+$$
+w_t = \frac{\overline{\text{eRPS}}_{\text{LK01}}}{\overline{\text{eRPS}}_t}
+$$
+
+where $\overline{\text{eRPS}}_t$ is the mean eRPS for test $t$ computed **over servers that actually ran the test** (real results only — imputed values are excluded to prevent feedback loops between imputation and normalisation).
+
+LK01's own weight is always $1.0$ by definition.
+
+### Step 3 — Weighted RPS
+
+Apply the normalising weight and a per-test **bias** coefficient $b_t \in (0, 1]$:
+
+$$
+\text{wRPS}_{s,t} = \text{eRPS}_{s,t} \times w_t \times b_t
+$$
+
+Bias down-weights operations that are less representative of real production workloads. See the [Tests](/tx-benchmark/tests#bias) page for the full bias table.
+
+### Step 4 — Raw score
+
+Sum weighted RPS across all tests:
+
+$$
+\text{rawScore}_s = \sum_t \text{wRPS}_{s,t}
+$$
+
+### Step 5 — Normalise to 0–100
+
+$$
+\text{score}_s = \frac{\text{rawScore}_s}{\max_{s'} \text{rawScore}_{s'}} \times 100
+$$
+
+The top server always scores 100. All others are expressed as a percentage of that.
+
+## Imputation
+
+Servers that did not participate in a test (failed preflight or did not run it) receive an **imputed** eRPS rather than zero. This prevents a server from being unfairly penalised for a capability gap when the gap is already reflected in the capability matrix.
+
+The imputed value is the **30th percentile** of the participating servers' eRPS for that test, anchored at zero:
+
+$$
+\text{eRPS}_{\text{imputed}} = P_{30}\bigl(\{0\} \cup \{\text{eRPS}_{s',t} : s' \in \text{participants}\}\bigr)
+$$
+
+Anchoring at zero means: the fewer real participants there are, the lower the floor. A server absent from a test it could have won receives less benefit of the doubt than one present with real results.
+
+Imputed values are used only in the weighted sum (Step 4). They are excluded from the normalising weight calculation (Step 2).
+
+## Exclusions
+
+A server is excluded from a test if it:
+
+- returned HTTP `4xx` or `5xx` for the operation during preflight
+- returned a semantically incorrect response during preflight (wrong resource type, missing required fields, incorrect values)
+
+Exclusions are recorded in the capability matrix. Excluded tests are handled via imputation rather than being scored as zero.
+
+</Doc>
