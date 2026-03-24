@@ -31,6 +31,8 @@ const testOptions = config.tests.map(t => ({
 
 // ── Ranking ───────────────────────────────────────────────────────────────────
 
+const maxVus = String(Math.max(...vus));
+
 // Servers that have any data for this test (real or imputed)
 const ranked = data.servers
   .map(s => ({
@@ -39,6 +41,7 @@ const ranked = data.servers
     rawRps:     s.rawRps[test]      ?? 0,
     impRps:     s.imputedRps[test]  ?? 0,
     preflight:  s.preflight[test]   ?? 'skip',
+    errorRate:  s.benchmark[test]?.[maxVus]?.errorRate ?? null,
   }))
   .sort((a, b) => b.wRps - a.wRps);
 
@@ -93,6 +96,7 @@ const latencyRows = latencyServers.map(s =>
             <th class="col-num r">wRPS</th>
             <th class="col-score">Score</th>
             <th class="col-num r">Raw RPS</th>
+            <th class="col-num r">Errors</th>
             <th class="col-status">Status</th>
           </tr>
         </thead>
@@ -118,6 +122,9 @@ const latencyRows = latencyServers.map(s =>
                 </td>
                 <td class={`num r${isImputed ? ' imputed' : ''}`}>
                   {isImputed ? fmtRps(row.impRps) : row.rawRps > 0 ? fmtRps(row.rawRps) : '—'}
+                </td>
+                <td class={`num r${row.errorRate != null && row.errorRate > 0 ? ' error-rate' : ''}`}>
+                  {row.errorRate != null ? (row.errorRate === 0 ? '0%' : `${(row.errorRate * 100).toFixed(1)}%`) : '—'}
                 </td>
                 <td class={`status status-${row.preflight}`}>
                   {row.preflight === 'pass' ? '✓' : row.preflight === 'fail' ? '✗' : '~'}
@@ -222,6 +229,7 @@ const latencyRows = latencyServers.map(s =>
 
   .num { font-variant-numeric: tabular-nums; color: var(--text-dim); }
   .imputed { color: #e07b6a; font-style: italic; }
+  .error-rate { color: var(--fail); }
 
   .status { text-align: center; font-size: var(--text-sm); }
   .status-pass { color: var(--pass); }
