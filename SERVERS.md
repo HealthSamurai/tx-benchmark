@@ -1,1 +1,0 @@
-site/src/pages/servers.mdx

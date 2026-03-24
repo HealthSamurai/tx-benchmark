@@ -4,40 +4,15 @@ A benchmark comparing the performance of open-source and commercial FHIR Termino
 
 ## Servers
 
-| Server | Version |
-|--------|---------|
-| [FHIRsmith](https://github.com/HealthIntersections/FHIRsmith) | TBD |
-| [Hermes](https://github.com/wardle/hermes) | TBD |
-| [Ontoserver](https://ontoserver.csiro.au) | TBD |
-| [Reference Server](https://github.com/HealthIntersections/fhirserver) | TBD |
-| [Snowstorm](https://github.com/IHTSDO/snowstorm) | TBD |
-| [Termbox](https://health-samurai.io) | TBD |
+See [Servers.mdx](site/src/pages/servers.mdx) and [servers](./servers) for instructions on how to run and configure them
 
-## Test categories
+## Tests
 
-| Prefix | Category | FHIR operation |
-|--------|----------|----------------|
-| `FS` | FHIR Search | `GET [base]/CodeSystem?...`, `GET [base]/ValueSet?...` |
-| `LK` | Lookup | `CodeSystem/$lookup` |
-| `VC` | Validate code | `CodeSystem/$validate-code`, `ValueSet/$validate-code` |
-| `EX` | Expand | `ValueSet/$expand` — implicit value sets, property filters, text filters, pagination, combined |
-| `SS` | Subsumes | `CodeSystem/$subsumes` |
-| `CM` | Translate | `ConceptMap/$translate` |
-
-Not all servers support all operations. Servers that do not support a given operation are excluded from that category. See the [results](results/) directory for preflight compatibility matrices and benchmark summaries, organized by server.
+See [Tests.mdx](site/src/pages/tests.mdx) for full list of tests
 
 ## Data
 
-The following terminology datasets are loaded before running the benchmark:
-
-- SNOMED CT International Edition
-- SNOMED CT US Edition
-- SNOMED CT UK Edition
-- LOINC
-- RxNorm
-- FHIR THO, r4.core, us.core, vsac, tx.support, IPS, CDC PHINVADS
-
-See [DATA.md](DATA.md) for license requirements and load instructions.
+See [DATA.mdx](site/src/pages/data.md) for license requirements and load instructions.
 
 ## Prerequisites
 
@@ -55,16 +30,12 @@ cd observability && docker compose up -d
 
 ### 2. Load data into the server under test
 
-See [DATA.md](DATA.md).
+See [DATA.mdx](site/src/pages/data.md) and [servers](./servers).
 
 ### 3. Run
 
 ```bash
 bun scripts/run.ts <server> <base-url>
-
-# Example
-bun scripts/run.ts termbox http://localhost:7001/fhir
-```
 
 This will:
 1. Run preflight correctness checks and record a compatibility matrix
@@ -119,4 +90,4 @@ bun run build     # production build to site/dist/
 
 ## Methodology
 
-See [METHODOLOGY.md](METHODOLOGY.md).
+See [Methodology.mdx](site/src/pages/methodology.mdx)
