@@ -5,6 +5,7 @@ import Matrix from '../../../../components/Matrix.astro';
 import runs from '../../../../data/runs.json';
 import type { RunExport } from '../../../../types';
 import { fmtMs, fmtRps, latencyColor } from '../../../../utils';
+import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const paths = [];
@@ -19,6 +20,8 @@ export async function getStaticPaths() {
 
 const { run, test } = Astro.params;
 const data: RunExport = (await import(`../../../../data/${run}.json`)).default;
+const testEntry = await getEntry('tests', test.toLowerCase());
+const { Content: TestContent } = testEntry ? await render(testEntry) : { Content: null };
 const { config } = data;
 const vus = config.vus;
 const percentiles = ['p50', 'p95', 'p99'] as const;
@@ -81,7 +84,19 @@ const latencyRows = latencyServers.map(s =>
         ))}
       </select>
     </div>
+    {testEntry && (
+      <p class="test-title" data-tooltip={testEntry.data.summary}>{testEntry.data.title}</p>
+    )}
   </div>
+
+  {testEntry && (
+    <div class="test-description">
+      <code class="test-operation">{testEntry.data.operation}</code>
+      <div class="test-body prose">
+        <TestContent />
+      </div>
+    </div>
+  )}
 
   <Widget
     title="Ranking"
@@ -152,7 +167,81 @@ const latencyRows = latencyServers.map(s =>
 </Run>
 
 <style>
-  .test-header { margin-bottom: var(--space-5); }
+  .test-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .test-title {
+    font-size: var(--text-lg);
+    color: var(--text);
+    position: relative;
+    cursor: default;
+  }
+
+  .test-title[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    width: 320px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    font-size: var(--text-xs);
+    color: var(--text-dim);
+    line-height: 1.5;
+    white-space: normal;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+
+  .test-title[data-tooltip]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 16px;
+    border: 6px solid transparent;
+    border-top-color: var(--border);
+    pointer-events: none;
+    z-index: 101;
+  }
+
+  .test-description {
+    margin-bottom: var(--space-6);
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .test-operation {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-dim);
+  }
+
+  .test-body {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  :global(.test-body p) { margin: 0; }
+  :global(.test-body code) {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--surface-2);
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  /* Ranking table */
 
   .test-select-wrap {
     display: inline-flex;

@@ -1,0 +1,21 @@
+---
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+
+interface Props { content: string; inline?: boolean; }
+const { content, inline = true } = Astro.props;
+
+const result = await unified()
+  .use(remarkParse)
+  .use(remarkRehype)
+  .use(rehypeStringify)
+  .process(content);
+
+const html = inline
+  ? String(result).replace(/^<p>(.*)<\/p>\n?$/s, '$1')
+  : String(result);
+---
+
+<Fragment set:html={html} />
