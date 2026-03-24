@@ -1,0 +1,13 @@
+services:
+  fhirsmith:
+    image: ghcr.io/healthintersections/fhirsmith:latest
+    ports:
+      - "7003:3000"
+    volumes:
+      - ./config.json:/app/data/config.json
+      - ./library.yml:/app/data/library.yml
+      - terminology-cache:/app/data/terminology-cache
+
+volumes:
+  terminology-cache:
+    name: fhirsmith_terminology-cache

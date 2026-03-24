@@ -1,0 +1,38 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+    platform: linux/amd64
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - node.name=snowstorm
+      - cluster.name=snowstorm-cluster
+      - ES_JAVA_OPTS=-Xms6g -Xmx6g
+    ports:
+      - "9201:9200"
+    volumes:
+      - elastic:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+
+  snowstorm:
+    image: snomedinternational/snowstorm:10.10.1
+    platform: linux/amd64
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    environment:
+      - JAVA_TOOL_OPTIONS=--add-opens=java.base/java.util=ALL-UNNAMED
+    command:
+      - --elasticsearch.urls=http://elasticsearch:9200
+      - --snowstorm.rest-api.readonly=false
+      - --codesystem.all.latest-version.allow-future=true
+    ports:
+      - "7005:8080"
+
+volumes:
+  elastic:
+    name: snowstorm_elastic

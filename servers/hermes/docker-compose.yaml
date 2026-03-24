@@ -1,0 +1,24 @@
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - /opt/scripts/build-snomed-db.sh
+    volumes:
+      - ./db:/var/hermes
+      - ../../.tx-content:/source-data:ro
+
+  hades:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on: []
+    command:
+      - /bin/sh
+      - -lc
+      - test -d /var/hermes/snomed.db && exec java -jar /opt/hades/hades.jar /var/hermes/snomed.db 8080
+    ports:
+      - "7006:8080"
+    volumes:
+      - ./db:/var/hermes:ro

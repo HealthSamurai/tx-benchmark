@@ -1,0 +1,17 @@
+{
+  "server": {
+    "port": 3000
+  },
+  "modules": {
+    "tx": {
+      "enabled": true,
+      "librarySource": "/app/data/library.yml",
+      "endpoints": [
+        {
+          "path": "/tx/r4",
+          "fhirVersion": "4.0"
+        }
+      ]
+    }
+  }
+}

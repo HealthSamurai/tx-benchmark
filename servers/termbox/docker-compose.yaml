@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: termbox
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf:ro
+    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
+  termbox:
+    depends_on:
+      - postgres
+    image: ${TERMBOX_IMAGE}
+    pull_policy: always
+    ports:
+      - "7001:3000"
+    environment:
+      PG_USER: postgres
+      PG_PASSWORD: postgres
+      PG_HOST: postgres
+volumes:
+  postgres_data:
+    name: termbox_postgres_data

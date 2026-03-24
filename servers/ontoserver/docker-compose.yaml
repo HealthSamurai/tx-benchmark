@@ -1,0 +1,46 @@
+services:
+  db:
+    image: postgres:12
+    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf:ro
+
+  cache:
+    image: nginx:alpine
+    depends_on:
+      - ontoserver
+    ports:
+      - "7002:80"
+    volumes:
+      - nginx-cache:/var/nginx/cache
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+  ontoserver:
+    image: ${ONTOSERVER_IMAGE}
+    depends_on:
+      - db
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db/postgres
+      - spring.datasource.hikari.maximum-pool-size=50
+      - spring.datasource.hikari.connection-timeout=60000
+      - JAVA_OPTS=-Xmx14G
+      - ONTOSERVER_INSECURE=true
+      - SNOMED_DEFAULT_EDITION=900000000000207008
+      - ontoserver.fhir.header.cacheControl=must-revalidate,max-age=1
+      - ontoserver.fhir.paging.defaultSize=100
+      - ontoserver.fhir.paging.maxSize=500
+      - ontoserver.fhir.max.results=50000
+      - ontoserver.fhir.too.costly.threshold=50000
+      - ontoserver.cache.queries.maxSizeMB=100
+    volumes:
+      - onto:/var/onto
+volumes:
+  onto:
+    name: ontoserver_onto
+  pgdata:
+    name: ontoserver_pgdata
+  nginx-cache:
+    name: ontoserver_nginx-cache
