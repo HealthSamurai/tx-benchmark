@@ -4,7 +4,7 @@ export const VU_LEVELS = [1, 10, 50] as const;
 
 // Imputation percentile — used with a 0 floor prepended to the participant pool.
 // See METHODOLOGY.md for the full imputation algorithm.
-export const IMPUTE_PERCENTILE = 30;
+export const IMPUTE_PERCENTILE = 15;
 
 export const TESTS = [
   'k6/FS/FS01.js',

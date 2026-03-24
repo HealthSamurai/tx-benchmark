@@ -76,10 +76,10 @@ The top server always scores 100. All others are expressed as a percentage of th
 
 Servers that did not participate in a test (failed preflight or did not run it) receive an **imputed** eRPS rather than zero. This prevents a server from being unfairly penalised for a capability gap when the gap is already reflected in the capability matrix.
 
-The imputed value is the **30th percentile** of the participating servers' eRPS for that test, anchored at zero:
+The imputed value is the **15th percentile** of the participating servers' eRPS for that test, anchored at zero:
 
 $$
-\text{eRPS}_{\text{imputed}} = P_{30}\bigl(\{0\} \cup \{\text{eRPS}_{s',t} : s' \in \text{participants}\}\bigr)
+\text{eRPS}_{\text{imputed}} = P_{15}\bigl(\{0\} \cup \{\text{eRPS}_{s',t} : s' \in \text{participants}\}\bigr)
 $$
 
 Anchoring at zero means: the fewer real participants there are, the lower the floor. A server absent from a test it could have won receives less benefit of the doubt than one present with real results.

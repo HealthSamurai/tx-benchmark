@@ -1,6 +1,7 @@
 ---
 import Base from './Base.astro';
 import runs from '../data/runs.json';
+import type { RunExport } from '../types';
 
 interface Props {
   title: string;
@@ -11,6 +12,8 @@ interface Props {
 
 const { title, run, date, activeSection = 'overview' } = Astro.props;
 const runName = runs.find(r => r.id === run)?.name ?? run;
+const runData: RunExport = (await import(`../data/${run}.json`)).default;
+const host = runData.host;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const TABS = [
@@ -28,6 +31,11 @@ const TABS = [
       <a href={`${base}/runs`} class="back-link">← All runs</a>
       <h1 class="run-name">{runName}</h1>
       <p class="run-date">{date}</p>
+      {host && (
+        <p class="run-host">
+          {host.cpu} · {host.ram} · {host.os} · {host.docker.runtime} {host.docker.version} ({host.docker.cpus} CPU / {host.docker.memory})
+        </p>
+      )}
     </div>
 
     <!-- Tab nav -->
@@ -77,6 +85,13 @@ const TABS = [
   .run-date {
     font-size: var(--text-sm);
     color: var(--text-muted);
+  }
+
+  .run-host {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    opacity: 0.6;
+    margin-top: 2px;
   }
 
   /* Tabs */

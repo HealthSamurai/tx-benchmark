@@ -26,9 +26,22 @@ export interface ServerData {
   benchmark:   Record<string, Record<string, BenchmarkPoint>>;
 }
 
+export interface RunHost {
+  cpu:    string;
+  ram:    string;
+  os:     string;
+  docker: {
+    runtime: string;
+    version: string;
+    cpus:    number;
+    memory:  string;
+  };
+}
+
 export interface RunExport {
-  run:  string;
-  date: string;
+  run:   string;
+  date:  string;
+  host?: RunHost;
   config: {
     vus:              number[];
     tests:            string[];
