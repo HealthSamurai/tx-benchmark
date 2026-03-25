@@ -101,11 +101,11 @@ const latencyCells = servers.map(s =>
 <Run title={`${run} — Breakdown`} run={run} date={data.date} activeSection="details">
 
   <Widget title="Capability Matrix" tip="Whether each server passed, failed, or skipped each capability check during preflight.">
-    <Matrix rowLabels={serverIds} colLabels={tests} cells={capabilityCells} />
+    <Matrix rowLabels={serverIds} colLabels={tests} cells={capabilityCells} testIds />
   </Widget>
 
   <Widget title="p95 Latency" badge={`${topVu} VUs`} tip={`95th-percentile response time at ${topVu} virtual users.`}>
-    <Matrix rowLabels={serverIds} colLabels={tests} cells={latencyCells} />
+    <Matrix rowLabels={serverIds} colLabels={tests} cells={latencyCells} testIds />
   </Widget>
 
   <div class="widget-row">

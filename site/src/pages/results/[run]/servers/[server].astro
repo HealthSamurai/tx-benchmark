@@ -120,11 +120,11 @@ const serverOptions = data.servers.map(s => ({
   </div>
 
   <Widget title="Tests">
-    <Matrix rowLabels={['']} colLabels={tests} cells={preflightCells} />
+    <Matrix rowLabels={['']} colLabels={tests} cells={preflightCells} cellWidth="58px" />
   </Widget>
 
   <Widget title="Latency">
-    <Matrix rowLabels={latencyRowLabels} colLabels={tests} cells={latencyCells} />
+    <Matrix rowLabels={latencyRowLabels} colLabels={tests} cells={latencyCells} testIds cellWidth="56px"/>
   </Widget>
 
   <Widget

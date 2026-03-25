@@ -1,4 +1,6 @@
 ---
+import TestBadge from './TestBadge.astro';
+
 interface Cell {
   content: string;
   class?: string;
@@ -12,9 +14,10 @@ interface Props {
   cells: Cell[][];
   class?: string;
   cellWidth?: string;
+  testIds?: boolean;
 }
 
-const { rowLabels, colLabels, cells, class: className, cellWidth } = Astro.props;
+const { rowLabels, colLabels, cells, class: className, cellWidth, testIds } = Astro.props;
 ---
 
 <div class:list={['matrix-wrap', className]} style={cellWidth ? `--cell-width:${cellWidth}` : undefined}>
@@ -22,7 +25,11 @@ const { rowLabels, colLabels, cells, class: className, cellWidth } = Astro.props
     <thead>
       <tr>
         <th></th>
-        {colLabels.map(label => <th class="col-header">{label}</th>)}
+        {colLabels.map(label => (
+          <th class="col-header">
+            {testIds ? <TestBadge id={label} /> : label}
+          </th>
+        ))}
       </tr>
     </thead>
     <tbody>
@@ -41,3 +48,36 @@ const { rowLabels, colLabels, cells, class: className, cellWidth } = Astro.props
     </tbody>
   </table>
 </div>
+
+<style>
+  .col-header {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Prevent horizontal clipping near the left edge. */
+  .col-header:nth-child(2) :global(.tooltip-card),
+  .col-header:nth-child(3) :global(.tooltip-card) {
+    left: 0;
+    transform: none;
+  }
+
+  .col-header:nth-child(2) :global(.tooltip-card::before),
+  .col-header:nth-child(3) :global(.tooltip-card::before) {
+    left: 16px;
+    transform: none;
+  }
+
+  /* Prevent horizontal clipping near the right edge. */
+  .col-header:nth-last-child(-n+2) :global(.tooltip-card) {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+
+  .col-header:nth-last-child(-n+2) :global(.tooltip-card::before) {
+    left: auto;
+    right: 16px;
+    transform: none;
+  }
+</style>

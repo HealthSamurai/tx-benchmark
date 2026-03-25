@@ -1,0 +1,98 @@
+---
+import { getEntry } from 'astro:content';
+
+interface Props { id: string; }
+const { id } = Astro.props;
+
+const entry = await getEntry('tests', id.toLowerCase());
+const title = entry?.data.title ?? id;
+const summary = entry?.data.summary ?? '';
+---
+
+<span class="test-badge-wrap">
+  <span class="test-badge" data-tooltip={summary || undefined}>{id}</span>
+  {summary && (
+    <span class="tooltip-card">
+      <span class="tooltip-title">{title}</span>
+      <span class="tooltip-body">{summary}</span>
+    </span>
+  )}
+</span>
+
+<style>
+  .test-badge-wrap {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+
+  .test-badge {
+    font-family: var(--font-mono);
+    font-size: inherit;
+    cursor: default;
+    position: relative;
+    z-index: 0;
+  }
+
+  .test-badge[data-tooltip] {
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--text-muted);
+  }
+
+  .tooltip-card {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--surface-2);
+    border: 1px solid rgba(204, 204, 220, 0.28);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    text-align: left;
+    white-space: normal;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease, visibility 0.12s ease;
+  }
+
+  .test-badge-wrap:hover .tooltip-card {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5000;
+  }
+
+  .tooltip-card::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-bottom-color: var(--border);
+    pointer-events: none;
+    z-index: 1001;
+  }
+
+  .tooltip-title {
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .tooltip-body {
+    color: var(--text-dim);
+    font-size: var(--text-xs);
+    line-height: 1.5;
+  }
+</style>
