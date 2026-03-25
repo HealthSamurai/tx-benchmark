@@ -12,7 +12,7 @@ See [Tests.mdx](site/src/pages/tests.mdx) for full list of tests
 
 ## Data
 
-See [DATA.mdx](site/src/pages/data.md) for license requirements and load instructions.
+See [DATA.mdx](site/src/pages/data.mdx) for license requirements and load instructions.
 
 ## Prerequisites
 
