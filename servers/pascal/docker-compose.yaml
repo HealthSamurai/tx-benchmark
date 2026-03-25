@@ -14,4 +14,8 @@ services:
       start_period: 120s
     volumes:
       - ./config:/root/fhirserver/config
-      - ./txcache:/var/cache/txcache
+      - txcache:/var/cache/txcache
+
+volumes:
+  txcache:
+    name: pascal_txcache

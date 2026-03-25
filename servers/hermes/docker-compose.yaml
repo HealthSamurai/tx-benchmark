@@ -6,7 +6,7 @@ services:
     command:
       - /opt/scripts/build-snomed-db.sh
     volumes:
-      - ./db:/var/hermes
+      - hermes-db:/var/hermes
       - ../../.tx-content:/source-data:ro
 
   hades:
@@ -21,4 +21,8 @@ services:
     ports:
       - "7006:8080"
     volumes:
-      - ./db:/var/hermes:ro
+      - hermes-db:/var/hermes:ro
+
+volumes:
+  hermes-db:
+    name: hermes_db

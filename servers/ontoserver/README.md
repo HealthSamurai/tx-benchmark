@@ -1,8 +1,7 @@
 # Ontoserver (CSIRO)
 
 - `http://localhost:7002/fhir`
-- PostgreSQL 12
-- nginx reverse proxy with caching
+- PostgreSQL 12 | 16GB shared_buffers, 64MB work_mem
 - For docker image refer to the documentation
 
 ## Running
