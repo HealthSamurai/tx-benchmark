@@ -6,6 +6,7 @@ import runs from '../../../../data/runs.json';
 import type { RunExport } from '../../../../types';
 import { fmtMs, fmtRps, latencyColor } from '../../../../utils';
 import { getEntry, render } from 'astro:content';
+import MD from '../../../../components/MD.astro';
 
 export async function getStaticPaths() {
   const paths = [];
@@ -95,6 +96,15 @@ const latencyRows = latencyServers.map(s =>
       <div class="test-body prose">
         <TestContent />
       </div>
+      {testEntry.data.sample && (
+        <details class="sample-details">
+          <summary>Preflight request</summary>
+          <div class="sample-body">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)})">Copy</button>
+            <MD content={testEntry.data.sample} inline={false} />
+          </div>
+        </details>
+      )}
     </div>
   )}
 
