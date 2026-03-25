@@ -8,6 +8,7 @@ const tests = defineCollection({
     operation: z.string(),
     summary:   z.string(),
     preflight: z.string(),
+    sample:    z.string().optional(),
   }),
 });
 
