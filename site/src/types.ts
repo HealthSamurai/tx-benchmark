@@ -11,6 +11,7 @@ export interface BenchmarkPoint {
 
 export interface ServerData {
   id:          string;
+  version?:    string;
   score:       number;
   rawScore:    number;
   snapshot: {

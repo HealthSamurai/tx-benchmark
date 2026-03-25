@@ -68,6 +68,7 @@
   "servers": [
     {
       "id": "termbox",
+      "version": "v0.4.0",
       "score": 100,
       "rawScore": 96743.3781,
       "snapshot": {
@@ -725,6 +726,7 @@
     },
     {
       "id": "fhirsmith",
+      "version": "v0.7.6",
       "score": 36.9221,
       "rawScore": 35719.664,
       "snapshot": {
@@ -1254,6 +1256,7 @@
     },
     {
       "id": "ontoserver",
+      "version": "6.24.2",
       "score": 23.5558,
       "rawScore": 22788.695,
       "snapshot": {
@@ -1974,6 +1977,7 @@
     },
     {
       "id": "pascal",
+      "version": "v4.0.7",
       "score": 7.1453,
       "rawScore": 6912.6113,
       "snapshot": {
@@ -2407,6 +2411,7 @@
     },
     {
       "id": "hermes",
+      "version": "v1.4.1540",
       "score": 5.2745,
       "rawScore": 5102.6879,
       "snapshot": {
@@ -2542,6 +2547,7 @@
     },
     {
       "id": "snowstorm",
+      "version": "10.10.1",
       "score": 4.2473,
       "rawScore": 4108.9534,
       "snapshot": {

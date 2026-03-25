@@ -6,12 +6,16 @@ import Widget from '../../../components/Widget.astro';
 import runs from '../../../data/runs.json';
 import type { RunExport } from '../../../types';
 import { fmtMs, fmtBytes, latencyColor } from '../../../utils';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 export async function getStaticPaths() {
   return runs.map(r => ({ params: { run: r.id } }));
 }
 
 const { run } = Astro.params;
+const hasErrors = existsSync(resolve(`src/data/${run}.errors.csv`));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
 const { servers, config } = data;
 const tests = config.tests;
@@ -117,9 +121,23 @@ const latencyCells = servers.map(s =>
     </Widget>
   </div>
 
+  {hasErrors && (
+    <Widget title="Logs">
+      <a class="log-link" href={`${base}/results/${run}/errors.csv`} download>errors.csv</a>
+    </Widget>
+  )}
+
 </Run>
 
 <style>
+  .log-link {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .log-link:hover { text-decoration: underline; }
+
   .widget-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
