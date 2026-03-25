@@ -29,6 +29,8 @@ Published vendor benchmarks are rare, methodology is usually opaque, and "works 
 
 ## What is tested
 
+The tests here are selected for their performance interest — text search, large expansions, multiple filters, diverse code system sources — not for coverage breadth. This is not a conformance test; a server may excel at coverage and correctness across the full FHIR terminology API and still rank low here. For broad conformance testing, see the [FHIR TX Ecosystem](https://github.com/HL7/fhir-tx-ecosystem-ig).
+
 Tests cover the main FHIR terminology operations across the most widely used code systems in clinical data:
 
 | Category | Operations |
@@ -56,7 +58,7 @@ Each test draws inputs randomly from a pool of 2,000+ entries to simulate realis
 
 - **Not a production proxy.** The benchmark runs on loopback with no network, no auth, and a single client machine. Real-world performance depends heavily on network topology, hardware, caching strategies, and data volume.
 - **Snapshot in time.** Results reflect a specific software version and dataset snapshot. Servers improve; check the run date.
-- **Coverage gaps.** Not all FHIR operations and code systems are covered. Servers that support operations outside the test suite are not rewarded for that coverage.
+- **Coverage gaps.** Not all FHIR operations and code systems are covered. Servers that support operations outside the test suite are not rewarded for that coverage. See the [FHIR TX Ecosystem](https://github.com/HL7/fhir-tx-ecosystem-ig) for broad conformance testing.
 - **Single node.** No clustering or horizontal scaling is tested.
 
 </Doc>
