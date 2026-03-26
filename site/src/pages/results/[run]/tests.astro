@@ -2,6 +2,7 @@
 import Run from '../../../layouts/Run.astro';
 import runs from '../../../data/runs.json';
 import type { RunExport } from '../../../types';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   return runs.map(r => ({ params: { run: r.id } }));
@@ -10,62 +11,96 @@ export async function getStaticPaths() {
 const { run } = Astro.params;
 const data: RunExport = (await import(`../../../data/${run}.json`)).default;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const testOptions = data.config.tests.map(t => ({
-  id: t,
-  href: `${base}/results/${run}/tests/${t}`,
-}));
+
+const allTests = await getCollection('tests');
+const byId = Object.fromEntries(allTests.map(t => [t.id, t]));
+
+const orderedIds = ['FS01','LK01','LK02','LK03','LK04','LK05','VC01','VC02','VC03','EX01','EX02','EX03','EX04','EX05','EX06','EX07','EX08','SS01','CM01','CM02'];
+const testIds = new Set(data.config.tests);
 ---
 
 <Run title={`Tests — ${run}`} run={run} date={data.date} activeSection="tests">
-  <div class="test-header">
-    <div class="test-select-wrap">
-      <select class="test-select" onchange="location.href=this.value">
-        <option value="" disabled selected>Select a test</option>
-        {testOptions.map(t => (
-          <option value={t.href}>{t.id}</option>
-        ))}
-      </select>
-    </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-id">ID</th>
+          <th class="col-title">Title</th>
+          <th class="col-op">Operation</th>
+          <th class="col-summary">Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        {orderedIds.filter(id => testIds.has(id)).map(id => {
+          const entry = byId[id.toLowerCase()];
+          const href = `${base}/results/${run}/tests/${id}`;
+          return (
+            <tr class="test-row" onclick={`location.href='${href}'`}>
+              <td class="cell-id"><a href={href}>{id}</a></td>
+              <td class="cell-title">{entry?.data.title ?? ''}</td>
+              <td class="cell-op">{entry ? <code>{entry.data.operation}</code> : ''}</td>
+              <td class="cell-summary">{entry?.data.summary ?? ''}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   </div>
 </Run>
 
 <style>
-  .test-header { margin-bottom: var(--space-5); }
+  .table-wrap { overflow-x: auto; }
 
-  .test-select-wrap {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 4px 0 4px 12px;
-  }
-  .test-select-wrap::after {
-    content: '▾';
-    font-size: 1.6rem;
-    line-height: 1;
-    color: var(--text-dim);
-    pointer-events: none;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
   }
 
-  .test-select {
-    font-family: var(--font-mono);
-    font-size: var(--text-xl);
+  thead th {
+    text-align: left;
+    padding: 8px 12px;
+    font-size: var(--text-xs);
     font-weight: 600;
-    color: var(--text);
-    background: transparent;
-    border: none;
-    padding: 0 30px 0 0;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
   }
-  .test-select:focus { outline: none; }
-  .test-select-wrap:hover { border-color: var(--accent); }
-  .test-select-wrap:hover .test-select,
-  .test-select-wrap:hover::after { color: var(--accent); }
+
+  .test-row {
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+  }
+  .test-row:last-child { border-bottom: none; }
+  .test-row:hover { background: rgba(255,255,255,0.03); }
+
+  td { padding: 10px 12px; vertical-align: top; }
+
+  .col-id      { width: 64px; }
+  .col-title   { width: 320px; }
+  .col-op      { width: 480px; }
+  .col-summary { width: 100%; }
+
+  .cell-id a {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .cell-id a:hover { text-decoration: underline; }
+
+  .cell-title { color: var(--text); font-weight: 500; min-width: 300px; }
+
+  .cell-op code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .cell-summary { color: var(--text-muted); line-height: 1.5; }
 </style>
