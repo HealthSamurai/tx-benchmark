@@ -13,7 +13,6 @@
 | [FHIRSmith](./fhirsmith/)        | `http://localhost:7003/tx/r4` | Full           |
 | [Hermes/Hades](./hermes/)        | `http://localhost:7006/fhir`  | SNOMED CT only |
 | [Ontoserver](./ontoserver/)      | `http://localhost:7002/fhir`  | Full           |
-| [Pascal (FHIRServer)](./pascal/) | `http://localhost:7004/r4`    | Full           |
 | [Snowstorm](./snowstorm/)        | `http://localhost:7005/fhir`  | SNOMED CT only |
 | [Termbox](./termbox/)            | `http://localhost:7001/fhir`  | Full           |
 
