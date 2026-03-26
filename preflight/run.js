@@ -18,8 +18,10 @@ import * as VC from './tests/VC.js';
 
 export const options = { vus: 1, iterations: 1 };
 
-const BASE_URL    = __ENV.BASE_URL;
-const SERVER_NAME = __ENV.SERVER_NAME || 'unknown';
+const BASE_URL     = __ENV.BASE_URL;
+const SERVER_NAME  = __ENV.SERVER_NAME || 'unknown';
+const TESTS_FILTER = __ENV.TESTS_FILTER ? new Set(__ENV.TESTS_FILTER.split(',').map(s => s.trim())) : null;
+const PATCH_MODE   = __ENV.PREFLIGHT_PATCH === '1';
 
 const ALL_TESTS = [
   ...Object.values(FS),
@@ -28,7 +30,7 @@ const ALL_TESTS = [
   ...Object.values(EX),
   ...Object.values(SS),
   ...Object.values(CM),
-];
+].filter(def => !TESTS_FILTER || TESTS_FILTER.has(def.id));
 
 export default function () {
   for (const def of ALL_TESTS) {
@@ -40,7 +42,7 @@ export function handleSummary(data) {
   const results  = parseResults(data.root_group);
   const output   = buildOutput(SERVER_NAME, BASE_URL, results);
   const runId    = __ENV.RUN_ID || new Date().toISOString().slice(0, 16);
-  const outPath  = `results/${runId}/${SERVER_NAME}/preflight.json`;
+  const outPath  = `results/${runId}/${SERVER_NAME}/preflight${PATCH_MODE ? '.patch' : ''}.json`;
   return {
     [outPath]: JSON.stringify(output, null, 2),
     stdout:    renderTable(output) + '\n',

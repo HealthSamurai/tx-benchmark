@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-// run.ts <server> <base-url> [run-id] [resume-from]
+// run.ts <server> <base-url> [run-id] [resume-from] [--amend] [--tests T1,T2]
 //
 // Runs the full benchmark for one server:
 //   1. Preflight  — correctness checks, outputs results/{run}/{server}/preflight.json
@@ -14,10 +14,16 @@
 // resume-from resumes a previously aborted run starting at TEST_ID or TEST_ID/VUS.
 // The resume point is printed automatically when a server crash is detected.
 //
+// --amend patches an existing run for a server without re-running preflight or snapshots.
+//   Requires an explicit run-id. Optionally filter to specific tests with --tests.
+//   Examples:
+//     bun scripts/run.ts termbox http://localhost:7001/fhir mar-26 --amend
+//     bun scripts/run.ts termbox http://localhost:7001/fhir mar-26 --amend --tests LK04,LK05
+//
 // If RESTART_CMD is set, the runner will automatically restart the server on crash,
 // wait up to 5 minutes for it to be live, and resume — instead of exiting.
 //
-// Example:
+// Examples:
 //   RUN=2026-03-15T14:00
 //   bun scripts/run.ts termbox    http://localhost:7001/fhir $RUN
 //   bun scripts/run.ts ontoserver https://tx.example.com/fhir $RUN
@@ -28,15 +34,41 @@
 // Dependencies: k6
 
 import { $ } from 'bun';
-import { existsSync, readFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, unlinkSync, mkdirSync } from 'node:fs';
 import { TESTS, VU_LEVELS, PROM_URL } from './lib/constants.ts';
 
 // ── Args ────────────────────────────────────────────────────────────────────
 
-const [server, baseUrl, runArg, resumeFrom] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+
+// Parse flags
+const amendMode  = argv.includes('--amend');
+const testsIdx   = argv.indexOf('--tests');
+const testsArg   = testsIdx !== -1 ? argv[testsIdx + 1] : null;
+const testsFilter: Set<string> | null = testsArg
+  ? new Set(testsArg.split(',').map(s => s.trim().toUpperCase()))
+  : null;
+
+// Strip flags from positional args
+const positional = argv.filter((a, i) =>
+  !a.startsWith('--') && (i === 0 || !argv[i - 1].startsWith('--'))
+);
+
+const [server, baseUrl, runArg, resumeFrom] = positional;
 
 if (!server || !baseUrl) {
   console.error('Usage: run.ts <server> <base-url> [run-id] [resume-from]');
+  console.error('       run.ts <server> <base-url> <run-id> --amend [--tests LK04,LK05]');
+  process.exit(1);
+}
+
+if (amendMode && !runArg) {
+  console.error('ERROR: --amend requires an explicit run-id.');
+  process.exit(1);
+}
+
+if (amendMode && resumeFrom) {
+  console.error('ERROR: --amend and resume-from are mutually exclusive.');
   process.exit(1);
 }
 
@@ -165,7 +197,48 @@ if (!promHealthy) {
 
 // ── 1. Preflight ─────────────────────────────────────────────────────────────
 
-if (!resumeFrom) {
+if (amendMode) {
+  const preflightPath = `results/${runId}/${server}/preflight.json`;
+  if (!existsSync(preflightPath)) {
+    console.error(`ERROR: No existing preflight found at ${preflightPath}. Run without --amend first.`);
+    process.exit(1);
+  }
+
+  if (testsFilter) {
+    header(`1/4 Partial preflight: ${server} (${[...testsFilter].join(', ')})`);
+
+    const k6Env = [
+      '--env', `BASE_URL=${baseUrl}`,
+      '--env', `SERVER_NAME=${server}`,
+      '--env', `RUN_ID=${runId}`,
+      '--env', `TESTS_FILTER=${[...testsFilter].join(',')}`,
+      '--env', 'PREFLIGHT_PATCH=1',
+    ];
+    await $`k6 ${['run', ...k6Env, 'preflight/run.js']}`;
+
+    // Merge patch into existing preflight.json
+    const patchPath = `results/${runId}/${server}/preflight.patch.json`;
+    const existing  = JSON.parse(readFileSync(preflightPath, 'utf8'));
+    const patch     = JSON.parse(readFileSync(patchPath, 'utf8'));
+    existing.tests  = { ...existing.tests, ...patch.tests };
+    existing.timestamp = patch.timestamp;
+    writeFileSync(preflightPath, JSON.stringify(existing, null, 2));
+    unlinkSync(patchPath);
+
+    const passing = Object.entries(existing.tests as Record<string, { status: string }>)
+      .filter(([id, v]) => testsFilter.has(id) && v.status === 'pass')
+      .map(([k]) => k);
+    console.log(`Passing: ${passing.join(', ') || 'none'}`);
+  } else {
+    console.log('Amending all tests — skipping preflight (using existing results).');
+  }
+
+  // ── Warmup ────────────────────────────────────────────────────────────────
+
+  header(`Warmup: ${server} (${WARMUP_VUS} VUs, ${WARMUP_DURATION})`);
+  await $`k6 ${['run', '--vus', String(WARMUP_VUS), '--duration', WARMUP_DURATION, '--env', `BASE_URL=${baseUrl}`, 'k6/warmup.js']}`;
+
+} else if (!resumeFrom) {
   header(`1/4 Preflight: ${server}`);
 
   mkdirSync(`results/${runId}/${server}`, { recursive: true });
@@ -192,7 +265,6 @@ if (!resumeFrom) {
   // ── 3. Warmup ───────────────────────────────────────────────────────────
 
   header(`3/4 Warmup: ${server} (${WARMUP_VUS} VUs, ${WARMUP_DURATION})`);
-
   await $`k6 ${['run', '--vus', String(WARMUP_VUS), '--duration', WARMUP_DURATION, '--env', `BASE_URL=${baseUrl}`, 'k6/warmup.js']}`;
 
 } else {
@@ -210,6 +282,8 @@ let firstTest = true;
 
 for (const test of TESTS) {
   const testId = test.split('/').pop()!.replace('.js', '');
+
+  if (testsFilter && !testsFilter.has(testId)) continue;
 
   if (!passed(testId)) {
     console.log(`  ~ ${testId} — skipped (not supported)`);
@@ -255,7 +329,11 @@ header(`Done: ${server}`);
 
 // ── 5. Peak memory snapshot ──────────────────────────────────────────────────
 
-await $`bun scripts/resource-snapshot.ts --server ${server} --label peak --run ${runId} --since ${benchmarkStart}`;
+if (!amendMode) {
+  await $`bun scripts/resource-snapshot.ts --server ${server} --label peak --run ${runId} --since ${benchmarkStart}`;
+} else {
+  console.log('Skipping peak snapshot (amend mode — keeping existing).');
+}
 
 // ── 6. Push results ──────────────────────────────────────────────────────────
 
