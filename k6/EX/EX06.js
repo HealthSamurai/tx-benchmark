@@ -38,7 +38,7 @@ const KNOWN_ENTRY = {
   count:   10,
   include: [[
     { property: 'TTY',          op: '=', value: 'BN'  },
-    { property: 'tradename_of', op: '=', value: '161' },
+    { property: 'tradename_of', op: '=', value: 'CUI:161' },
   ]],
 };
 

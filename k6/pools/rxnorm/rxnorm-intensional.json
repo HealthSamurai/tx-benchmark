@@ -1,61 +1,272 @@
 [
-  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "IN"   }]] },
-  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "IN"   }]] },
-  { "count": 1000, "include": [[{ "property": "TTY", "op": "=", "value": "IN"   }]] },
-  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }]] },
-  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }]] },
-  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "SCD"  }]] },
-  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "SCD"  }]] },
-  { "count": 1000, "include": [[{ "property": "TTY", "op": "=", "value": "SCD"  }]] },
-  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }]] },
-  { "count": 100,  "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }]] },
-  { "count": 10,   "include": [[{ "property": "TTY", "op": "=", "value": "MIN"  }]] },
-
-  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "5640"   }]] },
-  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "161"    }]] },
-  { "count": 50, "include": [[{ "property": "tradename_of", "op": "=", "value": "161"    }]] },
-  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "6387"   }]] },
-  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "1191"   }]] },
-  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "3498"   }]] },
-  { "count": 10, "include": [[{ "property": "tradename_of", "op": "=", "value": "310965" }]] },
-
-  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "5640" }]] },
-  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "161"  }]] },
-  { "count": 100, "include": [[{ "property": "has_ingredient", "op": "=", "value": "161"  }]] },
-  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "6387" }]] },
-  { "count": 10,  "include": [[{ "property": "has_ingredient", "op": "=", "value": "1886" }]] },
-
-  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }, { "property": "tradename_of",  "op": "=", "value": "161"    }]] },
-  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "BN"   }, { "property": "tradename_of",  "op": "=", "value": "6387"   }]] },
-  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient","op": "=", "value": "5640"   }]] },
-  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient","op": "=", "value": "161"    }]] },
-  { "count": 100, "include": [[{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient","op": "=", "value": "161"    }]] },
-  { "count": 10,  "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
-  { "count": 100, "include": [[{ "property": "TTY", "op": "=", "value": "SBD"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
-
-  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "161"  }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
-  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "5640" }, { "property": "has_dose_form", "op": "=", "value": "317541"  }]] },
-  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "6387" }, { "property": "has_dose_form", "op": "=", "value": "1649574" }]] },
-  { "count": 10, "include": [[{ "property": "has_ingredient", "op": "=", "value": "7052" }, { "property": "has_dose_form", "op": "=", "value": "1649574" }]] },
-
-  { "count": 10, "include": [
-    [{ "property": "tradename_of", "op": "=", "value": "5640" }],
-    [{ "property": "tradename_of", "op": "=", "value": "1191" }]
-  ]},
-  { "count": 20, "include": [
-    [{ "property": "TTY", "op": "=", "value": "BN" }, { "property": "tradename_of", "op": "=", "value": "5640" }],
-    [{ "property": "TTY", "op": "=", "value": "BN" }, { "property": "tradename_of", "op": "=", "value": "161"  }]
-  ]},
-  { "count": 20, "include": [
-    [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "5640" }],
-    [{ "property": "TTY", "op": "=", "value": "SCDC" }, { "property": "has_ingredient", "op": "=", "value": "161"  }]
-  ]},
-  { "count": 10, "include": [
-    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "317541" }],
-    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "316965" }]
-  ]},
-  { "count": 100, "include": [
-    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "317541" }],
-    [{ "property": "TTY", "op": "=", "value": "SCD" }, { "property": "has_dose_form", "op": "=", "value": "316965" }]
-  ]}
+  {
+    "count": 10,
+    "include": [[{ "property": "TTY", "op": "=", "value": "IN" }]]
+  },
+  {
+    "count": 100,
+    "include": [[{ "property": "TTY", "op": "=", "value": "IN" }]]
+  },
+  {
+    "count": 1000,
+    "include": [[{ "property": "TTY", "op": "=", "value": "IN" }]]
+  },
+  {
+    "count": 10,
+    "include": [[{ "property": "TTY", "op": "=", "value": "BN" }]]
+  },
+  {
+    "count": 100,
+    "include": [[{ "property": "TTY", "op": "=", "value": "BN" }]]
+  },
+  {
+    "count": 10,
+    "include": [[{ "property": "TTY", "op": "=", "value": "SCD" }]]
+  },
+  {
+    "count": 100,
+    "include": [[{ "property": "TTY", "op": "=", "value": "SCD" }]]
+  },
+  {
+    "count": 1000,
+    "include": [[{ "property": "TTY", "op": "=", "value": "SCD" }]]
+  },
+  {
+    "count": 10,
+    "include": [[{ "property": "TTY", "op": "=", "value": "SBD" }]]
+  },
+  {
+    "count": 100,
+    "include": [[{ "property": "TTY", "op": "=", "value": "SBD" }]]
+  },
+  {
+    "count": 10,
+    "include": [[{ "property": "TTY", "op": "=", "value": "MIN" }]]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:5640" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [[{ "property": "tradename_of", "op": "=", "value": "CUI:161" }]]
+  },
+  {
+    "count": 50,
+    "include": [[{ "property": "tradename_of", "op": "=", "value": "CUI:161" }]]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:6387" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:1191" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:3498" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:310965" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "has_ingredient", "op": "=", "value": "CUI:5640" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "has_ingredient", "op": "=", "value": "CUI:161" }]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [{ "property": "has_ingredient", "op": "=", "value": "CUI:161" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "has_ingredient", "op": "=", "value": "CUI:6387" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "has_ingredient", "op": "=", "value": "CUI:1886" }]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "BN" },
+        { "property": "tradename_of", "op": "=", "value": "CUI:161" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "BN" },
+        { "property": "tradename_of", "op": "=", "value": "CUI:6387" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SCDC" },
+        { "property": "has_ingredient", "op": "=", "value": "CUI:5640" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SCDC" },
+        { "property": "has_ingredient", "op": "=", "value": "CUI:161" }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SCDC" },
+        { "property": "has_ingredient", "op": "=", "value": "CUI:161" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SBD" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:317541" }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SBD" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:317541" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "has_ingredient", "op": "=", "value": "CUI:161" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:317541" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "has_ingredient", "op": "=", "value": "CUI:5640" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:317541" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "has_ingredient", "op": "=", "value": "CUI:6387" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:1649574" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "has_ingredient", "op": "=", "value": "CUI:7052" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:1649574" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:5640" }],
+      [{ "property": "tradename_of", "op": "=", "value": "CUI:1191" }]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "BN" },
+        { "property": "tradename_of", "op": "=", "value": "CUI:5640" }
+      ],
+      [
+        { "property": "TTY", "op": "=", "value": "BN" },
+        { "property": "tradename_of", "op": "=", "value": "CUI:161" }
+      ]
+    ]
+  },
+  {
+    "count": 20,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SCDC" },
+        { "property": "has_ingredient", "op": "=", "value": "CUI:5640" }
+      ],
+      [
+        { "property": "TTY", "op": "=", "value": "SCDC" },
+        { "property": "has_ingredient", "op": "=", "value": "CUI:161" }
+      ]
+    ]
+  },
+  {
+    "count": 10,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SCD" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:317541" }
+      ],
+      [
+        { "property": "TTY", "op": "=", "value": "SCD" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:316965" }
+      ]
+    ]
+  },
+  {
+    "count": 100,
+    "include": [
+      [
+        { "property": "TTY", "op": "=", "value": "SCD" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:317541" }
+      ],
+      [
+        { "property": "TTY", "op": "=", "value": "SCD" },
+        { "property": "has_dose_form", "op": "=", "value": "CUI:316965" }
+      ]
+    ]
+  }
 ]
