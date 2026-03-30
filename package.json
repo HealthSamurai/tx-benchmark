@@ -5,6 +5,7 @@
   "scripts": {
     "snapshot": "bun scripts/resource-snapshot.ts",
     "push":     "bun scripts/push-results.ts",
-    "run":      "bun scripts/run.ts"
+    "run":      "bun scripts/run.ts",
+    "publish":  "bun scripts/export-run.ts"
   }
 }
