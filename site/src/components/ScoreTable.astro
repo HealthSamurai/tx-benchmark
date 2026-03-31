@@ -5,9 +5,10 @@ import { fmtRps } from '../utils';
 interface Props {
   servers: ServerData[];
   tests: string[];
+  run: string;
 }
 
-const { servers, tests } = Astro.props;
+const { servers, tests, run } = Astro.props;
 
 type PreflightStatus = 'pass' | 'fail' | 'skip';
 
@@ -48,7 +49,7 @@ const rows = servers.map((s, i) => ({
       {rows.map((row, i) => (
         <tr>
           <td class="rank">{row.rank}</td>
-          <td class="server">{row.id}</td>
+          <td class="server"><a class="server-link" href={`/results/${run}/servers/${row.id}`}>{row.id}</a></td>
           <td class="num r">{fmtRps(row.rawScore)}</td>
           <td class="score-cell">
             <div class="bar-wrap">
@@ -110,6 +111,13 @@ const rows = servers.map((s, i) => ({
   .col-score  { width: 100%; }
   .col-tests  { width: 1px; white-space: nowrap; }
   .server { font-weight: 500; color: #e4e4e4; }
+  .server-link {
+    color: inherit;
+    text-decoration: underline dotted;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    text-underline-offset: 3px;
+  }
+  .server-link:hover { color: var(--text); }
 
   .num {
     font-variant-numeric: tabular-nums;

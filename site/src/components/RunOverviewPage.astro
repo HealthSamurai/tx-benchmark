@@ -17,6 +17,6 @@ const name = runs.find(r => r.id === id)?.name ?? id;
     title="Composite Score"
     tip="Servers ranked by weighted throughput (wRPS) — effective requests per second adjusted so that high-RPS tests don't dominate the score. The top performer is set to 100; all others are expressed as a percentage of that."
   >
-    <ScoreTable servers={data.servers} tests={data.config.tests} />
+    <ScoreTable servers={data.servers} tests={data.config.tests} run={id} />
   </Widget>
 </Run>
