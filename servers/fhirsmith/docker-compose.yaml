@@ -1,6 +1,7 @@
 services:
   fhirsmith:
     image: ghcr.io/healthintersections/fhirsmith:latest
+    pull_policy: always
     ports:
       - "7003:3000"
     volumes:

@@ -1,37 +1,47 @@
+version: '2.1'
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
-    platform: linux/amd64
+    container_name: elasticsearch
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
       - node.name=snowstorm
       - cluster.name=snowstorm-cluster
-      - ES_JAVA_OPTS=-Xms6g -Xmx6g
-    ports:
-      - "9201:9200"
+      - "ES_JAVA_OPTS=-Xms4g -Xmx4g"
     volumes:
       - elastic:/usr/share/elasticsearch/data
+    networks:
+      elastic:
+        aliases:
+         - es
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9200"]
-      interval: 5s
-      timeout: 5s
+      test: ["CMD", "curl", "-f", "http://es:9200"]
+      interval: 1s
+      timeout: 1s
       retries: 60
+    ports:
+      - 127.0.0.1:9200:9200
+    mem_reservation: 4g
+
 
   snowstorm:
-    image: snomedinternational/snowstorm:10.10.1
-    platform: linux/amd64
+    image: snomedinternational/snowstorm:latest
+    container_name: snowstorm
+    restart: always
     depends_on:
       elasticsearch:
         condition: service_healthy
-    environment:
-      - JAVA_TOOL_OPTIONS=--add-opens=java.base/java.util=ALL-UNNAMED
-    command:
-      - --elasticsearch.urls=http://elasticsearch:9200
-      - --snowstorm.rest-api.readonly=false
-      - --codesystem.all.latest-version.allow-future=true
+    entrypoint: java -Xms2g -Xmx4g --add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -cp @/app/jib-classpath-file org.snomed.snowstorm.SnowstormApplication --elasticsearch.urls=http://es:9200
+    networks:
+      elastic:
+        aliases:
+         - snowstorm
     ports:
-      - "7005:8080"
+      - 7005:8080
+
+networks:
+  elastic:
 
 volumes:
   elastic:
