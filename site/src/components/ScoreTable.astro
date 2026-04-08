@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { servers, tests, run } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 type PreflightStatus = 'pass' | 'fail' | 'skip';
 
@@ -49,7 +50,7 @@ const rows = servers.map((s, i) => ({
       {rows.map((row, i) => (
         <tr>
           <td class="rank">{row.rank}</td>
-          <td class="server"><a class="server-link" href={`/results/${run}/servers/${row.id}`}>{row.id}</a></td>
+          <td class="server"><a class="server-link" href={`${base}/results/${run}/servers/${row.id}`}>{row.id}</a></td>
           <td class="num r">{fmtRps(row.rawScore)}</td>
           <td class="score-cell">
             <div class="bar-wrap">
