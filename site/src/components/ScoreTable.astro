@@ -13,14 +13,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 type PreflightStatus = 'pass' | 'fail' | 'skip';
 
-function meanErrorRate(server: ServerData): number {
-  const vals = tests.flatMap(t => {
+function weightedErrorRate(server: ServerData): number {
+  let totalRps = 0, totalFail = 0;
+  for (const t of tests) {
     const vusData = server.benchmark[t];
-    if (!vusData) return [];
-    const maxVus = Math.max(...Object.keys(vusData).map(Number).sort((a, b) => a - b));
-    return vusData[maxVus]?.errorRate ?? [];
-  });
-  return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
+    if (!vusData) continue;
+    const maxVus = Math.max(...Object.keys(vusData).map(Number));
+    const pt = vusData[maxVus];
+    if (!pt) continue;
+    totalRps  += pt.rps;
+    totalFail += pt.rps * pt.errorRate;
+  }
+  return totalRps > 0 ? totalFail / totalRps : 0;
 }
 
 
@@ -29,7 +33,7 @@ const rows = servers.map((s, i) => ({
   id: s.id,
   score: s.score,
   rawScore: s.rawScore,
-  errRate: meanErrorRate(s),
+  errRate: weightedErrorRate(s),
   preflight: s.preflight,
 }));
 ---
@@ -60,7 +64,7 @@ const rows = servers.map((s, i) => ({
               <span class="bar-pct">{Math.round(row.score)}%</span>
             </div>
           </td>
-          <td class:list={['num', 'r', row.errRate >= 0.01 ? 'err-bad' : row.errRate > 0 ? 'err-warn' : 'err-ok']}>
+          <td class:list={['num', 'r', row.errRate >= 0.01 ? 'err-bad' : row.errRate >= 0.0001 ? 'err-warn' : 'err-ok']}>
             {(row.errRate * 100).toFixed(2)}%
           </td>
           <td class="tests-cell">
@@ -125,7 +129,7 @@ const rows = servers.map((s, i) => ({
     color: var(--text-dim);
   }
 
-  .err-bad  { color: #a04040; }
+  .err-bad  { color: #c07030; }
   .err-warn { color: #8a7a30; }
   .err-ok   { color: var(--text-muted); }
 
