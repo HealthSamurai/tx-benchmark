@@ -3,5 +3,5 @@
   { "name": "ontoserver", "baseUrl": "http://localhost:7002/fhir" },
   { "name": "fhirsmith",  "baseUrl": "http://localhost:7003/tx/r4" },
   { "name": "snowstorm",  "baseUrl": "http://localhost:7005/fhir" },
-  { "name": "hermes",     "baseUrl": "http://localhost:7006/fhir" }
+  { "name": "hades",      "baseUrl": "http://localhost:7006/fhir" }
 ]

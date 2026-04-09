@@ -8,13 +8,13 @@
 
 ## Servers
 
-| Server                           | Endpoint                      | Scope          |
-| -------------------------------- | ----------------------------- | -------------- |
-| [FHIRSmith](./fhirsmith/)        | `http://localhost:7003/tx/r4` | Full           |
-| [Hermes/Hades](./hermes/)        | `http://localhost:7006/fhir`  | SNOMED CT only |
-| [Ontoserver](./ontoserver/)      | `http://localhost:7002/fhir`  | Full           |
-| [Snowstorm](./snowstorm/)        | `http://localhost:7005/fhir`  | SNOMED CT only |
-| [Termbox](./termbox/)            | `http://localhost:7001/fhir`  | Full           |
+| Server                           | Endpoint                      |
+| -------------------------------- | ----------------------------- |
+| [FHIRSmith](./fhirsmith/)        | `http://localhost:7003/tx/r4` |
+| [Hermes/Hades](./hades/)         | `http://localhost:7006/fhir`  |
+| [Ontoserver](./ontoserver/)      | `http://localhost:7002/fhir`  |
+| [Snowstorm](./snowstorm/)        | `http://localhost:7005/fhir`  |
+| [Termbox](./termbox/)            | `http://localhost:7001/fhir`  |
 
 ## Terminologies
 
