@@ -2,14 +2,16 @@
 
 - `http://localhost:7001/fhir`
 - PostgreSQL 18
-- For docker image refer to the documentation
+- healthsamurai/termbox:latest
 
 ## Running
 
 ```sh
-TERMBOX_IMAGE=<TODO: termbox image> docker compose up
+docker compose up
 ```
+
+Quick start guide: https://www.health-samurai.io/docs/termbox/getting-started
 
 ## Loading Terminologies
 
-Refer to the documentation
+Refer to the documentation: https://www.health-samurai.io/docs/termbox/loading-data

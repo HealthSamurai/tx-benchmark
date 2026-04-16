@@ -12,7 +12,7 @@ services:
   termbox:
     depends_on:
       - postgres
-    image: ${TERMBOX_IMAGE}
+    image: healthsamurai/termbox:latest
     pull_policy: always
     ports:
       - "7001:3000"
@@ -20,7 +20,9 @@ services:
       PG_USER: postgres
       PG_PASSWORD: postgres
       PG_HOST: postgres
+      PG_MAINTENANCE_WORK_MEM: 512MB
       LOG_FORMAT: json
+      HTTP_BASE_URL: http://localhost:7001
 volumes:
   postgres_data:
     name: termbox_postgres_data
