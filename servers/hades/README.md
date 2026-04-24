@@ -1,7 +1,7 @@
 # Hermes/Hades (wardle)
 
 - `http://localhost:7006/fhir`
-- Hermes v1.4.1607 + Hades v1.4.109
+- Hermes v1.4.1607 + Hades v1.4.135
 - SNOMED CT only
 
 ## Running
