@@ -1,22 +1,4 @@
 #!/bin/sh
-# Build all on-disk databases Hades will serve from /source-data into /var/hades.
-#
-# /source-data convention (mounted from ../../.tx-content):
-#   *.zip                         — SNOMED RF2 release zips (one per edition)
-#   loinc-*.zip                   — LOINC release archive
-#   *.tgz                         — FHIR NPM packages (kept for in-memory load)
-#
-# Outputs:
-#   /var/hades/snomed.db          — single Hermes DB containing every imported
-#                                   SNOMED edition (composite naturally serves
-#                                   each module/version)
-#   /var/hades/loinc.db           — Hades SQLite container (FTRM)
-#   /var/hades/packages/<id>-<ver>/  — extracted FHIR packages, loaded
-#                                       in-memory at serve time via --resources
-#
-# REBUILD_DB=1 forces a clean rebuild. The script is otherwise idempotent
-# (skips files already imported / extracted).
-
 set -eu
 
 DB_ROOT="${DB_ROOT:-/var/hades}"
@@ -25,6 +7,7 @@ LOINC_DB="${DB_ROOT}/loinc.db"
 PKG_DIR="${DB_ROOT}/packages"
 
 SOURCE="${SOURCE_DIR:-/source-data}"
+HADES="${HADES:-java -jar /opt/hades/hades.jar}"
 
 if [ "${REBUILD_DB:-0}" = "1" ]; then
   rm -rf "${SNOMED_DB}" "${LOINC_DB}" "${PKG_DIR}"
@@ -32,15 +15,11 @@ fi
 
 mkdir -p "${DB_ROOT}" "${PKG_DIR}"
 
-# ---------------------------------------------------------------------------
-# SNOMED RF2 — every SnomedCT_*.zip in /source-data, imported into one DB.
-# ---------------------------------------------------------------------------
-
 EXTRACT_DIR="$(mktemp -d)"
 trap 'rm -rf "${EXTRACT_DIR}"' EXIT
 
 found_snomed=0
-for zip in "${SOURCE}"/SnomedCT_*.zip; do
+for zip in "${SOURCE}"/SnomedCT_*.zip "${SOURCE}"/snomed-*.zip "${SOURCE}"/uk_sct*.zip; do
   [ -f "${zip}" ] || continue
   found_snomed=1
   echo "Extracting ${zip}..."
@@ -48,37 +27,41 @@ for zip in "${SOURCE}"/SnomedCT_*.zip; do
 done
 
 if [ "${found_snomed}" = "1" ]; then
-  for dir in "${EXTRACT_DIR}"/SnomedCT_*; do
-    [ -d "${dir}" ] || continue
-    echo "Importing SNOMED ${dir} -> ${SNOMED_DB}"
-    java -jar /opt/hades/hades.jar import --db "${SNOMED_DB}" "${dir}"
-  done
-  java -jar /opt/hades/hades.jar index --db "${SNOMED_DB}"
-  java -jar /opt/hades/hades.jar compact --db "${SNOMED_DB}"
+  # Hermes walks the extract dir recursively, so one import call subsumes
+  # every edition regardless of how each zip was wrapped (MLDS, TRUD bundle).
+  echo "Importing SNOMED ${EXTRACT_DIR} -> ${SNOMED_DB}"
+  ${HADES} import  "${SNOMED_DB}" "${EXTRACT_DIR}"
+  ${HADES} compact "${SNOMED_DB}"
 fi
 
-# ---------------------------------------------------------------------------
-# LOINC — release archive (auto-detected by content, not filename).
-# ---------------------------------------------------------------------------
-
+found_loinc=0
 for zip in "${SOURCE}"/Loinc_*.zip "${SOURCE}"/loinc-*.zip; do
   [ -f "${zip}" ] || continue
   loinc_dir="${EXTRACT_DIR}/$(basename "${zip}" .zip)"
-  if [ ! -d "${loinc_dir}/LoincTableCore" ]; then
+  if [ ! -d "${loinc_dir}/LoincTableCore" ] && [ ! -d "${loinc_dir}/LoincTable" ]; then
     echo "Extracting ${zip}..."
     mkdir -p "${loinc_dir}"
     unzip -qo "${zip}" -d "${loinc_dir}"
   fi
   echo "Importing LOINC ${loinc_dir} -> ${LOINC_DB}"
-  java -jar /opt/hades/hades.jar import --db "${LOINC_DB}" "${loinc_dir}"
+  ${HADES} import "${LOINC_DB}" "${loinc_dir}"
+  found_loinc=1
 done
 
-# ---------------------------------------------------------------------------
-# FHIR NPM packages — extracted but NOT pre-built; loaded in-memory at serve
-# time. tx-benchmark's compose step boots once and serves until torn down,
-# so the one-off parse cost is amortised across the whole run.
-# ---------------------------------------------------------------------------
+for dir in "${SOURCE}"/Loinc_*/ "${SOURCE}"/loinc-*/; do
+  [ -d "${dir}" ] || continue
+  if [ -d "${dir}/LoincTableCore" ] || [ -d "${dir}/LoincTable" ]; then
+    echo "Importing LOINC ${dir} -> ${LOINC_DB}"
+    ${HADES} import "${LOINC_DB}" "${dir}"
+    found_loinc=1
+  fi
+done
 
+if [ "${found_loinc}" = "1" ]; then
+  ${HADES} compact "${LOINC_DB}"
+fi
+
+# FHIR packages are loaded in-memory at serve time, not pre-built into a DB.
 for tgz in "${SOURCE}"/*.tgz; do
   [ -f "${tgz}" ] || continue
   name="$(basename "${tgz}" .tgz)"

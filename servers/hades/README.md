@@ -4,6 +4,16 @@
 - Hades 2.x — single binary subsuming Hermes (SNOMED) + LOINC + FHIR packages
 - All terminologies served from one process, dispatched by the composite
 
+## Building
+
+The Dockerfile pins a specific [wardle/hades](https://github.com/wardle/hades)
+release. Bump the `ADD` URL in the Dockerfile to move to a newer version.
+
+```sh
+docker compose build           # first build, or after `git pull`
+docker compose build --pull    # force-refresh after bumping the pin
+```
+
 ## Running
 
 ```sh
@@ -21,15 +31,17 @@ The builder service consumes everything under `../../.tx-content/`:
 Multiple SNOMED zips (intl, US, UK) are imported into the same Hermes DB —
 the composite serves each module/version distinctly.
 
-The hades service then auto-discovers every DB and every extracted package
-directory at start-up:
+## CLI shape (Hades 2.x)
+
+The hades service translates each on-disk artefact into a positional
+path passed to `serve`:
 
 ```
 java -jar hades.jar serve --port 8080 \
-  --db /var/hades/snomed.db \
-  --db /var/hades/loinc.db \
-  --resources /var/hades/packages/hl7.fhir.r4.core-4.0.1 \
-  --resources /var/hades/packages/hl7.terminology.r4-7.0.1 \
+  /var/hades/snomed.db \
+  /var/hades/loinc.db \
+  /var/hades/packages/hl7.fhir.r4.core-4.0.1/package \
+  /var/hades/packages/hl7.terminology.r4-7.0.1/package \
   ...
 ```
 
@@ -37,8 +49,21 @@ FHIR packages are loaded **in-memory** rather than into SQLite — boot
 takes ~15 s longer, but every CodeSystem/ValueSet/ConceptMap lookup
 becomes a hashmap hit. Worth it for benchmark territory.
 
+The build script (`build-databases.sh`) calls the underlying CLI directly:
+
+```
+hades import  <dest-db> <source-paths…>     # dest first, sources after
+hades index   <dest-db>
+hades compact <dest-db>
+```
+
 ## Loading Terminologies
 
 Place each artefact in `tx-benchmark/.tx-content/`. The builder is
 idempotent — it skips packages already extracted and rebuilds the
 SNOMED/LOINC DBs only when `REBUILD_DB=1` or the destination is empty.
+
+## Known limitations
+
+- **No RxNorm support.** The RxNorm test bucket of the samurai matrix
+  will be reported as unsupported by the preflight.

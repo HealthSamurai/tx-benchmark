@@ -21,8 +21,12 @@ services:
       - >
         test -d /var/hades/snomed.db || { echo 'snomed.db missing — run builder first'; exit 1; };
         set --;
-        for d in /var/hades/snomed.db /var/hades/loinc.db; do [ -e "$$d" ] && set -- "$$@" --db "$$d"; done;
-        for d in /var/hades/packages/*; do [ -d "$$d" ] && set -- "$$@" --resources "$$d"; done;
+        for d in /var/hades/snomed.db /var/hades/loinc.db; do
+          [ -e "$$d" ] && set -- "$$@" "$$d";
+        done;
+        for d in /var/hades/packages/*; do
+          [ -d "$$d" ] && set -- "$$@" "$$d/package";
+        done;
         exec java -jar /opt/hades/hades.jar serve --port 8080 "$$@"
     ports:
       - "7006:8080"
