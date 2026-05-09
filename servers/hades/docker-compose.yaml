@@ -27,7 +27,7 @@ services:
         for d in /var/hades/packages/*; do
           [ -d "$$d" ] && set -- "$$@" "$$d/package";
         done;
-        exec java -jar /opt/hades/hades.jar serve --port 8080 "$$@"
+        exec java -Xmx8g -jar /opt/hades/hades.jar serve --port 8080 "$$@"
     ports:
       - "7006:8080"
     volumes:

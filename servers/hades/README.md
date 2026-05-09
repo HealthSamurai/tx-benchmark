@@ -37,7 +37,7 @@ The hades service translates each on-disk artefact into a positional
 path passed to `serve`:
 
 ```
-java -jar hades.jar serve --port 8080 \
+java -Xmx8g -jar hades.jar serve --port 8080 \
   /var/hades/snomed.db \
   /var/hades/loinc.db \
   /var/hades/packages/hl7.fhir.r4.core-4.0.1/package \
@@ -46,8 +46,16 @@ java -jar hades.jar serve --port 8080 \
 ```
 
 FHIR packages are loaded **in-memory** rather than into SQLite — boot
-takes ~15 s longer, but every CodeSystem/ValueSet/ConceptMap lookup
-becomes a hashmap hit. Worth it for benchmark territory.
+takes ~15 s longer, but every CodeSystem / ValueSet / ConceptMap
+lookup becomes a hashmap hit. With six standard HL7 packages this is
+~600 MB of resident heap; the `-Xmx8g` ceiling gives comfortable
+headroom for the in-memory data + Hermes' Lucene mmap caches +
+transient `$expand` working sets. On RAM-constrained hosts, `hades
+import fhir.db <pkg-dirs…>` and `serve … fhir.db` (instead of the
+package directories) keeps the resident footprint to ~80 MB at the
+cost of small per-request JDBC overhead — see the
+[in-memory vs SQLite section](https://github.com/wardle/hades#in-memory-vs-sqlite-container)
+in hades' README.
 
 The build script (`build-databases.sh`) calls the underlying CLI directly:
 
