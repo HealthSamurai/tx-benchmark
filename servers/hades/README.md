@@ -73,5 +73,5 @@ SNOMED/LOINC DBs only when `REBUILD_DB=1` or the destination is empty.
 
 ## Known limitations
 
-- **No RxNorm support.** The RxNorm test bucket of the samurai matrix
+- **No RxNorm support.** The RxNorm test bucket of the capability matrix
   will be reported as unsupported by the preflight.
