@@ -4,9 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     command:
-      - /opt/scripts/build-snomed-db.sh
+      - /opt/scripts/build-databases.sh
     volumes:
-      - hermes-db:/var/hermes
+      - hades-data:/var/hades
       - ../../.tx-content:/source-data:ro
 
   hades:
@@ -14,15 +14,25 @@ services:
       context: .
       dockerfile: Dockerfile
     depends_on: []
-    command:
+    entrypoint:
       - /bin/sh
       - -lc
-      - test -d /var/hermes/snomed.db && exec java -jar /opt/hades/hades.jar /var/hermes/snomed.db 8080
+    command:
+      - >
+        test -d /var/hades/snomed.db || { echo 'snomed.db missing — run builder first'; exit 1; };
+        set --;
+        for d in /var/hades/snomed.db /var/hades/loinc.db; do
+          [ -e "$$d" ] && set -- "$$@" "$$d";
+        done;
+        for d in /var/hades/packages/*; do
+          [ -d "$$d" ] && set -- "$$@" "$$d/package";
+        done;
+        exec java -Xmx8g -jar /opt/hades/hades.jar serve --port 8080 "$$@"
     ports:
       - "7006:8080"
     volumes:
-      - hermes-db:/var/hermes:ro
+      - hades-data:/var/hades:ro
 
 volumes:
-  hermes-db:
-    name: hermes_db
+  hades-data:
+    name: hades_data
