@@ -4,16 +4,16 @@ set -eu
 DB_ROOT="${DB_ROOT:-/var/hades}"
 SNOMED_DB="${DB_ROOT}/snomed.db"
 LOINC_DB="${DB_ROOT}/loinc.db"
-PKG_DIR="${DB_ROOT}/packages"
+FHIR_DB="${DB_ROOT}/fhir.db"
 
 SOURCE="${SOURCE_DIR:-/source-data}"
 HADES="${HADES:-java -jar /opt/hades/hades.jar}"
 
 if [ "${REBUILD_DB:-0}" = "1" ]; then
-  rm -rf "${SNOMED_DB}" "${LOINC_DB}" "${PKG_DIR}"
+  rm -rf "${SNOMED_DB}" "${LOINC_DB}" "${FHIR_DB}"
 fi
 
-mkdir -p "${DB_ROOT}" "${PKG_DIR}"
+mkdir -p "${DB_ROOT}"
 
 EXTRACT_DIR="$(mktemp -d)"
 trap 'rm -rf "${EXTRACT_DIR}"' EXIT
@@ -61,16 +61,28 @@ if [ "${found_loinc}" = "1" ]; then
   ${HADES} compact "${LOINC_DB}"
 fi
 
-# FHIR packages are loaded in-memory at serve time, not pre-built into a DB.
+# FHIR packages are built into a single FTRM SQLite container (fhir.db)
+# rather than served in-memory: lower memory footprint and faster on the
+# search / intensional-expand paths. `import` auto-indexes after each
+# call, so pass `--no-index` while importing each package sequentially,
+# then `index` + `compact` once at the end (compact vacuums only — it
+# does not index).
+found_fhir=0
 for tgz in "${SOURCE}"/*.tgz; do
   [ -f "${tgz}" ] || continue
   name="$(basename "${tgz}" .tgz)"
-  dest="${PKG_DIR}/${name}"
-  if [ ! -d "${dest}" ]; then
-    mkdir -p "${dest}"
-    echo "Extracting FHIR package ${tgz} -> ${dest}"
-    tar xzf "${tgz}" -C "${dest}"
-  fi
+  dest="${EXTRACT_DIR}/pkg-${name}"
+  mkdir -p "${dest}"
+  echo "Extracting FHIR package ${tgz} -> ${dest}"
+  tar xzf "${tgz}" -C "${dest}"
+  echo "Importing FHIR package ${name} -> ${FHIR_DB}"
+  ${HADES} import --no-index "${FHIR_DB}" "${dest}"
+  found_fhir=1
 done
+
+if [ "${found_fhir}" = "1" ]; then
+  ${HADES} index   "${FHIR_DB}"
+  ${HADES} compact "${FHIR_DB}"
+fi
 
 ls -la "${DB_ROOT}"
