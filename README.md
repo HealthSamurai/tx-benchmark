@@ -10,6 +10,8 @@ See [Servers.mdx](site/src/pages/servers.mdx) and [servers](./servers) for instr
 
 See [Tests.mdx](site/src/pages/tests.mdx) for full list of tests
 
+Replay a week of observed IG Publisher terminology traffic with the optional [Publisher workload](scripts/publisher/README.md).
+
 ## Data
 
 See [DATA.mdx](site/src/pages/data.mdx) for license requirements and load instructions.

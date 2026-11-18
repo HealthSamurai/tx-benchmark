@@ -1,0 +1,998 @@
+{
+  "bundled": 15761,
+  "bundledBuilds": 1,
+  "bundledResources": 564,
+  "captured": 100,
+  "contextCalls": 3668,
+  "distinctRequests": 16372,
+  "exclusions": {
+    "capability discovery": 441,
+    "incomplete session history": 4874,
+    "missing or truncated request": 32,
+    "nonportable route or resource id": 560,
+    "session control": 331,
+    "unknown transport or FHIR release": 76
+  },
+  "externalResources": 2476,
+  "format": 1,
+  "hashes": {
+    "assets": "542026d5c4c0cd127cc419fea680ae4d928faaef1e02e88e440074c97299a6f6",
+    "builds": "cd22985299350709489b15635cd7a96a8067a886218369dda6ae37f25399c03a",
+    "external": "bfe7763870edac1bd5516f73d14e7e42eb003204393fdbd2c4b597c03ea2dcc3",
+    "requests": "a301571a5c2a996fa1ebdf88d25b905851b4e9ae7870797db6bd255a52437c84"
+  },
+  "included": 21815,
+  "indexEntries": 2321,
+  "indexSha256": "fbfbfe105df335d88b072103159abdc4b4491239de82bfbac208a73c7229e93b",
+  "indexUrl": "https://build.fhir.org/ig/qas.json",
+  "observed": 28129,
+  "observedOperations": {
+    "$cache-control": 331,
+    "CodeSystem": 211,
+    "CodeSystem/$batch-validate-code": 595,
+    "CodeSystem/$lookup": 642,
+    "CodeSystem/$subsumes": 109,
+    "CodeSystem/$validate-code": 12757,
+    "CodeSystem/read": 66,
+    "ValueSet": 1393,
+    "ValueSet/$expand": 3769,
+    "ValueSet/$validate": 1,
+    "ValueSet/$validate-code": 7321,
+    "ValueSet/read": 468,
+    "metadata": 441,
+    "other": 25
+  },
+  "operations": {
+    "CodeSystem": 211,
+    "CodeSystem/$batch-validate-code": 432,
+    "CodeSystem/$lookup": 345,
+    "CodeSystem/$subsumes": 104,
+    "CodeSystem/$validate-code": 11363,
+    "ValueSet": 1317,
+    "ValueSet/$expand": 2371,
+    "ValueSet/$validate-code": 5672
+  },
+  "policy": "latest observed build per package",
+  "rawAttachmentCalls": 4306,
+  "referenceAnswers": 20729,
+  "selected": 104,
+  "sources": [
+    {
+      "date": "2026-11-12T13:55:11+00:00",
+      "error": "transcript HTTP 404",
+      "fhir": "6.0.0-snapshot1",
+      "package": "ans.cda.fr.template",
+      "report": "https://build.fhir.org/ig/ansforge/interop-IG-style/branches/cda/qa.json",
+      "url": "https://build.fhir.org/ig/ansforge/interop-IG-style/branches/cda/qa-tx.html"
+    },
+    {
+      "bytes": 24686007,
+      "date": "2026-11-17T17:03:45+00:00",
+      "fhir": "4.0.1",
+      "package": "ans.fhir.fr.document-core",
+      "report": "https://build.fhir.org/ig/ansforge/interop-IG-fhir-document-core/branches/0.1.0-ballot/qa.json",
+      "sha256": "cf4f134f6f18f80f3bfffeeb7adb57efd28fbed6aab988ad3d43c2f4c10cd6d3",
+      "url": "https://build.fhir.org/ig/ansforge/interop-IG-fhir-document-core/branches/0.1.0-ballot/qa-tx.html"
+    },
+    {
+      "bytes": 5381057,
+      "date": "2026-11-11T16:12:26+00:00",
+      "fhir": "4.0.1",
+      "package": "ans.fhir.fr.eprescription",
+      "report": "https://build.fhir.org/ig/ansforge/interop-ig-fhir-ePrescription/branches/PostConcertation/qa.json",
+      "sha256": "96687b15b569fc1932c5a19e7fe259de9c1513c492061585358dcd20b920c5aa",
+      "url": "https://build.fhir.org/ig/ansforge/interop-ig-fhir-ePrescription/branches/PostConcertation/qa-tx.html"
+    },
+    {
+      "bytes": 26136744,
+      "date": "2026-11-12T15:30:36+00:00",
+      "fhir": "4.0.1",
+      "package": "ans.fhir.fr.fr-patient-summary",
+      "report": "https://build.fhir.org/ig/ansforge/interop-ig-fhir-document-patient-summary/branches/main/qa.json",
+      "sha256": "6cf9e5b969e14955afa089e208b8dbfd69533c44bb6309c37c3594e90188fccc",
+      "url": "https://build.fhir.org/ig/ansforge/interop-ig-fhir-document-patient-summary/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 1219412,
+      "date": "2026-11-17T10:10:25+00:00",
+      "fhir": "4.0.1",
+      "package": "ans.fr.document-core",
+      "report": "https://build.fhir.org/ig/ansforge/interop-IG-metier-document-core/branches/restauration-encart-ci-build/qa.json",
+      "sha256": "e987589d6c1a3a8d857d1547ed079b26ce0a076dc8db67c837a7a435c419d0e6",
+      "url": "https://build.fhir.org/ig/ansforge/interop-IG-metier-document-core/branches/restauration-encart-ci-build/qa-tx.html"
+    },
+    {
+      "date": "2026-11-12T13:55:34+00:00",
+      "error": "transcript HTTP 404",
+      "fhir": "6.0.0-snapshot1",
+      "package": "ans.fr.template",
+      "report": "https://build.fhir.org/ig/ansforge/interop-IG-style/branches/main/qa.json",
+      "url": "https://build.fhir.org/ig/ansforge/interop-IG-style/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 2009114,
+      "date": "2026-11-16T08:31:20+00:00",
+      "fhir": "4.0.1",
+      "package": "care.commonprofiles.fhir",
+      "report": "https://build.fhir.org/ig/commonprofiles-care/fhir/branches/ignore-claude-local-files/qa.json",
+      "sha256": "6c34759ff250b42b8f578d3116cb13eaae002511e4cea0e6bee6d4405902915b",
+      "url": "https://build.fhir.org/ig/commonprofiles-care/fhir/branches/ignore-claude-local-files/qa-tx.html"
+    },
+    {
+      "bytes": 7477580,
+      "date": "2026-11-12T08:55:34+00:00",
+      "fhir": "4.0.1",
+      "package": "ch.fhir.ig.ch-ekm",
+      "report": "https://build.fhir.org/ig/ahdis/ch-ekm/branches/master/qa.json",
+      "sha256": "a073a66681a9a2f8c1f54c510bfdfbaaddd9dce5aeaa865eb249015c48c3daaa",
+      "url": "https://build.fhir.org/ig/ahdis/ch-ekm/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 13378257,
+      "date": "2026-11-11T15:46:22+00:00",
+      "fhir": "4.0.1",
+      "package": "ch.fhir.ig.ch-elm",
+      "report": "https://build.fhir.org/ig/ahdis/ch-elm/branches/issue229_cpe_genotyping_codes/qa.json",
+      "sha256": "0c65c6e9a70792f3c0fd9bda5be245ebeb1d3d4c8cacbfb42c1aebd8701028b3",
+      "url": "https://build.fhir.org/ig/ahdis/ch-elm/branches/issue229_cpe_genotyping_codes/qa-tx.html"
+    },
+    {
+      "bytes": 5708233,
+      "date": "2026-11-12T08:13:30+00:00",
+      "fhir": "4.0.1",
+      "package": "ch.fhir.ig.ch-emr",
+      "report": "https://build.fhir.org/ig/hl7ch/ch-emr/branches/60-must-support-obligations/qa.json",
+      "sha256": "4a09b6d7b532e748517cf3480af3bebd45ec49f5e25722972d8851c29377f0f0",
+      "url": "https://build.fhir.org/ig/hl7ch/ch-emr/branches/60-must-support-obligations/qa-tx.html"
+    },
+    {
+      "bytes": 5399393,
+      "date": "2026-11-13T13:52:09+00:00",
+      "fhir": "4.0.1",
+      "package": "ch.fhir.ig.ch-ems",
+      "report": "https://build.fhir.org/ig/hl7ch/ch-ems/branches/master/qa.json",
+      "sha256": "dca27be6e389dac186acfa4d6b7e29eca232acefd084cedcc5c6c49835004a77",
+      "url": "https://build.fhir.org/ig/hl7ch/ch-ems/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 4653595,
+      "date": "2026-11-17T19:27:53+00:00",
+      "fhir": "4.0.1",
+      "package": "ch.fhir.ig.ch-epr-fhir",
+      "report": "https://build.fhir.org/ig/ehealthsuisse/ch-epr-fhir/branches/master/qa.json",
+      "sha256": "4e29d11711f7acc0624d49dbf1277199110a41772c6a4f803589178f4bbfbc44",
+      "url": "https://build.fhir.org/ig/ehealthsuisse/ch-epr-fhir/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 4159915,
+      "date": "2026-11-12T12:20:26+00:00",
+      "fhir": "4.0.1",
+      "package": "ch.fhir.ig.ch-health-dossier",
+      "report": "https://build.fhir.org/ig/ehealthsuisse/ch-health-dossier/branches/issue69_iti71_url_encoding_note/qa.json",
+      "sha256": "ce49c80880d0e5ed502c3872bb5137ea9423a209b63ad02799bfa067041a7617",
+      "url": "https://build.fhir.org/ig/ehealthsuisse/ch-health-dossier/branches/issue69_iti71_url_encoding_note/qa-tx.html"
+    },
+    {
+      "bytes": 5822755,
+      "date": "2026-11-11T15:07:10+00:00",
+      "fhir": "4.0.1",
+      "package": "de.fhir.medication",
+      "report": "https://build.fhir.org/ig/hl7germany/medication-ig-de-r4/branches/main/qa.json",
+      "sha256": "dfcfcde3c598d7f72487d8c68416a0de42bcd17ebcc4efcbdb5a8c8cfc827c2a",
+      "url": "https://build.fhir.org/ig/hl7germany/medication-ig-de-r4/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 2904052,
+      "date": "2026-11-16T08:29:53+00:00",
+      "fhir": "4.0.1",
+      "package": "dk.dhroxy.fhir",
+      "report": "https://build.fhir.org/ig/c3po-initiative/implementation-guide/branches/ignore-claude-local-files/qa.json",
+      "sha256": "cfdb16cd20d613d7b416c8f717cc03f88140d2718c7d0e5b4dc41acb0f0c47e1",
+      "url": "https://build.fhir.org/ig/c3po-initiative/implementation-guide/branches/ignore-claude-local-files/qa-tx.html"
+    },
+    {
+      "bytes": 8706146,
+      "date": "2026-11-16T14:42:27+00:00",
+      "fhir": "4.0.1",
+      "package": "dk.ehealth.sundhed.fhir.ig.core",
+      "report": "https://build.fhir.org/ig/fut-infrastructure/implementation-guide/branches/11.0.5/qa.json",
+      "sha256": "82be65814f8d10f2939fb744565a910b97ab16fa0de608e24c5216711e5de7c7",
+      "url": "https://build.fhir.org/ig/fut-infrastructure/implementation-guide/branches/11.0.5/qa-tx.html"
+    },
+    {
+      "bytes": 527016,
+      "date": "2026-11-11T13:57:48+00:00",
+      "fhir": "4.0.1",
+      "package": "dk.kip.rkkp.fhir.ig.core",
+      "report": "https://build.fhir.org/ig/KIP-infrastructure/implementation-guide/branches/main/qa.json",
+      "sha256": "bb7799aa44c63b156474d4c2b778f35fd0f8f8da2aa8ce2f2e204570784510f1",
+      "url": "https://build.fhir.org/ig/KIP-infrastructure/implementation-guide/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 4337285,
+      "date": "2026-11-17T08:14:27+00:00",
+      "fhir": "5.0.0",
+      "package": "ee.fhir.qre",
+      "report": "https://build.fhir.org/ig/TEHIK-EE/ig-ee-qre/branches/main/qa.json",
+      "sha256": "b46fdd6ac188358a44a9266162650534d1bff8fe9678d3c90bd4724fa5d2167c",
+      "url": "https://build.fhir.org/ig/TEHIK-EE/ig-ee-qre/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 2691905,
+      "date": "2026-11-13T13:10:25+00:00",
+      "fhir": "5.0.0",
+      "package": "ee.fhir.vris",
+      "report": "https://build.fhir.org/ig/TEHIK-EE/ig-ee-vris/branches/main/qa.json",
+      "sha256": "6db66b73d53a81f94fb0fd59d4f288778bd411709a33e118cb6762f315720e8f",
+      "url": "https://build.fhir.org/ig/TEHIK-EE/ig-ee-vris/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 526146,
+      "date": "2026-11-12T08:37:17+00:00",
+      "fhir": "4.0.1",
+      "package": "example.compiledjsontrial",
+      "report": "https://build.fhir.org/ig/haau3/compiled-json-trial/branches/control/qa.json",
+      "sha256": "eae7edc9bd5006cd3f18afeca7133b1d0da6b7f870957b7ca4a95156ed509feb",
+      "url": "https://build.fhir.org/ig/haau3/compiled-json-trial/branches/control/qa-tx.html"
+    },
+    {
+      "bytes": 1378325,
+      "date": "2026-11-17T22:30:50+00:00",
+      "fhir": "4.0.1",
+      "package": "example.fhir.uv.myig",
+      "report": "https://build.fhir.org/ig/jmandel/ig-build-test/branches/master/qa.json",
+      "sha256": "472cf63319b6f60e4a5276913d60c314d42cf634e7e6dd9fd41ef145765d3cd9",
+      "url": "https://build.fhir.org/ig/jmandel/ig-build-test/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1379962,
+      "date": "2026-11-13T01:30:51+00:00",
+      "fhir": "4.0.1",
+      "package": "fhir.argonaut.smart-imaging",
+      "report": "https://build.fhir.org/ig/argonautproject/smart-imaging/branches/dec-03/qa.json",
+      "sha256": "0a72102a24ed29267b796cd92360afd8ceac41c393c736be3b754c8c93379b2a",
+      "url": "https://build.fhir.org/ig/argonautproject/smart-imaging/branches/dec-03/qa-tx.html"
+    },
+    {
+      "bytes": 512448,
+      "date": "2026-11-14T19:49:15+00:00",
+      "fhir": "4.0.1",
+      "package": "fhir.example",
+      "report": "https://build.fhir.org/ig/vadi2/tho-5.0.0/branches/master/qa.json",
+      "sha256": "1ca27b3ca8d0115f622d1be0dea17b8371000df7730f1c5498ab081d2f9cf954",
+      "url": "https://build.fhir.org/ig/vadi2/tho-5.0.0/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 576712,
+      "date": "2026-11-12T09:10:06+00:00",
+      "fhir": "4.0.1",
+      "package": "fhir.ig.hdm.example",
+      "report": "https://build.fhir.org/ig/iambodo/NCD_HDM-fhir-ig/branches/main/qa.json",
+      "sha256": "e400f113d7a18940dc10729b86412d65df64262b2e4f3f1c37c2456007281366",
+      "url": "https://build.fhir.org/ig/iambodo/NCD_HDM-fhir-ig/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 473239,
+      "date": "2026-11-12T19:53:05+00:00",
+      "fhir": "5.0.0",
+      "package": "fhir.ig.trust.aitransparency",
+      "report": "https://build.fhir.org/ig/HL7Austria/AIST-TrustworthyAI-R5/branches/ballot-test/qa.json",
+      "sha256": "76d7f39bdf7162a5c1c6de555823010b89c0e5698df94f40b4ea9f973552f450",
+      "url": "https://build.fhir.org/ig/HL7Austria/AIST-TrustworthyAI-R5/branches/ballot-test/qa-tx.html"
+    },
+    {
+      "bytes": 820131,
+      "date": "2026-11-15T13:25:33+00:00",
+      "fhir": "4.0.1",
+      "package": "fhir.nl.zorginzage",
+      "report": "https://build.fhir.org/ig/nuts-foundation/nl-zorginzage-ig/branches/pages-deploy-build-version/qa.json",
+      "sha256": "77c48141857978bb51ea6aeae9ddee15b98a83ff6b301faa89dfb73e5207f939",
+      "url": "https://build.fhir.org/ig/nuts-foundation/nl-zorginzage-ig/branches/pages-deploy-build-version/qa-tx.html"
+    },
+    {
+      "bytes": 13290239,
+      "date": "2026-11-16T10:42:58+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.au.base",
+      "report": "https://build.fhir.org/ig/hl7au/au-fhir-base/branches/master/qa.json",
+      "sha256": "61ce1e18f760064e46ef34da15908d869fe805d849ed901a4f878861fa810377",
+      "url": "https://build.fhir.org/ig/hl7au/au-fhir-base/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 13297325,
+      "date": "2026-11-17T01:40:57+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.au.core",
+      "report": "https://build.fhir.org/ig/hl7au/au-fhir-core/branches/master/qa.json",
+      "sha256": "81c75a9484259f4d8935f05199d2c224c371a2c0b468881de0c0da7fbcc1e93c",
+      "url": "https://build.fhir.org/ig/hl7au/au-fhir-core/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1799937,
+      "date": "2026-11-17T05:30:03+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.au.encounter",
+      "report": "https://build.fhir.org/ig/hl7au/au-fhir-encounter/branches/master/qa.json",
+      "sha256": "fd8868553f5fff5b260ff47768a088df939c8efb1704cad7cc6f54c61847bbad",
+      "url": "https://build.fhir.org/ig/hl7au/au-fhir-encounter/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 2261832,
+      "date": "2026-11-12T22:16:10+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.au.pd",
+      "report": "https://build.fhir.org/ig/AuDigitalHealth/au-fhir-pd/branches/AuCoreDerivingUpdates/qa.json",
+      "sha256": "dad8d90063d04d1edf7871cfce5e25dffe53a3757b7d920e86ff2872924fa457",
+      "url": "https://build.fhir.org/ig/AuDigitalHealth/au-fhir-pd/branches/AuCoreDerivingUpdates/qa-tx.html"
+    },
+    {
+      "bytes": 25757376,
+      "date": "2026-11-16T23:31:55+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.au.ps",
+      "report": "https://build.fhir.org/ig/hl7au/au-fhir-ps/branches/master/qa.json",
+      "sha256": "108bd70a2f319cca907c39bb1272c2b1221ca1878442139de43ed2d0fe3c90bb",
+      "url": "https://build.fhir.org/ig/hl7au/au-fhir-ps/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 2379156,
+      "date": "2026-11-17T03:21:18+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.au.sample.myig",
+      "report": "https://build.fhir.org/ig/ChitSR/sample-ig/branches/master/qa.json",
+      "sha256": "eb79d975c4e5bf17c61692b8b46315bef12fa6a49fdb0c737926306aacee08ca",
+      "url": "https://build.fhir.org/ig/ChitSR/sample-ig/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 9667086,
+      "date": "2026-11-12T21:33:21+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.core-clinical",
+      "report": "https://build.fhir.org/ig/hl7-be/core-clinical/branches/release-1.5.0-prep/qa.json",
+      "sha256": "9df9999f9d5ae3c266a37fb686bcddb354806fd90ca4fb9722ecd80d69aba8cd",
+      "url": "https://build.fhir.org/ig/hl7-be/core-clinical/branches/release-1.5.0-prep/qa-tx.html"
+    },
+    {
+      "bytes": 2013330,
+      "date": "2026-11-16T10:17:28+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.glucose-monitoring",
+      "report": "https://build.fhir.org/ig/hl7-be/glucose-monitoring/branches/release-candidate/qa.json",
+      "sha256": "f1bc744a7bb7c0e425862197fb52f946eb93a7479887afd5d097dd52ec105ec2",
+      "url": "https://build.fhir.org/ig/hl7-be/glucose-monitoring/branches/release-candidate/qa-tx.html"
+    },
+    {
+      "bytes": 2056627,
+      "date": "2026-11-12T12:37:53+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.lab",
+      "report": "https://build.fhir.org/ig/hl7-be/lab/branches/master/qa.json",
+      "sha256": "45c27e6cca06b60fece63f02d1cdcb6c33fe77c4ebf3aab5c26239759d7d81d1",
+      "url": "https://build.fhir.org/ig/hl7-be/lab/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1097902,
+      "date": "2026-11-11T21:19:19+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.medication",
+      "report": "https://build.fhir.org/ig/hl7-be/medication/branches/education-self-care-376/qa.json",
+      "sha256": "da87ace826b46bbc0f68ca6216d1fbbc40f72b616762e16aedd7fa05fc7b8b07",
+      "url": "https://build.fhir.org/ig/hl7-be/medication/branches/education-self-care-376/qa-tx.html"
+    },
+    {
+      "bytes": 2798524,
+      "date": "2026-11-17T07:46:42+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.patient-monitoring",
+      "report": "https://build.fhir.org/ig/hl7-be/patient-monitoring/branches/lung-transplant/qa.json",
+      "sha256": "41def2431dfb1f77d463e31c55a1a0bf029a83aea6b432b4549510c8879c3881",
+      "url": "https://build.fhir.org/ig/hl7-be/patient-monitoring/branches/lung-transplant/qa-tx.html"
+    },
+    {
+      "bytes": 2859690,
+      "date": "2026-11-11T21:22:20+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.terminology",
+      "report": "https://build.fhir.org/ig/hl7-be/terminology/branches/vaccine-code-lyme/qa.json",
+      "sha256": "9870dddab8858bfc3ef521ddfb54bf37bce9f68b5eaf22a4bb408915e5c557be",
+      "url": "https://build.fhir.org/ig/hl7-be/terminology/branches/vaccine-code-lyme/qa-tx.html"
+    },
+    {
+      "bytes": 788363,
+      "date": "2026-11-11T15:09:23+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.be.workflow",
+      "report": "https://build.fhir.org/ig/hl7-be/workflow/branches/draft/qa.json",
+      "sha256": "7ed60da2115bcc1ee66db93cc877bc60850f23bacc683ae72fb1d02ed78eaedb",
+      "url": "https://build.fhir.org/ig/hl7-be/workflow/branches/draft/qa-tx.html"
+    },
+    {
+      "bytes": 3305925,
+      "date": "2026-11-17T15:17:50+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.cl.minsal.tei",
+      "report": "https://build.fhir.org/ig/Minsal-CL/tei/branches/master/qa.json",
+      "sha256": "4eb6b87e4f1a226203b5b7828d4e2880bc65bd94d1dc1b4dc8eab3988b26ed69",
+      "url": "https://build.fhir.org/ig/Minsal-CL/tei/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 21324621,
+      "date": "2026-11-12T21:23:09+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.cz.order",
+      "report": "https://build.fhir.org/ig/HL7-cz/k-order/branches/master/qa.json",
+      "sha256": "388a62ad75816477079e15622757ff38c396989418a8d3ffe572b7d6a5be2d54",
+      "url": "https://build.fhir.org/ig/HL7-cz/k-order/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 22826388,
+      "date": "2026-11-13T16:00:06+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.eu.base",
+      "report": "https://build.fhir.org/ig/hl7-eu/base/branches/v2.0.2/qa.json",
+      "sha256": "f1481fc94c9fb809f3bdd36d65beaf50f86ab027be9d46c1179846a62b44e2da",
+      "url": "https://build.fhir.org/ig/hl7-eu/base/branches/v2.0.2/qa-tx.html"
+    },
+    {
+      "bytes": 21286700,
+      "date": "2026-11-13T16:00:04+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.fhir.eu.base-r5",
+      "report": "https://build.fhir.org/ig/hl7-eu/base-r5/branches/v2.0.2/qa.json",
+      "sha256": "3efd06540520a3d7ec3baa80482f0b2a073032026cf980ef90dc3a3f57431577",
+      "url": "https://build.fhir.org/ig/hl7-eu/base-r5/branches/v2.0.2/qa-tx.html"
+    },
+    {
+      "bytes": 25909516,
+      "date": "2026-11-13T14:08:30+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.eu.eps",
+      "report": "https://build.fhir.org/ig/hl7-eu/eps/branches/master/qa.json",
+      "sha256": "0634275c6b8d8d165f10b02088a528fd4206f12548b7048b4635ef4b5049dc98",
+      "url": "https://build.fhir.org/ig/hl7-eu/eps/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1928692,
+      "date": "2026-11-17T21:17:35+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.eu.health-data-api",
+      "report": "https://build.fhir.org/ig/euridice-org/eu-health-data-api/branches/main/qa.json",
+      "sha256": "069520ccd7bed449b82fa2e6f5bc57a0878638cd99bb38559903cff59e3faa72",
+      "url": "https://build.fhir.org/ig/euridice-org/eu-health-data-api/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 30644661,
+      "date": "2026-11-17T14:38:59+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.fr.core",
+      "report": "https://build.fhir.org/ig/Interop-Sante/hl7.fhir.fr.core/branches/main/qa.json",
+      "sha256": "325b54077b906afab897244adf52ee8d7bd1ca7292d6a19c3cf187d00e5d96a4",
+      "url": "https://build.fhir.org/ig/Interop-Sante/hl7.fhir.fr.core/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 7387750,
+      "date": "2026-11-12T08:12:22+00:00",
+      "fhir": "3.0.2",
+      "package": "hl7.fhir.nl.zorgviewer",
+      "report": "https://build.fhir.org/ig/RIVO-Noord/zorgviewer-ig/branches/master/qa.json",
+      "sha256": "a68f499868047823ee39a7922c8fa8e88dee6e2766fd512bd1fcf23aba92d211",
+      "url": "https://build.fhir.org/ig/RIVO-Noord/zorgviewer-ig/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1860967,
+      "date": "2026-11-13T16:49:25+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.se.terminology",
+      "report": "https://build.fhir.org/ig/HL7Sweden/hl7.fhir.se.terminology/branches/main/qa.json",
+      "sha256": "252f639769e283fd3d24573df05a180f3f23abadd4336574b249974550507950",
+      "url": "https://build.fhir.org/ig/HL7Sweden/hl7.fhir.se.terminology/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 1542548,
+      "date": "2026-11-17T00:27:53+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.consent-management",
+      "report": "https://build.fhir.org/ig/HL7/fhir-consent-management/branches/main/qa.json",
+      "sha256": "8e1e3dbf54b20b8ac06255921575cd51fc735156ef6e0ce2adba4b36d4c921bc",
+      "url": "https://build.fhir.org/ig/HL7/fhir-consent-management/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 3270255,
+      "date": "2026-11-12T05:09:13+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.davinci-cdex",
+      "report": "https://build.fhir.org/ig/HL7/davinci-ecdx/branches/Version-2.1.1/qa.json",
+      "sha256": "8ee4ed56b832449248f660175d1bc7f4a3728ed2960389dd7b41d7cbf60900fb",
+      "url": "https://build.fhir.org/ig/HL7/davinci-ecdx/branches/Version-2.1.1/qa-tx.html"
+    },
+    {
+      "bytes": 5120620,
+      "date": "2026-11-12T03:43:07+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.davinci-pct",
+      "report": "https://build.fhir.org/ig/HL7/davinci-pct/branches/master/qa.json",
+      "sha256": "57898563e1d457d61b76f302ada1e875634940824f1a28c330aedaee5107f88d",
+      "url": "https://build.fhir.org/ig/HL7/davinci-pct/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 5275944,
+      "date": "2026-11-16T16:51:15+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.davinci-pdex",
+      "report": "https://build.fhir.org/ig/HL7/davinci-epdx/branches/master/qa.json",
+      "sha256": "49fbc6f92ccf4b8426db7d091af6b8441d6379c22c52abdd8c854370b55d6808",
+      "url": "https://build.fhir.org/ig/HL7/davinci-epdx/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 2888640,
+      "date": "2026-11-17T17:04:51+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.davinci-pdex-plan-net",
+      "report": "https://build.fhir.org/ig/HL7/davinci-pdex-plan-net/branches/master/qa.json",
+      "sha256": "b1374195b49940b7531fa95d93feb694482c140917485e288e58b445285f8036",
+      "url": "https://build.fhir.org/ig/HL7/davinci-pdex-plan-net/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 4113445,
+      "date": "2026-11-12T22:02:12+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.davinci-ra",
+      "report": "https://build.fhir.org/ig/HL7/davinci-ra/branches/master/qa.json",
+      "sha256": "e3d21156106f8a96cc3d35cec3792e6028a2c49aaedade39999602b674d56fb7",
+      "url": "https://build.fhir.org/ig/HL7/davinci-ra/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1491556,
+      "date": "2026-11-15T22:27:38+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.demographic-collect",
+      "report": "https://build.fhir.org/ig/HL7/demo-collect/branches/main/qa.json",
+      "sha256": "6c74115c003a3883e2708c165a70b650291105923f6700417d2f9d8d935b5944",
+      "url": "https://build.fhir.org/ig/HL7/demo-collect/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 13187653,
+      "date": "2026-11-16T07:08:34+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.ecr",
+      "report": "https://build.fhir.org/ig/HL7/case-reporting/branches/master/qa.json",
+      "sha256": "7e4e99e963514bfad5b87d9e91358292a6ea15a570dcd9dd4bf52f7ab20fb3c5",
+      "url": "https://build.fhir.org/ig/HL7/case-reporting/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 4365294,
+      "date": "2026-11-17T18:12:55+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.ndh",
+      "report": "https://build.fhir.org/ig/HL7/fhir-us-ndh/branches/2.0.0-ballot/qa.json",
+      "sha256": "381a7a744bb6fca8db4bb1bdd887373ca2cd28d1c0b2aad5ec3d3284abc4a049",
+      "url": "https://build.fhir.org/ig/HL7/fhir-us-ndh/branches/2.0.0-ballot/qa-tx.html"
+    },
+    {
+      "bytes": 6875508,
+      "date": "2026-11-17T17:48:16+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.pacio-adi",
+      "report": "https://build.fhir.org/ig/HL7/fhir-pacio-adi/branches/master/qa.json",
+      "sha256": "b29825ea1f3c9065c1f1368cdc6dc60258e4b7af1a79463559855037f6f363d2",
+      "url": "https://build.fhir.org/ig/HL7/fhir-pacio-adi/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 29578779,
+      "date": "2026-11-12T18:00:20+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.us.quality-core",
+      "report": "https://build.fhir.org/ig/HL7/fhir-us-quality-core/branches/add-claim/qa.json",
+      "sha256": "2c5122ef5c9032221a3e56f16e7d116717faadc3aeb363a169f1a5459e297029",
+      "url": "https://build.fhir.org/ig/HL7/fhir-us-quality-core/branches/add-claim/qa-tx.html"
+    },
+    {
+      "date": "2026-11-11T13:14:02+00:00",
+      "error": "build changed since index snapshot",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.aitransparency",
+      "report": "https://build.fhir.org/ig/HL7/aitransparency-ig/branches/main/qa.json",
+      "url": "https://build.fhir.org/ig/HL7/aitransparency-ig/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 1110850,
+      "date": "2026-11-17T19:32:59+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.bulkdata",
+      "report": "https://build.fhir.org/ig/HL7/bulk-data/branches/master/qa.json",
+      "sha256": "fc2f5a926b50d1b06b9c0c4d0f68ffaa76609139e8fcb1fe82638f7d0c982794",
+      "url": "https://build.fhir.org/ig/HL7/bulk-data/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1096065,
+      "date": "2026-11-17T15:53:00+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.cds-hooks",
+      "report": "https://build.fhir.org/ig/HL7/cds-hooks/branches/main/qa.json",
+      "sha256": "62d5468e5450128b9ec4996cf3b874cf0865ee7dfff94b3e1d3a24ebaf650893",
+      "url": "https://build.fhir.org/ig/HL7/cds-hooks/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 1091833,
+      "date": "2026-11-16T08:32:34+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.cds-hooks-library",
+      "report": "https://build.fhir.org/ig/HL7/cds-hooks-library/branches/ignore-claude-local-files/qa.json",
+      "sha256": "02e8c051be99cdcbf59ef4c0a5a389d6e8ac02449b07fb1af98ca362eb6d416b",
+      "url": "https://build.fhir.org/ig/HL7/cds-hooks-library/branches/ignore-claude-local-files/qa-tx.html"
+    },
+    {
+      "bytes": 1936030,
+      "date": "2026-11-17T15:56:00+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.cpg",
+      "report": "https://build.fhir.org/ig/HL7/cqf-recommendations/branches/br-narrative-refresh/qa.json",
+      "sha256": "ad3384226ccf98a0d9f957a697b959333e466aeab9dd51ee0be05e81cfbe8428",
+      "url": "https://build.fhir.org/ig/HL7/cqf-recommendations/branches/br-narrative-refresh/qa-tx.html"
+    },
+    {
+      "bytes": 384352,
+      "date": "2026-11-17T13:56:34+00:00",
+      "fhir": "6.0.0-snapshot1",
+      "package": "hl7.fhir.uv.device-alerting",
+      "report": "https://build.fhir.org/ig/HL7/DeviceAlerting/branches/Initial/qa.json",
+      "sha256": "fee7f349fe3b3526283d1b5a9f5593f0177cb5ebcbbf51ef6a50c14886283866",
+      "url": "https://build.fhir.org/ig/HL7/DeviceAlerting/branches/Initial/qa-tx.html"
+    },
+    {
+      "bytes": 11371677,
+      "date": "2026-11-17T21:52:15+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.fhir.uv.extensions",
+      "report": "https://build.fhir.org/ig/HL7/fhir-extensions/branches/consent-location-complex/qa.json",
+      "sha256": "77388533afff8d480ab55dbb9d4aa5fc7b886faac4ba1b823a1b398c1f343738",
+      "url": "https://build.fhir.org/ig/HL7/fhir-extensions/branches/consent-location-complex/qa-tx.html"
+    },
+    {
+      "bytes": 1083848,
+      "date": "2026-11-16T16:47:04+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.fast-security",
+      "report": "https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/qa.json",
+      "sha256": "fa5f4d256e851bfe642fb6e3a4dae77d66638dbe0d4d1f32854d48fcc898a0cc",
+      "url": "https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 6442265,
+      "date": "2026-11-13T01:12:43+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.genomics-reporting",
+      "report": "https://build.fhir.org/ig/HL7/genomics-reporting/branches/master/qa.json",
+      "sha256": "48ffe77cc391121d02e24a829d5eecbd6de0ef05f84c3a36fd21aea2f6a6a7a0",
+      "url": "https://build.fhir.org/ig/HL7/genomics-reporting/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1045822,
+      "date": "2026-11-12T13:36:59+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.fhir.uv.howto",
+      "report": "https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/qa.json",
+      "sha256": "7957db1cb4f17faac108f168e00c9f80fd569db176226446d173b74deba16ab8",
+      "url": "https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 610903,
+      "date": "2026-11-11T21:09:51+00:00",
+      "fhir": "6.0.0-snapshot1",
+      "package": "hl7.fhir.uv.imaging-service-request-ig",
+      "report": "https://build.fhir.org/ig/HL7/imaging-service-request-ig/branches/master/qa.json",
+      "sha256": "8db63ef5788819f50782d6892c1a9628ec2ffd4942610587c413eea240425a35",
+      "url": "https://build.fhir.org/ig/HL7/imaging-service-request-ig/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 335029,
+      "date": "2026-11-15T22:05:09+00:00",
+      "fhir": "6.0.0-snapshot1",
+      "package": "hl7.fhir.uv.incubators",
+      "report": "https://build.fhir.org/ig/HL7/fhir-incubators/branches/master/qa.json",
+      "sha256": "cbf41547fa4567984ad2f67cfe55a006e757afcd9f5f7a1877011a82ac540f31",
+      "url": "https://build.fhir.org/ig/HL7/fhir-incubators/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 331786,
+      "date": "2026-11-17T15:18:45+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.fhir.uv.openehr-data-type-mapping",
+      "report": "https://build.fhir.org/ig/openehr-fhir/data-type-mapping-ig/branches/gino-1117/qa.json",
+      "sha256": "2ab33fe13069f5fa83195c9bea447df24ce3e5fd6020520c54d48ca833638114",
+      "url": "https://build.fhir.org/ig/openehr-fhir/data-type-mapping-ig/branches/gino-1117/qa-tx.html"
+    },
+    {
+      "bytes": 4287250,
+      "date": "2026-11-17T19:27:04+00:00",
+      "fhir": "6.0.0-snapshot1",
+      "package": "hl7.fhir.uv.phd",
+      "report": "https://build.fhir.org/ig/HL7/phd/branches/FHIR-R6/qa.json",
+      "sha256": "72b7e8079d0d69c5f986071b5aeb6f5c05a45207157afd91acd8749b5df05e84",
+      "url": "https://build.fhir.org/ig/HL7/phd/branches/FHIR-R6/qa-tx.html"
+    },
+    {
+      "bytes": 66135679,
+      "date": "2026-11-14T10:40:31+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7.fhir.uv.pocd",
+      "report": "https://build.fhir.org/ig/HL7/uv-pocd/branches/master/qa.json",
+      "sha256": "73e72537634aa406f76acbb9c36cac933ce7ee5ebbe44c8ea424e489737a6f5d",
+      "url": "https://build.fhir.org/ig/HL7/uv-pocd/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 467642,
+      "date": "2026-11-13T20:08:25+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.fhir.uv.rwi-pharma",
+      "report": "https://build.fhir.org/ig/HL7/reg-workflow-pharma/branches/1.0.0-ballot/qa.json",
+      "sha256": "c2347763090ead18b5a6c3c08c9129a4f3dcc81d1f98026295e08f29bbb9b935",
+      "url": "https://build.fhir.org/ig/HL7/reg-workflow-pharma/branches/1.0.0-ballot/qa-tx.html"
+    },
+    {
+      "bytes": 540303,
+      "date": "2026-11-17T23:19:15+00:00",
+      "fhir": "6.0.0-snapshot1",
+      "package": "hl7.fhir.uv.sql-on-fhir",
+      "report": "https://build.fhir.org/ig/HL7/sql-on-fhir/branches/fhir-58974-shareable-metadata/qa.json",
+      "sha256": "0e7e4944c332af146d9b2bdb3300c023c05379bfb293ee4a4b7aa6971abce100",
+      "url": "https://build.fhir.org/ig/HL7/sql-on-fhir/branches/fhir-58974-shareable-metadata/qa-tx.html"
+    },
+    {
+      "bytes": 643205,
+      "date": "2026-11-17T11:35:30+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.fhir.uv.tx-ecosystem",
+      "report": "https://build.fhir.org/ig/HL7/fhir-tx-ecosystem-ig/branches/2026-11-gg-icd-11-required-axes/qa.json",
+      "sha256": "c816c862012009c3a7a4d5e70de244dc77cc5770d0e41a0c55577ec80dc64d3d",
+      "url": "https://build.fhir.org/ig/HL7/fhir-tx-ecosystem-ig/branches/2026-11-gg-icd-11-required-axes/qa-tx.html"
+    },
+    {
+      "bytes": 91508921,
+      "date": "2026-11-13T18:38:15+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.terminology",
+      "report": "https://build.fhir.org/ig/HL7/UTG/branches/UP-900-Create-am-Include-Associated-Data-Code-System/qa.json",
+      "sha256": "477d4ad00849aa4daf1b32d2370d5c41e97d2b1b4f540d0928a1c93ce6473064",
+      "url": "https://build.fhir.org/ig/HL7/UTG/branches/UP-900-Create-am-Include-Associated-Data-Code-System/qa-tx.html"
+    },
+    {
+      "bytes": 29916964,
+      "date": "2026-11-14T12:11:15+00:00",
+      "fhir": "5.0.0",
+      "package": "hl7.xprod.uv.piqi",
+      "report": "https://build.fhir.org/ig/HL7/piqi/branches/2026-11-gg-gg-rewrite/qa.json",
+      "sha256": "f06ff346a6f4de34e8d18fb71ad68cb18fdeb9e2d891ffd0636b2e77582e7265",
+      "url": "https://build.fhir.org/ig/HL7/piqi/branches/2026-11-gg-gg-rewrite/qa-tx.html"
+    },
+    {
+      "bytes": 2110719,
+      "date": "2026-11-16T08:32:10+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7se.fhir.base",
+      "report": "https://build.fhir.org/ig/HL7Sweden/basprofiler-r4/branches/ignore-claude-local-files/qa.json",
+      "sha256": "78633506bc84eba33481cb6031a61944ad86fd349026ee83e397c846947dbc41",
+      "url": "https://build.fhir.org/ig/HL7Sweden/basprofiler-r4/branches/ignore-claude-local-files/qa-tx.html"
+    },
+    {
+      "bytes": 1160716,
+      "date": "2026-11-12T10:10:40+00:00",
+      "fhir": "4.0.1",
+      "package": "hl7se.fhir.r4.ig.medicalalertinformation",
+      "report": "https://build.fhir.org/ig/HL7Sweden/hl7.fhir.r4.ig.medicalalertinformation/branches/develop/qa.json",
+      "sha256": "849fde14835cd67352ca2e0cdd859221d8f99abcd1621ec750239ceabbdfe10f",
+      "url": "https://build.fhir.org/ig/HL7Sweden/hl7.fhir.r4.ig.medicalalertinformation/branches/develop/qa-tx.html"
+    },
+    {
+      "bytes": 1107847,
+      "date": "2026-11-16T16:57:44+00:00",
+      "fhir": "4.0.1",
+      "package": "ihe-de.iti.xds-vs",
+      "report": "https://build.fhir.org/ig/IHE-Germany/ITI.XDS.VS/branches/main/qa.json",
+      "sha256": "a56428d83ce9947acb7803539d707a90abf4e51dc2a0e6595cf98a5a00165891",
+      "url": "https://build.fhir.org/ig/IHE-Germany/ITI.XDS.VS/branches/main/qa-tx.html"
+    },
+    {
+      "date": "2026-11-11T15:15:39+00:00",
+      "error": "transcript HTTP 404",
+      "fhir": "6.0.0-snapshot1",
+      "package": "ihe.fhir.template",
+      "report": "https://build.fhir.org/ig/IHE/ihe-ig-template/branches/fix-duplicate-project-nav-id/qa.json",
+      "url": "https://build.fhir.org/ig/IHE/ihe-ig-template/branches/fix-duplicate-project-nav-id/qa-tx.html"
+    },
+    {
+      "bytes": 1490221,
+      "date": "2026-11-17T11:28:05+00:00",
+      "fhir": "4.0.1",
+      "package": "ihe.iti.dis",
+      "report": "https://build.fhir.org/ig/IHE/ITI.DIS/branches/master/qa.json",
+      "sha256": "0bd37faaafb5be535bd19c1d417d19f5008f430fc954f299a4ed6be3e4b7dc94",
+      "url": "https://build.fhir.org/ig/IHE/ITI.DIS/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 561532,
+      "date": "2026-11-13T03:15:18+00:00",
+      "fhir": "4.0.1",
+      "package": "ihe.iti.vhl",
+      "report": "https://build.fhir.org/ig/IHE/ITI.VHL/branches/jul26/qa.json",
+      "sha256": "c43a0fca36c79cacbe16f81356bb1d5cec04ae7c0df8c8a3a4afa34b2b3ae47e",
+      "url": "https://build.fhir.org/ig/IHE/ITI.VHL/branches/jul26/qa-tx.html"
+    },
+    {
+      "bytes": 6549701,
+      "date": "2026-11-14T19:48:05+00:00",
+      "fhir": "4.0.1",
+      "package": "il.moh.mri.r4",
+      "report": "https://build.fhir.org/ig/vadi2/MRI-Scheduling/branches/master/qa.json",
+      "sha256": "8ef272d7fb4957ffa8b298b0d749146cb6a9327b812f9b332c0b9ee99cbf7159",
+      "url": "https://build.fhir.org/ig/vadi2/MRI-Scheduling/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 6382064,
+      "date": "2026-11-16T08:02:14+00:00",
+      "fhir": "4.0.1",
+      "package": "inami.fhir.be.ereferral",
+      "report": "https://build.fhir.org/ig/hl7-be/referral-uhmep/branches/draft-4.0.0/qa.json",
+      "sha256": "2a7dc431d30e32e382e773682c554c6fd0978e2488da4257227559185d028da2",
+      "url": "https://build.fhir.org/ig/hl7-be/referral-uhmep/branches/draft-4.0.0/qa-tx.html"
+    },
+    {
+      "bytes": 376697,
+      "date": "2026-11-13T21:20:22+00:00",
+      "fhir": "5.0.0",
+      "package": "jct.fhir.spenser",
+      "report": "https://build.fhir.org/ig/costateixeira/spenser/branches/master/qa.json",
+      "sha256": "733f203c49f2648e1074c910bf35a2b3b2512098d4f821313aed64a57e058989",
+      "url": "https://build.fhir.org/ig/costateixeira/spenser/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 1236449,
+      "date": "2026-11-17T18:08:33+00:00",
+      "fhir": "4.0.1",
+      "package": "johnmoehrke.ConsentAboutAI.example",
+      "report": "https://build.fhir.org/ig/JohnMoehrke/ConsentAboutAI/branches/main/qa.json",
+      "sha256": "e6594fd48f9276be62d4cc00fb10b0172b85b102bb33de9f8e337d43dced15ac",
+      "url": "https://build.fhir.org/ig/JohnMoehrke/ConsentAboutAI/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 577824,
+      "date": "2026-11-17T19:33:46+00:00",
+      "fhir": "4.0.1",
+      "package": "medtechlabel",
+      "report": "https://build.fhir.org/ig/hl7-eu/medtechlabel-wp2-im/branches/master/qa.json",
+      "sha256": "9695329a2e3c9437cf527ff511f16637bf46a65d21cbdd5cae8a529ba0306304",
+      "url": "https://build.fhir.org/ig/hl7-eu/medtechlabel-wp2-im/branches/master/qa-tx.html"
+    },
+    {
+      "bytes": 6717478,
+      "date": "2026-11-16T15:17:06+00:00",
+      "fhir": "4.0.1",
+      "package": "nictiz.nl.gbb",
+      "report": "https://build.fhir.org/ig/Nictiz/GBB-IG/branches/_generated_GBB-160/qa.json",
+      "sha256": "363d4658eaf0dc0b0a7e9c52448a22b93b57ec9fe9af037ba88c20e1958d7d70",
+      "url": "https://build.fhir.org/ig/Nictiz/GBB-IG/branches/_generated_GBB-160/qa-tx.html"
+    },
+    {
+      "bytes": 1837217,
+      "date": "2026-11-17T15:40:53+00:00",
+      "fhir": "4.0.1",
+      "package": "nl.generiekefuncties.fhir",
+      "report": "https://build.fhir.org/ig/minvws/generiekefuncties-docs/branches/gf-identificatie-sg/qa.json",
+      "sha256": "24eb712d5a8346fd46ea397e382c668bc01392243c5bea9ded4037824036fd2d",
+      "url": "https://build.fhir.org/ig/minvws/generiekefuncties-docs/branches/gf-identificatie-sg/qa-tx.html"
+    },
+    {
+      "bytes": 6520342,
+      "date": "2026-11-12T10:14:36+00:00",
+      "fhir": "5.0.0",
+      "package": "org.optimalhealth.healthyroute",
+      "report": "https://build.fhir.org/ig/savannahghi/healthy-route-ig/branches/main/qa.json",
+      "sha256": "71de6897e4538da99a4cb886fcc35e8afaf99708d6448d73cef5ffa6c6efa222",
+      "url": "https://build.fhir.org/ig/savannahghi/healthy-route-ig/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 768735,
+      "date": "2026-11-14T19:49:24+00:00",
+      "fhir": "4.0.1",
+      "package": "se.hl7.vitalis.hackathon.2026",
+      "report": "https://build.fhir.org/ig/vadi2/vitalis-hackathon-2026-ig/branches/main/qa.json",
+      "sha256": "94decc360a4e8fd7069e8e12fd1e0de42b52689f3ad9b79c09fb177a61c2ea45",
+      "url": "https://build.fhir.org/ig/vadi2/vitalis-hackathon-2026-ig/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 3260406,
+      "date": "2026-11-16T02:41:18+00:00",
+      "fhir": "4.0.1",
+      "package": "tewhatuora.fhir.nz-shared-digital-health-record",
+      "report": "https://build.fhir.org/ig/tewhatuora/fhir-sdhr/branches/uat/qa.json",
+      "sha256": "b6d32c7a35e0ad44d527209686631d1f6c901f4192eff6f93878f07f4b5b0919",
+      "url": "https://build.fhir.org/ig/tewhatuora/fhir-sdhr/branches/uat/qa-tx.html"
+    },
+    {
+      "bytes": 3265576,
+      "date": "2026-11-17T03:07:10+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.cdc.lars",
+      "report": "https://build.fhir.org/ig/omnifhir/lars/branches/main/qa.json",
+      "sha256": "1af199fea6fbfe4de04cc97b6c82311b79fdf9d7661170c1f51173737d25fade",
+      "url": "https://build.fhir.org/ig/omnifhir/lars/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 4574625,
+      "date": "2026-11-17T07:27:58+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.cdc.nidrs",
+      "report": "https://build.fhir.org/ig/fhir-nidrs/nidrs/branches/main/qa.json",
+      "sha256": "d00e8ee5a75e78fda3d9f1e93fc31915a12c4343071e008138ba26bc107f85d6",
+      "url": "https://build.fhir.org/ig/fhir-nidrs/nidrs/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 1714501,
+      "date": "2026-11-12T07:28:15+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.cdc.twniis",
+      "report": "https://build.fhir.org/ig/hyweb-cdc/niis/branches/main/qa.json",
+      "sha256": "baa873843bf5a278c3599a3383f89f6b7ea76408954e29616789a7ca43492c3d",
+      "url": "https://build.fhir.org/ig/hyweb-cdc/niis/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 15840330,
+      "date": "2026-11-17T07:21:40+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.nhi.pas",
+      "report": "https://build.fhir.org/ig/TWNHIFHIR/pas/branches/1.3.1/qa.json",
+      "sha256": "06a83281b26dafc801dd06cf4880f49f802a0e5e87278335cc315b7a1fffb0db",
+      "url": "https://build.fhir.org/ig/TWNHIFHIR/pas/branches/1.3.1/qa-tx.html"
+    },
+    {
+      "bytes": 537280,
+      "date": "2026-11-13T05:53:17+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.sfaa.cra",
+      "report": "https://build.fhir.org/ig/sfaassn2025-source/CRA-IG/branches/main/qa.json",
+      "sha256": "8db250b96a43e295d519e1abb2d75d7d08379f00387de36acbf74144ac141845",
+      "url": "https://build.fhir.org/ig/sfaassn2025-source/CRA-IG/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 587091,
+      "date": "2026-11-13T05:53:32+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.sfaa.vfs",
+      "report": "https://build.fhir.org/ig/sfaassn2025-source/VFS-IG/branches/main/qa.json",
+      "sha256": "9da6cca8b329273a07b9abff36ab2175539c68db854b2fbf1f9a1cd66c1fca94",
+      "url": "https://build.fhir.org/ig/sfaassn2025-source/VFS-IG/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 3051637,
+      "date": "2026-11-12T05:57:32+00:00",
+      "fhir": "4.0.1",
+      "package": "tw.gov.mohw.twss.base",
+      "report": "https://build.fhir.org/ig/sfaassn2025-source/base/branches/main/qa.json",
+      "sha256": "e1b4298acc96f0db2644116889f5a3d8ee835f7d50fba603e9c0a73584cc1ad6",
+      "url": "https://build.fhir.org/ig/sfaassn2025-source/base/branches/main/qa-tx.html"
+    },
+    {
+      "bytes": 46410050,
+      "date": "2026-11-17T12:26:40+00:00",
+      "fhir": "5.0.0",
+      "package": "uz.dhp.core",
+      "report": "https://build.fhir.org/ig/uzinfocom-org/digital-health-ig/branches/supply-request-group-extension/qa.json",
+      "sha256": "1f446fd0d996f0d51d7deb28f00d545f79b31b15527ee8187d7726d649f17abf",
+      "url": "https://build.fhir.org/ig/uzinfocom-org/digital-health-ig/branches/supply-request-group-extension/qa-tx.html"
+    },
+    {
+      "bytes": 55278301,
+      "date": "2026-11-17T10:54:13+00:00",
+      "fhir": "5.0.0",
+      "package": "uz.dhp.integrations",
+      "report": "https://build.fhir.org/ig/uzinfocom-org/digital-health-integration/branches/questionnaire-preview-link/qa.json",
+      "sha256": "6e069a88de7d156c84a6d7260dfce3c7aa6fc4609637668dc92487e20309afad",
+      "url": "https://build.fhir.org/ig/uzinfocom-org/digital-health-integration/branches/questionnaire-preview-link/qa-tx.html"
+    }
+  ],
+  "week": [
+    "2026-11-11T00:00:00.000Z",
+    "2026-11-18T00:00:00.000Z"
+  ],
+  "windowEntries": 280
+}
